@@ -224,6 +224,23 @@ namespace Unit_Converter
             energyToUnitOutput.Items.Add(EnergyConversion.calorie);
             energyToUnitOutput.Items.Add(EnergyConversion.kilocalorie);
             energyToUnitOutput.Items.Add(EnergyConversion.btu);
+
+
+            // Add items to DataSizeFromUnit combo box
+            dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeByte);
+            dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeKilobyte);
+            dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeMegabyte);
+            dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeGigabyte);
+            dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeTerabyte);
+            dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizePetabyte);
+
+            // Add items to DataSizeToUnit combo box
+            dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizeByte);
+            dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizeKilobyte);
+            dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizeMegabyte);
+            dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizeGigabyte);
+            dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizeTerabyte);
+            dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizePetabyte);
         }
 
         private void lengthCalculateButton_Click(object sender, EventArgs e)
@@ -786,6 +803,59 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessages.invalidInput;
             }
 
+            // User wants to convert data size
+            else if (unitSelector.SelectedIndex == 7)
+            {
+                double dataSizeValue = 0;
+                double resultDataSizeValue = 0;
+
+                rawValue = dataSizeFromValueInput.Text;
+                canParse = double.TryParse(rawValue, result: out inputValue);
+
+                if ((canParse) && (inputValue >= 0))
+                {
+                    if ((string)dataSizeFromUnitInput.SelectedItem == DataSizeConversion.sizeByte)
+                        dataSizeValue = inputValue;
+                    else if ((string)dataSizeFromUnitInput.SelectedItem == DataSizeConversion.sizeKilobyte)
+                        dataSizeValue = inputValue * DataSizeConversion.kilobyteToByteValue;
+                    else if ((string)dataSizeFromUnitInput.SelectedItem == DataSizeConversion.sizeMegabyte)
+                        dataSizeValue = inputValue * DataSizeConversion.megabyteToByteValue;
+                    else if ((string)dataSizeFromUnitInput.SelectedItem == DataSizeConversion.sizeGigabyte)
+                        dataSizeValue = inputValue * DataSizeConversion.gigabyteToByteValue;
+                    else if ((string)dataSizeFromUnitInput.SelectedItem == DataSizeConversion.sizeTerabyte)
+                        dataSizeValue = inputValue * DataSizeConversion.terabyteToByteValue;
+                    else if ((string)dataSizeFromUnitInput.SelectedItem == DataSizeConversion.sizePetabyte)
+                        dataSizeValue = inputValue * DataSizeConversion.petabyteToByteValue;
+                    else
+                        unitError = true;
+
+                    if ((unitError == false) && ((string)dataSizeToUnitOutput.SelectedItem == DataSizeConversion.sizeByte))
+                        resultDataSizeValue = dataSizeValue;
+                    else if ((string)dataSizeToUnitOutput.SelectedItem == DataSizeConversion.sizeKilobyte)
+                        resultDataSizeValue = dataSizeValue * DataSizeConversion.byteToKilobyteValue;
+                    else if ((string)dataSizeToUnitOutput.SelectedItem == DataSizeConversion.sizeMegabyte)
+                        resultDataSizeValue = dataSizeValue * DataSizeConversion.byteToMegabyteValue;
+                    else if ((string)dataSizeToUnitOutput.SelectedItem == DataSizeConversion.sizeGigabyte)
+                        resultDataSizeValue = dataSizeValue * DataSizeConversion.byteToGigabyteValue;
+                    else if ((string)dataSizeToUnitOutput.SelectedItem == DataSizeConversion.sizeTerabyte)
+                        resultDataSizeValue = dataSizeValue * DataSizeConversion.byteToTerabyteValue;
+                    else if ((string)dataSizeToUnitOutput.SelectedItem == DataSizeConversion.sizePetabyte)
+                        resultDataSizeValue = dataSizeValue * DataSizeConversion.byteToPetabyteValue;
+                    else
+                        unitError = true;
+
+                    if (unitError == false)
+                    {
+                        dataSizeToValueOutput.Text = resultDataSizeValue.ToString();
+                        statusIndicator.Text = StatusMessages.done;
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
+                }
+                else
+                    statusIndicator.Text = StatusMessages.invalidInput;
+            }
+
             // Somehow, the currently selected tab does not exist!
             else
                 statusIndicator.Text = StatusMessages.unitTypeError;
@@ -1078,8 +1148,28 @@ namespace Unit_Converter
         public const double jouleToBtuValue = 1d / btuToJouleValue;
     }
 
-    public static class PowerConversion
+    public static class DataSizeConversion
     {
         // Strings
+        public const string sizeByte = "Byte [B]";
+        public const string sizeKilobyte = "Kilobyte [kB]";
+        public const string sizeMegabyte = "Megabyte [MB]";
+        public const string sizeGigabyte = "Gigabyte [GB]";
+        public const string sizeTerabyte = "Terabyte [TB]";
+        public const string sizePetabyte = "Petabyte [PB]";
+
+        // To S.I. Unit
+        public const double kilobyteToByteValue = 1024d;
+        public const double megabyteToByteValue = 1048576d;
+        public const double gigabyteToByteValue = 1073741824d;
+        public const double terabyteToByteValue = 1099511627776d;
+        public const double petabyteToByteValue = 1125899906842624d;
+
+        // From S.I. Unit
+        public const double byteToKilobyteValue = 1d / kilobyteToByteValue;
+        public const double byteToMegabyteValue = 1d / megabyteToByteValue;
+        public const double byteToGigabyteValue = 1d / gigabyteToByteValue;
+        public const double byteToTerabyteValue = 1d / terabyteToByteValue;
+        public const double byteToPetabyteValue = 1d / petabyteToByteValue;
     }
 }

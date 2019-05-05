@@ -749,7 +749,6 @@
             this.dataSizeFromUnitInput.Location = new System.Drawing.Point(16, 11);
             this.dataSizeFromUnitInput.Name = "dataSizeFromUnitInput";
             this.dataSizeFromUnitInput.Size = new System.Drawing.Size(160, 24);
-            this.dataSizeFromUnitInput.Sorted = true;
             this.dataSizeFromUnitInput.TabIndex = 0;
             // 
             // dataSizeToUnitOutput
@@ -760,7 +759,6 @@
             this.dataSizeToUnitOutput.Location = new System.Drawing.Point(16, 57);
             this.dataSizeToUnitOutput.Name = "dataSizeToUnitOutput";
             this.dataSizeToUnitOutput.Size = new System.Drawing.Size(160, 24);
-            this.dataSizeToUnitOutput.Sorted = true;
             this.dataSizeToUnitOutput.TabIndex = 1;
             // 
             // dataSizeFromValueInput
