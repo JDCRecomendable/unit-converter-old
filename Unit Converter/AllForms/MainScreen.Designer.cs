@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,12 +76,6 @@
             this.energyFromUnitInput = new System.Windows.Forms.ComboBox();
             this.energyToUnitOutput = new System.Windows.Forms.ComboBox();
             this.energyFromValueInput = new System.Windows.Forms.TextBox();
-            this.powerConverter = new System.Windows.Forms.TabPage();
-            this.powerConverterTable = new System.Windows.Forms.TableLayoutPanel();
-            this.powerToValueOutput = new System.Windows.Forms.TextBox();
-            this.powerFromUnitInput = new System.Windows.Forms.ComboBox();
-            this.powerToUnitOutput = new System.Windows.Forms.ComboBox();
-            this.powerFromValueInput = new System.Windows.Forms.TextBox();
             this.dataSizeConverter = new System.Windows.Forms.TabPage();
             this.dataSizeConverterTable = new System.Windows.Forms.TableLayoutPanel();
             this.dataSizeToValueOutput = new System.Windows.Forms.TextBox();
@@ -92,7 +86,7 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusIndicator = new System.Windows.Forms.ToolStripStatusLabel();
             this.mainArea = new System.Windows.Forms.TableLayoutPanel();
-            this.menuStrip1.SuspendLayout();
+            this.menuBar.SuspendLayout();
             this.unitSelector.SuspendLayout();
             this.lengthConverter.SuspendLayout();
             this.lengthConverterTable.SuspendLayout();
@@ -108,25 +102,23 @@
             this.massConverterTable.SuspendLayout();
             this.energyConverter.SuspendLayout();
             this.energyConverterTable.SuspendLayout();
-            this.powerConverter.SuspendLayout();
-            this.powerConverterTable.SuspendLayout();
             this.dataSizeConverter.SuspendLayout();
             this.dataSizeConverterTable.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.mainArea.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuBar
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuBar.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(462, 28);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuBar.Location = new System.Drawing.Point(0, 0);
+            this.menuBar.Name = "menuBar";
+            this.menuBar.Size = new System.Drawing.Size(462, 28);
+            this.menuBar.TabIndex = 0;
+            this.menuBar.Text = "Unit Converter Menu";
             // 
             // fileToolStripMenuItem
             // 
@@ -167,7 +159,6 @@
             this.unitSelector.Controls.Add(this.speedConverter);
             this.unitSelector.Controls.Add(this.massConverter);
             this.unitSelector.Controls.Add(this.energyConverter);
-            this.unitSelector.Controls.Add(this.powerConverter);
             this.unitSelector.Controls.Add(this.dataSizeConverter);
             this.unitSelector.Dock = System.Windows.Forms.DockStyle.Fill;
             this.unitSelector.Location = new System.Drawing.Point(3, 3);
@@ -224,7 +215,7 @@
             this.lengthFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lengthFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lengthFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.lengthFromUnitInput.Location = new System.Drawing.Point(16, 10);
+            this.lengthFromUnitInput.Location = new System.Drawing.Point(16, 11);
             this.lengthFromUnitInput.Name = "lengthFromUnitInput";
             this.lengthFromUnitInput.Size = new System.Drawing.Size(160, 24);
             this.lengthFromUnitInput.Sorted = true;
@@ -300,7 +291,7 @@
             this.areaFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.areaFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.areaFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.areaFromUnitInput.Location = new System.Drawing.Point(16, 10);
+            this.areaFromUnitInput.Location = new System.Drawing.Point(16, 11);
             this.areaFromUnitInput.Name = "areaFromUnitInput";
             this.areaFromUnitInput.Size = new System.Drawing.Size(160, 24);
             this.areaFromUnitInput.Sorted = true;
@@ -376,7 +367,7 @@
             this.volumeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.volumeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.volumeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.volumeFromUnitInput.Location = new System.Drawing.Point(16, 11);
+            this.volumeFromUnitInput.Location = new System.Drawing.Point(16, 10);
             this.volumeFromUnitInput.Name = "volumeFromUnitInput";
             this.volumeFromUnitInput.Size = new System.Drawing.Size(160, 24);
             this.volumeFromUnitInput.Sorted = true;
@@ -451,7 +442,7 @@
             this.timeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.timeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.timeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeFromUnitInput.Location = new System.Drawing.Point(16, 10);
+            this.timeFromUnitInput.Location = new System.Drawing.Point(16, 11);
             this.timeFromUnitInput.Name = "timeFromUnitInput";
             this.timeFromUnitInput.Size = new System.Drawing.Size(160, 24);
             this.timeFromUnitInput.Sorted = true;
@@ -527,7 +518,7 @@
             this.speedFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.speedFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.speedFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.speedFromUnitInput.Location = new System.Drawing.Point(16, 10);
+            this.speedFromUnitInput.Location = new System.Drawing.Point(16, 11);
             this.speedFromUnitInput.Name = "speedFromUnitInput";
             this.speedFromUnitInput.Size = new System.Drawing.Size(160, 24);
             this.speedFromUnitInput.Sorted = true;
@@ -603,7 +594,7 @@
             this.massFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.massFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.massFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.massFromUnitInput.Location = new System.Drawing.Point(16, 10);
+            this.massFromUnitInput.Location = new System.Drawing.Point(16, 11);
             this.massFromUnitInput.Name = "massFromUnitInput";
             this.massFromUnitInput.Size = new System.Drawing.Size(160, 24);
             this.massFromUnitInput.Sorted = true;
@@ -679,7 +670,7 @@
             this.energyFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.energyFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.energyFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.energyFromUnitInput.Location = new System.Drawing.Point(16, 10);
+            this.energyFromUnitInput.Location = new System.Drawing.Point(16, 11);
             this.energyFromUnitInput.Name = "energyFromUnitInput";
             this.energyFromUnitInput.Size = new System.Drawing.Size(160, 24);
             this.energyFromUnitInput.Sorted = true;
@@ -707,81 +698,6 @@
             this.energyFromValueInput.Size = new System.Drawing.Size(250, 24);
             this.energyFromValueInput.TabIndex = 2;
             this.energyFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.energyFromValueInput_KeyDown);
-            // 
-            // powerConverter
-            // 
-            this.powerConverter.BackColor = System.Drawing.SystemColors.Control;
-            this.powerConverter.Controls.Add(this.powerConverterTable);
-            this.powerConverter.Location = new System.Drawing.Point(4, 25);
-            this.powerConverter.Name = "powerConverter";
-            this.powerConverter.Size = new System.Drawing.Size(448, 93);
-            this.powerConverter.TabIndex = 8;
-            this.powerConverter.Text = "Power";
-            // 
-            // powerConverterTable
-            // 
-            this.powerConverterTable.ColumnCount = 2;
-            this.powerConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.powerConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.powerConverterTable.Controls.Add(this.powerToValueOutput, 1, 1);
-            this.powerConverterTable.Controls.Add(this.powerFromUnitInput, 0, 0);
-            this.powerConverterTable.Controls.Add(this.powerToUnitOutput, 0, 1);
-            this.powerConverterTable.Controls.Add(this.powerFromValueInput, 1, 0);
-            this.powerConverterTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.powerConverterTable.Location = new System.Drawing.Point(0, 0);
-            this.powerConverterTable.Name = "powerConverterTable";
-            this.powerConverterTable.RowCount = 2;
-            this.powerConverterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.powerConverterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.powerConverterTable.Size = new System.Drawing.Size(448, 93);
-            this.powerConverterTable.TabIndex = 1;
-            // 
-            // powerToValueOutput
-            // 
-            this.powerToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.powerToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.powerToValueOutput.Location = new System.Drawing.Point(182, 57);
-            this.powerToValueOutput.MaxLength = 256;
-            this.powerToValueOutput.Name = "powerToValueOutput";
-            this.powerToValueOutput.ReadOnly = true;
-            this.powerToValueOutput.ShortcutsEnabled = false;
-            this.powerToValueOutput.Size = new System.Drawing.Size(250, 24);
-            this.powerToValueOutput.TabIndex = 0;
-            this.powerToValueOutput.TabStop = false;
-            // 
-            // powerFromUnitInput
-            // 
-            this.powerFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.powerFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.powerFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.powerFromUnitInput.Location = new System.Drawing.Point(16, 10);
-            this.powerFromUnitInput.Name = "powerFromUnitInput";
-            this.powerFromUnitInput.Size = new System.Drawing.Size(160, 24);
-            this.powerFromUnitInput.Sorted = true;
-            this.powerFromUnitInput.TabIndex = 0;
-            // 
-            // powerToUnitOutput
-            // 
-            this.powerToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.powerToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.powerToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.powerToUnitOutput.Location = new System.Drawing.Point(16, 57);
-            this.powerToUnitOutput.Name = "powerToUnitOutput";
-            this.powerToUnitOutput.Size = new System.Drawing.Size(160, 24);
-            this.powerToUnitOutput.Sorted = true;
-            this.powerToUnitOutput.TabIndex = 1;
-            // 
-            // powerFromValueInput
-            // 
-            this.powerFromValueInput.AllowDrop = true;
-            this.powerFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.powerFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.powerFromValueInput.Location = new System.Drawing.Point(182, 11);
-            this.powerFromValueInput.MaxLength = 256;
-            this.powerFromValueInput.Name = "powerFromValueInput";
-            this.powerFromValueInput.Size = new System.Drawing.Size(250, 24);
-            this.powerFromValueInput.TabIndex = 2;
-            this.powerFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.powerFromValueInput_KeyDown);
             // 
             // dataSizeConverter
             // 
@@ -830,7 +746,7 @@
             this.dataSizeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dataSizeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataSizeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dataSizeFromUnitInput.Location = new System.Drawing.Point(16, 10);
+            this.dataSizeFromUnitInput.Location = new System.Drawing.Point(16, 11);
             this.dataSizeFromUnitInput.Name = "dataSizeFromUnitInput";
             this.dataSizeFromUnitInput.Size = new System.Drawing.Size(160, 24);
             this.dataSizeFromUnitInput.Sorted = true;
@@ -915,16 +831,16 @@
             this.ClientSize = new System.Drawing.Size(462, 233);
             this.Controls.Add(this.mainArea);
             this.Controls.Add(this.statusBar);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuBar);
+            this.MainMenuStrip = this.menuBar;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(620, 400);
             this.MinimumSize = new System.Drawing.Size(480, 280);
             this.Name = "MainScreen";
             this.Text = "Unit Converter";
             this.Load += new System.EventHandler(this.MainScreen_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuBar.ResumeLayout(false);
+            this.menuBar.PerformLayout();
             this.unitSelector.ResumeLayout(false);
             this.lengthConverter.ResumeLayout(false);
             this.lengthConverterTable.ResumeLayout(false);
@@ -947,9 +863,6 @@
             this.energyConverter.ResumeLayout(false);
             this.energyConverterTable.ResumeLayout(false);
             this.energyConverterTable.PerformLayout();
-            this.powerConverter.ResumeLayout(false);
-            this.powerConverterTable.ResumeLayout(false);
-            this.powerConverterTable.PerformLayout();
             this.dataSizeConverter.ResumeLayout(false);
             this.dataSizeConverterTable.ResumeLayout(false);
             this.dataSizeConverterTable.PerformLayout();
@@ -963,7 +876,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuBar;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
@@ -1006,17 +919,11 @@
         private System.Windows.Forms.ComboBox dataSizeToUnitOutput;
         private System.Windows.Forms.TextBox dataSizeFromValueInput;
         private System.Windows.Forms.TabPage timeConverter;
-        private System.Windows.Forms.TabPage powerConverter;
         private System.Windows.Forms.TableLayoutPanel timeConverterTable;
         private System.Windows.Forms.TextBox timeToValueOutput;
         private System.Windows.Forms.ComboBox timeFromUnitInput;
         private System.Windows.Forms.ComboBox timeToUnitOutput;
         private System.Windows.Forms.TextBox timeFromValueInput;
-        private System.Windows.Forms.TableLayoutPanel powerConverterTable;
-        private System.Windows.Forms.TextBox powerToValueOutput;
-        private System.Windows.Forms.ComboBox powerFromUnitInput;
-        private System.Windows.Forms.ComboBox powerToUnitOutput;
-        private System.Windows.Forms.TextBox powerFromValueInput;
         private System.Windows.Forms.TableLayoutPanel volumeConverterTable;
         private System.Windows.Forms.TextBox volumeToValueOutput;
         private System.Windows.Forms.ComboBox volumeFromUnitInput;
