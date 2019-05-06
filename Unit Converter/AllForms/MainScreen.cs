@@ -226,6 +226,17 @@ namespace Unit_Converter
             energyToUnitOutput.Items.Add(EnergyConversion.btu);
 
 
+            // Add items to TemperatureFromUnit combo box
+            temperatureFromUnitInput.Items.Add(TemperatureConversion.kelvin);
+            temperatureFromUnitInput.Items.Add(TemperatureConversion.celsius);
+            temperatureFromUnitInput.Items.Add(TemperatureConversion.fahrenheit);
+
+            // Add items to TemperatureToUnit combo box
+            temperatureToUnitOutput.Items.Add(TemperatureConversion.kelvin);
+            temperatureToUnitOutput.Items.Add(TemperatureConversion.celsius);
+            temperatureToUnitOutput.Items.Add(TemperatureConversion.fahrenheit);
+
+
             // Add items to DataSizeFromUnit combo box
             dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeByte);
             dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeKilobyte);
@@ -803,8 +814,61 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessages.invalidInput;
             }
 
-            // User wants to convert data size
+            // User wants to convert temperature
             else if (unitSelector.SelectedIndex == 7)
+            {
+                double resultTemperatureValue = 0;
+
+                rawValue = temperatureFromValueInput.Text;
+                canParse = double.TryParse(rawValue, result: out inputValue);
+
+                if (canParse)
+                {
+                    if (((string)temperatureFromUnitInput.SelectedItem == TemperatureConversion.kelvin)
+                        && (string)temperatureToUnitOutput.SelectedItem == TemperatureConversion.celsius)
+                    {
+                        resultTemperatureValue = inputValue - 273.15d;
+                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
+                    }
+                    else if (((string)temperatureFromUnitInput.SelectedItem == TemperatureConversion.kelvin)
+                        && (string)temperatureToUnitOutput.SelectedItem == TemperatureConversion.fahrenheit)
+                    {
+                        resultTemperatureValue = inputValue * 1.8d - 459.67d;
+                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
+                    }
+                    else if (((string)temperatureFromUnitInput.SelectedItem == TemperatureConversion.celsius)
+                        && (string)temperatureToUnitOutput.SelectedItem == TemperatureConversion.kelvin)
+                    {
+                        resultTemperatureValue = inputValue + 273.15d;
+                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
+                    }
+                    else if (((string)temperatureFromUnitInput.SelectedItem == TemperatureConversion.celsius)
+                        && (string)temperatureToUnitOutput.SelectedItem == TemperatureConversion.fahrenheit)
+                    {
+                        resultTemperatureValue = inputValue * 1.8d + 32d;
+                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
+                    }
+                    else if (((string)temperatureFromUnitInput.SelectedItem == TemperatureConversion.fahrenheit)
+                        && (string)temperatureToUnitOutput.SelectedItem == TemperatureConversion.kelvin)
+                    {
+                        resultTemperatureValue = (inputValue + 459.67d) / 1.8d;
+                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
+                    }
+                    else if (((string)temperatureFromUnitInput.SelectedItem == TemperatureConversion.fahrenheit)
+                        && (string)temperatureToUnitOutput.SelectedItem == TemperatureConversion.celsius)
+                    {
+                        resultTemperatureValue = (inputValue - 32d) / 1.8d;
+                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
+                }
+                else
+                    statusIndicator.Text = StatusMessages.invalidInput;
+            }
+
+            // User wants to convert data size
+            else if (unitSelector.SelectedIndex == 8)
             {
                 double dataSizeValue = 0;
                 double resultDataSizeValue = 0;
@@ -1146,6 +1210,14 @@ namespace Unit_Converter
         public const double jouleTocalorieValue = 1d / calorieToJouleValue;
         public const double jouleToKilocalorieValue = 1d / kilocalorieToJouleValue;
         public const double jouleToBtuValue = 1d / btuToJouleValue;
+    }
+
+    public static class TemperatureConversion
+    {
+        // Strings
+        public const string kelvin = "Kelvin [K] (S.I. Unit)";
+        public const string celsius = "Degrees Celsius [°C]";
+        public const string fahrenheit = "Degrees Fahrenheit [°F]";
     }
 
     public static class DataSizeConversion

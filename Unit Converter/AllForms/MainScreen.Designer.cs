@@ -86,6 +86,12 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusIndicator = new System.Windows.Forms.ToolStripStatusLabel();
             this.mainArea = new System.Windows.Forms.TableLayoutPanel();
+            this.temperatureConverter = new System.Windows.Forms.TabPage();
+            this.temperatureConverterTable = new System.Windows.Forms.TableLayoutPanel();
+            this.temperatureToValueOutput = new System.Windows.Forms.TextBox();
+            this.temperatureFromUnitInput = new System.Windows.Forms.ComboBox();
+            this.temperatureToUnitOutput = new System.Windows.Forms.ComboBox();
+            this.temperatureFromValueInput = new System.Windows.Forms.TextBox();
             this.menuBar.SuspendLayout();
             this.unitSelector.SuspendLayout();
             this.lengthConverter.SuspendLayout();
@@ -106,6 +112,8 @@
             this.dataSizeConverterTable.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.mainArea.SuspendLayout();
+            this.temperatureConverter.SuspendLayout();
+            this.temperatureConverterTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuBar
@@ -159,6 +167,7 @@
             this.unitSelector.Controls.Add(this.speedConverter);
             this.unitSelector.Controls.Add(this.massConverter);
             this.unitSelector.Controls.Add(this.energyConverter);
+            this.unitSelector.Controls.Add(this.temperatureConverter);
             this.unitSelector.Controls.Add(this.dataSizeConverter);
             this.unitSelector.Dock = System.Windows.Forms.DockStyle.Fill;
             this.unitSelector.Location = new System.Drawing.Point(3, 3);
@@ -182,8 +191,8 @@
             // lengthConverterTable
             // 
             this.lengthConverterTable.ColumnCount = 2;
-            this.lengthConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.lengthConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.lengthConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.lengthConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.lengthConverterTable.Controls.Add(this.lengthToValueOutput, 1, 1);
             this.lengthConverterTable.Controls.Add(this.lengthFromUnitInput, 0, 0);
             this.lengthConverterTable.Controls.Add(this.lengthToUnitOutput, 0, 1);
@@ -201,12 +210,12 @@
             // 
             this.lengthToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lengthToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lengthToValueOutput.Location = new System.Drawing.Point(182, 57);
+            this.lengthToValueOutput.Location = new System.Drawing.Point(227, 57);
             this.lengthToValueOutput.MaxLength = 256;
             this.lengthToValueOutput.Name = "lengthToValueOutput";
             this.lengthToValueOutput.ReadOnly = true;
             this.lengthToValueOutput.ShortcutsEnabled = false;
-            this.lengthToValueOutput.Size = new System.Drawing.Size(250, 24);
+            this.lengthToValueOutput.Size = new System.Drawing.Size(200, 24);
             this.lengthToValueOutput.TabIndex = 0;
             this.lengthToValueOutput.TabStop = false;
             // 
@@ -215,9 +224,9 @@
             this.lengthFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lengthFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lengthFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.lengthFromUnitInput.Location = new System.Drawing.Point(16, 11);
+            this.lengthFromUnitInput.Location = new System.Drawing.Point(21, 11);
             this.lengthFromUnitInput.Name = "lengthFromUnitInput";
-            this.lengthFromUnitInput.Size = new System.Drawing.Size(160, 24);
+            this.lengthFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.lengthFromUnitInput.Sorted = true;
             this.lengthFromUnitInput.TabIndex = 0;
             // 
@@ -226,9 +235,9 @@
             this.lengthToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lengthToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lengthToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.lengthToUnitOutput.Location = new System.Drawing.Point(16, 57);
+            this.lengthToUnitOutput.Location = new System.Drawing.Point(21, 57);
             this.lengthToUnitOutput.Name = "lengthToUnitOutput";
-            this.lengthToUnitOutput.Size = new System.Drawing.Size(160, 24);
+            this.lengthToUnitOutput.Size = new System.Drawing.Size(200, 24);
             this.lengthToUnitOutput.Sorted = true;
             this.lengthToUnitOutput.TabIndex = 1;
             // 
@@ -237,10 +246,10 @@
             this.lengthFromValueInput.AllowDrop = true;
             this.lengthFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lengthFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lengthFromValueInput.Location = new System.Drawing.Point(182, 11);
+            this.lengthFromValueInput.Location = new System.Drawing.Point(227, 11);
             this.lengthFromValueInput.MaxLength = 256;
             this.lengthFromValueInput.Name = "lengthFromValueInput";
-            this.lengthFromValueInput.Size = new System.Drawing.Size(250, 24);
+            this.lengthFromValueInput.Size = new System.Drawing.Size(200, 24);
             this.lengthFromValueInput.TabIndex = 2;
             this.lengthFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lengthFromValueInput_KeyDown);
             // 
@@ -258,8 +267,8 @@
             // areaConverterTable
             // 
             this.areaConverterTable.ColumnCount = 2;
-            this.areaConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.areaConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.areaConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.areaConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.areaConverterTable.Controls.Add(this.areaToValueOutput, 1, 1);
             this.areaConverterTable.Controls.Add(this.areaFromUnitInput, 0, 0);
             this.areaConverterTable.Controls.Add(this.areaToUnitOutput, 0, 1);
@@ -277,12 +286,12 @@
             // 
             this.areaToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.areaToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.areaToValueOutput.Location = new System.Drawing.Point(182, 57);
+            this.areaToValueOutput.Location = new System.Drawing.Point(227, 57);
             this.areaToValueOutput.MaxLength = 256;
             this.areaToValueOutput.Name = "areaToValueOutput";
             this.areaToValueOutput.ReadOnly = true;
             this.areaToValueOutput.ShortcutsEnabled = false;
-            this.areaToValueOutput.Size = new System.Drawing.Size(250, 24);
+            this.areaToValueOutput.Size = new System.Drawing.Size(200, 24);
             this.areaToValueOutput.TabIndex = 0;
             this.areaToValueOutput.TabStop = false;
             // 
@@ -291,9 +300,9 @@
             this.areaFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.areaFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.areaFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.areaFromUnitInput.Location = new System.Drawing.Point(16, 11);
+            this.areaFromUnitInput.Location = new System.Drawing.Point(21, 11);
             this.areaFromUnitInput.Name = "areaFromUnitInput";
-            this.areaFromUnitInput.Size = new System.Drawing.Size(160, 24);
+            this.areaFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.areaFromUnitInput.Sorted = true;
             this.areaFromUnitInput.TabIndex = 0;
             // 
@@ -302,9 +311,9 @@
             this.areaToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.areaToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.areaToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.areaToUnitOutput.Location = new System.Drawing.Point(16, 57);
+            this.areaToUnitOutput.Location = new System.Drawing.Point(21, 57);
             this.areaToUnitOutput.Name = "areaToUnitOutput";
-            this.areaToUnitOutput.Size = new System.Drawing.Size(160, 24);
+            this.areaToUnitOutput.Size = new System.Drawing.Size(200, 24);
             this.areaToUnitOutput.Sorted = true;
             this.areaToUnitOutput.TabIndex = 1;
             // 
@@ -313,10 +322,10 @@
             this.areaFromValueInput.AllowDrop = true;
             this.areaFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.areaFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.areaFromValueInput.Location = new System.Drawing.Point(182, 11);
+            this.areaFromValueInput.Location = new System.Drawing.Point(227, 11);
             this.areaFromValueInput.MaxLength = 256;
             this.areaFromValueInput.Name = "areaFromValueInput";
-            this.areaFromValueInput.Size = new System.Drawing.Size(250, 24);
+            this.areaFromValueInput.Size = new System.Drawing.Size(200, 24);
             this.areaFromValueInput.TabIndex = 2;
             this.areaFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.areaFromValueInput_KeyDown);
             // 
@@ -334,8 +343,8 @@
             // volumeConverterTable
             // 
             this.volumeConverterTable.ColumnCount = 2;
-            this.volumeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.volumeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.volumeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.volumeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.volumeConverterTable.Controls.Add(this.volumeToValueOutput, 1, 1);
             this.volumeConverterTable.Controls.Add(this.volumeFromUnitInput, 0, 0);
             this.volumeConverterTable.Controls.Add(this.volumeToUnitOutput, 0, 1);
@@ -353,12 +362,12 @@
             // 
             this.volumeToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.volumeToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.volumeToValueOutput.Location = new System.Drawing.Point(182, 57);
+            this.volumeToValueOutput.Location = new System.Drawing.Point(227, 57);
             this.volumeToValueOutput.MaxLength = 256;
             this.volumeToValueOutput.Name = "volumeToValueOutput";
             this.volumeToValueOutput.ReadOnly = true;
             this.volumeToValueOutput.ShortcutsEnabled = false;
-            this.volumeToValueOutput.Size = new System.Drawing.Size(250, 24);
+            this.volumeToValueOutput.Size = new System.Drawing.Size(200, 24);
             this.volumeToValueOutput.TabIndex = 0;
             this.volumeToValueOutput.TabStop = false;
             // 
@@ -367,9 +376,9 @@
             this.volumeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.volumeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.volumeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.volumeFromUnitInput.Location = new System.Drawing.Point(16, 10);
+            this.volumeFromUnitInput.Location = new System.Drawing.Point(21, 11);
             this.volumeFromUnitInput.Name = "volumeFromUnitInput";
-            this.volumeFromUnitInput.Size = new System.Drawing.Size(160, 24);
+            this.volumeFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.volumeFromUnitInput.Sorted = true;
             this.volumeFromUnitInput.TabIndex = 0;
             // 
@@ -378,9 +387,9 @@
             this.volumeToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.volumeToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.volumeToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.volumeToUnitOutput.Location = new System.Drawing.Point(16, 57);
+            this.volumeToUnitOutput.Location = new System.Drawing.Point(21, 57);
             this.volumeToUnitOutput.Name = "volumeToUnitOutput";
-            this.volumeToUnitOutput.Size = new System.Drawing.Size(160, 24);
+            this.volumeToUnitOutput.Size = new System.Drawing.Size(200, 24);
             this.volumeToUnitOutput.Sorted = true;
             this.volumeToUnitOutput.TabIndex = 1;
             // 
@@ -389,10 +398,10 @@
             this.volumeFromValueInput.AllowDrop = true;
             this.volumeFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.volumeFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.volumeFromValueInput.Location = new System.Drawing.Point(182, 11);
+            this.volumeFromValueInput.Location = new System.Drawing.Point(227, 11);
             this.volumeFromValueInput.MaxLength = 256;
             this.volumeFromValueInput.Name = "volumeFromValueInput";
-            this.volumeFromValueInput.Size = new System.Drawing.Size(250, 24);
+            this.volumeFromValueInput.Size = new System.Drawing.Size(200, 24);
             this.volumeFromValueInput.TabIndex = 2;
             this.volumeFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.volumeFromValueInput_KeyDown);
             // 
@@ -409,8 +418,8 @@
             // timeConverterTable
             // 
             this.timeConverterTable.ColumnCount = 2;
-            this.timeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.timeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.timeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.timeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.timeConverterTable.Controls.Add(this.timeToValueOutput, 1, 1);
             this.timeConverterTable.Controls.Add(this.timeFromUnitInput, 0, 0);
             this.timeConverterTable.Controls.Add(this.timeToUnitOutput, 0, 1);
@@ -428,12 +437,12 @@
             // 
             this.timeToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.timeToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeToValueOutput.Location = new System.Drawing.Point(182, 57);
+            this.timeToValueOutput.Location = new System.Drawing.Point(227, 57);
             this.timeToValueOutput.MaxLength = 256;
             this.timeToValueOutput.Name = "timeToValueOutput";
             this.timeToValueOutput.ReadOnly = true;
             this.timeToValueOutput.ShortcutsEnabled = false;
-            this.timeToValueOutput.Size = new System.Drawing.Size(250, 24);
+            this.timeToValueOutput.Size = new System.Drawing.Size(200, 24);
             this.timeToValueOutput.TabIndex = 0;
             this.timeToValueOutput.TabStop = false;
             // 
@@ -442,9 +451,9 @@
             this.timeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.timeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.timeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeFromUnitInput.Location = new System.Drawing.Point(16, 11);
+            this.timeFromUnitInput.Location = new System.Drawing.Point(21, 11);
             this.timeFromUnitInput.Name = "timeFromUnitInput";
-            this.timeFromUnitInput.Size = new System.Drawing.Size(160, 24);
+            this.timeFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.timeFromUnitInput.Sorted = true;
             this.timeFromUnitInput.TabIndex = 0;
             // 
@@ -453,9 +462,9 @@
             this.timeToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.timeToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.timeToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeToUnitOutput.Location = new System.Drawing.Point(16, 57);
+            this.timeToUnitOutput.Location = new System.Drawing.Point(21, 57);
             this.timeToUnitOutput.Name = "timeToUnitOutput";
-            this.timeToUnitOutput.Size = new System.Drawing.Size(160, 24);
+            this.timeToUnitOutput.Size = new System.Drawing.Size(200, 24);
             this.timeToUnitOutput.Sorted = true;
             this.timeToUnitOutput.TabIndex = 1;
             // 
@@ -464,10 +473,10 @@
             this.timeFromValueInput.AllowDrop = true;
             this.timeFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.timeFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeFromValueInput.Location = new System.Drawing.Point(182, 11);
+            this.timeFromValueInput.Location = new System.Drawing.Point(227, 11);
             this.timeFromValueInput.MaxLength = 256;
             this.timeFromValueInput.Name = "timeFromValueInput";
-            this.timeFromValueInput.Size = new System.Drawing.Size(250, 24);
+            this.timeFromValueInput.Size = new System.Drawing.Size(200, 24);
             this.timeFromValueInput.TabIndex = 2;
             this.timeFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.timeFromValueInput_KeyDown);
             // 
@@ -485,8 +494,8 @@
             // speedConverterTable
             // 
             this.speedConverterTable.ColumnCount = 2;
-            this.speedConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.speedConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.speedConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.speedConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.speedConverterTable.Controls.Add(this.speedToValueOutput, 1, 1);
             this.speedConverterTable.Controls.Add(this.speedFromUnitInput, 0, 0);
             this.speedConverterTable.Controls.Add(this.speedToUnitOutput, 0, 1);
@@ -504,12 +513,12 @@
             // 
             this.speedToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.speedToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.speedToValueOutput.Location = new System.Drawing.Point(182, 57);
+            this.speedToValueOutput.Location = new System.Drawing.Point(227, 57);
             this.speedToValueOutput.MaxLength = 256;
             this.speedToValueOutput.Name = "speedToValueOutput";
             this.speedToValueOutput.ReadOnly = true;
             this.speedToValueOutput.ShortcutsEnabled = false;
-            this.speedToValueOutput.Size = new System.Drawing.Size(250, 24);
+            this.speedToValueOutput.Size = new System.Drawing.Size(200, 24);
             this.speedToValueOutput.TabIndex = 0;
             this.speedToValueOutput.TabStop = false;
             // 
@@ -518,9 +527,9 @@
             this.speedFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.speedFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.speedFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.speedFromUnitInput.Location = new System.Drawing.Point(16, 11);
+            this.speedFromUnitInput.Location = new System.Drawing.Point(21, 11);
             this.speedFromUnitInput.Name = "speedFromUnitInput";
-            this.speedFromUnitInput.Size = new System.Drawing.Size(160, 24);
+            this.speedFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.speedFromUnitInput.Sorted = true;
             this.speedFromUnitInput.TabIndex = 0;
             // 
@@ -529,9 +538,9 @@
             this.speedToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.speedToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.speedToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.speedToUnitOutput.Location = new System.Drawing.Point(16, 57);
+            this.speedToUnitOutput.Location = new System.Drawing.Point(21, 57);
             this.speedToUnitOutput.Name = "speedToUnitOutput";
-            this.speedToUnitOutput.Size = new System.Drawing.Size(160, 24);
+            this.speedToUnitOutput.Size = new System.Drawing.Size(200, 24);
             this.speedToUnitOutput.Sorted = true;
             this.speedToUnitOutput.TabIndex = 1;
             // 
@@ -540,10 +549,10 @@
             this.speedFromValueInput.AllowDrop = true;
             this.speedFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.speedFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.speedFromValueInput.Location = new System.Drawing.Point(182, 11);
+            this.speedFromValueInput.Location = new System.Drawing.Point(227, 11);
             this.speedFromValueInput.MaxLength = 256;
             this.speedFromValueInput.Name = "speedFromValueInput";
-            this.speedFromValueInput.Size = new System.Drawing.Size(250, 24);
+            this.speedFromValueInput.Size = new System.Drawing.Size(200, 24);
             this.speedFromValueInput.TabIndex = 2;
             this.speedFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.speedFromValueInput_KeyDown);
             // 
@@ -561,8 +570,8 @@
             // massConverterTable
             // 
             this.massConverterTable.ColumnCount = 2;
-            this.massConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.massConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.massConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.massConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.massConverterTable.Controls.Add(this.massToValueOutput, 1, 1);
             this.massConverterTable.Controls.Add(this.massFromUnitInput, 0, 0);
             this.massConverterTable.Controls.Add(this.massToUnitOutput, 0, 1);
@@ -580,12 +589,12 @@
             // 
             this.massToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.massToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.massToValueOutput.Location = new System.Drawing.Point(182, 57);
+            this.massToValueOutput.Location = new System.Drawing.Point(227, 57);
             this.massToValueOutput.MaxLength = 256;
             this.massToValueOutput.Name = "massToValueOutput";
             this.massToValueOutput.ReadOnly = true;
             this.massToValueOutput.ShortcutsEnabled = false;
-            this.massToValueOutput.Size = new System.Drawing.Size(250, 24);
+            this.massToValueOutput.Size = new System.Drawing.Size(200, 24);
             this.massToValueOutput.TabIndex = 0;
             this.massToValueOutput.TabStop = false;
             // 
@@ -594,9 +603,9 @@
             this.massFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.massFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.massFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.massFromUnitInput.Location = new System.Drawing.Point(16, 11);
+            this.massFromUnitInput.Location = new System.Drawing.Point(21, 11);
             this.massFromUnitInput.Name = "massFromUnitInput";
-            this.massFromUnitInput.Size = new System.Drawing.Size(160, 24);
+            this.massFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.massFromUnitInput.Sorted = true;
             this.massFromUnitInput.TabIndex = 0;
             // 
@@ -605,9 +614,9 @@
             this.massToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.massToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.massToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.massToUnitOutput.Location = new System.Drawing.Point(16, 57);
+            this.massToUnitOutput.Location = new System.Drawing.Point(21, 57);
             this.massToUnitOutput.Name = "massToUnitOutput";
-            this.massToUnitOutput.Size = new System.Drawing.Size(160, 24);
+            this.massToUnitOutput.Size = new System.Drawing.Size(200, 24);
             this.massToUnitOutput.Sorted = true;
             this.massToUnitOutput.TabIndex = 1;
             // 
@@ -616,10 +625,10 @@
             this.massFromValueInput.AllowDrop = true;
             this.massFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.massFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.massFromValueInput.Location = new System.Drawing.Point(182, 11);
+            this.massFromValueInput.Location = new System.Drawing.Point(227, 11);
             this.massFromValueInput.MaxLength = 256;
             this.massFromValueInput.Name = "massFromValueInput";
-            this.massFromValueInput.Size = new System.Drawing.Size(250, 24);
+            this.massFromValueInput.Size = new System.Drawing.Size(200, 24);
             this.massFromValueInput.TabIndex = 2;
             this.massFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.massFromValueInput_KeyDown);
             // 
@@ -637,8 +646,8 @@
             // energyConverterTable
             // 
             this.energyConverterTable.ColumnCount = 2;
-            this.energyConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.energyConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.energyConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.energyConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.energyConverterTable.Controls.Add(this.energyToValueOutput, 1, 1);
             this.energyConverterTable.Controls.Add(this.energyFromUnitInput, 0, 0);
             this.energyConverterTable.Controls.Add(this.energyToUnitOutput, 0, 1);
@@ -656,12 +665,12 @@
             // 
             this.energyToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.energyToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.energyToValueOutput.Location = new System.Drawing.Point(182, 57);
+            this.energyToValueOutput.Location = new System.Drawing.Point(227, 57);
             this.energyToValueOutput.MaxLength = 256;
             this.energyToValueOutput.Name = "energyToValueOutput";
             this.energyToValueOutput.ReadOnly = true;
             this.energyToValueOutput.ShortcutsEnabled = false;
-            this.energyToValueOutput.Size = new System.Drawing.Size(250, 24);
+            this.energyToValueOutput.Size = new System.Drawing.Size(200, 24);
             this.energyToValueOutput.TabIndex = 0;
             this.energyToValueOutput.TabStop = false;
             // 
@@ -670,9 +679,9 @@
             this.energyFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.energyFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.energyFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.energyFromUnitInput.Location = new System.Drawing.Point(16, 11);
+            this.energyFromUnitInput.Location = new System.Drawing.Point(21, 11);
             this.energyFromUnitInput.Name = "energyFromUnitInput";
-            this.energyFromUnitInput.Size = new System.Drawing.Size(160, 24);
+            this.energyFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.energyFromUnitInput.Sorted = true;
             this.energyFromUnitInput.TabIndex = 0;
             // 
@@ -681,9 +690,9 @@
             this.energyToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.energyToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.energyToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.energyToUnitOutput.Location = new System.Drawing.Point(16, 57);
+            this.energyToUnitOutput.Location = new System.Drawing.Point(21, 57);
             this.energyToUnitOutput.Name = "energyToUnitOutput";
-            this.energyToUnitOutput.Size = new System.Drawing.Size(160, 24);
+            this.energyToUnitOutput.Size = new System.Drawing.Size(200, 24);
             this.energyToUnitOutput.Sorted = true;
             this.energyToUnitOutput.TabIndex = 1;
             // 
@@ -692,10 +701,10 @@
             this.energyFromValueInput.AllowDrop = true;
             this.energyFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.energyFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.energyFromValueInput.Location = new System.Drawing.Point(182, 11);
+            this.energyFromValueInput.Location = new System.Drawing.Point(227, 11);
             this.energyFromValueInput.MaxLength = 256;
             this.energyFromValueInput.Name = "energyFromValueInput";
-            this.energyFromValueInput.Size = new System.Drawing.Size(250, 24);
+            this.energyFromValueInput.Size = new System.Drawing.Size(200, 24);
             this.energyFromValueInput.TabIndex = 2;
             this.energyFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.energyFromValueInput_KeyDown);
             // 
@@ -713,8 +722,8 @@
             // dataSizeConverterTable
             // 
             this.dataSizeConverterTable.ColumnCount = 2;
-            this.dataSizeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.dataSizeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.dataSizeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.dataSizeConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.dataSizeConverterTable.Controls.Add(this.dataSizeToValueOutput, 1, 1);
             this.dataSizeConverterTable.Controls.Add(this.dataSizeFromUnitInput, 0, 0);
             this.dataSizeConverterTable.Controls.Add(this.dataSizeToUnitOutput, 0, 1);
@@ -732,12 +741,12 @@
             // 
             this.dataSizeToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dataSizeToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataSizeToValueOutput.Location = new System.Drawing.Point(182, 57);
+            this.dataSizeToValueOutput.Location = new System.Drawing.Point(227, 57);
             this.dataSizeToValueOutput.MaxLength = 256;
             this.dataSizeToValueOutput.Name = "dataSizeToValueOutput";
             this.dataSizeToValueOutput.ReadOnly = true;
             this.dataSizeToValueOutput.ShortcutsEnabled = false;
-            this.dataSizeToValueOutput.Size = new System.Drawing.Size(250, 24);
+            this.dataSizeToValueOutput.Size = new System.Drawing.Size(200, 24);
             this.dataSizeToValueOutput.TabIndex = 0;
             this.dataSizeToValueOutput.TabStop = false;
             // 
@@ -746,9 +755,9 @@
             this.dataSizeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dataSizeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataSizeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dataSizeFromUnitInput.Location = new System.Drawing.Point(16, 11);
+            this.dataSizeFromUnitInput.Location = new System.Drawing.Point(21, 11);
             this.dataSizeFromUnitInput.Name = "dataSizeFromUnitInput";
-            this.dataSizeFromUnitInput.Size = new System.Drawing.Size(160, 24);
+            this.dataSizeFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.dataSizeFromUnitInput.TabIndex = 0;
             // 
             // dataSizeToUnitOutput
@@ -756,9 +765,9 @@
             this.dataSizeToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dataSizeToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataSizeToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dataSizeToUnitOutput.Location = new System.Drawing.Point(16, 57);
+            this.dataSizeToUnitOutput.Location = new System.Drawing.Point(21, 57);
             this.dataSizeToUnitOutput.Name = "dataSizeToUnitOutput";
-            this.dataSizeToUnitOutput.Size = new System.Drawing.Size(160, 24);
+            this.dataSizeToUnitOutput.Size = new System.Drawing.Size(200, 24);
             this.dataSizeToUnitOutput.TabIndex = 1;
             // 
             // dataSizeFromValueInput
@@ -766,10 +775,10 @@
             this.dataSizeFromValueInput.AllowDrop = true;
             this.dataSizeFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dataSizeFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataSizeFromValueInput.Location = new System.Drawing.Point(182, 11);
+            this.dataSizeFromValueInput.Location = new System.Drawing.Point(227, 11);
             this.dataSizeFromValueInput.MaxLength = 256;
             this.dataSizeFromValueInput.Name = "dataSizeFromValueInput";
-            this.dataSizeFromValueInput.Size = new System.Drawing.Size(250, 24);
+            this.dataSizeFromValueInput.Size = new System.Drawing.Size(200, 24);
             this.dataSizeFromValueInput.TabIndex = 2;
             this.dataSizeFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataSizeFromValueInput_KeyDown);
             // 
@@ -822,6 +831,80 @@
             this.mainArea.TabIndex = 3;
             this.mainArea.Paint += new System.Windows.Forms.PaintEventHandler(this.mainArea_Paint);
             // 
+            // temperatureConverter
+            // 
+            this.temperatureConverter.BackColor = System.Drawing.SystemColors.Control;
+            this.temperatureConverter.Controls.Add(this.temperatureConverterTable);
+            this.temperatureConverter.Location = new System.Drawing.Point(4, 25);
+            this.temperatureConverter.Name = "temperatureConverter";
+            this.temperatureConverter.Size = new System.Drawing.Size(448, 93);
+            this.temperatureConverter.TabIndex = 8;
+            this.temperatureConverter.Text = "Temperature";
+            // 
+            // temperatureConverterTable
+            // 
+            this.temperatureConverterTable.ColumnCount = 2;
+            this.temperatureConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.temperatureConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.temperatureConverterTable.Controls.Add(this.temperatureToValueOutput, 1, 1);
+            this.temperatureConverterTable.Controls.Add(this.temperatureFromUnitInput, 0, 0);
+            this.temperatureConverterTable.Controls.Add(this.temperatureToUnitOutput, 0, 1);
+            this.temperatureConverterTable.Controls.Add(this.temperatureFromValueInput, 1, 0);
+            this.temperatureConverterTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.temperatureConverterTable.Location = new System.Drawing.Point(0, 0);
+            this.temperatureConverterTable.Name = "temperatureConverterTable";
+            this.temperatureConverterTable.RowCount = 2;
+            this.temperatureConverterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.temperatureConverterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.temperatureConverterTable.Size = new System.Drawing.Size(448, 93);
+            this.temperatureConverterTable.TabIndex = 2;
+            // 
+            // temperatureToValueOutput
+            // 
+            this.temperatureToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.temperatureToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.temperatureToValueOutput.Location = new System.Drawing.Point(227, 57);
+            this.temperatureToValueOutput.MaxLength = 256;
+            this.temperatureToValueOutput.Name = "temperatureToValueOutput";
+            this.temperatureToValueOutput.ReadOnly = true;
+            this.temperatureToValueOutput.ShortcutsEnabled = false;
+            this.temperatureToValueOutput.Size = new System.Drawing.Size(200, 24);
+            this.temperatureToValueOutput.TabIndex = 0;
+            this.temperatureToValueOutput.TabStop = false;
+            // 
+            // temperatureFromUnitInput
+            // 
+            this.temperatureFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.temperatureFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.temperatureFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.temperatureFromUnitInput.Location = new System.Drawing.Point(21, 10);
+            this.temperatureFromUnitInput.Name = "temperatureFromUnitInput";
+            this.temperatureFromUnitInput.Size = new System.Drawing.Size(200, 24);
+            this.temperatureFromUnitInput.Sorted = true;
+            this.temperatureFromUnitInput.TabIndex = 0;
+            // 
+            // temperatureToUnitOutput
+            // 
+            this.temperatureToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.temperatureToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.temperatureToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.temperatureToUnitOutput.Location = new System.Drawing.Point(21, 57);
+            this.temperatureToUnitOutput.Name = "temperatureToUnitOutput";
+            this.temperatureToUnitOutput.Size = new System.Drawing.Size(200, 24);
+            this.temperatureToUnitOutput.Sorted = true;
+            this.temperatureToUnitOutput.TabIndex = 1;
+            // 
+            // temperatureFromValueInput
+            // 
+            this.temperatureFromValueInput.AllowDrop = true;
+            this.temperatureFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.temperatureFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.temperatureFromValueInput.Location = new System.Drawing.Point(227, 11);
+            this.temperatureFromValueInput.MaxLength = 256;
+            this.temperatureFromValueInput.Name = "temperatureFromValueInput";
+            this.temperatureFromValueInput.Size = new System.Drawing.Size(200, 24);
+            this.temperatureFromValueInput.TabIndex = 2;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -867,6 +950,9 @@
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.mainArea.ResumeLayout(false);
+            this.temperatureConverter.ResumeLayout(false);
+            this.temperatureConverterTable.ResumeLayout(false);
+            this.temperatureConverterTable.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -932,6 +1018,12 @@
         private System.Windows.Forms.ComboBox areaFromUnitInput;
         private System.Windows.Forms.ComboBox areaToUnitOutput;
         private System.Windows.Forms.TextBox areaFromValueInput;
+        private System.Windows.Forms.TabPage temperatureConverter;
+        private System.Windows.Forms.TableLayoutPanel temperatureConverterTable;
+        private System.Windows.Forms.TextBox temperatureToValueOutput;
+        private System.Windows.Forms.ComboBox temperatureFromUnitInput;
+        private System.Windows.Forms.ComboBox temperatureToUnitOutput;
+        private System.Windows.Forms.TextBox temperatureFromValueInput;
     }
 }
 
