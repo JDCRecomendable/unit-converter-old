@@ -76,6 +76,12 @@
             this.energyFromUnitInput = new System.Windows.Forms.ComboBox();
             this.energyToUnitOutput = new System.Windows.Forms.ComboBox();
             this.energyFromValueInput = new System.Windows.Forms.TextBox();
+            this.temperatureConverter = new System.Windows.Forms.TabPage();
+            this.temperatureConverterTable = new System.Windows.Forms.TableLayoutPanel();
+            this.temperatureToValueOutput = new System.Windows.Forms.TextBox();
+            this.temperatureFromUnitInput = new System.Windows.Forms.ComboBox();
+            this.temperatureToUnitOutput = new System.Windows.Forms.ComboBox();
+            this.temperatureFromValueInput = new System.Windows.Forms.TextBox();
             this.dataSizeConverter = new System.Windows.Forms.TabPage();
             this.dataSizeConverterTable = new System.Windows.Forms.TableLayoutPanel();
             this.dataSizeToValueOutput = new System.Windows.Forms.TextBox();
@@ -86,12 +92,6 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusIndicator = new System.Windows.Forms.ToolStripStatusLabel();
             this.mainArea = new System.Windows.Forms.TableLayoutPanel();
-            this.temperatureConverter = new System.Windows.Forms.TabPage();
-            this.temperatureConverterTable = new System.Windows.Forms.TableLayoutPanel();
-            this.temperatureToValueOutput = new System.Windows.Forms.TextBox();
-            this.temperatureFromUnitInput = new System.Windows.Forms.ComboBox();
-            this.temperatureToUnitOutput = new System.Windows.Forms.ComboBox();
-            this.temperatureFromValueInput = new System.Windows.Forms.TextBox();
             this.menuBar.SuspendLayout();
             this.unitSelector.SuspendLayout();
             this.lengthConverter.SuspendLayout();
@@ -108,12 +108,12 @@
             this.massConverterTable.SuspendLayout();
             this.energyConverter.SuspendLayout();
             this.energyConverterTable.SuspendLayout();
+            this.temperatureConverter.SuspendLayout();
+            this.temperatureConverterTable.SuspendLayout();
             this.dataSizeConverter.SuspendLayout();
             this.dataSizeConverterTable.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.mainArea.SuspendLayout();
-            this.temperatureConverter.SuspendLayout();
-            this.temperatureConverterTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuBar
@@ -224,7 +224,7 @@
             this.lengthFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lengthFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lengthFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.lengthFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.lengthFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.lengthFromUnitInput.Name = "lengthFromUnitInput";
             this.lengthFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.lengthFromUnitInput.Sorted = true;
@@ -300,7 +300,7 @@
             this.areaFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.areaFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.areaFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.areaFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.areaFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.areaFromUnitInput.Name = "areaFromUnitInput";
             this.areaFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.areaFromUnitInput.Sorted = true;
@@ -376,7 +376,7 @@
             this.volumeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.volumeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.volumeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.volumeFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.volumeFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.volumeFromUnitInput.Name = "volumeFromUnitInput";
             this.volumeFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.volumeFromUnitInput.Sorted = true;
@@ -451,7 +451,7 @@
             this.timeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.timeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.timeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.timeFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.timeFromUnitInput.Name = "timeFromUnitInput";
             this.timeFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.timeFromUnitInput.Sorted = true;
@@ -527,7 +527,7 @@
             this.speedFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.speedFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.speedFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.speedFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.speedFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.speedFromUnitInput.Name = "speedFromUnitInput";
             this.speedFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.speedFromUnitInput.Sorted = true;
@@ -603,7 +603,7 @@
             this.massFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.massFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.massFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.massFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.massFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.massFromUnitInput.Name = "massFromUnitInput";
             this.massFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.massFromUnitInput.Sorted = true;
@@ -679,7 +679,7 @@
             this.energyFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.energyFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.energyFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.energyFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.energyFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.energyFromUnitInput.Name = "energyFromUnitInput";
             this.energyFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.energyFromUnitInput.Sorted = true;
@@ -707,6 +707,78 @@
             this.energyFromValueInput.Size = new System.Drawing.Size(200, 24);
             this.energyFromValueInput.TabIndex = 2;
             this.energyFromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.energyFromValueInput_KeyDown);
+            // 
+            // temperatureConverter
+            // 
+            this.temperatureConverter.BackColor = System.Drawing.SystemColors.Control;
+            this.temperatureConverter.Controls.Add(this.temperatureConverterTable);
+            this.temperatureConverter.Location = new System.Drawing.Point(4, 25);
+            this.temperatureConverter.Name = "temperatureConverter";
+            this.temperatureConverter.Size = new System.Drawing.Size(448, 93);
+            this.temperatureConverter.TabIndex = 8;
+            this.temperatureConverter.Text = "Temperature";
+            // 
+            // temperatureConverterTable
+            // 
+            this.temperatureConverterTable.ColumnCount = 2;
+            this.temperatureConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.temperatureConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.temperatureConverterTable.Controls.Add(this.temperatureToValueOutput, 1, 1);
+            this.temperatureConverterTable.Controls.Add(this.temperatureFromUnitInput, 0, 0);
+            this.temperatureConverterTable.Controls.Add(this.temperatureToUnitOutput, 0, 1);
+            this.temperatureConverterTable.Controls.Add(this.temperatureFromValueInput, 1, 0);
+            this.temperatureConverterTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.temperatureConverterTable.Location = new System.Drawing.Point(0, 0);
+            this.temperatureConverterTable.Name = "temperatureConverterTable";
+            this.temperatureConverterTable.RowCount = 2;
+            this.temperatureConverterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.temperatureConverterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.temperatureConverterTable.Size = new System.Drawing.Size(448, 93);
+            this.temperatureConverterTable.TabIndex = 2;
+            // 
+            // temperatureToValueOutput
+            // 
+            this.temperatureToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.temperatureToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.temperatureToValueOutput.Location = new System.Drawing.Point(227, 57);
+            this.temperatureToValueOutput.MaxLength = 256;
+            this.temperatureToValueOutput.Name = "temperatureToValueOutput";
+            this.temperatureToValueOutput.ReadOnly = true;
+            this.temperatureToValueOutput.ShortcutsEnabled = false;
+            this.temperatureToValueOutput.Size = new System.Drawing.Size(200, 24);
+            this.temperatureToValueOutput.TabIndex = 0;
+            this.temperatureToValueOutput.TabStop = false;
+            // 
+            // temperatureFromUnitInput
+            // 
+            this.temperatureFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.temperatureFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.temperatureFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.temperatureFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.temperatureFromUnitInput.Name = "temperatureFromUnitInput";
+            this.temperatureFromUnitInput.Size = new System.Drawing.Size(200, 24);
+            this.temperatureFromUnitInput.TabIndex = 0;
+            // 
+            // temperatureToUnitOutput
+            // 
+            this.temperatureToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.temperatureToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.temperatureToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.temperatureToUnitOutput.Location = new System.Drawing.Point(21, 57);
+            this.temperatureToUnitOutput.Name = "temperatureToUnitOutput";
+            this.temperatureToUnitOutput.Size = new System.Drawing.Size(200, 24);
+            this.temperatureToUnitOutput.TabIndex = 1;
+            // 
+            // temperatureFromValueInput
+            // 
+            this.temperatureFromValueInput.AllowDrop = true;
+            this.temperatureFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.temperatureFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.temperatureFromValueInput.Location = new System.Drawing.Point(227, 11);
+            this.temperatureFromValueInput.MaxLength = 256;
+            this.temperatureFromValueInput.Name = "temperatureFromValueInput";
+            this.temperatureFromValueInput.Size = new System.Drawing.Size(200, 24);
+            this.temperatureFromValueInput.TabIndex = 2;
             // 
             // dataSizeConverter
             // 
@@ -755,7 +827,7 @@
             this.dataSizeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dataSizeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataSizeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dataSizeFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.dataSizeFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.dataSizeFromUnitInput.Name = "dataSizeFromUnitInput";
             this.dataSizeFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.dataSizeFromUnitInput.TabIndex = 0;
@@ -831,80 +903,6 @@
             this.mainArea.TabIndex = 3;
             this.mainArea.Paint += new System.Windows.Forms.PaintEventHandler(this.mainArea_Paint);
             // 
-            // temperatureConverter
-            // 
-            this.temperatureConverter.BackColor = System.Drawing.SystemColors.Control;
-            this.temperatureConverter.Controls.Add(this.temperatureConverterTable);
-            this.temperatureConverter.Location = new System.Drawing.Point(4, 25);
-            this.temperatureConverter.Name = "temperatureConverter";
-            this.temperatureConverter.Size = new System.Drawing.Size(448, 93);
-            this.temperatureConverter.TabIndex = 8;
-            this.temperatureConverter.Text = "Temperature";
-            // 
-            // temperatureConverterTable
-            // 
-            this.temperatureConverterTable.ColumnCount = 2;
-            this.temperatureConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.temperatureConverterTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.temperatureConverterTable.Controls.Add(this.temperatureToValueOutput, 1, 1);
-            this.temperatureConverterTable.Controls.Add(this.temperatureFromUnitInput, 0, 0);
-            this.temperatureConverterTable.Controls.Add(this.temperatureToUnitOutput, 0, 1);
-            this.temperatureConverterTable.Controls.Add(this.temperatureFromValueInput, 1, 0);
-            this.temperatureConverterTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.temperatureConverterTable.Location = new System.Drawing.Point(0, 0);
-            this.temperatureConverterTable.Name = "temperatureConverterTable";
-            this.temperatureConverterTable.RowCount = 2;
-            this.temperatureConverterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.temperatureConverterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.temperatureConverterTable.Size = new System.Drawing.Size(448, 93);
-            this.temperatureConverterTable.TabIndex = 2;
-            // 
-            // temperatureToValueOutput
-            // 
-            this.temperatureToValueOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.temperatureToValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.temperatureToValueOutput.Location = new System.Drawing.Point(227, 57);
-            this.temperatureToValueOutput.MaxLength = 256;
-            this.temperatureToValueOutput.Name = "temperatureToValueOutput";
-            this.temperatureToValueOutput.ReadOnly = true;
-            this.temperatureToValueOutput.ShortcutsEnabled = false;
-            this.temperatureToValueOutput.Size = new System.Drawing.Size(200, 24);
-            this.temperatureToValueOutput.TabIndex = 0;
-            this.temperatureToValueOutput.TabStop = false;
-            // 
-            // temperatureFromUnitInput
-            // 
-            this.temperatureFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.temperatureFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.temperatureFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.temperatureFromUnitInput.Location = new System.Drawing.Point(21, 10);
-            this.temperatureFromUnitInput.Name = "temperatureFromUnitInput";
-            this.temperatureFromUnitInput.Size = new System.Drawing.Size(200, 24);
-            this.temperatureFromUnitInput.Sorted = true;
-            this.temperatureFromUnitInput.TabIndex = 0;
-            // 
-            // temperatureToUnitOutput
-            // 
-            this.temperatureToUnitOutput.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.temperatureToUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.temperatureToUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.temperatureToUnitOutput.Location = new System.Drawing.Point(21, 57);
-            this.temperatureToUnitOutput.Name = "temperatureToUnitOutput";
-            this.temperatureToUnitOutput.Size = new System.Drawing.Size(200, 24);
-            this.temperatureToUnitOutput.Sorted = true;
-            this.temperatureToUnitOutput.TabIndex = 1;
-            // 
-            // temperatureFromValueInput
-            // 
-            this.temperatureFromValueInput.AllowDrop = true;
-            this.temperatureFromValueInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.temperatureFromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.temperatureFromValueInput.Location = new System.Drawing.Point(227, 11);
-            this.temperatureFromValueInput.MaxLength = 256;
-            this.temperatureFromValueInput.Name = "temperatureFromValueInput";
-            this.temperatureFromValueInput.Size = new System.Drawing.Size(200, 24);
-            this.temperatureFromValueInput.TabIndex = 2;
-            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -944,15 +942,15 @@
             this.energyConverter.ResumeLayout(false);
             this.energyConverterTable.ResumeLayout(false);
             this.energyConverterTable.PerformLayout();
+            this.temperatureConverter.ResumeLayout(false);
+            this.temperatureConverterTable.ResumeLayout(false);
+            this.temperatureConverterTable.PerformLayout();
             this.dataSizeConverter.ResumeLayout(false);
             this.dataSizeConverterTable.ResumeLayout(false);
             this.dataSizeConverterTable.PerformLayout();
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.mainArea.ResumeLayout(false);
-            this.temperatureConverter.ResumeLayout(false);
-            this.temperatureConverterTable.ResumeLayout(false);
-            this.temperatureConverterTable.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

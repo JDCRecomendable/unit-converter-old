@@ -6,11 +6,19 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Unit Converter")]
-[assembly: AssemblyDescription("A simple 'complex' computer program.")]
+[assembly: AssemblyDescription("This is the product of a project for the " +
+    "Technology (Innovation Programme) in Avondale College, Auckland. " +
+    "\r\n\r\nUnit Converter is a Windows program that converts values from " +
+    "one unit to another.\r\n\r\nThe application converts units for length, " +
+    "area, volume, time, speed, mass, energy, temperature and data size. " +
+    "There are currently over 80 different units supported and counting." +
+    "\r\n\r\nThis application is under beta testing and may be buggy. " +
+    "Future editions will see less bugs and the ability to add one's " +
+    "own custom units.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Avondale College")]
 [assembly: AssemblyProduct("Unit Converter")]
-[assembly: AssemblyCopyright("Copyright ©  2019 Jared Daniel Recomendable.")]
+[assembly: AssemblyCopyright("©  2019 Jared Daniel Carbonell Recomendable.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +40,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.1.0.0")]
+[assembly: AssemblyFileVersion("0.1.0.0")]
