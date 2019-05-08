@@ -301,6 +301,12 @@ namespace Unit_Converter
                 ExecuteCalculation();
         }
 
+        private void temperatureFromValueInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                ExecuteCalculation();
+        }
+
         private void dataSizeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -859,6 +865,14 @@ namespace Unit_Converter
                     {
                         resultTemperatureValue = (inputValue - 32d) / 1.8d;
                         temperatureToValueOutput.Text = resultTemperatureValue.ToString();
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
+
+                    if (unitError == false)
+                    {
+                        speedToValueOutput.Text = resultTemperatureValue.ToString();
+                        statusIndicator.Text = StatusMessages.done;
                     }
                     else
                         statusIndicator.Text = StatusMessages.unitError;
