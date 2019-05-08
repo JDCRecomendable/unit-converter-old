@@ -224,7 +224,7 @@
             this.lengthFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lengthFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lengthFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.lengthFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.lengthFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.lengthFromUnitInput.Name = "lengthFromUnitInput";
             this.lengthFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.lengthFromUnitInput.Sorted = true;
@@ -300,7 +300,7 @@
             this.areaFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.areaFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.areaFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.areaFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.areaFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.areaFromUnitInput.Name = "areaFromUnitInput";
             this.areaFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.areaFromUnitInput.Sorted = true;
@@ -376,7 +376,7 @@
             this.volumeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.volumeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.volumeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.volumeFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.volumeFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.volumeFromUnitInput.Name = "volumeFromUnitInput";
             this.volumeFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.volumeFromUnitInput.Sorted = true;
@@ -451,7 +451,7 @@
             this.timeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.timeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.timeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.timeFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.timeFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.timeFromUnitInput.Name = "timeFromUnitInput";
             this.timeFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.timeFromUnitInput.Sorted = true;
@@ -527,7 +527,7 @@
             this.speedFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.speedFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.speedFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.speedFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.speedFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.speedFromUnitInput.Name = "speedFromUnitInput";
             this.speedFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.speedFromUnitInput.Sorted = true;
@@ -603,7 +603,7 @@
             this.massFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.massFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.massFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.massFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.massFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.massFromUnitInput.Name = "massFromUnitInput";
             this.massFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.massFromUnitInput.Sorted = true;
@@ -679,7 +679,7 @@
             this.energyFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.energyFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.energyFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.energyFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.energyFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.energyFromUnitInput.Name = "energyFromUnitInput";
             this.energyFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.energyFromUnitInput.Sorted = true;
@@ -754,7 +754,7 @@
             this.temperatureFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.temperatureFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.temperatureFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.temperatureFromUnitInput.Location = new System.Drawing.Point(21, 10);
+            this.temperatureFromUnitInput.Location = new System.Drawing.Point(21, 11);
             this.temperatureFromUnitInput.Name = "temperatureFromUnitInput";
             this.temperatureFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.temperatureFromUnitInput.TabIndex = 0;
@@ -828,7 +828,7 @@
             this.dataSizeFromUnitInput.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dataSizeFromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataSizeFromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dataSizeFromUnitInput.Location = new System.Drawing.Point(21, 11);
+            this.dataSizeFromUnitInput.Location = new System.Drawing.Point(21, 10);
             this.dataSizeFromUnitInput.Name = "dataSizeFromUnitInput";
             this.dataSizeFromUnitInput.Size = new System.Drawing.Size(200, 24);
             this.dataSizeFromUnitInput.TabIndex = 0;
@@ -902,7 +902,6 @@
             this.mainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.mainArea.Size = new System.Drawing.Size(462, 180);
             this.mainArea.TabIndex = 3;
-            this.mainArea.Paint += new System.Windows.Forms.PaintEventHandler(this.mainArea_Paint);
             // 
             // MainScreen
             // 

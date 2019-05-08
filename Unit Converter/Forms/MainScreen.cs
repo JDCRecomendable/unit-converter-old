@@ -35,11 +35,6 @@ namespace Unit_Converter
             this.Close();
         }
 
-        private void mainArea_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         // Initialise the MainScreen form
         private void MainScreen_Load(object sender, EventArgs e)
         {
