@@ -14,7 +14,8 @@ using System.Runtime.InteropServices;
     "There are currently over 80 different units supported and counting." +
     "\r\n\r\nThis application is under beta testing and may be buggy. " +
     "Future editions will see less bugs and the ability to add one's " +
-    "own custom units.")]
+    "own custom units, as well as support for mathematical notations in" +
+    "the user input.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Avondale College")]
 [assembly: AssemblyProduct("Unit Converter")]

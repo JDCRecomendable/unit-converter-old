@@ -1,17 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+// using System.Collections.Generic;
+// using System.ComponentModel;
+// using System.Data;
+// using System.Drawing;
+// using System.Linq;
+// using System.Text;
+// using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Unit_Converter
 {
     public partial class MainScreen : Form
     {
+        // (1) INITIALISATION
         public MainScreen()
         {
             InitializeComponent();
@@ -22,23 +23,23 @@ namespace Unit_Converter
             unitSelector.SelectedIndexChanged += new EventHandler(unitSelector_SelectedIndexChanged);
         }
 
-        // Open the About box to show the application credits
+        // (2) MENU BAR - Open the About box to show the application credits
         private void aboutUnitConverterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox aboutBox = new AboutBox();
             aboutBox.Show();
         }
 
-        // Close the application
+        // (2) MENU BAR - Close the application
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // Initialise the MainScreen form
+        // (3) CONTROLS - Load the units to the dropdown combo boxes
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            // Add items to LengthFromUnit combo box
+            // UNIT TYPE 0 - Add items to LengthFromUnit combo box
             lengthFromUnitInput.Items.Add(LengthConversion.metre);
             lengthFromUnitInput.Items.Add(LengthConversion.kilometre);
             lengthFromUnitInput.Items.Add(LengthConversion.decimetre);
@@ -49,7 +50,7 @@ namespace Unit_Converter
             lengthFromUnitInput.Items.Add(LengthConversion.foot);
             lengthFromUnitInput.Items.Add(LengthConversion.inch);
 
-            // Add items to LengthToUnit combo box
+            // UNIT TYPE 0 - Add items to LengthToUnit combo box
             lengthToUnitOutput.Items.Add(LengthConversion.metre);
             lengthToUnitOutput.Items.Add(LengthConversion.kilometre);
             lengthToUnitOutput.Items.Add(LengthConversion.decimetre);
@@ -61,7 +62,7 @@ namespace Unit_Converter
             lengthToUnitOutput.Items.Add(LengthConversion.inch);
 
 
-            // Add items to AreaFromUnit combo box
+            // UNIT TYPE 1 - Add items to AreaFromUnit combo box
             areaFromUnitInput.Items.Add(AreaConversion.squareMetre);
             areaFromUnitInput.Items.Add(AreaConversion.squareKilometre);
             areaFromUnitInput.Items.Add(AreaConversion.squareDecimetre);
@@ -75,7 +76,7 @@ namespace Unit_Converter
             areaFromUnitInput.Items.Add(AreaConversion.are);
             areaFromUnitInput.Items.Add(AreaConversion.hectare);
 
-            // Add items to AreaToUnit combo box
+            // UNIT TYPE 1 - Add items to AreaToUnit combo box
             areaToUnitOutput.Items.Add(AreaConversion.squareMetre);
             areaToUnitOutput.Items.Add(AreaConversion.squareKilometre);
             areaToUnitOutput.Items.Add(AreaConversion.squareDecimetre);
@@ -90,7 +91,7 @@ namespace Unit_Converter
             areaToUnitOutput.Items.Add(AreaConversion.hectare);
 
 
-            // Add items to VolumeFromUnit combo box
+            // UNIT TYPE 2 - Add items to VolumeFromUnit combo box
             volumeFromUnitInput.Items.Add(VolumeConversion.cubicMetre);
             volumeFromUnitInput.Items.Add(VolumeConversion.cubicCentimetre);
             volumeFromUnitInput.Items.Add(VolumeConversion.cubicMillimetre);
@@ -106,7 +107,7 @@ namespace Unit_Converter
             volumeFromUnitInput.Items.Add(VolumeConversion.tablespoon);
             volumeFromUnitInput.Items.Add(VolumeConversion.teaspoon);
 
-            // Add items to VolumeToUnit combo box
+            // UNIT TYPE 2 - Add items to VolumeToUnit combo box
             volumeToUnitOutput.Items.Add(VolumeConversion.cubicMetre);
             volumeToUnitOutput.Items.Add(VolumeConversion.cubicCentimetre);
             volumeToUnitOutput.Items.Add(VolumeConversion.cubicMillimetre);
@@ -123,7 +124,7 @@ namespace Unit_Converter
             volumeToUnitOutput.Items.Add(VolumeConversion.teaspoon);
 
 
-            // Add items to TimeFromUnit combo box
+            // UNIT TYPE 3 - Add items to TimeFromUnit combo box
             timeFromUnitInput.Items.Add(TimeConversion.second);
             timeFromUnitInput.Items.Add(TimeConversion.millisecond);
             timeFromUnitInput.Items.Add(TimeConversion.microsecond);
@@ -136,7 +137,7 @@ namespace Unit_Converter
             timeFromUnitInput.Items.Add(TimeConversion.year);
             timeFromUnitInput.Items.Add(TimeConversion.yearLeap);
 
-            // Add items to TimeToUnit combo box
+            // UNIT TYPE 3 - Add items to TimeToUnit combo box
             timeToUnitOutput.Items.Add(TimeConversion.second);
             timeToUnitOutput.Items.Add(TimeConversion.millisecond);
             timeToUnitOutput.Items.Add(TimeConversion.microsecond);
@@ -150,7 +151,7 @@ namespace Unit_Converter
             timeToUnitOutput.Items.Add(TimeConversion.yearLeap);
 
 
-            // Add items to SpeedFromUnit combo box
+            // UNIT TYPE 4 - Add items to SpeedFromUnit combo box
             speedFromUnitInput.Items.Add(SpeedConversion.metrePerSecond);
             speedFromUnitInput.Items.Add(SpeedConversion.metrePerHour);
             speedFromUnitInput.Items.Add(SpeedConversion.kilometrePerSecond);
@@ -160,7 +161,7 @@ namespace Unit_Converter
             speedFromUnitInput.Items.Add(SpeedConversion.milePerSecond);
             speedFromUnitInput.Items.Add(SpeedConversion.milePerHour);
 
-            // Add items to SpeedToUnit combo box
+            // UNIT TYPE 4 - Add items to SpeedToUnit combo box
             speedToUnitOutput.Items.Add(SpeedConversion.metrePerSecond);
             speedToUnitOutput.Items.Add(SpeedConversion.metrePerHour);
             speedToUnitOutput.Items.Add(SpeedConversion.kilometrePerSecond);
@@ -171,7 +172,7 @@ namespace Unit_Converter
             speedToUnitOutput.Items.Add(SpeedConversion.milePerHour);
 
 
-            // Add items to MassFromUnit combo box
+            // UNIT TYPE 5 - Add items to MassFromUnit combo box
             massFromUnitInput.Items.Add(MassConversion.kilogram);
             massFromUnitInput.Items.Add(MassConversion.gram);
             massFromUnitInput.Items.Add(MassConversion.milligram);
@@ -186,7 +187,7 @@ namespace Unit_Converter
             massFromUnitInput.Items.Add(MassConversion.kilotonShort);
             massFromUnitInput.Items.Add(MassConversion.kilotonLong);
 
-            // Add items to MassToUnit combo box
+            // UNIT TYPE 5 - Add items to MassToUnit combo box
             massToUnitOutput.Items.Add(MassConversion.kilogram);
             massToUnitOutput.Items.Add(MassConversion.gram);
             massToUnitOutput.Items.Add(MassConversion.milligram);
@@ -202,7 +203,7 @@ namespace Unit_Converter
             massToUnitOutput.Items.Add(MassConversion.kilotonLong);
 
 
-            // Add items to EnergyFromUnit combo box
+            // UNIT TYPE 6 - Add items to EnergyFromUnit combo box
             energyFromUnitInput.Items.Add(EnergyConversion.joule);
             energyFromUnitInput.Items.Add(EnergyConversion.kilojoule);
             energyFromUnitInput.Items.Add(EnergyConversion.wattHour);
@@ -211,7 +212,7 @@ namespace Unit_Converter
             energyFromUnitInput.Items.Add(EnergyConversion.kilocalorie);
             energyFromUnitInput.Items.Add(EnergyConversion.btu);
 
-            // Add items to EnergyToUnit combo box
+            // UNIT TYPE 6 - Add items to EnergyToUnit combo box
             energyToUnitOutput.Items.Add(EnergyConversion.joule);
             energyToUnitOutput.Items.Add(EnergyConversion.kilojoule);
             energyToUnitOutput.Items.Add(EnergyConversion.wattHour);
@@ -221,18 +222,18 @@ namespace Unit_Converter
             energyToUnitOutput.Items.Add(EnergyConversion.btu);
 
 
-            // Add items to TemperatureFromUnit combo box
+            // UNIT TYPE 7 - Add items to TemperatureFromUnit combo box
             temperatureFromUnitInput.Items.Add(TemperatureConversion.kelvin);
             temperatureFromUnitInput.Items.Add(TemperatureConversion.celsius);
             temperatureFromUnitInput.Items.Add(TemperatureConversion.fahrenheit);
 
-            // Add items to TemperatureToUnit combo box
+            // UNIT TYPE 7 - Add items to TemperatureToUnit combo box
             temperatureToUnitOutput.Items.Add(TemperatureConversion.kelvin);
             temperatureToUnitOutput.Items.Add(TemperatureConversion.celsius);
             temperatureToUnitOutput.Items.Add(TemperatureConversion.fahrenheit);
 
 
-            // Add items to DataSizeFromUnit combo box
+            // UNIT TYPE 8 - Add items to DataSizeFromUnit combo box
             dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeByte);
             dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeKilobyte);
             dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeMegabyte);
@@ -240,7 +241,7 @@ namespace Unit_Converter
             dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizeTerabyte);
             dataSizeFromUnitInput.Items.Add(DataSizeConversion.sizePetabyte);
 
-            // Add items to DataSizeToUnit combo box
+            // UNIT TYPE 8 - Add items to DataSizeToUnit combo box
             dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizeByte);
             dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizeKilobyte);
             dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizeMegabyte);
@@ -249,66 +250,76 @@ namespace Unit_Converter
             dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizePetabyte);
         }
 
+        // (3) CONTROLS - Calculate when button clicked
         private void lengthCalculateButton_Click(object sender, EventArgs e)
         {
             ExecuteCalculation();
         }
 
+        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
         private void lengthFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
+        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
         private void areaFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
+        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
         private void volumeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
+        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
         private void timeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
+        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
         private void speedFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
+        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
         private void massFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
+        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
         private void energyFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
+        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
         private void temperatureFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
+        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
         private void dataSizeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // Execute the calculation process
+        // (4) MAIN - Execute the calculation process
         private void ExecuteCalculation()
         {
             string rawValue;         // raw data from the user-inputtable text box
@@ -934,13 +945,14 @@ namespace Unit_Converter
                 statusIndicator.Text = StatusMessages.unitTypeError;
         }
 
-        // Indicate to user converter is ready when unit type is changed (tab is changed)
+        // (5) STATUS - Indicate to user converter is ready when unit type is changed (tab is changed)
         private void unitSelector_SelectedIndexChanged(Object sender, EventArgs e)
         {
             statusIndicator.Text = StatusMessages.ready;
         }
     }
 
+    // (*) MISC - Define the status messages
     public static class StatusMessages
     {
         public const string ready = "Ready";
@@ -950,6 +962,8 @@ namespace Unit_Converter
         public const string unitError = "No unit(s) selected!";
     }
 
+    // (*) MISC - Define the length conversion strings and values
+    // UNIT TYPE 0
     public static class LengthConversion
     {
         // Strings
@@ -984,6 +998,8 @@ namespace Unit_Converter
         public const double metreToInchValue = 1d / inchToMetreValue;
     }
 
+    // (*) MISC - Define the area conversion strings and values
+    // UNIT TYPE 1
     public static class AreaConversion
     {
         // Strings
@@ -1027,6 +1043,8 @@ namespace Unit_Converter
         public const double squareMetreToHectareValue = 1d / hectareToSquareMetreValue;
     }
 
+    // (*) MISC - Define the volume conversion strings and values
+    // UNIT TYPE 2
     public static class VolumeConversion
     {
         // Strings
@@ -1076,6 +1094,8 @@ namespace Unit_Converter
         public const double cubicMetreToTeaspoonValue = 1d / teaspoonToCubicMetreValue;
     }
 
+    // (*) MISC - Define the time conversion strings and values
+    // UNIT TYPE 3
     public static class TimeConversion
     {
         // Strings
@@ -1116,6 +1136,8 @@ namespace Unit_Converter
         public const double secondToYearLeapValue = 1d / yearLeapToSecondValue;
     }
 
+    // (*) MISC - Define the speed conversion strings and values
+    // UNIT TYPE 4
     public static class SpeedConversion
     {
         // Strings
@@ -1147,6 +1169,8 @@ namespace Unit_Converter
         public const double metrePerSecondToMilePerHourValue = 1d / milePerHourToMetrePerSecondValue;
     }
 
+    // (*) MISC - Define the mass conversion strings and values
+    // UNIT TYPE 5
     public static class MassConversion
     {
         // Strings
@@ -1193,6 +1217,8 @@ namespace Unit_Converter
         public const double kilogramToKilotonLongValue = 1d / kilotonLongToKilogramValue;
     }
 
+    // (*) MISC - Define the energy conversion strings and values
+    // UNIT TYPE 6
     public static class EnergyConversion
     {
         // Strings
@@ -1221,6 +1247,8 @@ namespace Unit_Converter
         public const double jouleToBtuValue = 1d / btuToJouleValue;
     }
 
+    // (*) MISC - Define the temperature conversion strings and values
+    // UNIT TYPE 7
     public static class TemperatureConversion
     {
         // Strings
@@ -1229,6 +1257,8 @@ namespace Unit_Converter
         public const string fahrenheit = "Degrees Fahrenheit [°F]";
     }
 
+    // (*) MISC - Define the data size conversion strings and values
+    // UNIT TYPE 8
     public static class DataSizeConversion
     {
         // Strings
