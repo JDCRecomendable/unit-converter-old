@@ -12,7 +12,7 @@ namespace Unit_Converter
 {
     public partial class MainScreen : Form
     {
-        // (1) INITIALISATION
+        // (1) INITIALISATION - Create the main screen
         public MainScreen()
         {
             InitializeComponent();
@@ -23,20 +23,7 @@ namespace Unit_Converter
             unitSelector.SelectedIndexChanged += new EventHandler(unitSelector_SelectedIndexChanged);
         }
 
-        // (2) MENU BAR - Open the About box to show the application credits
-        private void aboutUnitConverterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutBox aboutBox = new AboutBox();
-            aboutBox.Show();
-        }
-
-        // (2) MENU BAR - Close the application
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        // (3) CONTROLS - Load the units to the dropdown combo boxes
+        // (1) INITIALISATION - Load elements to main screen controls
         private void MainScreen_Load(object sender, EventArgs e)
         {
             // UNIT TYPE 0 - Add items to LengthFromUnit combo box
@@ -250,76 +237,106 @@ namespace Unit_Converter
             dataSizeToUnitOutput.Items.Add(DataSizeConversion.sizePetabyte);
         }
 
-        // (3) CONTROLS - Calculate when button clicked
+        // (2) MENU BAR EVENTS - Open the About box to show the application
+        // credits
+        private void aboutUnitConverterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.Show();
+        }
+
+        // (2) MENU BAR EVENTS - Close the application
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        // (3) STATUS BAR EVENTS - Indicate to user converter is ready when unit
+        // type is changed (tab is changed)
+        private void unitSelector_SelectedIndexChanged(Object sender, EventArgs e)
+        {
+            statusIndicator.Text = StatusMessages.ready;
+        }
+
+        // (4) MAIN EVENTS (CONTROLS) - Calculate when button clicked
         private void lengthCalculateButton_Click(object sender, EventArgs e)
         {
             ExecuteCalculation();
         }
 
-        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
+        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
+        // input box
         private void lengthFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
+        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
+        // input box
         private void areaFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
+        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
+        // input box
         private void volumeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
+        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
+        // input box
         private void timeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
+        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
+        // input box
         private void speedFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
+        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
+        // input box
         private void massFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
+        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
+        // input box
         private void energyFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
+        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
+        // input box
         private void temperatureFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) CONTROLS - Calculate when [Enter] pressed in the input box
+        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
+        // input box
         private void dataSizeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (4) MAIN - Execute the calculation process
+        // (3) MAIN EVENTS (CALCULATION) - Execute the calculation process
         private void ExecuteCalculation()
         {
             string rawValue;         // raw data from the user-inputtable text box
@@ -327,7 +344,7 @@ namespace Unit_Converter
             bool canParse;           // shows whether raw user input data can be parsed to double
             bool unitError = false;  // shows if the user has not selected a unit for both from and or combo boxes
 
-            // User wants to convert length
+            // UNIT TYPE 0 - User wants to convert length
             if (unitSelector.SelectedIndex == 0)
             {
                 double lengthValue = 0;
@@ -392,7 +409,7 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessages.invalidInput;
             }
 
-            // User wants to convert area
+            // UNIT TYPE 1 - User wants to convert area
             else if (unitSelector.SelectedIndex == 1)
             {
                 double areaValue = 0;
@@ -469,7 +486,7 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessages.invalidInput;
             }
 
-            // User wants to convert volume
+            // UNIT TYPE 2 - User wants to convert volume
             else if (unitSelector.SelectedIndex == 2)
             {
                 double volumeValue = 0;
@@ -554,7 +571,7 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessages.invalidInput;
             }
 
-            // User wants to convert time
+            // UNIT TYPE 3 - User wants to convert time
             else if (unitSelector.SelectedIndex == 3)
             {
                 double timeValue = 0;
@@ -627,7 +644,7 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessages.invalidInput;
             }
 
-            // User wants to convert speed
+            // UNIT TYPE 4 - User wants to convert speed
             else if (unitSelector.SelectedIndex == 4)
             {
                 double speedValue = 0;
@@ -688,7 +705,7 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessages.invalidInput;
             }
 
-            // User wants to convert mass
+            // UNIT TYPE 5 - User wants to convert mass
             else if (unitSelector.SelectedIndex == 5)
             {
                 double massValue = 0;
@@ -769,7 +786,7 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessages.invalidInput;
             }
 
-            // User wants to convert energy
+            // UNIT TYPE 6 - User wants to convert energy
             else if (unitSelector.SelectedIndex == 6)
             {
                 double energyValue = 0;
@@ -826,7 +843,7 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessages.invalidInput;
             }
 
-            // User wants to convert temperature
+            // UNIT TYPE 7 - User wants to convert temperature
             else if (unitSelector.SelectedIndex == 7)
             {
                 double resultTemperatureValue = 0;
@@ -887,7 +904,7 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessages.invalidInput;
             }
 
-            // User wants to convert data size
+            // UNIT TYPE 8 - User wants to convert data size
             else if (unitSelector.SelectedIndex == 8)
             {
                 double dataSizeValue = 0;
@@ -943,12 +960,6 @@ namespace Unit_Converter
             // Somehow, the currently selected tab does not exist!
             else
                 statusIndicator.Text = StatusMessages.unitTypeError;
-        }
-
-        // (5) STATUS - Indicate to user converter is ready when unit type is changed (tab is changed)
-        private void unitSelector_SelectedIndexChanged(Object sender, EventArgs e)
-        {
-            statusIndicator.Text = StatusMessages.ready;
         }
     }
 
