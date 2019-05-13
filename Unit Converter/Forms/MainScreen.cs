@@ -1,5 +1,5 @@
 ﻿using System;
-// using System.Collections.Generic;
+using System.Collections.Generic;
 // using System.ComponentModel;
 // using System.Data;
 // using System.Drawing;
@@ -23,7 +23,8 @@ namespace Unit_Converter
             unitSelector.SelectedIndexChanged += new EventHandler(unitSelector_SelectedIndexChanged);
         }
 
-        // (1) INITIALISATION - Load all units
+        // (1) INITIALISATION - Define all units
+        // UNIT TYPE 0 - Length (9 Units)
         LengthUnit metre = new LengthUnit("Metre [m] (S.I. Unit)", 1d);
         LengthUnit kilometre = new LengthUnit("Kilometre [km]", 1000d);
         LengthUnit decimetre = new LengthUnit("Decimetre [dm]", 0.1d);
@@ -34,6 +35,7 @@ namespace Unit_Converter
         LengthUnit foot = new LengthUnit("Foot [ft]", (1d / 3.280839895d));
         LengthUnit inch = new LengthUnit("Inch [in]", ((1d / 3.280839895d) / 12d));
 
+        // UNIT TYPE 1 - Area (12 Units)
         AreaUnit squareMetre = new AreaUnit("Square Metre [m²] (S.I. Unit)", 1d);
         AreaUnit squareKilometre = new AreaUnit("Square Kilometre [km²]", 1000000d);
         AreaUnit squareDecimetre = new AreaUnit("Square Decimetre [dm²]", 0.01d);
@@ -47,6 +49,7 @@ namespace Unit_Converter
         AreaUnit are = new AreaUnit("Are [a]", 100d);
         AreaUnit hectare = new AreaUnit("Hectare [ha]", 10000d);
 
+        // UNIT TYPE 2 - Volume (14 Units)
         VolumeUnit cubicMetre = new VolumeUnit("Cubic Metre [m³] (S.I. Unit)", 1d);
         VolumeUnit cubicCentimetre = new VolumeUnit("Cubic Centimetre [cm³]", 0.000001d);
         VolumeUnit cubicMillimetre = new VolumeUnit("Cubic Millimetre [mm³]", 0.000000001d);
@@ -62,6 +65,7 @@ namespace Unit_Converter
         VolumeUnit tablespoon = new VolumeUnit("Tablespoon (US Customary)", (4226.75283773038d / 16d));
         VolumeUnit teaspoon = new VolumeUnit("Teaspoon (US Customary)", (4226.75283773038d / 48d));
 
+        // UNIT TYPE 3 - Time (11 Units)
         TimeUnit second = new TimeUnit("Second [s] (S.I. Unit)", 1d);
         TimeUnit millisecond = new TimeUnit("Millisecond [ms]", 0.001d);
         TimeUnit microsecond = new TimeUnit("Microsecond [μs]", 0.000001d);
@@ -74,6 +78,7 @@ namespace Unit_Converter
         TimeUnit year = new TimeUnit("Year", 31536000d);
         TimeUnit yearLeap = new TimeUnit("Year (Leap)", 31622400d);
 
+        // UNIT TYPE 4 - Speed (8 Units)
         SpeedUnit metrePerSecond = new SpeedUnit("Metre per Second [m/s] (S.I. Unit)", 1d);
         SpeedUnit metrePerHour = new SpeedUnit("Metre per Hour [m/h]", (1d / 3600d));
         SpeedUnit kilometrePerSecond = new SpeedUnit("Kilometre per Second [km/s]", 1000d);
@@ -83,6 +88,7 @@ namespace Unit_Converter
         SpeedUnit milePerSecond = new SpeedUnit("Mile per Second [mi/s]", ((1d / 3.280839895d) * 5280d));
         SpeedUnit milePerHour = new SpeedUnit("Mile per Hour [mi/h]", ((1d / 3.280839895d) * 5280d / 3600d));
 
+        // UNIT TYPE 5 - Mass (13 Units)
         MassUnit kilogram = new MassUnit("Kilogram [kg] (S.I. Unit)", 1d);
         MassUnit gram = new MassUnit("Gram [g]", (1d / 1000d));
         MassUnit milligram = new MassUnit("Milligram [mg]", (1d / 1000000d));
@@ -97,6 +103,7 @@ namespace Unit_Converter
         MassUnit kilotonShort = new MassUnit("Kiloton (Short)", ((1d / 2.20462262184878d) * 2000000d));
         MassUnit kilotonLong = new MassUnit("Kiloton (Long)", ((1d / 2.20462262184878d) * 2240000d));
 
+        // UNIT TYPE 6 - Energy (7 Units)
         EnergyUnit joule = new EnergyUnit("Joule [J] (S.I. Unit)", 1d);
         EnergyUnit kilojoule = new EnergyUnit("Kilojoule [kj]", 1000d);
         EnergyUnit wattHour = new EnergyUnit("Watt Hour [Wh]", 3600d);
@@ -105,10 +112,12 @@ namespace Unit_Converter
         EnergyUnit kilocalorie = new EnergyUnit("Kilocalorie", 4184d);
         EnergyUnit btu = new EnergyUnit("British Thermal Unit (BTU)", 1055.05585262d);
 
+        // UNIT TYPE 7 - Temperature (3 Units, not a multiplicative unit type)
         TemperatureUnit kelvin = new TemperatureUnit("Kelvin [K] (S.I. Unit)");
         TemperatureUnit celsius = new TemperatureUnit("Celsius [°C]");
         TemperatureUnit fahrenheit = new TemperatureUnit("Fahrenheit [°F]");
 
+        // UNIT TYPE 8 - Data Size (6 Units)
         DataSizeUnit sizeByte = new DataSizeUnit("Byte [B]", 1d);
         DataSizeUnit sizeKilobyte = new DataSizeUnit("Kilobyte [kb]", 1024d);
         DataSizeUnit sizeMegabyte = new DataSizeUnit("Megabyte [MB]", 1048576d);
@@ -116,218 +125,175 @@ namespace Unit_Converter
         DataSizeUnit sizeTerabyte = new DataSizeUnit("Terabyte [TB]", 1099511627776d);
         DataSizeUnit sizePetabyte = new DataSizeUnit("Petabyte [PB]", 1125899906842624d);
 
+        // (1) INITIALISATION - Define lists to contain units
+        List<LengthUnit> lengthUnits = new List<LengthUnit>();
+        List<AreaUnit> areaUnits = new List<AreaUnit>();
+        List<VolumeUnit> volumeUnits = new List<VolumeUnit>();
+        List<TimeUnit> timeUnits = new List<TimeUnit>();
+        List<SpeedUnit> speedUnits = new List<SpeedUnit>();
+        List<MassUnit> massUnits = new List<MassUnit>();
+        List<EnergyUnit> energyUnits = new List<EnergyUnit>();
+        List<TemperatureUnit> temperatureUnits = new List<TemperatureUnit>();
+        List<DataSizeUnit> dataSizeUnits = new List<DataSizeUnit>();
+
         // (1) INITIALISATION - Load elements to main screen controls
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            // UNIT TYPE 0 - Add items to LengthFromUnit combo box
-            lengthFromUnitInput.Items.Add(metre.getName());
-            lengthFromUnitInput.Items.Add(kilometre.getName());
-            lengthFromUnitInput.Items.Add(decimetre.getName());
-            lengthFromUnitInput.Items.Add(centimetre.getName());
-            lengthFromUnitInput.Items.Add(millimetre.getName());
-            lengthFromUnitInput.Items.Add(mile.getName());
-            lengthFromUnitInput.Items.Add(yard.getName());
-            lengthFromUnitInput.Items.Add(foot.getName());
-            lengthFromUnitInput.Items.Add(inch.getName());
+            // UNIT TYPE 0 - Length
+            lengthUnits.Add(metre);
+            lengthUnits.Add(kilometre);
+            lengthUnits.Add(decimetre);
+            lengthUnits.Add(centimetre);
+            lengthUnits.Add(millimetre);
+            lengthUnits.Add(mile);
+            lengthUnits.Add(yard);
+            lengthUnits.Add(foot);
+            lengthUnits.Add(inch);
 
-            // UNIT TYPE 0 - Add items to LengthToUnit combo box
-            lengthToUnitOutput.Items.Add(metre.getName());
-            lengthToUnitOutput.Items.Add(kilometre.getName());
-            lengthToUnitOutput.Items.Add(decimetre.getName());
-            lengthToUnitOutput.Items.Add(centimetre.getName());
-            lengthToUnitOutput.Items.Add(millimetre.getName());
-            lengthToUnitOutput.Items.Add(mile.getName());
-            lengthToUnitOutput.Items.Add(yard.getName());
-            lengthToUnitOutput.Items.Add(foot.getName());
-            lengthToUnitOutput.Items.Add(inch.getName());
+            foreach (LengthUnit element in lengthUnits)
+            {
+                lengthFromUnitInput.Items.Add(element.getName());
+                lengthToUnitOutput.Items.Add(element.getName());
+            }
 
 
-            // UNIT TYPE 1 - Add items to AreaFromUnit combo box
-            areaFromUnitInput.Items.Add(squareMetre.getName());
-            areaFromUnitInput.Items.Add(squareKilometre.getName());
-            areaFromUnitInput.Items.Add(squareDecimetre.getName());
-            areaFromUnitInput.Items.Add(squareCentimetre.getName());
-            areaFromUnitInput.Items.Add(squareMillimetre.getName());
-            areaFromUnitInput.Items.Add(squareMile.getName());
-            areaFromUnitInput.Items.Add(squareYard.getName());
-            areaFromUnitInput.Items.Add(squareFoot.getName());
-            areaFromUnitInput.Items.Add(squareInch.getName());
-            areaFromUnitInput.Items.Add(acre.getName());
-            areaFromUnitInput.Items.Add(are.getName());
-            areaFromUnitInput.Items.Add(hectare.getName());
+            // UNIT TYPE 1 - Area
+            areaUnits.Add(squareMetre);
+            areaUnits.Add(squareKilometre);
+            areaUnits.Add(squareDecimetre);
+            areaUnits.Add(squareCentimetre);
+            areaUnits.Add(squareMillimetre);
+            areaUnits.Add(squareMile);
+            areaUnits.Add(squareYard);
+            areaUnits.Add(squareFoot);
+            areaUnits.Add(squareInch);
+            areaUnits.Add(acre);
+            areaUnits.Add(are);
+            areaUnits.Add(hectare);
 
-            // UNIT TYPE 1 - Add items to AreaToUnit combo box
-            areaToUnitOutput.Items.Add(squareMetre.getName());
-            areaToUnitOutput.Items.Add(squareKilometre.getName());
-            areaToUnitOutput.Items.Add(squareDecimetre.getName());
-            areaToUnitOutput.Items.Add(squareCentimetre.getName());
-            areaToUnitOutput.Items.Add(squareMillimetre.getName());
-            areaToUnitOutput.Items.Add(squareMile.getName());
-            areaToUnitOutput.Items.Add(squareYard.getName());
-            areaToUnitOutput.Items.Add(squareFoot.getName());
-            areaToUnitOutput.Items.Add(squareInch.getName());
-            areaToUnitOutput.Items.Add(acre.getName());
-            areaToUnitOutput.Items.Add(are.getName());
-            areaToUnitOutput.Items.Add(hectare.getName());
+            foreach (AreaUnit element in areaUnits)
+            {
+                areaFromUnitInput.Items.Add(element.getName());
+                areaToUnitOutput.Items.Add(element.getName());
+            }
 
+            // UNIT TYPE 2 - Volume
+            volumeUnits.Add(cubicMetre);
+            volumeUnits.Add(cubicCentimetre);
+            volumeUnits.Add(cubicMillimetre);
+            volumeUnits.Add(cubicYard);
+            volumeUnits.Add(cubicFoot);
+            volumeUnits.Add(cubicInch);
+            volumeUnits.Add(litre);
+            volumeUnits.Add(millilitre);
+            volumeUnits.Add(gallon);
+            volumeUnits.Add(quart);
+            volumeUnits.Add(pint);
+            volumeUnits.Add(cup);
+            volumeUnits.Add(tablespoon);
+            volumeUnits.Add(teaspoon);
 
-            // UNIT TYPE 2 - Add items to VolumeFromUnit combo box
-            volumeFromUnitInput.Items.Add(cubicMetre.getName());
-            volumeFromUnitInput.Items.Add(cubicCentimetre.getName());
-            volumeFromUnitInput.Items.Add(cubicMillimetre.getName());
-            volumeFromUnitInput.Items.Add(cubicYard.getName());
-            volumeFromUnitInput.Items.Add(cubicFoot.getName());
-            volumeFromUnitInput.Items.Add(cubicInch.getName());
-            volumeFromUnitInput.Items.Add(litre.getName());
-            volumeFromUnitInput.Items.Add(millilitre.getName());
-            volumeFromUnitInput.Items.Add(gallon.getName());
-            volumeFromUnitInput.Items.Add(quart.getName());
-            volumeFromUnitInput.Items.Add(pint.getName());
-            volumeFromUnitInput.Items.Add(cup.getName());
-            volumeFromUnitInput.Items.Add(tablespoon.getName());
-            volumeFromUnitInput.Items.Add(teaspoon.getName());
+            foreach (VolumeUnit element in volumeUnits)
+            {
+                volumeFromUnitInput.Items.Add(element.getName());
+                volumeToUnitOutput.Items.Add(element.getName());
+            }
 
-            // UNIT TYPE 2 - Add items to VolumeToUnit combo box
-            volumeToUnitOutput.Items.Add(cubicMetre.getName());
-            volumeToUnitOutput.Items.Add(cubicCentimetre.getName());
-            volumeToUnitOutput.Items.Add(cubicMillimetre.getName());
-            volumeToUnitOutput.Items.Add(cubicYard.getName());
-            volumeToUnitOutput.Items.Add(cubicFoot.getName());
-            volumeToUnitOutput.Items.Add(cubicInch.getName());
-            volumeToUnitOutput.Items.Add(litre.getName());
-            volumeToUnitOutput.Items.Add(millilitre.getName());
-            volumeToUnitOutput.Items.Add(gallon.getName());
-            volumeToUnitOutput.Items.Add(quart.getName());
-            volumeToUnitOutput.Items.Add(pint.getName());
-            volumeToUnitOutput.Items.Add(cup.getName());
-            volumeToUnitOutput.Items.Add(tablespoon.getName());
-            volumeToUnitOutput.Items.Add(teaspoon.getName());
+            // UNIT TYPE 3 - Time
+            timeUnits.Add(second);
+            timeUnits.Add(millisecond);
+            timeUnits.Add(microsecond);
+            timeUnits.Add(nanosecond);
+            timeUnits.Add(minute);
+            timeUnits.Add(hour);
+            timeUnits.Add(day);
+            timeUnits.Add(week);
+            timeUnits.Add(fortnight);
+            timeUnits.Add(year);
+            timeUnits.Add(yearLeap);
 
+            foreach (TimeUnit element in timeUnits)
+            {
+                timeFromUnitInput.Items.Add(element.getName());
+                timeToUnitOutput.Items.Add(element.getName());
+            }
 
-            // UNIT TYPE 3 - Add items to TimeFromUnit combo box
-            timeFromUnitInput.Items.Add(second.getName());
-            timeFromUnitInput.Items.Add(millisecond.getName());
-            timeFromUnitInput.Items.Add(microsecond.getName());
-            timeFromUnitInput.Items.Add(nanosecond.getName());
-            timeFromUnitInput.Items.Add(minute.getName());
-            timeFromUnitInput.Items.Add(hour.getName());
-            timeFromUnitInput.Items.Add(day.getName());
-            timeFromUnitInput.Items.Add(week.getName());
-            timeFromUnitInput.Items.Add(fortnight.getName());
-            timeFromUnitInput.Items.Add(year.getName());
-            timeFromUnitInput.Items.Add(yearLeap.getName());
+            // UNIT TYPE 4 - Speed
+            speedUnits.Add(metrePerSecond);
+            speedUnits.Add(metrePerHour);
+            speedUnits.Add(kilometrePerSecond);
+            speedUnits.Add(kilometrePerHour);
+            speedUnits.Add(footPerSecond);
+            speedUnits.Add(footPerHour);
+            speedUnits.Add(milePerSecond);
+            speedUnits.Add(milePerHour);
 
-            // UNIT TYPE 3 - Add items to TimeToUnit combo box
-            timeToUnitOutput.Items.Add(second.getName());
-            timeToUnitOutput.Items.Add(millisecond.getName());
-            timeToUnitOutput.Items.Add(microsecond.getName());
-            timeToUnitOutput.Items.Add(nanosecond.getName());
-            timeToUnitOutput.Items.Add(minute.getName());
-            timeToUnitOutput.Items.Add(hour.getName());
-            timeToUnitOutput.Items.Add(day.getName());
-            timeToUnitOutput.Items.Add(week.getName());
-            timeToUnitOutput.Items.Add(fortnight.getName());
-            timeToUnitOutput.Items.Add(year.getName());
-            timeToUnitOutput.Items.Add(yearLeap.getName());
+            foreach (SpeedUnit element in speedUnits)
+            {
+                speedFromUnitInput.Items.Add(element.getName());
+                speedToUnitOutput.Items.Add(element.getName());
+            }
 
+            // UNIT TYPE 5 - Mass
+            massUnits.Add(kilogram);
+            massUnits.Add(gram);
+            massUnits.Add(milligram);
+            massUnits.Add(microgram);
+            massUnits.Add(tonne);
+            massUnits.Add(kilotonne);
+            massUnits.Add(pound);
+            massUnits.Add(ounce);
+            massUnits.Add(stoneUK);
+            massUnits.Add(tonShort);
+            massUnits.Add(tonLong);
+            massUnits.Add(kilotonShort);
+            massUnits.Add(kilotonLong);
 
-            // UNIT TYPE 4 - Add items to SpeedFromUnit combo box
-            speedFromUnitInput.Items.Add(metrePerSecond.getName());
-            speedFromUnitInput.Items.Add(metrePerHour.getName());
-            speedFromUnitInput.Items.Add(kilometrePerSecond.getName());
-            speedFromUnitInput.Items.Add(kilometrePerHour.getName());
-            speedFromUnitInput.Items.Add(footPerSecond.getName());
-            speedFromUnitInput.Items.Add(footPerHour.getName());
-            speedFromUnitInput.Items.Add(milePerSecond.getName());
-            speedFromUnitInput.Items.Add(milePerHour.getName());
+            foreach (MassUnit element in massUnits)
+            {
+                massFromUnitInput.Items.Add(element.getName());
+                massToUnitOutput.Items.Add(element.getName());
+            }
 
-            // UNIT TYPE 4 - Add items to SpeedToUnit combo box
-            speedToUnitOutput.Items.Add(metrePerSecond.getName());
-            speedToUnitOutput.Items.Add(metrePerHour.getName());
-            speedToUnitOutput.Items.Add(kilometrePerSecond.getName());
-            speedToUnitOutput.Items.Add(kilometrePerHour.getName());
-            speedToUnitOutput.Items.Add(footPerSecond.getName());
-            speedToUnitOutput.Items.Add(footPerHour.getName());
-            speedToUnitOutput.Items.Add(milePerSecond.getName());
-            speedToUnitOutput.Items.Add(milePerHour.getName());
+            // UNIT TYPE 6 - Energy
+            energyUnits.Add(joule);
+            energyUnits.Add(kilojoule);
+            energyUnits.Add(wattHour);
+            energyUnits.Add(kilowattHour);
+            energyUnits.Add(calorie);
+            energyUnits.Add(kilocalorie);
+            energyUnits.Add(btu);
 
+            foreach (EnergyUnit element in energyUnits)
+            {
+                energyFromUnitInput.Items.Add(element.getName());
+                energyToUnitOutput.Items.Add(element.getName());
+            }
 
-            // UNIT TYPE 5 - Add items to MassFromUnit combo box
-            massFromUnitInput.Items.Add(kilogram.getName());
-            massFromUnitInput.Items.Add(gram.getName());
-            massFromUnitInput.Items.Add(milligram.getName());
-            massFromUnitInput.Items.Add(microgram.getName());
-            massFromUnitInput.Items.Add(tonne.getName());
-            massFromUnitInput.Items.Add(kilotonne.getName());
-            massFromUnitInput.Items.Add(pound.getName());
-            massFromUnitInput.Items.Add(ounce.getName());
-            massFromUnitInput.Items.Add(stoneUK.getName());
-            massFromUnitInput.Items.Add(tonShort.getName());
-            massFromUnitInput.Items.Add(tonLong.getName());
-            massFromUnitInput.Items.Add(kilotonShort.getName());
-            massFromUnitInput.Items.Add(kilotonLong.getName());
+            // UNIT TYPE 7 - Temperature
+            temperatureUnits.Add(kelvin);
+            temperatureUnits.Add(celsius);
+            temperatureUnits.Add(fahrenheit);
 
-            // UNIT TYPE 5 - Add items to MassToUnit combo box
-            massToUnitOutput.Items.Add(kilogram.getName());
-            massToUnitOutput.Items.Add(gram.getName());
-            massToUnitOutput.Items.Add(milligram.getName());
-            massToUnitOutput.Items.Add(microgram.getName());
-            massToUnitOutput.Items.Add(tonne.getName());
-            massToUnitOutput.Items.Add(kilotonne.getName());
-            massToUnitOutput.Items.Add(pound.getName());
-            massToUnitOutput.Items.Add(ounce.getName());
-            massToUnitOutput.Items.Add(stoneUK.getName());
-            massToUnitOutput.Items.Add(tonShort.getName());
-            massToUnitOutput.Items.Add(tonLong.getName());
-            massToUnitOutput.Items.Add(kilotonShort.getName());
-            massToUnitOutput.Items.Add(kilotonLong.getName());
+            foreach (TemperatureUnit element in temperatureUnits)
+            {
+                temperatureFromUnitInput.Items.Add(element.getName());
+                temperatureToUnitOutput.Items.Add(element.getName());
+            }
 
+            // UNIT TYPE 8 - Data Size
+            dataSizeUnits.Add(sizeByte);
+            dataSizeUnits.Add(sizeKilobyte);
+            dataSizeUnits.Add(sizeMegabyte);
+            dataSizeUnits.Add(sizeGigabyte);
+            dataSizeUnits.Add(sizeTerabyte);
+            dataSizeUnits.Add(sizePetabyte);
 
-            // UNIT TYPE 6 - Add items to EnergyFromUnit combo box
-            energyFromUnitInput.Items.Add(joule.getName());
-            energyFromUnitInput.Items.Add(kilojoule.getName());
-            energyFromUnitInput.Items.Add(wattHour.getName());
-            energyFromUnitInput.Items.Add(kilowattHour.getName());
-            energyFromUnitInput.Items.Add(calorie.getName());
-            energyFromUnitInput.Items.Add(kilocalorie.getName());
-            energyFromUnitInput.Items.Add(btu.getName());
-
-            // UNIT TYPE 6 - Add items to EnergyToUnit combo box
-            energyToUnitOutput.Items.Add(joule.getName());
-            energyToUnitOutput.Items.Add(kilojoule.getName());
-            energyToUnitOutput.Items.Add(wattHour.getName());
-            energyToUnitOutput.Items.Add(kilowattHour.getName());
-            energyToUnitOutput.Items.Add(calorie.getName());
-            energyToUnitOutput.Items.Add(kilocalorie.getName());
-            energyToUnitOutput.Items.Add(btu.getName());
-
-
-            // UNIT TYPE 7 - Add items to TemperatureFromUnit combo box
-            temperatureFromUnitInput.Items.Add(kelvin.getName());
-            temperatureFromUnitInput.Items.Add(celsius.getName());
-            temperatureFromUnitInput.Items.Add(fahrenheit.getName());
-
-            // UNIT TYPE 7 - Add items to TemperatureToUnit combo box
-            temperatureToUnitOutput.Items.Add(kelvin.getName());
-            temperatureToUnitOutput.Items.Add(celsius.getName());
-            temperatureToUnitOutput.Items.Add(fahrenheit.getName());
-
-
-            // UNIT TYPE 8 - Add items to DataSizeFromUnit combo box
-            dataSizeFromUnitInput.Items.Add(sizeByte.getName());
-            dataSizeFromUnitInput.Items.Add(sizeKilobyte.getName());
-            dataSizeFromUnitInput.Items.Add(sizeMegabyte.getName());
-            dataSizeFromUnitInput.Items.Add(sizeGigabyte.getName());
-            dataSizeFromUnitInput.Items.Add(sizeTerabyte.getName());
-            dataSizeFromUnitInput.Items.Add(sizePetabyte.getName());
-
-            // UNIT TYPE 8 - Add items to DataSizeToUnit combo box
-            dataSizeToUnitOutput.Items.Add(sizeByte.getName());
-            dataSizeToUnitOutput.Items.Add(sizeKilobyte.getName());
-            dataSizeToUnitOutput.Items.Add(sizeMegabyte.getName());
-            dataSizeToUnitOutput.Items.Add(sizeGigabyte.getName());
-            dataSizeToUnitOutput.Items.Add(sizeTerabyte.getName());
-            dataSizeToUnitOutput.Items.Add(sizePetabyte.getName());
+            foreach (DataSizeUnit element in dataSizeUnits)
+            {
+                dataSizeFromUnitInput.Items.Add(element.getName());
+                dataSizeToUnitOutput.Items.Add(element.getName());
+            }
         }
 
         // (2) MENU BAR EVENTS - Open the About box to show the application
@@ -1064,20 +1030,5 @@ namespace Unit_Converter
         public const string invalidInput = "Invalid input!";
         public const string unitTypeError = "Error: Invalid unit type! Restart application.";
         public const string unitError = "No unit(s) selected!";
-    }
-
-    // (*) MISC - Define the length conversion strings and values
-    // Define the unit types
-    public static class UnitTypeStrings
-    {
-        public const string length = "Length";
-        public const string area = "Area";
-        public const string volume = "Volume";
-        public const string time = "Time";
-        public const string speed = "Speed";
-        public const string mass = "Mass";
-        public const string energy = "Energy";
-        public const string temperature = "Temperature";
-        public const string dataSize = "Data Size";
     }
 }
