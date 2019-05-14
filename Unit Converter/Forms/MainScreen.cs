@@ -317,85 +317,76 @@ namespace Unit_Converter
             statusIndicator.Text = StatusMessages.ready;
         }
 
-        // (4) MAIN EVENTS (CONTROLS) - Calculate when button clicked
+        // (4) CONTROLS - Calculate when button clicked
         private void lengthCalculateButton_Click(object sender, EventArgs e)
         {
             ExecuteCalculation();
         }
 
-        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
-        // input box
+        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void lengthFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
-        // input box
+        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void areaFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
-        // input box
+        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void volumeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
-        // input box
+        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void timeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
-        // input box
+        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void speedFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
-        // input box
+        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void massFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
-        // input box
+        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void energyFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
-        // input box
+        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void temperatureFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) MAIN EVENTS (CONTROLS) - Calculate when [Enter] pressed in the
-        // input box
+        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void dataSizeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 ExecuteCalculation();
         }
 
-        // (3) MAIN EVENTS (CALCULATION) - Execute the calculation process
+        // (5) CALCULATION - Execute the calculation process
         private void ExecuteCalculation()
         {
             string rawValue;         // raw data from the user-inputtable text box
@@ -756,15 +747,5 @@ namespace Unit_Converter
             else
                 statusIndicator.Text = StatusMessages.unitTypeError;
         }
-    }
-
-    // (*) MISC - Define the status messages
-    public static class StatusMessages
-    {
-        public const string ready = "Ready";
-        public const string done = "Done";
-        public const string invalidInput = "Invalid input!";
-        public const string unitTypeError = "Error: Invalid unit type! Restart application.";
-        public const string unitError = "No unit(s) selected!";
     }
 }

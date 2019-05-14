@@ -92,7 +92,7 @@ namespace Unit_Converter
 
     public class TemperatureUnit
     {
-        private string name;
+        private readonly string name;
 
         public TemperatureUnit(string pName)
         {
