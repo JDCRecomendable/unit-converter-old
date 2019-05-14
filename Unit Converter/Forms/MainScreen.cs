@@ -25,92 +25,92 @@ namespace Unit_Converter
 
         // (1) INITIALISATION - Define all units
         // UNIT TYPE 0 - Length (9 Units)
-        LengthUnit metre = new LengthUnit("Metre [m] (S.I. Unit)", 1d);
-        LengthUnit kilometre = new LengthUnit("Kilometre [km]", 1000d);
-        LengthUnit decimetre = new LengthUnit("Decimetre [dm]", 0.1d);
-        LengthUnit centimetre = new LengthUnit("Centimetre [cm]", 0.01d);
-        LengthUnit millimetre = new LengthUnit("Millimetre [mm]", 0.001d);
-        LengthUnit mile = new LengthUnit("Mile [mi]", ((1d / 3.280839895d) * 5280d));
-        LengthUnit yard = new LengthUnit("Yard [yd]", ((1d / 3.280839895d) * 3d));
-        LengthUnit foot = new LengthUnit("Foot [ft]", (1d / 3.280839895d));
-        LengthUnit inch = new LengthUnit("Inch [in]", ((1d / 3.280839895d) / 12d));
+        BaseUnit metre = new BaseUnit("Metre [m] (S.I. Unit)", 1d);
+        BaseUnit kilometre = new BaseUnit("Kilometre [km]", 1000d);
+        BaseUnit decimetre = new BaseUnit("Decimetre [dm]", 0.1d);
+        BaseUnit centimetre = new BaseUnit("Centimetre [cm]", 0.01d);
+        BaseUnit millimetre = new BaseUnit("Millimetre [mm]", 0.001d);
+        BaseUnit mile = new BaseUnit("Mile [mi]", ((1d / 3.280839895d) * 5280d));
+        BaseUnit yard = new BaseUnit("Yard [yd]", ((1d / 3.280839895d) * 3d));
+        BaseUnit foot = new BaseUnit("Foot [ft]", (1d / 3.280839895d));
+        BaseUnit inch = new BaseUnit("Inch [in]", ((1d / 3.280839895d) / 12d));
 
         // UNIT TYPE 1 - Area (12 Units)
-        AreaUnit squareMetre = new AreaUnit("Square Metre [m²] (S.I. Unit)", 1d);
-        AreaUnit squareKilometre = new AreaUnit("Square Kilometre [km²]", 1000000d);
-        AreaUnit squareDecimetre = new AreaUnit("Square Decimetre [dm²]", 0.01d);
-        AreaUnit squareCentimetre = new AreaUnit("Square Centimetre [cm²]", 0.0001d);
-        AreaUnit squareMillimetre = new AreaUnit("Square Millimetre [mm²]", 0.000001);
-        AreaUnit squareMile = new AreaUnit("Square Mile [mi²]", ((1d / 1.19599004630108d) * 3097600d));
-        AreaUnit squareYard = new AreaUnit("Square Yard [yd²]", (1d / 1.19599004630108d));
-        AreaUnit squareFoot = new AreaUnit("Square Foot [ft²]", ((1d / 1.19599004630108d) / 9d));
-        AreaUnit squareInch = new AreaUnit("Square Inch [in²]", ((1d / 1.19599004630108d) / 1296d));
-        AreaUnit acre = new AreaUnit("Acre [ac]", ((1d / 1.19599004630108d) * 4840d));
-        AreaUnit are = new AreaUnit("Are [a]", 100d);
-        AreaUnit hectare = new AreaUnit("Hectare [ha]", 10000d);
+        BaseUnit squareMetre = new BaseUnit("Square Metre [m²] (S.I. Unit)", 1d);
+        BaseUnit squareKilometre = new BaseUnit("Square Kilometre [km²]", 1000000d);
+        BaseUnit squareDecimetre = new BaseUnit("Square Decimetre [dm²]", 0.01d);
+        BaseUnit squareCentimetre = new BaseUnit("Square Centimetre [cm²]", 0.0001d);
+        BaseUnit squareMillimetre = new BaseUnit("Square Millimetre [mm²]", 0.000001);
+        BaseUnit squareMile = new BaseUnit("Square Mile [mi²]", ((1d / 1.19599004630108d) * 3097600d));
+        BaseUnit squareYard = new BaseUnit("Square Yard [yd²]", (1d / 1.19599004630108d));
+        BaseUnit squareFoot = new BaseUnit("Square Foot [ft²]", ((1d / 1.19599004630108d) / 9d));
+        BaseUnit squareInch = new BaseUnit("Square Inch [in²]", ((1d / 1.19599004630108d) / 1296d));
+        BaseUnit acre = new BaseUnit("Acre [ac]", ((1d / 1.19599004630108d) * 4840d));
+        BaseUnit are = new BaseUnit("Are [a]", 100d);
+        BaseUnit hectare = new BaseUnit("Hectare [ha]", 10000d);
 
         // UNIT TYPE 2 - Volume (14 Units)
-        VolumeUnit cubicMetre = new VolumeUnit("Cubic Metre [m³] (S.I. Unit)", 1d);
-        VolumeUnit cubicCentimetre = new VolumeUnit("Cubic Centimetre [cm³]", 0.000001d);
-        VolumeUnit cubicMillimetre = new VolumeUnit("Cubic Millimetre [mm³]", 0.000000001d);
-        VolumeUnit cubicYard = new VolumeUnit("Cubic Yard [yd³]", (1d / 1.30795061931439d));
-        VolumeUnit cubicFoot = new VolumeUnit("Cubic Foot [ft³]", ((1d / 1.30795061931439d) / 27d));
-        VolumeUnit cubicInch = new VolumeUnit("Cubic Inch [in³]", ((1d / 1.30795061931439d) / 46656d));
-        VolumeUnit litre = new VolumeUnit("Litre [L]", 0.001d);
-        VolumeUnit millilitre = new VolumeUnit("Millilitre [mL]", 0.000001d);
-        VolumeUnit gallon = new VolumeUnit("Gallon (Imperial)", (1d / 219.969248299088d));
-        VolumeUnit quart = new VolumeUnit("Quart (Imperial)", ((1d / 219.969248299088d) / 4d));
-        VolumeUnit pint = new VolumeUnit("Pint (Imperial)", ((1d / 219.969248299088d) / 8d));
-        VolumeUnit cup = new VolumeUnit("Cup (US Customary)", 4226.75283773038d);
-        VolumeUnit tablespoon = new VolumeUnit("Tablespoon (US Customary)", (4226.75283773038d / 16d));
-        VolumeUnit teaspoon = new VolumeUnit("Teaspoon (US Customary)", (4226.75283773038d / 48d));
+        BaseUnit cubicMetre = new BaseUnit("Cubic Metre [m³] (S.I. Unit)", 1d);
+        BaseUnit cubicCentimetre = new BaseUnit("Cubic Centimetre [cm³]", 0.000001d);
+        BaseUnit cubicMillimetre = new BaseUnit("Cubic Millimetre [mm³]", 0.000000001d);
+        BaseUnit cubicYard = new BaseUnit("Cubic Yard [yd³]", (1d / 1.30795061931439d));
+        BaseUnit cubicFoot = new BaseUnit("Cubic Foot [ft³]", ((1d / 1.30795061931439d) / 27d));
+        BaseUnit cubicInch = new BaseUnit("Cubic Inch [in³]", ((1d / 1.30795061931439d) / 46656d));
+        BaseUnit litre = new BaseUnit("Litre [L]", 0.001d);
+        BaseUnit millilitre = new BaseUnit("Millilitre [mL]", 0.000001d);
+        BaseUnit gallon = new BaseUnit("Gallon (Imperial)", (1d / 219.969248299088d));
+        BaseUnit quart = new BaseUnit("Quart (Imperial)", ((1d / 219.969248299088d) / 4d));
+        BaseUnit pint = new BaseUnit("Pint (Imperial)", ((1d / 219.969248299088d) / 8d));
+        BaseUnit cup = new BaseUnit("Cup (US Customary)", 4226.75283773038d);
+        BaseUnit tablespoon = new BaseUnit("Tablespoon (US Customary)", (4226.75283773038d / 16d));
+        BaseUnit teaspoon = new BaseUnit("Teaspoon (US Customary)", (4226.75283773038d / 48d));
 
         // UNIT TYPE 3 - Time (11 Units)
-        TimeUnit second = new TimeUnit("Second [s] (S.I. Unit)", 1d);
-        TimeUnit millisecond = new TimeUnit("Millisecond [ms]", 0.001d);
-        TimeUnit microsecond = new TimeUnit("Microsecond [μs]", 0.000001d);
-        TimeUnit nanosecond = new TimeUnit("Nanosecond [ns]", 000000001d);
-        TimeUnit minute = new TimeUnit("Minute [min]", 60d);
-        TimeUnit hour = new TimeUnit("Hour [h]", 3600d);
-        TimeUnit day = new TimeUnit("Day", 86400d);
-        TimeUnit week = new TimeUnit("Week", 604800d);
-        TimeUnit fortnight = new TimeUnit("Fortnight", 1209600d);
-        TimeUnit year = new TimeUnit("Year", 31536000d);
-        TimeUnit yearLeap = new TimeUnit("Year (Leap)", 31622400d);
+        BaseUnit second = new BaseUnit("Second [s] (S.I. Unit)", 1d);
+        BaseUnit millisecond = new BaseUnit("Millisecond [ms]", 0.001d);
+        BaseUnit microsecond = new BaseUnit("Microsecond [μs]", 0.000001d);
+        BaseUnit nanosecond = new BaseUnit("Nanosecond [ns]", 000000001d);
+        BaseUnit minute = new BaseUnit("Minute [min]", 60d);
+        BaseUnit hour = new BaseUnit("Hour [h]", 3600d);
+        BaseUnit day = new BaseUnit("Day", 86400d);
+        BaseUnit week = new BaseUnit("Week", 604800d);
+        BaseUnit fortnight = new BaseUnit("Fortnight", 1209600d);
+        BaseUnit year = new BaseUnit("Year", 31536000d);
+        BaseUnit yearLeap = new BaseUnit("Year (Leap)", 31622400d);
 
         // UNIT TYPE 4 - Speed (8 Units)
-        SpeedUnit metrePerSecond = new SpeedUnit("Metre per Second [m/s] (S.I. Unit)", 1d);
-        SpeedUnit metrePerHour = new SpeedUnit("Metre per Hour [m/h]", (1d / 3600d));
-        SpeedUnit kilometrePerSecond = new SpeedUnit("Kilometre per Second [km/s]", 1000d);
-        SpeedUnit kilometrePerHour = new SpeedUnit("Kilometre per Hour [km/h]", (1d / 3.6d));
-        SpeedUnit footPerSecond = new SpeedUnit("Foot per Second [ft/s]", (1d / 3.280839895d));
-        SpeedUnit footPerHour = new SpeedUnit("Foot per Hour [ft/h]", ((1d / 3.280839895d) / 3600d));
-        SpeedUnit milePerSecond = new SpeedUnit("Mile per Second [mi/s]", ((1d / 3.280839895d) * 5280d));
-        SpeedUnit milePerHour = new SpeedUnit("Mile per Hour [mi/h]", ((1d / 3.280839895d) * 5280d / 3600d));
+        BaseUnit metrePerSecond = new BaseUnit("Metre per Second [m/s] (S.I. Unit)", 1d);
+        BaseUnit metrePerHour = new BaseUnit("Metre per Hour [m/h]", (1d / 3600d));
+        BaseUnit kilometrePerSecond = new BaseUnit("Kilometre per Second [km/s]", 1000d);
+        BaseUnit kilometrePerHour = new BaseUnit("Kilometre per Hour [km/h]", (1d / 3.6d));
+        BaseUnit footPerSecond = new BaseUnit("Foot per Second [ft/s]", (1d / 3.280839895d));
+        BaseUnit footPerHour = new BaseUnit("Foot per Hour [ft/h]", ((1d / 3.280839895d) / 3600d));
+        BaseUnit milePerSecond = new BaseUnit("Mile per Second [mi/s]", ((1d / 3.280839895d) * 5280d));
+        BaseUnit milePerHour = new BaseUnit("Mile per Hour [mi/h]", ((1d / 3.280839895d) * 5280d / 3600d));
 
         // UNIT TYPE 5 - Mass (13 Units)
-        MassUnit kilogram = new MassUnit("Kilogram [kg] (S.I. Unit)", 1d);
-        MassUnit gram = new MassUnit("Gram [g]", (1d / 1000d));
-        MassUnit milligram = new MassUnit("Milligram [mg]", (1d / 1000000d));
-        MassUnit microgram = new MassUnit("Microgram [μg]", (1d / 1000000000d));
-        MassUnit tonne = new MassUnit("Tonne [t] (Metric)", 1000d);
-        MassUnit kilotonne = new MassUnit("Kilotonne [kt] (Metric)", 1000000d);
-        MassUnit pound = new MassUnit("Pound [lb]", (1d / 2.20462262184878d));
-        MassUnit ounce = new MassUnit("Ounce [oz]", ((1d / 2.20462262184878d) / 16d));
-        MassUnit stoneUK = new MassUnit("Stone [st.] (UK)", ((1d / 2.20462262184878d) * 14d));
-        MassUnit tonShort = new MassUnit("Ton (Short)", ((1d / 2.20462262184878d) * 2000d));
-        MassUnit tonLong = new MassUnit("Ton (Long)", ((1d / 2.20462262184878d) * 2240d));
-        MassUnit kilotonShort = new MassUnit("Kiloton (Short)", ((1d / 2.20462262184878d) * 2000000d));
-        MassUnit kilotonLong = new MassUnit("Kiloton (Long)", ((1d / 2.20462262184878d) * 2240000d));
+        BaseUnit kilogram = new BaseUnit("Kilogram [kg] (S.I. Unit)", 1d);
+        BaseUnit gram = new BaseUnit("Gram [g]", (1d / 1000d));
+        BaseUnit milligram = new BaseUnit("Milligram [mg]", (1d / 1000000d));
+        BaseUnit microgram = new BaseUnit("Microgram [μg]", (1d / 1000000000d));
+        BaseUnit tonne = new BaseUnit("Tonne [t] (Metric)", 1000d);
+        BaseUnit kilotonne = new BaseUnit("Kilotonne [kt] (Metric)", 1000000d);
+        BaseUnit pound = new BaseUnit("Pound [lb]", (1d / 2.20462262184878d));
+        BaseUnit ounce = new BaseUnit("Ounce [oz]", ((1d / 2.20462262184878d) / 16d));
+        BaseUnit stoneUK = new BaseUnit("Stone [st.] (UK)", ((1d / 2.20462262184878d) * 14d));
+        BaseUnit tonShort = new BaseUnit("Ton (Short)", ((1d / 2.20462262184878d) * 2000d));
+        BaseUnit tonLong = new BaseUnit("Ton (Long)", ((1d / 2.20462262184878d) * 2240d));
+        BaseUnit kilotonShort = new BaseUnit("Kiloton (Short)", ((1d / 2.20462262184878d) * 2000000d));
+        BaseUnit kilotonLong = new BaseUnit("Kiloton (Long)", ((1d / 2.20462262184878d) * 2240000d));
 
         // UNIT TYPE 6 - Energy (7 Units)
-        EnergyUnit joule = new EnergyUnit("Joule [J] (S.I. Unit)", 1d);
-        EnergyUnit kilojoule = new EnergyUnit("Kilojoule [kj]", 1000d);
-        EnergyUnit wattHour = new EnergyUnit("Watt Hour [Wh]", 3600d);
-        EnergyUnit kilowattHour = new EnergyUnit("Kilowatt Hour [kWh]", 3600000d);
-        EnergyUnit calorie = new EnergyUnit("calorie", 4.184d);
-        EnergyUnit kilocalorie = new EnergyUnit("Kilocalorie", 4184d);
-        EnergyUnit btu = new EnergyUnit("British Thermal Unit (BTU)", 1055.05585262d);
+        BaseUnit joule = new BaseUnit("Joule [J] (S.I. Unit)", 1d);
+        BaseUnit kilojoule = new BaseUnit("Kilojoule [kj]", 1000d);
+        BaseUnit wattHour = new BaseUnit("Watt Hour [Wh]", 3600d);
+        BaseUnit kilowattHour = new BaseUnit("Kilowatt Hour [kWh]", 3600000d);
+        BaseUnit calorie = new BaseUnit("calorie", 4.184d);
+        BaseUnit kilocalorie = new BaseUnit("Kilocalorie", 4184d);
+        BaseUnit btu = new BaseUnit("British Thermal Unit (BTU)", 1055.05585262d);
 
         // UNIT TYPE 7 - Temperature (3 Units, not a multiplicative unit type)
         TemperatureUnit kelvin = new TemperatureUnit("Kelvin [K] (S.I. Unit)");
@@ -118,23 +118,23 @@ namespace Unit_Converter
         TemperatureUnit fahrenheit = new TemperatureUnit("Fahrenheit [°F]");
 
         // UNIT TYPE 8 - Data Size (6 Units)
-        DataSizeUnit sizeByte = new DataSizeUnit("Byte [B]", 1d);
-        DataSizeUnit sizeKilobyte = new DataSizeUnit("Kilobyte [kb]", 1024d);
-        DataSizeUnit sizeMegabyte = new DataSizeUnit("Megabyte [MB]", 1048576d);
-        DataSizeUnit sizeGigabyte = new DataSizeUnit("Gigabyte [GB]", 1073741824d);
-        DataSizeUnit sizeTerabyte = new DataSizeUnit("Terabyte [TB]", 1099511627776d);
-        DataSizeUnit sizePetabyte = new DataSizeUnit("Petabyte [PB]", 1125899906842624d);
+        BaseUnit sizeByte = new BaseUnit("Byte [B]", 1d);
+        BaseUnit sizeKilobyte = new BaseUnit("Kilobyte [kb]", 1024d);
+        BaseUnit sizeMegabyte = new BaseUnit("Megabyte [MB]", 1048576d);
+        BaseUnit sizeGigabyte = new BaseUnit("Gigabyte [GB]", 1073741824d);
+        BaseUnit sizeTerabyte = new BaseUnit("Terabyte [TB]", 1099511627776d);
+        BaseUnit sizePetabyte = new BaseUnit("Petabyte [PB]", 1125899906842624d);
 
         // (1) INITIALISATION - Define lists to contain units
-        List<LengthUnit> lengthUnits = new List<LengthUnit>();
-        List<AreaUnit> areaUnits = new List<AreaUnit>();
-        List<VolumeUnit> volumeUnits = new List<VolumeUnit>();
-        List<TimeUnit> timeUnits = new List<TimeUnit>();
-        List<SpeedUnit> speedUnits = new List<SpeedUnit>();
-        List<MassUnit> massUnits = new List<MassUnit>();
-        List<EnergyUnit> energyUnits = new List<EnergyUnit>();
+        List<BaseUnit> lengthUnits = new List<BaseUnit>();
+        List<BaseUnit> areaUnits = new List<BaseUnit>();
+        List<BaseUnit> volumeUnits = new List<BaseUnit>();
+        List<BaseUnit> timeUnits = new List<BaseUnit>();
+        List<BaseUnit> speedUnits = new List<BaseUnit>();
+        List<BaseUnit> massUnits = new List<BaseUnit>();
+        List<BaseUnit> energyUnits = new List<BaseUnit>();
         List<TemperatureUnit> temperatureUnits = new List<TemperatureUnit>();
-        List<DataSizeUnit> dataSizeUnits = new List<DataSizeUnit>();
+        List<BaseUnit> dataSizeUnits = new List<BaseUnit>();
 
         // (1) INITIALISATION - Load elements to main screen controls
         private void MainScreen_Load(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace Unit_Converter
             lengthUnits.Add(foot);
             lengthUnits.Add(inch);
 
-            foreach (LengthUnit element in lengthUnits)
+            foreach (BaseUnit element in lengthUnits)
             {
                 lengthFromUnitInput.Items.Add(element.getName());
                 lengthToUnitOutput.Items.Add(element.getName());
@@ -171,7 +171,7 @@ namespace Unit_Converter
             areaUnits.Add(are);
             areaUnits.Add(hectare);
 
-            foreach (AreaUnit element in areaUnits)
+            foreach (BaseUnit element in areaUnits)
             {
                 areaFromUnitInput.Items.Add(element.getName());
                 areaToUnitOutput.Items.Add(element.getName());
@@ -193,7 +193,7 @@ namespace Unit_Converter
             volumeUnits.Add(tablespoon);
             volumeUnits.Add(teaspoon);
 
-            foreach (VolumeUnit element in volumeUnits)
+            foreach (BaseUnit element in volumeUnits)
             {
                 volumeFromUnitInput.Items.Add(element.getName());
                 volumeToUnitOutput.Items.Add(element.getName());
@@ -212,7 +212,7 @@ namespace Unit_Converter
             timeUnits.Add(year);
             timeUnits.Add(yearLeap);
 
-            foreach (TimeUnit element in timeUnits)
+            foreach (BaseUnit element in timeUnits)
             {
                 timeFromUnitInput.Items.Add(element.getName());
                 timeToUnitOutput.Items.Add(element.getName());
@@ -228,7 +228,7 @@ namespace Unit_Converter
             speedUnits.Add(milePerSecond);
             speedUnits.Add(milePerHour);
 
-            foreach (SpeedUnit element in speedUnits)
+            foreach (BaseUnit element in speedUnits)
             {
                 speedFromUnitInput.Items.Add(element.getName());
                 speedToUnitOutput.Items.Add(element.getName());
@@ -249,7 +249,7 @@ namespace Unit_Converter
             massUnits.Add(kilotonShort);
             massUnits.Add(kilotonLong);
 
-            foreach (MassUnit element in massUnits)
+            foreach (BaseUnit element in massUnits)
             {
                 massFromUnitInput.Items.Add(element.getName());
                 massToUnitOutput.Items.Add(element.getName());
@@ -264,7 +264,7 @@ namespace Unit_Converter
             energyUnits.Add(kilocalorie);
             energyUnits.Add(btu);
 
-            foreach (EnergyUnit element in energyUnits)
+            foreach (BaseUnit element in energyUnits)
             {
                 energyFromUnitInput.Items.Add(element.getName());
                 energyToUnitOutput.Items.Add(element.getName());
@@ -289,7 +289,7 @@ namespace Unit_Converter
             dataSizeUnits.Add(sizeTerabyte);
             dataSizeUnits.Add(sizePetabyte);
 
-            foreach (DataSizeUnit element in dataSizeUnits)
+            foreach (BaseUnit element in dataSizeUnits)
             {
                 dataSizeFromUnitInput.Items.Add(element.getName());
                 dataSizeToUnitOutput.Items.Add(element.getName());
@@ -405,7 +405,7 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    foreach (LengthUnit element in lengthUnits)
+                    foreach (BaseUnit element in lengthUnits)
                     {
                         if ((string)lengthFromUnitInput.SelectedItem == element.getName())
                         {
@@ -414,7 +414,7 @@ namespace Unit_Converter
                         }
                     }
 
-                    foreach (LengthUnit element in lengthUnits)
+                    foreach (BaseUnit element in lengthUnits)
                     {
                         if ((string)lengthToUnitOutput.SelectedItem == element.getName())
                         {
@@ -441,7 +441,7 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    foreach (AreaUnit element in areaUnits)
+                    foreach (BaseUnit element in areaUnits)
                     {
                         if ((string)areaFromUnitInput.SelectedItem == element.getName())
                         {
@@ -450,7 +450,7 @@ namespace Unit_Converter
                         }
                     }
 
-                    foreach (AreaUnit element in areaUnits)
+                    foreach (BaseUnit element in areaUnits)
                     {
                         if ((string)areaToUnitOutput.SelectedItem == element.getName())
                         {
@@ -477,7 +477,7 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    foreach (VolumeUnit element in volumeUnits)
+                    foreach (BaseUnit element in volumeUnits)
                     {
                         if ((string)volumeFromUnitInput.SelectedItem == element.getName())
                         {
@@ -486,7 +486,7 @@ namespace Unit_Converter
                         }
                     }
 
-                    foreach (VolumeUnit element in volumeUnits)
+                    foreach (BaseUnit element in volumeUnits)
                     {
                         if ((string)volumeToUnitOutput.SelectedItem == element.getName())
                         {
@@ -513,7 +513,7 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    foreach (TimeUnit element in timeUnits)
+                    foreach (BaseUnit element in timeUnits)
                     {
                         if ((string)timeFromUnitInput.SelectedItem == element.getName())
                         {
@@ -522,7 +522,7 @@ namespace Unit_Converter
                         }
                     }
 
-                    foreach (TimeUnit element in timeUnits)
+                    foreach (BaseUnit element in timeUnits)
                     {
                         if ((string)timeToUnitOutput.SelectedItem == element.getName())
                         {
@@ -549,7 +549,7 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    foreach (SpeedUnit element in speedUnits)
+                    foreach (BaseUnit element in speedUnits)
                     {
                         if ((string)speedFromUnitInput.SelectedItem == element.getName())
                         {
@@ -558,7 +558,7 @@ namespace Unit_Converter
                         }
                     }
 
-                    foreach (SpeedUnit element in speedUnits)
+                    foreach (BaseUnit element in speedUnits)
                     {
                         if ((string)speedToUnitOutput.SelectedItem == element.getName())
                         {
@@ -585,7 +585,7 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    foreach (MassUnit element in massUnits)
+                    foreach (BaseUnit element in massUnits)
                     {
                         if ((string)massFromUnitInput.SelectedItem == element.getName())
                         {
@@ -594,7 +594,7 @@ namespace Unit_Converter
                         }
                     }
 
-                    foreach (MassUnit element in massUnits)
+                    foreach (BaseUnit element in massUnits)
                     {
                         if ((string)massToUnitOutput.SelectedItem == element.getName())
                         {
@@ -621,7 +621,7 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    foreach (EnergyUnit element in energyUnits)
+                    foreach (BaseUnit element in energyUnits)
                     {
                         if ((string)energyFromUnitInput.SelectedItem == element.getName())
                         {
@@ -630,7 +630,7 @@ namespace Unit_Converter
                         }
                     }
 
-                    foreach (EnergyUnit element in energyUnits)
+                    foreach (BaseUnit element in energyUnits)
                     {
                         if ((string)energyToUnitOutput.SelectedItem == element.getName())
                         {
@@ -718,7 +718,7 @@ namespace Unit_Converter
 
                 if ((canParse) && (inputValue >= 0))
                 {
-                    foreach (DataSizeUnit element in dataSizeUnits)
+                    foreach (BaseUnit element in dataSizeUnits)
                     {
                         if ((string)dataSizeFromUnitInput.SelectedItem == element.getName())
                         {
@@ -727,7 +727,7 @@ namespace Unit_Converter
                         }
                     }
 
-                    foreach (DataSizeUnit element in dataSizeUnits)
+                    foreach (BaseUnit element in dataSizeUnits)
                     {
                         if ((string)dataSizeToUnitOutput.SelectedItem == element.getName())
                         {

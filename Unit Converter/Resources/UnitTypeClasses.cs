@@ -8,8 +8,14 @@ namespace Unit_Converter
 {
     public class BaseUnit
     {
-        protected string name;
-        protected double siValue;
+        private readonly string name;
+        private readonly double siValue;
+
+        public BaseUnit(string pName, double pSiValue)
+        {
+            name = pName;
+            siValue = pSiValue;
+        }
 
         public string getName()
         {
@@ -27,69 +33,6 @@ namespace Unit_Converter
         }
     }
 
-    public class LengthUnit : BaseUnit
-    {
-        public LengthUnit(string pName, double pSiValue)
-        {
-            name = pName;
-            siValue = pSiValue;
-        }
-    }
-
-    public class AreaUnit : BaseUnit
-    {
-        public AreaUnit(string pName, double pSiValue)
-        {
-            name = pName;
-            siValue = pSiValue;
-        }
-    }
-
-    public class VolumeUnit : BaseUnit
-    {
-        public VolumeUnit(string pName, double pSiValue)
-        {
-            name = pName;
-            siValue = pSiValue;
-        }
-    }
-
-    public class TimeUnit : BaseUnit
-    {
-        public TimeUnit(string pName, double pSiValue)
-        {
-            name = pName;
-            siValue = pSiValue;
-        }
-    }
-
-    public class SpeedUnit : BaseUnit
-    {
-        public SpeedUnit(string pName, double pSiValue)
-        {
-            name = pName;
-            siValue = pSiValue;
-        }
-    }
-
-    public class MassUnit : BaseUnit
-    {
-        public MassUnit(string pName, double pSiValue)
-        {
-            name = pName;
-            siValue = pSiValue;
-        }
-    }
-
-    public class EnergyUnit : BaseUnit
-    {
-        public EnergyUnit(string pName, double pSiValue)
-        {
-            name = pName;
-            siValue = pSiValue;
-        }
-    }
-
     public class TemperatureUnit
     {
         private readonly string name;
@@ -102,15 +45,6 @@ namespace Unit_Converter
         public string getName()
         {
             return name;
-        }
-    }
-
-    public class DataSizeUnit : BaseUnit
-    {
-        public DataSizeUnit(string pName, double pSiValue)
-        {
-            name = pName;
-            siValue = pSiValue;
         }
     }
 }
