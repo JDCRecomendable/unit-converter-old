@@ -389,10 +389,11 @@ namespace Unit_Converter
         // (5) CALCULATION - Execute the calculation process
         private void ExecuteCalculation()
         {
-            string rawValue;         // raw data from the user-inputtable text box
-            double inputValue;       // processed data from the user-inputtable text box
-            bool canParse;           // shows whether raw user input data can be parsed to double
-            bool unitError = false;  // shows if the user has not selected a unit for both from and or combo boxes
+            string rawValue;                 // raw data from the user-inputtable text box
+            double inputValue;               // processed data from the user-inputtable text box
+            bool canParse;                   // shows whether raw user input data can be parsed to double
+            bool fromInputHasValue = false;  // shows if the user has not selected a unit for fromUnitInput combo box
+            bool toOutputHasValue = false;   // shows if the user has not selected a unit for toUnitOutput combo box
 
             // UNIT TYPE 0 - User wants to convert length
             if (unitSelector.SelectedIndex == 0)
@@ -410,6 +411,7 @@ namespace Unit_Converter
                         if ((string)lengthFromUnitInput.SelectedItem == element.getName())
                         {
                             lengthValue = element.convertToSiValue(inputValue);
+                            fromInputHasValue = true;
                             break;
                         }
                     }
@@ -419,12 +421,18 @@ namespace Unit_Converter
                         if ((string)lengthToUnitOutput.SelectedItem == element.getName())
                         {
                             resultLengthValue = element.convertFromSiValue(lengthValue);
+                            toOutputHasValue = true;
                             break;
                         }
                     }
 
-                    lengthToValueOutput.Text = resultLengthValue.ToString();
-                    statusIndicator.Text = StatusMessages.done;
+                    if (fromInputHasValue && toOutputHasValue)
+                    {
+                        lengthToValueOutput.Text = resultLengthValue.ToString();
+                        statusIndicator.Text = StatusMessages.done;
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -446,6 +454,7 @@ namespace Unit_Converter
                         if ((string)areaFromUnitInput.SelectedItem == element.getName())
                         {
                             areaValue = element.convertToSiValue(inputValue);
+                            fromInputHasValue = true;
                             break;
                         }
                     }
@@ -455,12 +464,18 @@ namespace Unit_Converter
                         if ((string)areaToUnitOutput.SelectedItem == element.getName())
                         {
                             resultAreaValue = element.convertFromSiValue(areaValue);
+                            toOutputHasValue = true;
                             break;
                         }
                     }
 
-                    areaToValueOutput.Text = resultAreaValue.ToString();
-                    statusIndicator.Text = StatusMessages.done;
+                    if (fromInputHasValue && toOutputHasValue)
+                    {
+                        areaToValueOutput.Text = resultAreaValue.ToString();
+                        statusIndicator.Text = StatusMessages.done;
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -482,6 +497,7 @@ namespace Unit_Converter
                         if ((string)volumeFromUnitInput.SelectedItem == element.getName())
                         {
                             volumeValue = element.convertToSiValue(inputValue);
+                            fromInputHasValue = true;
                             break;
                         }
                     }
@@ -491,12 +507,18 @@ namespace Unit_Converter
                         if ((string)volumeToUnitOutput.SelectedItem == element.getName())
                         {
                             resultVolumeValue = element.convertFromSiValue(volumeValue);
+                            toOutputHasValue = true;
                             break;
                         }
                     }
 
-                    volumeToValueOutput.Text = resultVolumeValue.ToString();
-                    statusIndicator.Text = StatusMessages.done;
+                    if (fromInputHasValue && toOutputHasValue)
+                    {
+                        volumeToValueOutput.Text = resultVolumeValue.ToString();
+                        statusIndicator.Text = StatusMessages.done;
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -518,6 +540,7 @@ namespace Unit_Converter
                         if ((string)timeFromUnitInput.SelectedItem == element.getName())
                         {
                             timeValue = element.convertToSiValue(inputValue);
+                            fromInputHasValue = true;
                             break;
                         }
                     }
@@ -527,12 +550,18 @@ namespace Unit_Converter
                         if ((string)timeToUnitOutput.SelectedItem == element.getName())
                         {
                             resultTimeValue = element.convertFromSiValue(timeValue);
+                            toOutputHasValue = true;
                             break;
                         }
                     }
 
-                    timeToValueOutput.Text = resultTimeValue.ToString();
-                    statusIndicator.Text = StatusMessages.done;
+                    if (fromInputHasValue && toOutputHasValue)
+                    {
+                        timeToValueOutput.Text = resultTimeValue.ToString();
+                        statusIndicator.Text = StatusMessages.done;
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -554,6 +583,7 @@ namespace Unit_Converter
                         if ((string)speedFromUnitInput.SelectedItem == element.getName())
                         {
                             speedValue = element.convertToSiValue(inputValue);
+                            fromInputHasValue = true;
                             break;
                         }
                     }
@@ -563,12 +593,18 @@ namespace Unit_Converter
                         if ((string)speedToUnitOutput.SelectedItem == element.getName())
                         {
                             resultSpeedValue = element.convertFromSiValue(speedValue);
+                            toOutputHasValue = true;
                             break;
                         }
                     }
 
-                    speedToValueOutput.Text = resultSpeedValue.ToString();
-                    statusIndicator.Text = StatusMessages.done;
+                    if (fromInputHasValue && toOutputHasValue)
+                    {
+                        speedToValueOutput.Text = resultSpeedValue.ToString();
+                        statusIndicator.Text = StatusMessages.done;
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -590,6 +626,7 @@ namespace Unit_Converter
                         if ((string)massFromUnitInput.SelectedItem == element.getName())
                         {
                             massValue = element.convertToSiValue(inputValue);
+                            fromInputHasValue = true;
                             break;
                         }
                     }
@@ -599,12 +636,18 @@ namespace Unit_Converter
                         if ((string)massToUnitOutput.SelectedItem == element.getName())
                         {
                             resultMassValue = element.convertFromSiValue(massValue);
+                            toOutputHasValue = true;
                             break;
                         }
                     }
 
-                    massToValueOutput.Text = resultMassValue.ToString();
-                    statusIndicator.Text = StatusMessages.done;
+                    if (fromInputHasValue && toOutputHasValue)
+                    {
+                        massToValueOutput.Text = resultMassValue.ToString();
+                        statusIndicator.Text = StatusMessages.done;
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -626,6 +669,7 @@ namespace Unit_Converter
                         if ((string)energyFromUnitInput.SelectedItem == element.getName())
                         {
                             energyValue = element.convertToSiValue(inputValue);
+                            fromInputHasValue = true;
                             break;
                         }
                     }
@@ -635,12 +679,18 @@ namespace Unit_Converter
                         if ((string)energyToUnitOutput.SelectedItem == element.getName())
                         {
                             resultEnergyValue = element.convertFromSiValue(energyValue);
+                            toOutputHasValue = true;
                             break;
                         }
                     }
 
-                    energyToValueOutput.Text = resultEnergyValue.ToString();
-                    statusIndicator.Text = StatusMessages.done;
+                    if (fromInputHasValue && toOutputHasValue)
+                    {
+                        energyToValueOutput.Text = resultEnergyValue.ToString();
+                        statusIndicator.Text = StatusMessages.done;
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -656,46 +706,34 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    if (((string)temperatureFromUnitInput.SelectedItem == kelvin.getName())
+                    fromInputHasValue = true;
+                    toOutputHasValue = true;
+
+                    if ((string)temperatureFromUnitInput.SelectedItem ==
+                        (string)temperatureToUnitOutput.SelectedItem)
+                        resultTemperatureValue = inputValue;
+                    else if (((string)temperatureFromUnitInput.SelectedItem == kelvin.getName())
                         && (string)temperatureToUnitOutput.SelectedItem == celsius.getName())
-                    {
                         resultTemperatureValue = inputValue - 273.15d;
-                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
-                    }
                     else if (((string)temperatureFromUnitInput.SelectedItem == kelvin.getName())
                         && (string)temperatureToUnitOutput.SelectedItem == fahrenheit.getName())
-                    {
                         resultTemperatureValue = inputValue * 1.8d - 459.67d;
-                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
-                    }
                     else if (((string)temperatureFromUnitInput.SelectedItem == celsius.getName())
                         && (string)temperatureToUnitOutput.SelectedItem == kelvin.getName())
-                    {
                         resultTemperatureValue = inputValue + 273.15d;
-                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
-                    }
                     else if (((string)temperatureFromUnitInput.SelectedItem == celsius.getName())
                         && (string)temperatureToUnitOutput.SelectedItem == fahrenheit.getName())
-                    {
                         resultTemperatureValue = inputValue * 1.8d + 32d;
-                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
-                    }
                     else if (((string)temperatureFromUnitInput.SelectedItem == fahrenheit.getName())
                         && (string)temperatureToUnitOutput.SelectedItem == kelvin.getName())
-                    {
                         resultTemperatureValue = (inputValue + 459.67d) / 1.8d;
-                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
-                    }
                     else if (((string)temperatureFromUnitInput.SelectedItem == fahrenheit.getName())
                         && (string)temperatureToUnitOutput.SelectedItem == celsius.getName())
-                    {
                         resultTemperatureValue = (inputValue - 32d) / 1.8d;
-                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
-                    }
                     else
-                        statusIndicator.Text = StatusMessages.unitError;
+                        fromInputHasValue = false;
 
-                    if (unitError == false)
+                    if (fromInputHasValue && toOutputHasValue)
                     {
                         temperatureToValueOutput.Text = resultTemperatureValue.ToString();
                         statusIndicator.Text = StatusMessages.done;
@@ -723,6 +761,7 @@ namespace Unit_Converter
                         if ((string)dataSizeFromUnitInput.SelectedItem == element.getName())
                         {
                             dataSizeValue = element.convertToSiValue(inputValue);
+                            fromInputHasValue = true;
                             break;
                         }
                     }
@@ -732,12 +771,18 @@ namespace Unit_Converter
                         if ((string)dataSizeToUnitOutput.SelectedItem == element.getName())
                         {
                             resultDataSizeValue = element.convertFromSiValue(dataSizeValue);
+                            toOutputHasValue = true;
                             break;
                         }
                     }
 
-                    dataSizeToValueOutput.Text = resultDataSizeValue.ToString();
-                    statusIndicator.Text = StatusMessages.done;
+                    if (fromInputHasValue && toOutputHasValue)
+                    {
+                        dataSizeToValueOutput.Text = resultDataSizeValue.ToString();
+                        statusIndicator.Text = StatusMessages.done;
+                    }
+                    else
+                        statusIndicator.Text = StatusMessages.unitError;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
