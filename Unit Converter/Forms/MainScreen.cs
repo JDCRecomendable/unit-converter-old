@@ -414,55 +414,26 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    if ((string)lengthFromUnitInput.SelectedItem == metre.getName())
-                        lengthValue = inputValue;
-                    else if ((string)lengthFromUnitInput.SelectedItem == kilometre.getName())
-                        lengthValue = kilometre.convertToSiValue(inputValue);
-                    else if ((string)lengthFromUnitInput.SelectedItem == decimetre.getName())
-                        lengthValue = decimetre.convertToSiValue(inputValue);
-                    else if ((string)lengthFromUnitInput.SelectedItem == centimetre.getName())
-                        lengthValue = centimetre.convertToSiValue(inputValue);
-                    else if ((string)lengthFromUnitInput.SelectedItem == millimetre.getName())
-                        lengthValue = millimetre.convertToSiValue(inputValue);
-                    else if ((string)lengthFromUnitInput.SelectedItem == mile.getName())
-                        lengthValue = mile.convertToSiValue(inputValue);
-                    else if ((string)lengthFromUnitInput.SelectedItem == yard.getName())
-                        lengthValue = yard.convertToSiValue(inputValue);
-                    else if ((string)lengthFromUnitInput.SelectedItem == foot.getName())
-                        lengthValue = foot.convertToSiValue(inputValue);
-                    else if ((string)lengthFromUnitInput.SelectedItem == inch.getName())
-                        lengthValue = inch.convertToSiValue(inputValue);
-                    else
-                        unitError = true;
-
-                    if ((unitError == false) && ((string)lengthToUnitOutput.SelectedItem == metre.getName()))
-                        resultLengthValue = lengthValue;
-                    else if ((string)lengthToUnitOutput.SelectedItem == kilometre.getName())
-                        resultLengthValue = kilometre.convertFromSiValue(lengthValue);
-                    else if ((string)lengthToUnitOutput.SelectedItem == decimetre.getName())
-                        resultLengthValue = decimetre.convertFromSiValue(lengthValue);
-                    else if ((string)lengthToUnitOutput.SelectedItem == centimetre.getName())
-                        resultLengthValue = centimetre.convertFromSiValue(lengthValue);
-                    else if ((string)lengthToUnitOutput.SelectedItem == millimetre.getName())
-                        resultLengthValue = millimetre.convertFromSiValue(lengthValue);
-                    else if ((string)lengthToUnitOutput.SelectedItem == mile.getName())
-                        resultLengthValue = mile.convertFromSiValue(lengthValue);
-                    else if ((string)lengthToUnitOutput.SelectedItem == yard.getName())
-                        resultLengthValue = yard.convertFromSiValue(lengthValue);
-                    else if ((string)lengthToUnitOutput.SelectedItem == foot.getName())
-                        resultLengthValue = foot.convertFromSiValue(lengthValue);
-                    else if ((string)lengthToUnitOutput.SelectedItem == inch.getName())
-                        resultLengthValue = inch.convertFromSiValue(lengthValue);
-                    else
-                        unitError = true;
-
-                    if (unitError == false)
+                    foreach (LengthUnit element in lengthUnits)
                     {
-                        lengthToValueOutput.Text = resultLengthValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
+                        if ((string)lengthFromUnitInput.SelectedItem == element.getName())
+                        {
+                            lengthValue = element.convertToSiValue(inputValue);
+                            break;
+                        }
                     }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
+
+                    foreach (LengthUnit element in lengthUnits)
+                    {
+                        if ((string)lengthToUnitOutput.SelectedItem == element.getName())
+                        {
+                            resultLengthValue = element.convertFromSiValue(lengthValue);
+                            break;
+                        }
+                    }
+
+                    lengthToValueOutput.Text = resultLengthValue.ToString();
+                    statusIndicator.Text = StatusMessages.done;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -479,67 +450,26 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    if ((string)areaFromUnitInput.SelectedItem == squareMetre.getName())
-                        areaValue = inputValue;
-                    else if ((string)areaFromUnitInput.SelectedItem == squareKilometre.getName())
-                        areaValue = squareKilometre.convertToSiValue(inputValue);
-                    else if ((string)areaFromUnitInput.SelectedItem == squareDecimetre.getName())
-                        areaValue = squareDecimetre.convertToSiValue(inputValue);
-                    else if ((string)areaFromUnitInput.SelectedItem == squareCentimetre.getName())
-                        areaValue = squareCentimetre.convertToSiValue(inputValue);
-                    else if ((string)areaFromUnitInput.SelectedItem == squareMillimetre.getName())
-                        areaValue = squareMillimetre.convertToSiValue(inputValue);
-                    else if ((string)areaFromUnitInput.SelectedItem == squareMile.getName())
-                        areaValue = squareMile.convertToSiValue(inputValue);
-                    else if ((string)areaFromUnitInput.SelectedItem == squareYard.getName())
-                        areaValue = squareYard.convertToSiValue(inputValue);
-                    else if ((string)areaFromUnitInput.SelectedItem == squareFoot.getName())
-                        areaValue = squareFoot.convertToSiValue(inputValue);
-                    else if ((string)areaFromUnitInput.SelectedItem == squareInch.getName())
-                        areaValue = squareInch.convertToSiValue(inputValue);
-                    else if ((string)areaFromUnitInput.SelectedItem == acre.getName())
-                        areaValue = acre.convertToSiValue(inputValue);
-                    else if ((string)areaFromUnitInput.SelectedItem == are.getName())
-                        areaValue = are.convertToSiValue(inputValue);
-                    else if ((string)areaFromUnitInput.SelectedItem == hectare.getName())
-                        areaValue = hectare.convertToSiValue(inputValue);
-                    else
-                        unitError = true;
-
-                    if ((unitError == false) && ((string)areaToUnitOutput.SelectedItem == squareMetre.getName()))
-                        resultAreaValue = areaValue;
-                    else if ((string)areaToUnitOutput.SelectedItem == squareKilometre.getName())
-                        resultAreaValue = squareKilometre.convertFromSiValue(areaValue);
-                    else if ((string)areaToUnitOutput.SelectedItem == squareDecimetre.getName())
-                        resultAreaValue = squareDecimetre.convertFromSiValue(areaValue);
-                    else if ((string)areaToUnitOutput.SelectedItem == squareCentimetre.getName())
-                        resultAreaValue = squareCentimetre.convertFromSiValue(areaValue);
-                    else if ((string)areaToUnitOutput.SelectedItem == squareMillimetre.getName())
-                        resultAreaValue = squareMillimetre.convertFromSiValue(areaValue);
-                    else if ((string)areaToUnitOutput.SelectedItem == squareMile.getName())
-                        resultAreaValue = squareMile.convertFromSiValue(areaValue);
-                    else if ((string)areaToUnitOutput.SelectedItem == squareYard.getName())
-                        resultAreaValue = squareYard.convertFromSiValue(areaValue);
-                    else if ((string)areaToUnitOutput.SelectedItem == squareFoot.getName())
-                        resultAreaValue = squareFoot.convertFromSiValue(areaValue);
-                    else if ((string)areaToUnitOutput.SelectedItem == squareInch.getName())
-                        resultAreaValue = squareInch.convertFromSiValue(areaValue);
-                    else if ((string)areaToUnitOutput.SelectedItem == acre.getName())
-                        resultAreaValue = acre.convertFromSiValue(areaValue);
-                    else if ((string)areaToUnitOutput.SelectedItem == are.getName())
-                        resultAreaValue = are.convertFromSiValue(areaValue);
-                    else if ((string)areaToUnitOutput.SelectedItem == hectare.getName())
-                        resultAreaValue = hectare.convertFromSiValue(areaValue);
-                    else
-                        unitError = true;
-
-                    if (unitError == false)
+                    foreach (AreaUnit element in areaUnits)
                     {
-                        areaToValueOutput.Text = resultAreaValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
+                        if ((string)areaFromUnitInput.SelectedItem == element.getName())
+                        {
+                            areaValue = element.convertToSiValue(inputValue);
+                            break;
+                        }
                     }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
+
+                    foreach (AreaUnit element in areaUnits)
+                    {
+                        if ((string)areaToUnitOutput.SelectedItem == element.getName())
+                        {
+                            resultAreaValue = element.convertFromSiValue(areaValue);
+                            break;
+                        }
+                    }
+
+                    areaToValueOutput.Text = resultAreaValue.ToString();
+                    statusIndicator.Text = StatusMessages.done;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -556,75 +486,26 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    if ((string)volumeFromUnitInput.SelectedItem == cubicMetre.getName())
-                        volumeValue = inputValue;
-                    else if ((string)volumeFromUnitInput.SelectedItem == cubicCentimetre.getName())
-                        volumeValue = cubicCentimetre.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == cubicMillimetre.getName())
-                        volumeValue = cubicMillimetre.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == cubicYard.getName())
-                        volumeValue = cubicYard.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == cubicFoot.getName())
-                        volumeValue = cubicFoot.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == cubicInch.getName())
-                        volumeValue = cubicInch.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == litre.getName())
-                        volumeValue = litre.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == millilitre.getName())
-                        volumeValue = millilitre.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == gallon.getName())
-                        volumeValue = gallon.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == quart.getName())
-                        volumeValue = quart.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == pint.getName())
-                        volumeValue = pint.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == cup.getName())
-                        volumeValue = cup.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == tablespoon.getName())
-                        volumeValue = tablespoon.convertToSiValue(inputValue);
-                    else if ((string)volumeFromUnitInput.SelectedItem == teaspoon.getName())
-                        volumeValue = teaspoon.convertToSiValue(inputValue);
-                    else
-                        unitError = true;
-
-                    if ((unitError == false) && ((string)volumeToUnitOutput.SelectedItem == cubicMetre.getName()))
-                        resultVolumeValue = volumeValue;
-                    else if ((string)volumeToUnitOutput.SelectedItem == cubicCentimetre.getName())
-                        resultVolumeValue = cubicCentimetre.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == cubicMillimetre.getName())
-                        resultVolumeValue = cubicMillimetre.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == cubicYard.getName())
-                        resultVolumeValue = cubicYard.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == cubicFoot.getName())
-                        resultVolumeValue = cubicFoot.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == cubicInch.getName())
-                        resultVolumeValue = cubicInch.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == litre.getName())
-                        resultVolumeValue = litre.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == millilitre.getName())
-                        resultVolumeValue = millilitre.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == gallon.getName())
-                        resultVolumeValue = gallon.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == quart.getName())
-                        resultVolumeValue = quart.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == pint.getName())
-                        resultVolumeValue = pint.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == cup.getName())
-                        resultVolumeValue = cup.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == tablespoon.getName())
-                        resultVolumeValue = tablespoon.convertFromSiValue(volumeValue);
-                    else if ((string)volumeToUnitOutput.SelectedItem == teaspoon.getName())
-                        resultVolumeValue = teaspoon.convertFromSiValue(volumeValue);
-                    else
-                        unitError = true;
-
-                    if (unitError == false)
+                    foreach (VolumeUnit element in volumeUnits)
                     {
-                        volumeToValueOutput.Text = resultVolumeValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
+                        if ((string)volumeFromUnitInput.SelectedItem == element.getName())
+                        {
+                            volumeValue = element.convertToSiValue(inputValue);
+                            break;
+                        }
                     }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
+
+                    foreach (VolumeUnit element in volumeUnits)
+                    {
+                        if ((string)volumeToUnitOutput.SelectedItem == element.getName())
+                        {
+                            resultVolumeValue = element.convertFromSiValue(volumeValue);
+                            break;
+                        }
+                    }
+
+                    volumeToValueOutput.Text = resultVolumeValue.ToString();
+                    statusIndicator.Text = StatusMessages.done;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -641,63 +522,26 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    if ((string)timeFromUnitInput.SelectedItem == second.getName())
-                        timeValue = inputValue;
-                    else if ((string)timeFromUnitInput.SelectedItem == millisecond.getName())
-                        timeValue = millisecond.convertToSiValue(inputValue);
-                    else if ((string)timeFromUnitInput.SelectedItem == microsecond.getName())
-                        timeValue = microsecond.convertToSiValue(inputValue);
-                    else if ((string)timeFromUnitInput.SelectedItem == nanosecond.getName())
-                        timeValue = nanosecond.convertToSiValue(inputValue);
-                    else if ((string)timeFromUnitInput.SelectedItem == minute.getName())
-                        timeValue = minute.convertToSiValue(inputValue);
-                    else if ((string)timeFromUnitInput.SelectedItem == hour.getName())
-                        timeValue = hour.convertToSiValue(inputValue);
-                    else if ((string)timeFromUnitInput.SelectedItem == day.getName())
-                        timeValue = day.convertToSiValue(inputValue);
-                    else if ((string)timeFromUnitInput.SelectedItem == week.getName())
-                        timeValue = week.convertToSiValue(inputValue);
-                    else if ((string)timeFromUnitInput.SelectedItem == fortnight.getName())
-                        timeValue = fortnight.convertToSiValue(inputValue);
-                    else if ((string)timeFromUnitInput.SelectedItem == year.getName())
-                        timeValue = year.convertToSiValue(inputValue);
-                    else if ((string)timeFromUnitInput.SelectedItem == yearLeap.getName())
-                        timeValue = yearLeap.convertToSiValue(inputValue);
-                    else
-                        unitError = true;
-
-                    if ((unitError == false) && ((string)timeToUnitOutput.SelectedItem == second.getName()))
-                        resultTimeValue = timeValue;
-                    else if ((string)timeToUnitOutput.SelectedItem == millisecond.getName())
-                        resultTimeValue = millisecond.convertFromSiValue(timeValue);
-                    else if ((string)timeToUnitOutput.SelectedItem == microsecond.getName())
-                        resultTimeValue = microsecond.convertFromSiValue(timeValue);
-                    else if ((string)timeToUnitOutput.SelectedItem == nanosecond.getName())
-                        resultTimeValue = nanosecond.convertFromSiValue(timeValue);
-                    else if ((string)timeToUnitOutput.SelectedItem == minute.getName())
-                        resultTimeValue = minute.convertFromSiValue(timeValue);
-                    else if ((string)timeToUnitOutput.SelectedItem == hour.getName())
-                        resultTimeValue = hour.convertFromSiValue(timeValue);
-                    else if ((string)timeToUnitOutput.SelectedItem == day.getName())
-                        resultTimeValue = day.convertFromSiValue(timeValue);
-                    else if ((string)timeToUnitOutput.SelectedItem == week.getName())
-                        resultTimeValue = week.convertFromSiValue(timeValue);
-                    else if ((string)timeToUnitOutput.SelectedItem == fortnight.getName())
-                        resultTimeValue = fortnight.convertFromSiValue(timeValue);
-                    else if ((string)timeToUnitOutput.SelectedItem == year.getName())
-                        resultTimeValue = year.convertFromSiValue(timeValue);
-                    else if ((string)timeToUnitOutput.SelectedItem == yearLeap.getName())
-                        resultTimeValue = yearLeap.convertFromSiValue(timeValue);
-                    else
-                        unitError = true;
-
-                    if (unitError == false)
+                    foreach (TimeUnit element in timeUnits)
                     {
-                        timeToValueOutput.Text = resultTimeValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
+                        if ((string)timeFromUnitInput.SelectedItem == element.getName())
+                        {
+                            timeValue = element.convertToSiValue(inputValue);
+                            break;
+                        }
                     }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
+
+                    foreach (TimeUnit element in timeUnits)
+                    {
+                        if ((string)timeToUnitOutput.SelectedItem == element.getName())
+                        {
+                            resultTimeValue = element.convertFromSiValue(timeValue);
+                            break;
+                        }
+                    }
+
+                    timeToValueOutput.Text = resultTimeValue.ToString();
+                    statusIndicator.Text = StatusMessages.done;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -714,51 +558,26 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    if ((string)speedFromUnitInput.SelectedItem == metrePerSecond.getName())
-                        speedValue = inputValue;
-                    else if ((string)speedFromUnitInput.SelectedItem == metrePerHour.getName())
-                        speedValue = metrePerHour.convertToSiValue(inputValue);
-                    else if ((string)speedFromUnitInput.SelectedItem == kilometrePerSecond.getName())
-                        speedValue = kilometrePerSecond.convertToSiValue(inputValue);
-                    else if ((string)speedFromUnitInput.SelectedItem == kilometrePerHour.getName())
-                        speedValue = kilometrePerHour.convertToSiValue(inputValue);
-                    else if ((string)speedFromUnitInput.SelectedItem == footPerSecond.getName())
-                        speedValue = footPerSecond.convertToSiValue(inputValue);
-                    else if ((string)speedFromUnitInput.SelectedItem == footPerHour.getName())
-                        speedValue = footPerHour.convertToSiValue(inputValue);
-                    else if ((string)speedFromUnitInput.SelectedItem == milePerSecond.getName())
-                        speedValue = milePerSecond.convertToSiValue(inputValue);
-                    else if ((string)speedFromUnitInput.SelectedItem == milePerHour.getName())
-                        speedValue = milePerHour.convertToSiValue(inputValue);
-                    else
-                        unitError = true;
-
-                    if ((unitError == false) && ((string)speedToUnitOutput.SelectedItem == metrePerSecond.getName()))
-                        resultSpeedValue = speedValue;
-                    else if ((string)speedToUnitOutput.SelectedItem == metrePerHour.getName())
-                        resultSpeedValue = metrePerHour.convertFromSiValue(speedValue);
-                    else if ((string)speedToUnitOutput.SelectedItem == kilometrePerSecond.getName())
-                        resultSpeedValue = kilometrePerSecond.convertFromSiValue(speedValue);
-                    else if ((string)speedToUnitOutput.SelectedItem == kilometrePerHour.getName())
-                        resultSpeedValue = kilometrePerHour.convertFromSiValue(speedValue);
-                    else if ((string)speedToUnitOutput.SelectedItem == footPerSecond.getName())
-                        resultSpeedValue = footPerSecond.convertFromSiValue(speedValue);
-                    else if ((string)speedToUnitOutput.SelectedItem == footPerHour.getName())
-                        resultSpeedValue = footPerHour.convertFromSiValue(speedValue);
-                    else if ((string)speedToUnitOutput.SelectedItem == milePerSecond.getName())
-                        resultSpeedValue = milePerSecond.convertFromSiValue(speedValue);
-                    else if ((string)speedToUnitOutput.SelectedItem == milePerHour.getName())
-                        resultSpeedValue = milePerHour.convertFromSiValue(speedValue);
-                    else
-                        unitError = true;
-
-                    if (unitError == false)
+                    foreach (SpeedUnit element in speedUnits)
                     {
-                        speedToValueOutput.Text = resultSpeedValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
+                        if ((string)speedFromUnitInput.SelectedItem == element.getName())
+                        {
+                            speedValue = element.convertToSiValue(inputValue);
+                            break;
+                        }
                     }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
+
+                    foreach (SpeedUnit element in speedUnits)
+                    {
+                        if ((string)speedToUnitOutput.SelectedItem == element.getName())
+                        {
+                            resultSpeedValue = element.convertFromSiValue(speedValue);
+                            break;
+                        }
+                    }
+
+                    speedToValueOutput.Text = resultSpeedValue.ToString();
+                    statusIndicator.Text = StatusMessages.done;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -775,71 +594,26 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    if ((string)massFromUnitInput.SelectedItem == kilogram.getName())
-                        massValue = inputValue;
-                    else if ((string)massFromUnitInput.SelectedItem == gram.getName())
-                        massValue = gram.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == milligram.getName())
-                        massValue = milligram.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == microgram.getName())
-                        massValue = microgram.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == tonne.getName())
-                        massValue = tonne.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == kilotonne.getName())
-                        massValue = kilotonne.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == pound.getName())
-                        massValue = pound.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == ounce.getName())
-                        massValue = ounce.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == stoneUK.getName())
-                        massValue = stoneUK.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == tonShort.getName())
-                        massValue = tonShort.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == tonLong.getName())
-                        massValue = tonLong.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == kilotonShort.getName())
-                        massValue = kilotonShort.convertToSiValue(inputValue);
-                    else if ((string)massFromUnitInput.SelectedItem == kilotonLong.getName())
-                        massValue = kilotonLong.convertToSiValue(inputValue);
-                    else
-                        unitError = true;
-
-                    if ((unitError == false) && ((string)massToUnitOutput.SelectedItem == kilogram.getName()))
-                        resultMassValue = massValue;
-                    else if ((string)massToUnitOutput.SelectedItem == gram.getName())
-                        resultMassValue = gram.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == milligram.getName())
-                        resultMassValue = milligram.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == microgram.getName())
-                        resultMassValue = microgram.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == tonne.getName())
-                        resultMassValue = tonne.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == kilotonne.getName())
-                        resultMassValue = kilotonne.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == pound.getName())
-                        resultMassValue = pound.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == ounce.getName())
-                        resultMassValue = ounce.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == stoneUK.getName())
-                        resultMassValue = stoneUK.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == tonShort.getName())
-                        resultMassValue = tonShort.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == tonLong.getName())
-                        resultMassValue = tonLong.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == kilotonShort.getName())
-                        resultMassValue = kilotonShort.convertFromSiValue(massValue);
-                    else if ((string)massToUnitOutput.SelectedItem == kilotonLong.getName())
-                        resultMassValue = kilotonLong.convertFromSiValue(massValue);
-                    else
-                        unitError = true;
-
-                    if (unitError == false)
+                    foreach (MassUnit element in massUnits)
                     {
-                        massToValueOutput.Text = resultMassValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
+                        if ((string)massFromUnitInput.SelectedItem == element.getName())
+                        {
+                            massValue = element.convertToSiValue(inputValue);
+                            break;
+                        }
                     }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
+
+                    foreach (MassUnit element in massUnits)
+                    {
+                        if ((string)massToUnitOutput.SelectedItem == element.getName())
+                        {
+                            resultMassValue = element.convertFromSiValue(massValue);
+                            break;
+                        }
+                    }
+
+                    massToValueOutput.Text = resultMassValue.ToString();
+                    statusIndicator.Text = StatusMessages.done;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -856,47 +630,26 @@ namespace Unit_Converter
 
                 if (canParse)
                 {
-                    if ((string)energyFromUnitInput.SelectedItem == joule.getName())
-                        energyValue = inputValue;
-                    else if ((string)energyFromUnitInput.SelectedItem == kilojoule.getName())
-                        energyValue = kilojoule.convertToSiValue(inputValue);
-                    else if ((string)energyFromUnitInput.SelectedItem == wattHour.getName())
-                        energyValue = wattHour.convertToSiValue(inputValue);
-                    else if ((string)energyFromUnitInput.SelectedItem == kilowattHour.getName())
-                        energyValue = kilowattHour.convertToSiValue(inputValue);
-                    else if ((string)energyFromUnitInput.SelectedItem == calorie.getName())
-                        energyValue = calorie.convertToSiValue(inputValue);
-                    else if ((string)energyFromUnitInput.SelectedItem == kilocalorie.getName())
-                        energyValue = kilocalorie.convertToSiValue(inputValue);
-                    else if ((string)energyFromUnitInput.SelectedItem == btu.getName())
-                        energyValue = btu.convertToSiValue(inputValue);
-                    else
-                        unitError = true;
-
-                    if ((unitError == false) && ((string)energyToUnitOutput.SelectedItem == joule.getName()))
-                        resultEnergyValue = energyValue;
-                    else if ((string)energyToUnitOutput.SelectedItem == kilojoule.getName())
-                        resultEnergyValue = kilojoule.convertFromSiValue(energyValue);
-                    else if ((string)energyToUnitOutput.SelectedItem == wattHour.getName())
-                        resultEnergyValue = wattHour.convertFromSiValue(energyValue);
-                    else if ((string)energyToUnitOutput.SelectedItem == kilowattHour.getName())
-                        resultEnergyValue = kilowattHour.convertFromSiValue(energyValue);
-                    else if ((string)energyToUnitOutput.SelectedItem == calorie.getName())
-                        resultEnergyValue = calorie.convertFromSiValue(energyValue);
-                    else if ((string)energyToUnitOutput.SelectedItem == kilocalorie.getName())
-                        resultEnergyValue = kilocalorie.convertFromSiValue(energyValue);
-                    else if ((string)energyToUnitOutput.SelectedItem == btu.getName())
-                        resultEnergyValue = btu.convertFromSiValue(energyValue);
-                    else
-                        unitError = true;
-
-                    if (unitError == false)
+                    foreach (EnergyUnit element in energyUnits)
                     {
-                        energyToValueOutput.Text = resultEnergyValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
+                        if ((string)energyFromUnitInput.SelectedItem == element.getName())
+                        {
+                            energyValue = element.convertToSiValue(inputValue);
+                            break;
+                        }
                     }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
+
+                    foreach (EnergyUnit element in energyUnits)
+                    {
+                        if ((string)energyToUnitOutput.SelectedItem == element.getName())
+                        {
+                            resultEnergyValue = element.convertFromSiValue(energyValue);
+                            break;
+                        }
+                    }
+
+                    energyToValueOutput.Text = resultEnergyValue.ToString();
+                    statusIndicator.Text = StatusMessages.done;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
@@ -953,7 +706,7 @@ namespace Unit_Converter
 
                     if (unitError == false)
                     {
-                        speedToValueOutput.Text = resultTemperatureValue.ToString();
+                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
                         statusIndicator.Text = StatusMessages.done;
                     }
                     else
@@ -974,43 +727,26 @@ namespace Unit_Converter
 
                 if ((canParse) && (inputValue >= 0))
                 {
-                    if ((string)dataSizeFromUnitInput.SelectedItem == sizeByte.getName())
-                        dataSizeValue = inputValue;
-                    else if ((string)dataSizeFromUnitInput.SelectedItem == sizeKilobyte.getName())
-                        dataSizeValue = sizeKilobyte.convertToSiValue(inputValue);
-                    else if ((string)dataSizeFromUnitInput.SelectedItem == sizeMegabyte.getName())
-                        dataSizeValue = sizeMegabyte.convertToSiValue(inputValue);
-                    else if ((string)dataSizeFromUnitInput.SelectedItem == sizeGigabyte.getName())
-                        dataSizeValue = sizeGigabyte.convertToSiValue(inputValue);
-                    else if ((string)dataSizeFromUnitInput.SelectedItem == sizeTerabyte.getName())
-                        dataSizeValue = sizeTerabyte.convertToSiValue(inputValue);
-                    else if ((string)dataSizeFromUnitInput.SelectedItem == sizePetabyte.getName())
-                        dataSizeValue = sizePetabyte.convertToSiValue(inputValue);
-                    else
-                        unitError = true;
-
-                    if ((unitError == false) && ((string)dataSizeToUnitOutput.SelectedItem == sizeByte.getName()))
-                        resultDataSizeValue = dataSizeValue;
-                    else if ((string)dataSizeToUnitOutput.SelectedItem == sizeKilobyte.getName())
-                        resultDataSizeValue = sizeKilobyte.convertFromSiValue(dataSizeValue);
-                    else if ((string)dataSizeToUnitOutput.SelectedItem == sizeMegabyte.getName())
-                        resultDataSizeValue = sizeMegabyte.convertFromSiValue(dataSizeValue);
-                    else if ((string)dataSizeToUnitOutput.SelectedItem == sizeGigabyte.getName())
-                        resultDataSizeValue = sizeGigabyte.convertFromSiValue(dataSizeValue);
-                    else if ((string)dataSizeToUnitOutput.SelectedItem == sizeTerabyte.getName())
-                        resultDataSizeValue = sizeTerabyte.convertFromSiValue(dataSizeValue);
-                    else if ((string)dataSizeToUnitOutput.SelectedItem == sizePetabyte.getName())
-                        resultDataSizeValue = sizePetabyte.convertFromSiValue(dataSizeValue);
-                    else
-                        unitError = true;
-
-                    if (unitError == false)
+                    foreach (DataSizeUnit element in dataSizeUnits)
                     {
-                        dataSizeToValueOutput.Text = resultDataSizeValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
+                        if ((string)dataSizeFromUnitInput.SelectedItem == element.getName())
+                        {
+                            dataSizeValue = element.convertToSiValue(inputValue);
+                            break;
+                        }
                     }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
+
+                    foreach (DataSizeUnit element in dataSizeUnits)
+                    {
+                        if ((string)dataSizeToUnitOutput.SelectedItem == element.getName())
+                        {
+                            resultDataSizeValue = element.convertFromSiValue(dataSizeValue);
+                            break;
+                        }
+                    }
+
+                    dataSizeToValueOutput.Text = resultDataSizeValue.ToString();
+                    statusIndicator.Text = StatusMessages.done;
                 }
                 else
                     statusIndicator.Text = StatusMessages.invalidInput;
