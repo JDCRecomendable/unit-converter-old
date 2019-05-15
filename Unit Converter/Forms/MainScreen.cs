@@ -11,6 +11,7 @@ namespace Unit_Converter
         {
             InitializeComponent();
             this.ActiveControl = lengthFromUnitInput;
+            //this.AcceptButton = calculateButton;
             lengthFromUnitInput.Focus();
 
             // Detect if unit type changed (tab changed)
@@ -18,23 +19,27 @@ namespace Unit_Converter
         }
 
         // (1) INITIALISATION - Define all units
-        // UNIT TYPE 0 - Length (9 Units)
+        // UNIT TYPE 0 - Length (12 Units)
         BaseUnit metre = new BaseUnit("Metre [m] (S.I. Unit)", 1d);
         BaseUnit kilometre = new BaseUnit("Kilometre [km]", 1000d);
         BaseUnit decimetre = new BaseUnit("Decimetre [dm]", 0.1d);
         BaseUnit centimetre = new BaseUnit("Centimetre [cm]", 0.01d);
         BaseUnit millimetre = new BaseUnit("Millimetre [mm]", 0.001d);
+        BaseUnit micrometre = new BaseUnit("Micrometre [μm]", 0.000001d);
+        BaseUnit nanometre = new BaseUnit("Nanometre [nm]", 0.000000001d);
+        BaseUnit angstrom = new BaseUnit("Ångström [Å]", 0.0000000001d);
         BaseUnit mile = new BaseUnit("Mile [mi]", ((1d / 3.280839895d) * 5280d));
         BaseUnit yard = new BaseUnit("Yard [yd]", ((1d / 3.280839895d) * 3d));
         BaseUnit foot = new BaseUnit("Foot [ft]", (1d / 3.280839895d));
         BaseUnit inch = new BaseUnit("Inch [in]", ((1d / 3.280839895d) / 12d));
 
-        // UNIT TYPE 1 - Area (12 Units)
+        // UNIT TYPE 1 - Area (13 Units)
         BaseUnit squareMetre = new BaseUnit("Square Metre [m²] (S.I. Unit)", 1d);
         BaseUnit squareKilometre = new BaseUnit("Square Kilometre [km²]", 1000000d);
         BaseUnit squareDecimetre = new BaseUnit("Square Decimetre [dm²]", 0.01d);
         BaseUnit squareCentimetre = new BaseUnit("Square Centimetre [cm²]", 0.0001d);
-        BaseUnit squareMillimetre = new BaseUnit("Square Millimetre [mm²]", 0.000001);
+        BaseUnit squareMillimetre = new BaseUnit("Square Millimetre [mm²]", 0.000001d);
+        BaseUnit squareMicrometre = new BaseUnit("Square Micrometre [μm²]", 0.000000000001d);
         BaseUnit squareMile = new BaseUnit("Square Mile [mi²]", ((1d / 1.19599004630108d) * 3097600d));
         BaseUnit squareYard = new BaseUnit("Square Yard [yd²]", (1d / 1.19599004630108d));
         BaseUnit squareFoot = new BaseUnit("Square Foot [ft²]", ((1d / 1.19599004630108d) / 9d));
@@ -72,7 +77,7 @@ namespace Unit_Converter
         BaseUnit year = new BaseUnit("Year", 31536000d);
         BaseUnit yearLeap = new BaseUnit("Year (Leap)", 31622400d);
 
-        // UNIT TYPE 4 - Speed (8 Units)
+        // UNIT TYPE 4 - Speed (10 Units)
         BaseUnit metrePerSecond = new BaseUnit("Metre per Second [m/s] (S.I. Unit)", 1d);
         BaseUnit metrePerHour = new BaseUnit("Metre per Hour [m/h]", (1d / 3600d));
         BaseUnit kilometrePerSecond = new BaseUnit("Kilometre per Second [km/s]", 1000d);
@@ -81,6 +86,8 @@ namespace Unit_Converter
         BaseUnit footPerHour = new BaseUnit("Foot per Hour [ft/h]", ((1d / 3.280839895d) / 3600d));
         BaseUnit milePerSecond = new BaseUnit("Mile per Second [mi/s]", ((1d / 3.280839895d) * 5280d));
         BaseUnit milePerHour = new BaseUnit("Mile per Hour [mi/h]", ((1d / 3.280839895d) * 5280d / 3600d));
+        BaseUnit mach = new BaseUnit("Mach [Ma]", 340d);
+        BaseUnit knot = new BaseUnit("Knot [kn]", 1852d);
 
         // UNIT TYPE 5 - Mass (13 Units)
         BaseUnit kilogram = new BaseUnit("Kilogram [kg] (S.I. Unit)", 1d);
@@ -139,6 +146,9 @@ namespace Unit_Converter
             lengthUnits.Add(decimetre);
             lengthUnits.Add(centimetre);
             lengthUnits.Add(millimetre);
+            lengthUnits.Add(micrometre);
+            lengthUnits.Add(nanometre);
+            lengthUnits.Add(angstrom);
             lengthUnits.Add(mile);
             lengthUnits.Add(yard);
             lengthUnits.Add(foot);
@@ -157,6 +167,7 @@ namespace Unit_Converter
             areaUnits.Add(squareDecimetre);
             areaUnits.Add(squareCentimetre);
             areaUnits.Add(squareMillimetre);
+            areaUnits.Add(squareMicrometre);
             areaUnits.Add(squareMile);
             areaUnits.Add(squareYard);
             areaUnits.Add(squareFoot);
@@ -221,6 +232,8 @@ namespace Unit_Converter
             speedUnits.Add(footPerHour);
             speedUnits.Add(milePerSecond);
             speedUnits.Add(milePerHour);
+            speedUnits.Add(mach);
+            speedUnits.Add(knot);
 
             foreach (BaseUnit element in speedUnits)
             {
@@ -312,7 +325,7 @@ namespace Unit_Converter
         }
 
         // (4) CONTROLS - Calculate when button clicked
-        private void lengthCalculateButton_Click(object sender, EventArgs e)
+        private void calculateButton_Click(object sender, EventArgs e)
         {
             ExecuteCalculation();
         }
@@ -321,63 +334,90 @@ namespace Unit_Converter
         private void lengthFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 ExecuteCalculation();
+                e.SuppressKeyPress = true;
+            }
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void areaFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 ExecuteCalculation();
+                e.SuppressKeyPress = true;
+            }
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void volumeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 ExecuteCalculation();
+                e.SuppressKeyPress = true;
+            }
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void timeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 ExecuteCalculation();
+                e.SuppressKeyPress = true;
+            }
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void speedFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 ExecuteCalculation();
+                e.SuppressKeyPress = true;
+            }
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void massFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 ExecuteCalculation();
+                e.SuppressKeyPress = true;
+            }
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void energyFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 ExecuteCalculation();
+                e.SuppressKeyPress = true;
+            }
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void temperatureFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 ExecuteCalculation();
+                e.SuppressKeyPress = true;
+            }
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
         private void dataSizeFromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 ExecuteCalculation();
+                e.SuppressKeyPress = true;
+            }
         }
 
         // (5) CALCULATION - Execute the calculation process
