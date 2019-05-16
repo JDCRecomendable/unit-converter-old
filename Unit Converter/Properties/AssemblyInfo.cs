@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
     "\r\n\r\nUnit Converter is a Windows program that converts values from " +
     "one unit to another.\r\n\r\nThe application converts units for length, " +
     "area, volume, time, speed, mass, energy, temperature and data size. " +
-    "There are currently over 80 different units supported and counting." +
+    "There are currently over 100 different units supported and counting." +
     "\r\n\r\nThis application is under beta testing and may be buggy. " +
     "Future editions will see less bugs and the ability to add one's " +
     "own custom units, as well as support for mathematical notations in" +
