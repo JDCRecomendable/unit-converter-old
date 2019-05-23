@@ -10,8 +10,8 @@ namespace Unit_Converter
         public MainScreen()
         {
             InitializeComponent();
-            this.ActiveControl = lengthFromUnitInput;
-            lengthFromUnitInput.Focus();
+            this.ActiveControl = fromUnitInput;
+            fromUnitInput.Focus();
 
             // Detect if unit type changed (tab changed)
             unitSelector.SelectedIndexChanged += new EventHandler(unitSelector_SelectedIndexChanged);
@@ -181,13 +181,6 @@ namespace Unit_Converter
             lengthUnits.Add(foot);
             lengthUnits.Add(inch);
 
-            foreach (BaseUnit element in lengthUnits)
-            {
-                lengthFromUnitInput.Items.Add(element.getName());
-                lengthToUnitOutput.Items.Add(element.getName());
-            }
-
-
             // UNIT TYPE 1 - Area
             areaUnits.Add(squareMetre);
             areaUnits.Add(squareKilometre);
@@ -210,12 +203,6 @@ namespace Unit_Converter
             areaUnits.Add(section);
             areaUnits.Add(township);
 
-            foreach (BaseUnit element in areaUnits)
-            {
-                areaFromUnitInput.Items.Add(element.getName());
-                areaToUnitOutput.Items.Add(element.getName());
-            }
-
             // UNIT TYPE 2 - Volume
             volumeUnits.Add(cubicMetre);
             volumeUnits.Add(cubicCentimetre);
@@ -233,12 +220,6 @@ namespace Unit_Converter
             volumeUnits.Add(tablespoon);
             volumeUnits.Add(teaspoon);
 
-            foreach (BaseUnit element in volumeUnits)
-            {
-                volumeFromUnitInput.Items.Add(element.getName());
-                volumeToUnitOutput.Items.Add(element.getName());
-            }
-
             // UNIT TYPE 3 - Time
             timeUnits.Add(second);
             timeUnits.Add(millisecond);
@@ -251,12 +232,6 @@ namespace Unit_Converter
             timeUnits.Add(fortnight);
             timeUnits.Add(year);
             timeUnits.Add(yearLeap);
-
-            foreach (BaseUnit element in timeUnits)
-            {
-                timeFromUnitInput.Items.Add(element.getName());
-                timeToUnitOutput.Items.Add(element.getName());
-            }
 
             // UNIT TYPE 4 - Speed
             speedUnits.Add(metrePerSecond);
@@ -275,12 +250,6 @@ namespace Unit_Converter
             speedUnits.Add(mach);
             speedUnits.Add(knot);
 
-            foreach (BaseUnit element in speedUnits)
-            {
-                speedFromUnitInput.Items.Add(element.getName());
-                speedToUnitOutput.Items.Add(element.getName());
-            }
-
             // UNIT TYPE 5 - Mass
             massUnits.Add(kilogram);
             massUnits.Add(gram);
@@ -297,12 +266,6 @@ namespace Unit_Converter
             massUnits.Add(kilotonShort);
             massUnits.Add(kilotonLong);
 
-            foreach (BaseUnit element in massUnits)
-            {
-                massFromUnitInput.Items.Add(element.getName());
-                massToUnitOutput.Items.Add(element.getName());
-            }
-
             // UNIT TYPE 6 - Energy
             energyUnits.Add(joule);
             energyUnits.Add(kilojoule);
@@ -314,22 +277,10 @@ namespace Unit_Converter
             energyUnits.Add(kilocalorie);
             energyUnits.Add(btu);
 
-            foreach (BaseUnit element in energyUnits)
-            {
-                energyFromUnitInput.Items.Add(element.getName());
-                energyToUnitOutput.Items.Add(element.getName());
-            }
-
             // UNIT TYPE 7 - Temperature
             temperatureUnits.Add(kelvin);
             temperatureUnits.Add(celsius);
             temperatureUnits.Add(fahrenheit);
-
-            foreach (TemperatureUnit element in temperatureUnits)
-            {
-                temperatureFromUnitInput.Items.Add(element.getName());
-                temperatureToUnitOutput.Items.Add(element.getName());
-            }
 
             // UNIT TYPE 8 - Data Size
             dataSizeUnits.Add(sizeByte);
@@ -339,10 +290,10 @@ namespace Unit_Converter
             dataSizeUnits.Add(sizeTerabyte);
             dataSizeUnits.Add(sizePetabyte);
 
-            foreach (BaseUnit element in dataSizeUnits)
+            foreach (BaseUnit element in lengthUnits)
             {
-                dataSizeFromUnitInput.Items.Add(element.getName());
-                dataSizeToUnitOutput.Items.Add(element.getName());
+                fromUnitInput.Items.Add(element.getName());
+                toUnitOutput.Items.Add(element.getName());
             }
         }
 
@@ -360,11 +311,59 @@ namespace Unit_Converter
             this.Close();
         }
 
-        // (3) STATUS BAR EVENTS - Indicate to user converter is ready when unit
-        // type is changed (tab is changed)
+        // (3) UNIT TYPE EVENTS - Helper function to add units in the combo box
+        // for multiplicative units that use the BaseUnit class
+        private void AddComboBoxValues(List<BaseUnit> unitList)
+        {
+            foreach (BaseUnit element in unitList)
+            {
+                fromUnitInput.Items.Add(element.getName());
+                toUnitOutput.Items.Add(element.getName());
+            }
+        }
+
+        // (3) UNIT TYPE EVENTS - Do when unit type is changed (tab is changed)
         private void unitSelector_SelectedIndexChanged(Object sender, EventArgs e)
         {
-            statusIndicator.Text = StatusMessages.ready;
+            bool changedComboBoxValues = true;
+
+            fromUnitInput.Items.Clear();
+            toUnitOutput.Items.Clear();
+            fromValueInput.Clear();
+            toValueOutput.Clear();
+
+            if (unitSelector.SelectedIndex == 0)
+                AddComboBoxValues(lengthUnits);
+            else if (unitSelector.SelectedIndex == 1)
+                AddComboBoxValues(areaUnits);
+            else if (unitSelector.SelectedIndex == 2)
+                AddComboBoxValues(volumeUnits);
+            else if (unitSelector.SelectedIndex == 3)
+                AddComboBoxValues(timeUnits);
+            else if (unitSelector.SelectedIndex == 4)
+                AddComboBoxValues(speedUnits);
+            else if (unitSelector.SelectedIndex == 5)
+                AddComboBoxValues(massUnits);
+            else if (unitSelector.SelectedIndex == 6)
+                AddComboBoxValues(energyUnits);
+            else if (unitSelector.SelectedIndex == 7)
+            {
+                foreach (TemperatureUnit element in temperatureUnits)
+                {
+                    fromUnitInput.Items.Add(element.getName());
+                    toUnitOutput.Items.Add(element.getName());
+                }
+            }
+            else if (unitSelector.SelectedIndex == 8)
+                AddComboBoxValues(dataSizeUnits);
+            else
+            {
+                changedComboBoxValues = false;
+                statusIndicator.Text = StatusMessages.unitTypeError;
+            }
+
+            if (changedComboBoxValues)
+                statusIndicator.Text = StatusMessages.ready;
         }
 
         // (4) CONTROLS - Calculate when button clicked
@@ -374,7 +373,7 @@ namespace Unit_Converter
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
-        private void lengthFromValueInput_KeyDown(object sender, KeyEventArgs e)
+        private void fromValueInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -383,402 +382,112 @@ namespace Unit_Converter
             }
         }
 
-        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
-        private void areaFromValueInput_KeyDown(object sender, KeyEventArgs e)
+        // (5) SWAP - Swap the input and output units
+        private void swapButton_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            string tempUnitHolder;  // hold the unit temporarily here
+            if (fromUnitInput.SelectedItem != toUnitOutput.SelectedItem)
             {
-                ExecuteCalculation();
-                e.SuppressKeyPress = true;
+                tempUnitHolder = (string)fromUnitInput.SelectedItem;
+                fromUnitInput.SelectedItem = (string)toUnitOutput.SelectedItem;
+                toUnitOutput.SelectedItem = tempUnitHolder;
+                statusIndicator.Text = StatusMessages.swapped;
             }
+            else
+                statusIndicator.Text = StatusMessages.invalidSwap;
         }
 
-        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
-        private void volumeFromValueInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ExecuteCalculation();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
-        private void timeFromValueInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ExecuteCalculation();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
-        private void speedFromValueInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ExecuteCalculation();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
-        private void massFromValueInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ExecuteCalculation();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
-        private void energyFromValueInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ExecuteCalculation();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
-        private void temperatureFromValueInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ExecuteCalculation();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        // (4) CONTROLS - Calculate when [Enter] pressed in the input box
-        private void dataSizeFromValueInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ExecuteCalculation();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        // (5) CALCULATION - Execute the calculation process
-        private void ExecuteCalculation()
+        // (6) CALCULATION - Helper function that calculates the result value
+        // for multiplicative units that use BaseUnit class and modifies status
+        private void CalculateConversion(List<BaseUnit> unitList)
         {
             string rawValue;                 // raw data from the user-inputtable text box
-            double inputValue;               // processed data from the user-inputtable text box
             bool canParse;                   // shows whether raw user input data can be parsed to double
             bool fromInputHasValue = false;  // shows if the user has not selected a unit for fromUnitInput combo box
             bool toOutputHasValue = false;   // shows if the user has not selected a unit for toUnitOutput combo box
+            double inputValue;               // processed data from the user-inputtable text box
+            double unitValue = 0;
+            double resultUnitValue = 0;
 
-            // UNIT TYPE 0 - User wants to convert length
-            if (unitSelector.SelectedIndex == 0)
+            rawValue = fromValueInput.Text;
+            canParse = double.TryParse(rawValue, result: out inputValue);
+
+            if (canParse)
             {
-                double lengthValue = 0;
-                double resultLengthValue = 0;
-
-                rawValue = lengthFromValueInput.Text;
-                canParse = double.TryParse(rawValue, result: out inputValue);
-
-                if (canParse)
+                foreach (BaseUnit element in unitList)
                 {
-                    foreach (BaseUnit element in lengthUnits)
+                    if ((string)fromUnitInput.SelectedItem == element.getName())
                     {
-                        if ((string)lengthFromUnitInput.SelectedItem == element.getName())
-                        {
-                            lengthValue = element.convertToSiValue(inputValue);
-                            fromInputHasValue = true;
-                            break;
-                        }
+                        unitValue = element.convertToSiValue(inputValue);
+                        fromInputHasValue = true;
+                        break;
                     }
+                }
 
-                    foreach (BaseUnit element in lengthUnits)
+                foreach (BaseUnit element in unitList)
+                {
+                    if ((string)toUnitOutput.SelectedItem == element.getName())
                     {
-                        if ((string)lengthToUnitOutput.SelectedItem == element.getName())
-                        {
-                            resultLengthValue = element.convertFromSiValue(lengthValue);
-                            toOutputHasValue = true;
-                            break;
-                        }
+                        resultUnitValue = element.convertFromSiValue(unitValue);
+                        toOutputHasValue = true;
+                        break;
                     }
+                }
 
-                    if (fromInputHasValue && toOutputHasValue)
-                    {
-                        lengthToValueOutput.Text = resultLengthValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
-                    }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
+                if (fromInputHasValue && toOutputHasValue)
+                {
+                    toValueOutput.Text = resultUnitValue.ToString();
+                    statusIndicator.Text = StatusMessages.done;
                 }
                 else
-                    statusIndicator.Text = StatusMessages.invalidInput;
+                    statusIndicator.Text = StatusMessages.unitError;
             }
+            else
+                statusIndicator.Text = StatusMessages.invalidInput;
+        }
+
+        // (6) CALCULATION - Execute the calculation process
+        private void ExecuteCalculation()
+        {
+            // UNIT TYPE 0 - User wants to convert length
+            if (unitSelector.SelectedIndex == 0)
+                CalculateConversion(lengthUnits);
 
             // UNIT TYPE 1 - User wants to convert area
             else if (unitSelector.SelectedIndex == 1)
-            {
-                double areaValue = 0;
-                double resultAreaValue = 0;
-
-                rawValue = areaFromValueInput.Text;
-                canParse = double.TryParse(rawValue, result: out inputValue);
-
-                if (canParse)
-                {
-                    foreach (BaseUnit element in areaUnits)
-                    {
-                        if ((string)areaFromUnitInput.SelectedItem == element.getName())
-                        {
-                            areaValue = element.convertToSiValue(inputValue);
-                            fromInputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    foreach (BaseUnit element in areaUnits)
-                    {
-                        if ((string)areaToUnitOutput.SelectedItem == element.getName())
-                        {
-                            resultAreaValue = element.convertFromSiValue(areaValue);
-                            toOutputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    if (fromInputHasValue && toOutputHasValue)
-                    {
-                        areaToValueOutput.Text = resultAreaValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
-                    }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
-                }
-                else
-                    statusIndicator.Text = StatusMessages.invalidInput;
-            }
+                CalculateConversion(areaUnits);
 
             // UNIT TYPE 2 - User wants to convert volume
             else if (unitSelector.SelectedIndex == 2)
-            {
-                double volumeValue = 0;
-                double resultVolumeValue = 0;
-
-                rawValue = volumeFromValueInput.Text;
-                canParse = double.TryParse(rawValue, result: out inputValue);
-
-                if (canParse)
-                {
-                    foreach (BaseUnit element in volumeUnits)
-                    {
-                        if ((string)volumeFromUnitInput.SelectedItem == element.getName())
-                        {
-                            volumeValue = element.convertToSiValue(inputValue);
-                            fromInputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    foreach (BaseUnit element in volumeUnits)
-                    {
-                        if ((string)volumeToUnitOutput.SelectedItem == element.getName())
-                        {
-                            resultVolumeValue = element.convertFromSiValue(volumeValue);
-                            toOutputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    if (fromInputHasValue && toOutputHasValue)
-                    {
-                        volumeToValueOutput.Text = resultVolumeValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
-                    }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
-                }
-                else
-                    statusIndicator.Text = StatusMessages.invalidInput;
-            }
+                CalculateConversion(volumeUnits);
 
             // UNIT TYPE 3 - User wants to convert time
             else if (unitSelector.SelectedIndex == 3)
-            {
-                double timeValue = 0;
-                double resultTimeValue = 0;
-
-                rawValue = timeFromValueInput.Text;
-                canParse = double.TryParse(rawValue, result: out inputValue);
-
-                if (canParse)
-                {
-                    foreach (BaseUnit element in timeUnits)
-                    {
-                        if ((string)timeFromUnitInput.SelectedItem == element.getName())
-                        {
-                            timeValue = element.convertToSiValue(inputValue);
-                            fromInputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    foreach (BaseUnit element in timeUnits)
-                    {
-                        if ((string)timeToUnitOutput.SelectedItem == element.getName())
-                        {
-                            resultTimeValue = element.convertFromSiValue(timeValue);
-                            toOutputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    if (fromInputHasValue && toOutputHasValue)
-                    {
-                        timeToValueOutput.Text = resultTimeValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
-                    }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
-                }
-                else
-                    statusIndicator.Text = StatusMessages.invalidInput;
-            }
+                CalculateConversion(timeUnits);
 
             // UNIT TYPE 4 - User wants to convert speed
             else if (unitSelector.SelectedIndex == 4)
-            {
-                double speedValue = 0;
-                double resultSpeedValue = 0;
-
-                rawValue = speedFromValueInput.Text;
-                canParse = double.TryParse(rawValue, result: out inputValue);
-
-                if (canParse)
-                {
-                    foreach (BaseUnit element in speedUnits)
-                    {
-                        if ((string)speedFromUnitInput.SelectedItem == element.getName())
-                        {
-                            speedValue = element.convertToSiValue(inputValue);
-                            fromInputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    foreach (BaseUnit element in speedUnits)
-                    {
-                        if ((string)speedToUnitOutput.SelectedItem == element.getName())
-                        {
-                            resultSpeedValue = element.convertFromSiValue(speedValue);
-                            toOutputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    if (fromInputHasValue && toOutputHasValue)
-                    {
-                        speedToValueOutput.Text = resultSpeedValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
-                    }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
-                }
-                else
-                    statusIndicator.Text = StatusMessages.invalidInput;
-            }
+                CalculateConversion(speedUnits);
 
             // UNIT TYPE 5 - User wants to convert mass
             else if (unitSelector.SelectedIndex == 5)
-            {
-                double massValue = 0;
-                double resultMassValue = 0;
-
-                rawValue = massFromValueInput.Text;
-                canParse = double.TryParse(rawValue, result: out inputValue);
-
-                if (canParse)
-                {
-                    foreach (BaseUnit element in massUnits)
-                    {
-                        if ((string)massFromUnitInput.SelectedItem == element.getName())
-                        {
-                            massValue = element.convertToSiValue(inputValue);
-                            fromInputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    foreach (BaseUnit element in massUnits)
-                    {
-                        if ((string)massToUnitOutput.SelectedItem == element.getName())
-                        {
-                            resultMassValue = element.convertFromSiValue(massValue);
-                            toOutputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    if (fromInputHasValue && toOutputHasValue)
-                    {
-                        massToValueOutput.Text = resultMassValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
-                    }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
-                }
-                else
-                    statusIndicator.Text = StatusMessages.invalidInput;
-            }
+                CalculateConversion(massUnits);
 
             // UNIT TYPE 6 - User wants to convert energy
             else if (unitSelector.SelectedIndex == 6)
-            {
-                double energyValue = 0;
-                double resultEnergyValue = 0;
-
-                rawValue = energyFromValueInput.Text;
-                canParse = double.TryParse(rawValue, result: out inputValue);
-
-                if (canParse)
-                {
-                    foreach (BaseUnit element in energyUnits)
-                    {
-                        if ((string)energyFromUnitInput.SelectedItem == element.getName())
-                        {
-                            energyValue = element.convertToSiValue(inputValue);
-                            fromInputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    foreach (BaseUnit element in energyUnits)
-                    {
-                        if ((string)energyToUnitOutput.SelectedItem == element.getName())
-                        {
-                            resultEnergyValue = element.convertFromSiValue(energyValue);
-                            toOutputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    if (fromInputHasValue && toOutputHasValue)
-                    {
-                        energyToValueOutput.Text = resultEnergyValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
-                    }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
-                }
-                else
-                    statusIndicator.Text = StatusMessages.invalidInput;
-            }
+                CalculateConversion(energyUnits);
 
             // UNIT TYPE 7 - User wants to convert temperature
             else if (unitSelector.SelectedIndex == 7)
             {
+                string rawValue;                 // raw data from the user-inputtable text box
+                double inputValue;               // processed data from the user-inputtable text box
+                bool canParse;                   // shows whether raw user input data can be parsed to double
+                bool fromInputHasValue = false;  // shows if the user has not selected a unit for fromUnitInput combo box
+                bool toOutputHasValue = false;   // shows if the user has not selected a unit for toUnitOutput combo box
                 double resultTemperatureValue = 0;
 
-                rawValue = temperatureFromValueInput.Text;
+                rawValue = fromValueInput.Text;
                 canParse = double.TryParse(rawValue, result: out inputValue);
 
                 if (canParse)
@@ -786,33 +495,33 @@ namespace Unit_Converter
                     fromInputHasValue = true;
                     toOutputHasValue = true;
 
-                    if ((string)temperatureFromUnitInput.SelectedItem ==
-                        (string)temperatureToUnitOutput.SelectedItem)
+                    if ((string)fromUnitInput.SelectedItem ==
+                        (string)toUnitOutput.SelectedItem)
                         resultTemperatureValue = inputValue;
-                    else if (((string)temperatureFromUnitInput.SelectedItem == kelvin.getName())
-                        && (string)temperatureToUnitOutput.SelectedItem == celsius.getName())
+                    else if (((string)fromUnitInput.SelectedItem == kelvin.getName())
+                        && (string)toUnitOutput.SelectedItem == celsius.getName())
                         resultTemperatureValue = inputValue - 273.15d;
-                    else if (((string)temperatureFromUnitInput.SelectedItem == kelvin.getName())
-                        && (string)temperatureToUnitOutput.SelectedItem == fahrenheit.getName())
+                    else if (((string)fromUnitInput.SelectedItem == kelvin.getName())
+                        && (string)toUnitOutput.SelectedItem == fahrenheit.getName())
                         resultTemperatureValue = inputValue * 1.8d - 459.67d;
-                    else if (((string)temperatureFromUnitInput.SelectedItem == celsius.getName())
-                        && (string)temperatureToUnitOutput.SelectedItem == kelvin.getName())
+                    else if (((string)fromUnitInput.SelectedItem == celsius.getName())
+                        && (string)toUnitOutput.SelectedItem == kelvin.getName())
                         resultTemperatureValue = inputValue + 273.15d;
-                    else if (((string)temperatureFromUnitInput.SelectedItem == celsius.getName())
-                        && (string)temperatureToUnitOutput.SelectedItem == fahrenheit.getName())
+                    else if (((string)fromUnitInput.SelectedItem == celsius.getName())
+                        && (string)toUnitOutput.SelectedItem == fahrenheit.getName())
                         resultTemperatureValue = inputValue * 1.8d + 32d;
-                    else if (((string)temperatureFromUnitInput.SelectedItem == fahrenheit.getName())
-                        && (string)temperatureToUnitOutput.SelectedItem == kelvin.getName())
+                    else if (((string)fromUnitInput.SelectedItem == fahrenheit.getName())
+                        && (string)toUnitOutput.SelectedItem == kelvin.getName())
                         resultTemperatureValue = (inputValue + 459.67d) / 1.8d;
-                    else if (((string)temperatureFromUnitInput.SelectedItem == fahrenheit.getName())
-                        && (string)temperatureToUnitOutput.SelectedItem == celsius.getName())
+                    else if (((string)fromUnitInput.SelectedItem == fahrenheit.getName())
+                        && (string)toUnitOutput.SelectedItem == celsius.getName())
                         resultTemperatureValue = (inputValue - 32d) / 1.8d;
                     else
                         fromInputHasValue = false;
 
                     if (fromInputHasValue && toOutputHasValue)
                     {
-                        temperatureToValueOutput.Text = resultTemperatureValue.ToString();
+                        toValueOutput.Text = resultTemperatureValue.ToString();
                         statusIndicator.Text = StatusMessages.done;
                     }
                     else
@@ -824,46 +533,7 @@ namespace Unit_Converter
 
             // UNIT TYPE 8 - User wants to convert data size
             else if (unitSelector.SelectedIndex == 8)
-            {
-                double dataSizeValue = 0;
-                double resultDataSizeValue = 0;
-
-                rawValue = dataSizeFromValueInput.Text;
-                canParse = double.TryParse(rawValue, result: out inputValue);
-
-                if ((canParse) && (inputValue >= 0))
-                {
-                    foreach (BaseUnit element in dataSizeUnits)
-                    {
-                        if ((string)dataSizeFromUnitInput.SelectedItem == element.getName())
-                        {
-                            dataSizeValue = element.convertToSiValue(inputValue);
-                            fromInputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    foreach (BaseUnit element in dataSizeUnits)
-                    {
-                        if ((string)dataSizeToUnitOutput.SelectedItem == element.getName())
-                        {
-                            resultDataSizeValue = element.convertFromSiValue(dataSizeValue);
-                            toOutputHasValue = true;
-                            break;
-                        }
-                    }
-
-                    if (fromInputHasValue && toOutputHasValue)
-                    {
-                        dataSizeToValueOutput.Text = resultDataSizeValue.ToString();
-                        statusIndicator.Text = StatusMessages.done;
-                    }
-                    else
-                        statusIndicator.Text = StatusMessages.unitError;
-                }
-                else
-                    statusIndicator.Text = StatusMessages.invalidInput;
-            }
+                CalculateConversion(dataSizeUnits);
 
             // Somehow, the currently selected tab does not exist!
             else
