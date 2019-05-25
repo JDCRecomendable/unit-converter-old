@@ -105,7 +105,7 @@ namespace Unit_Converter
         BaseUnit milePerMinute = new BaseUnit("Mile per Minute [mi/min]", ((1d / 3.280839895d) * 5280d / 60d));
         BaseUnit milePerHour = new BaseUnit("Mile per Hour [mi/h]", ((1d / 3.280839895d) * 5280d / 3600d));
         BaseUnit mach = new BaseUnit("Mach [Ma]", 340d);
-        BaseUnit knot = new BaseUnit("Knot [kn]", 1852d);
+        BaseUnit knot = new BaseUnit("Knot [kn]", 1852d / 3600d);
 
         // UNIT TYPE 5 - Mass (14 Units)
         BaseUnit kilogram = new BaseUnit("Kilogram [kg] (S.I. Unit)", 1d);
