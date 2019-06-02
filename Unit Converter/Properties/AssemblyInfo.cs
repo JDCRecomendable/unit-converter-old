@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Avondale College")]
 [assembly: AssemblyProduct("Unit Converter")]
-[assembly: AssemblyCopyright("©  2019 Jared Daniel Carbonell Recomendable.")]
+[assembly: AssemblyCopyright("©  2019 Jared Daniel Carbonell Recomendable")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

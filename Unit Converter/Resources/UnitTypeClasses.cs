@@ -1,14 +1,16 @@
 ﻿namespace Unit_Converter
 {
-    public class BaseUnit
+    public class Unit
     {
         private readonly string name;
-        private readonly double siValue;
+        private readonly double gradient;
+        private readonly double intercept;
 
-        public BaseUnit(string pName, double pSiValue)
+        public Unit(string pName, double pGradient, double pIntercept)
         {
             name = pName;
-            siValue = pSiValue;
+            gradient = pGradient;
+            intercept = pIntercept;
         }
 
         public string getName()
@@ -18,27 +20,12 @@
 
         public double convertToSiValue(double value)
         {
-            return (value * siValue);
+            return (value * gradient + intercept);
         }
 
         public double convertFromSiValue(double value)
         {
-            return (value / siValue);
-        }
-    }
-
-    public class TemperatureUnit
-    {
-        private readonly string name;
-
-        public TemperatureUnit(string pName)
-        {
-            name = pName;
-        }
-
-        public string getName()
-        {
-            return name;
+            return ((value - intercept) / gradient);
         }
     }
 }
