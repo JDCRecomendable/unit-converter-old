@@ -4,7 +4,7 @@
     /// Static class that contains all strings for use with the status
     /// indicator at the bottom of the main form.
     /// </summary>
-    public static class StatusMessages
+    public static class StatusMessage
     {
         // Calculation messages
         public const string ready = "Ready";

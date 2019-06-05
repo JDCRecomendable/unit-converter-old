@@ -4,7 +4,7 @@
     /// Static class that defines the index for each unit type
     /// (quantity) used in the program.
     /// </summary>
-    public static class UnitTypeIndices
+    public static class UnitTypeIndex
     {
         public const short length = 0;
         public const short area = 1;

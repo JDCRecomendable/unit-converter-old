@@ -23,17 +23,17 @@
             intercept = pIntercept;
         }
 
-        public string getName()
+        public string GetName()
         {
             return name;
         }
 
-        public double convertToSiValue(double value)
+        public double ConvertToSiValue(double value)
         {
             return (value * gradient + intercept);
         }
 
-        public double convertFromSiValue(double value)
+        public double ConvertFromSiValue(double value)
         {
             return ((value - intercept) / gradient);
         }

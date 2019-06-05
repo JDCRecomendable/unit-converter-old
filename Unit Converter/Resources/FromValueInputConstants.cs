@@ -6,7 +6,7 @@ namespace Unit_Converter
     /// Static class that defines the text of fromValueInput
     /// when it is empty and when it is not
     /// </summary>
-    public static class FromValueInputConstants
+    public static class FromValueInputConstant
     {
         // Strings
         public const string defaultString = "Type your input here...";

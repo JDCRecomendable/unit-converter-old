@@ -3,7 +3,7 @@
     /// <summary>
     /// Define the 18 length units
     /// </summary>
-    public static class LengthUnits
+    public static class LengthUnit
     {
         public static Unit metre = new Unit("Metre [m] (S.I. Unit)", 1d, 0d);
         public static Unit nauticalMile = new Unit("Nautical Mile [nmi]", 1852d, 0d);
@@ -28,7 +28,7 @@
     /// <summary>
     /// Define the 20 area units
     /// </summary>
-    public static class AreaUnits
+    public static class AreaUnit
     {
         public static Unit squareMetre = new Unit("Square Metre [m²] (S.I. Unit)", 1d, 0d);
         public static Unit squareKilometre = new Unit("Square Kilometre [km²]", 1000000d, 0d);
@@ -52,7 +52,10 @@
         public static Unit township = new Unit("Survey Township", ((1d / 1.19599004630108d) * 111513600d), 0d);
     }
 
-    public static class VolumeUnits
+    /// <summary>
+    /// Define the 15 volume units
+    /// </summary>
+    public static class VolumeUnit
     {
         public static Unit cubicMetre = new Unit("Cubic Metre [m³] (S.I. Unit)", 1d, 0d);
         public static Unit cubicCentimetre = new Unit("Cubic Centimetre [cm³]", 0.000001d, 0d);
@@ -71,7 +74,10 @@
         public static Unit teaspoon = new Unit("Teaspoon (US Customary)", (4226.75283773038d / 48d), 0d);
     }
 
-    public static class TimeUnits
+    /// <summary>
+    /// Define the 11 time units
+    /// </summary>
+    public static class TimeUnit
     {
         public static Unit second = new Unit("Second [s] (S.I. Unit)", 1d, 0d);
         public static Unit millisecond = new Unit("Millisecond [ms]", 0.001d, 0d);
@@ -86,7 +92,10 @@
         public static Unit yearLeap = new Unit("Year (Leap)", 31622400d, 0d);
     }
 
-    public static class SpeedUnits
+    /// <summary>
+    /// Define the 15 speed units
+    /// </summary>
+    public static class SpeedUnit
     {
         public static Unit metrePerSecond = new Unit("Metre per Second [m/s] (S.I. Unit)", 1d, 0d);
         public static Unit metrePerMinute = new Unit("Metre per Minute [m/min]", (1d / 60d), 0d);
@@ -105,12 +114,18 @@
         public static Unit knot = new Unit("Knot [kn]", 1852d / 3600d, 0d);
     }
 
-    public static class FlowUnits
+    /// <summary>
+    /// Define the 0 flow units
+    /// </summary>
+    public static class FlowUnit
     {
         // empty
     }
 
-    public static class MassUnits
+    /// <summary>
+    /// Define the 14 mass units
+    /// </summary>
+    public static class MassUnit
     {
         public static Unit kilogram = new Unit("Kilogram [kg] (S.I. Unit)", 1d, 0d);
         public static Unit gram = new Unit("Gram [g]", (1d / 1000d), 0d);
@@ -128,7 +143,10 @@
         public static Unit kilotonLong = new Unit("Kiloton (Long)", ((1d / 2.20462262184878d) * 2240000d), 0d);
     }
 
-    public static class EnergyUnits
+    /// <summary>
+    /// Define the 9 energy units
+    /// </summary>
+    public static class EnergyUnit
     {
         public static Unit joule = new Unit("Joule [J] (S.I. Unit)", 1d, 0d);
         public static Unit kilojoule = new Unit("Kilojoule [kJ]", 1000d, 0d);
@@ -141,24 +159,36 @@
         public static Unit btu = new Unit("British Thermal Unit (BTU)", 1055.05585262d, 0d);
     }
 
-    public static class PressureUnits
+    /// <summary>
+    /// Define the 0 pressure units
+    /// </summary>
+    public static class PressureUnit
     {
         // empty
     }
 
-    public static class TemperatureUnits
+    /// <summary>
+    /// Define the 3 temperature units
+    /// </summary>
+    public static class TemperatureUnit
     {
         public static Unit kelvin = new Unit("Kelvin [K] (S.I. Unit)", 1d, 0d);
         public static Unit celsius = new Unit("Celsius [°C]", 1d, 273.15d);
         public static Unit fahrenheit = new Unit("Fahrenheit [°F]", (5d / 9d), (459.67d * (5d / 9d)));
     }
 
-    public static class LuminosityUnits
+    /// <summary>
+    /// Define the 0 luminosity units
+    /// </summary>
+    public static class LuminosityUnit
     {
         // empty
     }
 
-    public static class DataSizeUnits
+    /// <summary>
+    /// Define the 6 data size units
+    /// </summary>
+    public static class DataSizeUnit
     {
         public static Unit sizeByte = new Unit("Byte [B]", 1d, 0d);
         public static Unit sizeKilobyte = new Unit("Kilobyte [kb]", 1024d, 0d);
