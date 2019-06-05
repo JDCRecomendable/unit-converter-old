@@ -1,5 +1,15 @@
 ﻿namespace Unit_Converter
 {
+    /// <summary>
+    /// Class definition that is the basis for units used in the converter.
+    /// <para>
+    /// The user should define the gradient and the y-intercept of a unit
+    /// relative to the S.I. unit for the unit type of the unit to be defined.
+    /// </para>
+    /// <para>
+    /// S.I. Value = Gradient * User Input + Intercept
+    /// </para>
+    /// </summary>
     public class Unit
     {
         private readonly string name;

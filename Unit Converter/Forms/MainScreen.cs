@@ -10,146 +10,18 @@ namespace Unit_Converter
         public MainScreen()
         {
             InitializeComponent();
-            this.ActiveControl = unitSelector;
-            unitSelector.Focus();
-
-            // Detect if unit type changed (tab changed)
-            unitSelector.SelectedIndexChanged += new EventHandler(unitSelector_SelectedIndexChanged);
+            this.ActiveControl = unitSelectorTable;
+            unitSelectorTable.Focus();
+            unitSelectorTable.SelectedIndex = 0;
         }
 
         // (1) INITIALISATION - Define round-off value variable
         // (-1 if not to round off)
         short roundOffValue = -1;
 
-        // (1) INITIALISATION - Define all units
-        // UNIT TYPE 0 - Length (18 Units)
-        Unit metre = new Unit("Metre [m] (S.I. Unit)", 1d, 0d);
-        Unit nauticalMile = new Unit("Nautical Mile [nmi]", 1852d, 0d);
-        Unit kilometre = new Unit("Kilometre [km]", 1000d, 0d);
-        Unit decimetre = new Unit("Decimetre [dm]", 0.1d, 0d);
-        Unit centimetre = new Unit("Centimetre [cm]", 0.01d, 0d);
-        Unit millimetre = new Unit("Millimetre [mm]", 0.001d, 0d);
-        Unit micrometre = new Unit("Micrometre [μm]", 0.000001d, 0d);
-        Unit nanometre = new Unit("Nanometre [nm]", 0.000000001d, 0d);
-        Unit angstrom = new Unit("Ångström [Å]", 0.0000000001d, 0d);
-        Unit mile = new Unit("Mile [mi]", ((1d / 3.280839895d) * 5280d), 0d);
-        Unit furlong = new Unit("Furlong", ((1d / 3.280839895d) * 660d), 0d);
-        Unit chain = new Unit("Chain", ((1d / 3.280839895d) * 66d), 0d);
-        Unit rod = new Unit("Rod", ((1d / 3.280839895d) * 16.5d), 0d);
-        Unit horseLength = new Unit("Horse Length", ((1d / 3.280839895d) * 8d), 0d);
-        Unit fathom = new Unit("Fathom", ((1d / 3.280839895d) * 6d), 0d);
-        Unit yard = new Unit("Yard [yd]", ((1d / 3.280839895d) * 3d), 0d);
-        Unit foot = new Unit("Foot [ft]", (1d / 3.280839895d), 0d);
-        Unit inch = new Unit("Inch [in]", ((1d / 3.280839895d) / 12d), 0d);
-
-        // UNIT TYPE 1 - Area (20 Units)
-        Unit squareMetre = new Unit("Square Metre [m²] (S.I. Unit)", 1d, 0d);
-        Unit squareKilometre = new Unit("Square Kilometre [km²]", 1000000d, 0d);
-        Unit squareDecimetre = new Unit("Square Decimetre [dm²]", 0.01d, 0d);
-        Unit squareCentimetre = new Unit("Square Centimetre [cm²]", 0.0001d, 0d);
-        Unit squareMillimetre = new Unit("Square Millimetre [mm²]", 0.000001d, 0d);
-        Unit squareMicrometre = new Unit("Square Micrometre [μm²]", 0.000000000001d, 0d);
-        Unit are = new Unit("Are [a]", 100d, 0d);
-        Unit stremma = new Unit("Stremma", 1000d, 0d);
-        Unit hectare = new Unit("Hectare [ha]", 10000d, 0d);
-        Unit tetrad = new Unit("Tetrad", 4000000d, 0d);
-        Unit hectad = new Unit("Hectad", 100000000d, 0d);
-        Unit myriad = new Unit("Myriad", 10000000000d, 0d);
-        Unit squareMile = new Unit("Square Mile [mi²]", ((1d / 1.19599004630108d) * 3097600d), 0d);
-        Unit squareYard = new Unit("Square Yard [yd²]", (1d / 1.19599004630108d), 0d);
-        Unit squareFoot = new Unit("Square Foot [ft²]", ((1d / 1.19599004630108d) / 9d), 0d);
-        Unit squareInch = new Unit("Square Inch [in²]", ((1d / 1.19599004630108d) / 1296d), 0d);
-        Unit acre = new Unit("Acre [ac]", ((1d / 1.19599004630108d) * 4840d), 0d);
-        Unit rood = new Unit("Rood", ((1d / 1.19599004630108d) * 1210d), 0d);
-        Unit section = new Unit("Section", ((1d / 1.19599004630108d) * 3097600d), 0d);
-        Unit township = new Unit("Survey Township", ((1d / 1.19599004630108d) * 111513600d), 0d);
-
-        // UNIT TYPE 2 - Volume (15 Units)
-        Unit cubicMetre = new Unit("Cubic Metre [m³] (S.I. Unit)", 1d, 0d);
-        Unit cubicCentimetre = new Unit("Cubic Centimetre [cm³]", 0.000001d, 0d);
-        Unit cubicMillimetre = new Unit("Cubic Millimetre [mm³]", 0.000000001d, 0d);
-        Unit cubicYard = new Unit("Cubic Yard [yd³]", (1d / 1.30795061931439d), 0d);
-        Unit cubicFoot = new Unit("Cubic Foot [ft³]", ((1d / 1.30795061931439d) / 27d), 0d);
-        Unit cubicInch = new Unit("Cubic Inch [in³]", ((1d / 1.30795061931439d) / 46656d), 0d);
-        Unit litre = new Unit("Litre [L]", 0.001d, 0d);
-        Unit millilitre = new Unit("Millilitre [mL]", 0.000001d, 0d);
-        Unit barrel = new Unit("Barrel", (((1d / 1.30795061931439d) / 46656d) * 9702d), 0d);
-        Unit gallon = new Unit("Gallon (Imperial)", (1d / 219.969248299088d), 0d);
-        Unit quart = new Unit("Quart (Imperial)", ((1d / 219.969248299088d) / 4d), 0d);
-        Unit pint = new Unit("Pint (Imperial)", ((1d / 219.969248299088d) / 8d), 0d);
-        Unit cup = new Unit("Cup (US Customary)", 4226.75283773038d, 0d);
-        Unit tablespoon = new Unit("Tablespoon (US Customary)", (4226.75283773038d / 16d), 0d);
-        Unit teaspoon = new Unit("Teaspoon (US Customary)", (4226.75283773038d / 48d), 0d);
-
-        // UNIT TYPE 3 - Time (11 Units)
-        Unit second = new Unit("Second [s] (S.I. Unit)", 1d, 0d);
-        Unit millisecond = new Unit("Millisecond [ms]", 0.001d, 0d);
-        Unit microsecond = new Unit("Microsecond [μs]", 0.000001d, 0d);
-        Unit nanosecond = new Unit("Nanosecond [ns]", 000000001d, 0d);
-        Unit minute = new Unit("Minute [min]", 60d, 0d);
-        Unit hour = new Unit("Hour [h]", 3600d, 0d);
-        Unit day = new Unit("Day", 86400d, 0d);
-        Unit week = new Unit("Week", 604800d, 0d);
-        Unit fortnight = new Unit("Fortnight", 1209600d, 0d);
-        Unit year = new Unit("Year", 31536000d, 0d);
-        Unit yearLeap = new Unit("Year (Leap)", 31622400d, 0d);
-
-        // UNIT TYPE 4 - Speed (15 Units)
-        Unit metrePerSecond = new Unit("Metre per Second [m/s] (S.I. Unit)", 1d, 0d);
-        Unit metrePerMinute = new Unit("Metre per Minute [m/min]", (1d / 60d), 0d);
-        Unit metrePerHour = new Unit("Metre per Hour [m/h]", (1d / 3600d), 0d);
-        Unit kilometrePerSecond = new Unit("Kilometre per Second [km/s]", 1000d, 0d);
-        Unit kilometrePerMinute = new Unit("Kilometre per Minute [km/min]", (1000d / 60d), 0d);
-        Unit kilometrePerHour = new Unit("Kilometre per Hour [km/h]", (1d / 3.6d), 0d);
-        Unit speedOfLight = new Unit("Speed of Light (c)", 299792458d, 0d);
-        Unit footPerSecond = new Unit("Foot per Second [ft/s]", (1d / 3.280839895d), 0d);
-        Unit footPerMinute = new Unit("Foot per Minute [ft/min]", ((1d / 3.280839895d) / 60d), 0d);
-        Unit footPerHour = new Unit("Foot per Hour [ft/h]", ((1d / 3.280839895d) / 3600d), 0d);
-        Unit milePerSecond = new Unit("Mile per Second [mi/s]", ((1d / 3.280839895d) * 5280d), 0d);
-        Unit milePerMinute = new Unit("Mile per Minute [mi/min]", ((1d / 3.280839895d) * 5280d / 60d), 0d);
-        Unit milePerHour = new Unit("Mile per Hour [mi/h]", ((1d / 3.280839895d) * 5280d / 3600d), 0d);
-        Unit mach = new Unit("Mach [Ma]", 340d, 0d);
-        Unit knot = new Unit("Knot [kn]", 1852d / 3600d, 0d);
-
-        // UNIT TYPE 5 - Mass (14 Units)
-        Unit kilogram = new Unit("Kilogram [kg] (S.I. Unit)", 1d, 0d);
-        Unit gram = new Unit("Gram [g]", (1d / 1000d), 0d);
-        Unit carat = new Unit("Carat [ct]", 0.0002d, 0d);
-        Unit milligram = new Unit("Milligram [mg]", (1d / 1000000d), 0d);
-        Unit microgram = new Unit("Microgram [μg]", (1d / 1000000000d), 0d);
-        Unit tonne = new Unit("Tonne [t] (Metric)", 1000d, 0d);
-        Unit kilotonne = new Unit("Kilotonne [kt] (Metric)", 1000000d, 0d);
-        Unit pound = new Unit("Pound [lb]", (1d / 2.20462262184878d), 0d);
-        Unit ounce = new Unit("Ounce [oz]", ((1d / 2.20462262184878d) / 16d), 0d);
-        Unit stoneUK = new Unit("Stone [st.] (UK)", ((1d / 2.20462262184878d) * 14d), 0d);
-        Unit tonShort = new Unit("Ton (Short)", ((1d / 2.20462262184878d) * 2000d), 0d);
-        Unit tonLong = new Unit("Ton (Long)", ((1d / 2.20462262184878d) * 2240d), 0d);
-        Unit kilotonShort = new Unit("Kiloton (Short)", ((1d / 2.20462262184878d) * 2000000d), 0d);
-        Unit kilotonLong = new Unit("Kiloton (Long)", ((1d / 2.20462262184878d) * 2240000d), 0d);
-
-        // UNIT TYPE 6 - Energy (9 Units)
-        Unit joule = new Unit("Joule [J] (S.I. Unit)", 1d, 0d);
-        Unit kilojoule = new Unit("Kilojoule [kJ]", 1000d, 0d);
-        Unit megajoule = new Unit("Megajoule [MJ]", 1000000d, 0d);
-        Unit wattHour = new Unit("Watt Hour [Wh]", 3600d, 0d);
-        Unit kilowattHour = new Unit("Kilowatt Hour [kWh]", 3600000d, 0d);
-        Unit megawattHour = new Unit("Megawatt Hour [MWh]", 3600000000d, 0d);
-        Unit calorie = new Unit("calorie", 4.184d, 0d);
-        Unit kilocalorie = new Unit("Kilocalorie", 4184d, 0d);
-        Unit btu = new Unit("British Thermal Unit (BTU)", 1055.05585262d, 0d);
-
-        // UNIT TYPE 7 - Temperature (3 Units)
-        Unit kelvin = new Unit("Kelvin [K] (S.I. Unit)", 1d, 0d);
-        Unit celsius = new Unit("Celsius [°C]", 1d, 273.15d);
-        Unit fahrenheit = new Unit("Fahrenheit [°F]", (5d / 9d), (459.67d * (5d / 9d)));
-
-        // UNIT TYPE 8 - Data Size (6 Units)
-        Unit sizeByte = new Unit("Byte [B]", 1d, 0d);
-        Unit sizeKilobyte = new Unit("Kilobyte [kb]", 1024d, 0d);
-        Unit sizeMegabyte = new Unit("Megabyte [MB]", 1048576d, 0d);
-        Unit sizeGigabyte = new Unit("Gigabyte [GB]", 1073741824d, 0d);
-        Unit sizeTerabyte = new Unit("Terabyte [TB]", 1099511627776d, 0d);
-        Unit sizePetabyte = new Unit("Petabyte [PB]", 1125899906842624d, 0d);
+        // (1) INITIALISATION - Define indicator when fromValueInput
+        // is empty
+        bool fromValueInputEmpty = true;
 
         // (1) INITIALISATION - Define list to contain round-off menu items
         List<ToolStripMenuItem> roundOffMenuItems = new List<ToolStripMenuItem>();
@@ -184,139 +56,143 @@ namespace Unit_Converter
             roundOffMenuItems.Add(decimalPlacesToolStripMenuItem10);
 
             // UNIT TYPE 0 - Length
-            lengthUnits.Add(metre);
-            lengthUnits.Add(nauticalMile);
-            lengthUnits.Add(kilometre);
-            lengthUnits.Add(decimetre);
-            lengthUnits.Add(centimetre);
-            lengthUnits.Add(millimetre);
-            lengthUnits.Add(micrometre);
-            lengthUnits.Add(nanometre);
-            lengthUnits.Add(angstrom);
-            lengthUnits.Add(mile);
-            lengthUnits.Add(furlong);
-            lengthUnits.Add(chain);
-            lengthUnits.Add(rod);
-            lengthUnits.Add(horseLength);
-            lengthUnits.Add(fathom);
-            lengthUnits.Add(yard);
-            lengthUnits.Add(foot);
-            lengthUnits.Add(inch);
+            lengthUnits.Add(LengthUnits.metre);
+            lengthUnits.Add(LengthUnits.nauticalMile);
+            lengthUnits.Add(LengthUnits.kilometre);
+            lengthUnits.Add(LengthUnits.decimetre);
+            lengthUnits.Add(LengthUnits.centimetre);
+            lengthUnits.Add(LengthUnits.millimetre);
+            lengthUnits.Add(LengthUnits.micrometre);
+            lengthUnits.Add(LengthUnits.nanometre);
+            lengthUnits.Add(LengthUnits.angstrom);
+            lengthUnits.Add(LengthUnits.mile);
+            lengthUnits.Add(LengthUnits.furlong);
+            lengthUnits.Add(LengthUnits.chain);
+            lengthUnits.Add(LengthUnits.rod);
+            lengthUnits.Add(LengthUnits.horseLength);
+            lengthUnits.Add(LengthUnits.fathom);
+            lengthUnits.Add(LengthUnits.yard);
+            lengthUnits.Add(LengthUnits.foot);
+            lengthUnits.Add(LengthUnits.inch);
 
             // UNIT TYPE 1 - Area
-            areaUnits.Add(squareMetre);
-            areaUnits.Add(squareKilometre);
-            areaUnits.Add(squareDecimetre);
-            areaUnits.Add(squareCentimetre);
-            areaUnits.Add(squareMillimetre);
-            areaUnits.Add(squareMicrometre);
-            areaUnits.Add(are);
-            areaUnits.Add(stremma);
-            areaUnits.Add(hectare);
-            areaUnits.Add(tetrad);
-            areaUnits.Add(hectad);
-            areaUnits.Add(myriad);
-            areaUnits.Add(squareMile);
-            areaUnits.Add(squareYard);
-            areaUnits.Add(squareFoot);
-            areaUnits.Add(squareInch);
-            areaUnits.Add(acre);
-            areaUnits.Add(rood);
-            areaUnits.Add(section);
-            areaUnits.Add(township);
+            areaUnits.Add(AreaUnits.squareMetre);
+            areaUnits.Add(AreaUnits.squareKilometre);
+            areaUnits.Add(AreaUnits.squareDecimetre);
+            areaUnits.Add(AreaUnits.squareCentimetre);
+            areaUnits.Add(AreaUnits.squareMillimetre);
+            areaUnits.Add(AreaUnits.squareMicrometre);
+            areaUnits.Add(AreaUnits.are);
+            areaUnits.Add(AreaUnits.stremma);
+            areaUnits.Add(AreaUnits.hectare);
+            areaUnits.Add(AreaUnits.tetrad);
+            areaUnits.Add(AreaUnits.hectad);
+            areaUnits.Add(AreaUnits.myriad);
+            areaUnits.Add(AreaUnits.squareMile);
+            areaUnits.Add(AreaUnits.squareYard);
+            areaUnits.Add(AreaUnits.squareFoot);
+            areaUnits.Add(AreaUnits.squareInch);
+            areaUnits.Add(AreaUnits.acre);
+            areaUnits.Add(AreaUnits.rood);
+            areaUnits.Add(AreaUnits.section);
+            areaUnits.Add(AreaUnits.township);
 
             // UNIT TYPE 2 - Volume
-            volumeUnits.Add(cubicMetre);
-            volumeUnits.Add(cubicCentimetre);
-            volumeUnits.Add(cubicMillimetre);
-            volumeUnits.Add(cubicYard);
-            volumeUnits.Add(cubicFoot);
-            volumeUnits.Add(cubicInch);
-            volumeUnits.Add(litre);
-            volumeUnits.Add(millilitre);
-            volumeUnits.Add(barrel);
-            volumeUnits.Add(gallon);
-            volumeUnits.Add(quart);
-            volumeUnits.Add(pint);
-            volumeUnits.Add(cup);
-            volumeUnits.Add(tablespoon);
-            volumeUnits.Add(teaspoon);
+            volumeUnits.Add(VolumeUnits.cubicMetre);
+            volumeUnits.Add(VolumeUnits.cubicCentimetre);
+            volumeUnits.Add(VolumeUnits.cubicMillimetre);
+            volumeUnits.Add(VolumeUnits.cubicYard);
+            volumeUnits.Add(VolumeUnits.cubicFoot);
+            volumeUnits.Add(VolumeUnits.cubicInch);
+            volumeUnits.Add(VolumeUnits.litre);
+            volumeUnits.Add(VolumeUnits.millilitre);
+            volumeUnits.Add(VolumeUnits.barrel);
+            volumeUnits.Add(VolumeUnits.gallon);
+            volumeUnits.Add(VolumeUnits.quart);
+            volumeUnits.Add(VolumeUnits.pint);
+            volumeUnits.Add(VolumeUnits.cup);
+            volumeUnits.Add(VolumeUnits.tablespoon);
+            volumeUnits.Add(VolumeUnits.teaspoon);
 
             // UNIT TYPE 3 - Time
-            timeUnits.Add(second);
-            timeUnits.Add(millisecond);
-            timeUnits.Add(microsecond);
-            timeUnits.Add(nanosecond);
-            timeUnits.Add(minute);
-            timeUnits.Add(hour);
-            timeUnits.Add(day);
-            timeUnits.Add(week);
-            timeUnits.Add(fortnight);
-            timeUnits.Add(year);
-            timeUnits.Add(yearLeap);
+            timeUnits.Add(TimeUnits.second);
+            timeUnits.Add(TimeUnits.millisecond);
+            timeUnits.Add(TimeUnits.microsecond);
+            timeUnits.Add(TimeUnits.nanosecond);
+            timeUnits.Add(TimeUnits.minute);
+            timeUnits.Add(TimeUnits.hour);
+            timeUnits.Add(TimeUnits.day);
+            timeUnits.Add(TimeUnits.week);
+            timeUnits.Add(TimeUnits.fortnight);
+            timeUnits.Add(TimeUnits.year);
+            timeUnits.Add(TimeUnits.yearLeap);
 
             // UNIT TYPE 4 - Speed
-            speedUnits.Add(metrePerSecond);
-            speedUnits.Add(metrePerMinute);
-            speedUnits.Add(metrePerHour);
-            speedUnits.Add(kilometrePerSecond);
-            speedUnits.Add(kilometrePerMinute);
-            speedUnits.Add(kilometrePerHour);
-            speedUnits.Add(speedOfLight);
-            speedUnits.Add(footPerSecond);
-            speedUnits.Add(footPerMinute);
-            speedUnits.Add(footPerHour);
-            speedUnits.Add(milePerSecond);
-            speedUnits.Add(milePerMinute);
-            speedUnits.Add(milePerHour);
-            speedUnits.Add(mach);
-            speedUnits.Add(knot);
+            speedUnits.Add(SpeedUnits.metrePerSecond);
+            speedUnits.Add(SpeedUnits.metrePerMinute);
+            speedUnits.Add(SpeedUnits.metrePerHour);
+            speedUnits.Add(SpeedUnits.kilometrePerSecond);
+            speedUnits.Add(SpeedUnits.kilometrePerMinute);
+            speedUnits.Add(SpeedUnits.kilometrePerHour);
+            speedUnits.Add(SpeedUnits.speedOfLight);
+            speedUnits.Add(SpeedUnits.footPerSecond);
+            speedUnits.Add(SpeedUnits.footPerMinute);
+            speedUnits.Add(SpeedUnits.footPerHour);
+            speedUnits.Add(SpeedUnits.milePerSecond);
+            speedUnits.Add(SpeedUnits.milePerMinute);
+            speedUnits.Add(SpeedUnits.milePerHour);
+            speedUnits.Add(SpeedUnits.mach);
+            speedUnits.Add(SpeedUnits.knot);
 
             // UNIT TYPE 5 - Mass
-            massUnits.Add(kilogram);
-            massUnits.Add(gram);
-            massUnits.Add(carat);
-            massUnits.Add(milligram);
-            massUnits.Add(microgram);
-            massUnits.Add(tonne);
-            massUnits.Add(kilotonne);
-            massUnits.Add(pound);
-            massUnits.Add(ounce);
-            massUnits.Add(stoneUK);
-            massUnits.Add(tonShort);
-            massUnits.Add(tonLong);
-            massUnits.Add(kilotonShort);
-            massUnits.Add(kilotonLong);
+            massUnits.Add(MassUnits.kilogram);
+            massUnits.Add(MassUnits.gram);
+            massUnits.Add(MassUnits.carat);
+            massUnits.Add(MassUnits.milligram);
+            massUnits.Add(MassUnits.microgram);
+            massUnits.Add(MassUnits.tonne);
+            massUnits.Add(MassUnits.kilotonne);
+            massUnits.Add(MassUnits.pound);
+            massUnits.Add(MassUnits.ounce);
+            massUnits.Add(MassUnits.stoneUK);
+            massUnits.Add(MassUnits.tonShort);
+            massUnits.Add(MassUnits.tonLong);
+            massUnits.Add(MassUnits.kilotonShort);
+            massUnits.Add(MassUnits.kilotonLong);
 
             // UNIT TYPE 6 - Energy
-            energyUnits.Add(joule);
-            energyUnits.Add(kilojoule);
-            energyUnits.Add(megajoule);
-            energyUnits.Add(wattHour);
-            energyUnits.Add(kilowattHour);
-            energyUnits.Add(megawattHour);
-            energyUnits.Add(calorie);
-            energyUnits.Add(kilocalorie);
-            energyUnits.Add(btu);
+            energyUnits.Add(EnergyUnits.joule);
+            energyUnits.Add(EnergyUnits.kilojoule);
+            energyUnits.Add(EnergyUnits.megajoule);
+            energyUnits.Add(EnergyUnits.wattHour);
+            energyUnits.Add(EnergyUnits.kilowattHour);
+            energyUnits.Add(EnergyUnits.megawattHour);
+            energyUnits.Add(EnergyUnits.calorie);
+            energyUnits.Add(EnergyUnits.kilocalorie);
+            energyUnits.Add(EnergyUnits.btu);
 
             // UNIT TYPE 7 - Temperature
-            temperatureUnits.Add(kelvin);
-            temperatureUnits.Add(celsius);
-            temperatureUnits.Add(fahrenheit);
+            temperatureUnits.Add(TemperatureUnits.kelvin);
+            temperatureUnits.Add(TemperatureUnits.celsius);
+            temperatureUnits.Add(TemperatureUnits.fahrenheit);
 
             // UNIT TYPE 8 - Data Size
-            dataSizeUnits.Add(sizeByte);
-            dataSizeUnits.Add(sizeKilobyte);
-            dataSizeUnits.Add(sizeMegabyte);
-            dataSizeUnits.Add(sizeGigabyte);
-            dataSizeUnits.Add(sizeTerabyte);
-            dataSizeUnits.Add(sizePetabyte);
+            dataSizeUnits.Add(DataSizeUnits.sizeByte);
+            dataSizeUnits.Add(DataSizeUnits.sizeKilobyte);
+            dataSizeUnits.Add(DataSizeUnits.sizeMegabyte);
+            dataSizeUnits.Add(DataSizeUnits.sizeGigabyte);
+            dataSizeUnits.Add(DataSizeUnits.sizeTerabyte);
+            dataSizeUnits.Add(DataSizeUnits.sizePetabyte);
 
+            // Load initial units
             foreach (Unit element in lengthUnits)
             {
                 fromUnitInput.Items.Add(element.getName());
                 toUnitOutput.Items.Add(element.getName());
             }
+
+            // Reset fromValueInput
+            SetFromValueInputTextToDefault(true);
         }
 
         // (2) MENU BAR EVENTS - Open the About box to show the application
@@ -343,132 +219,132 @@ namespace Unit_Converter
         }
 
         // (2) MENU BAR EVENTS - Helper function to uncheck all menu strip items
-        private void uncheckAllRoundOffMenuItems()
+        private void UncheckAllRoundOffMenuItems()
         {
             foreach (ToolStripMenuItem element in roundOffMenuItems)
-            {
                 element.Checked = false;
+        }
+
+        // (2) MENU BAR EVENTS - Helper function to set round-off value
+        private void SetRoundOffValue(short value)
+        {
+            UncheckAllRoundOffMenuItems();
+            roundOffValue = value;
+
+            switch (value)
+            {
+                case -1:
+                    doNotRoundOffToolStripMenuItem.Checked = true;
+                    break;
+                case 0:
+                    wholeNumberToolStripMenuItem.Checked = true;
+                    break;
+                case 1:
+                    decimalPlacesToolStripMenuItem1.Checked = true;
+                    break;
+                case 2:
+                    decimalPlacesToolStripMenuItem2.Checked = true;
+                    break;
+                case 3:
+                    decimalPlacesToolStripMenuItem3.Checked = true;
+                    break;
+                case 4:
+                    decimalPlacesToolStripMenuItem4.Checked = true;
+                    break;
+                case 5:
+                    decimalPlacesToolStripMenuItem5.Checked = true;
+                    break;
+                case 6:
+                    decimalPlacesToolStripMenuItem6.Checked = true;
+                    break;
+                case 7:
+                    decimalPlacesToolStripMenuItem7.Checked = true;
+                    break;
+                case 8:
+                    decimalPlacesToolStripMenuItem8.Checked = true;
+                    break;
+                case 9:
+                    decimalPlacesToolStripMenuItem9.Checked = true;
+                    break;
+                case (10):
+                    decimalPlacesToolStripMenuItem10.Checked = true;
+                    break;
             }
+
+            ExecuteCalculation();
+            statusIndicator.Text = StatusMessages.roundOffValueSet;
         }
 
         // (2) MENU BAR EVENTS - Set to not round off
         private void doNotRoundOffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = -1;
-            doNotRoundOffToolStripMenuItem.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(-1);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 0
         private void wholeNumberToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 0;
-            wholeNumberToolStripMenuItem.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(0);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 1
         private void decimalPlacesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 1;
-            decimalPlacesToolStripMenuItem1.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(1);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 2
         private void decimalPlacesToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 2;
-            decimalPlacesToolStripMenuItem2.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(2);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 3
         private void decimalPlacesToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 3;
-            decimalPlacesToolStripMenuItem3.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(3);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 4
         private void decimalPlacesToolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 4;
-            decimalPlacesToolStripMenuItem4.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(4);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 5
         private void decimalPlacesToolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 5;
-            decimalPlacesToolStripMenuItem5.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(5);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 6
         private void decimalPlacesToolStripMenuItem6_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 6;
-            decimalPlacesToolStripMenuItem6.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(6);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 7
         private void decimalPlacesToolStripMenuItem7_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 7;
-            decimalPlacesToolStripMenuItem7.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(7);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 8
         private void decimalPlacesToolStripMenuItem8_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 8;
-            decimalPlacesToolStripMenuItem8.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(8);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 9
         private void decimalPlacesToolStripMenuItem9_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 9;
-            decimalPlacesToolStripMenuItem9.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(9);
         }
 
         // (2) MENU BAR EVENTS - Set round-off value to 10
         private void decimalPlacesToolStripMenuItem10_Click(object sender, EventArgs e)
         {
-            uncheckAllRoundOffMenuItems();
-            roundOffValue = 10;
-            decimalPlacesToolStripMenuItem10.Checked = true;
-            ExecuteCalculation();
-            statusIndicator.Text = StatusMessages.roundOffValueSet;
+            SetRoundOffValue(10);
         }
 
         // (2) MENU BAR EVENTS - Close the application
@@ -488,33 +364,33 @@ namespace Unit_Converter
             }
         }
 
-        // (3) UNIT TYPE EVENTS - Do when unit type is changed (tab is changed)
-        private void unitSelector_SelectedIndexChanged(Object sender, EventArgs e)
+        // (3) UNIT TYPE EVENTS - Do when unit type is changed
+        private void unitSelectorTable_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool changedComboBoxValues = true;
 
             fromUnitInput.Items.Clear();
             toUnitOutput.Items.Clear();
-            fromValueInput.Clear();
+            SetFromValueInputTextToDefault(true);
             toValueOutput.Clear();
 
-            if (unitSelector.SelectedIndex == 0)
+            if (unitSelectorTable.SelectedIndex == UnitTypeIndices.length)
                 AddComboBoxValues(lengthUnits);
-            else if (unitSelector.SelectedIndex == 1)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.area)
                 AddComboBoxValues(areaUnits);
-            else if (unitSelector.SelectedIndex == 2)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.volume)
                 AddComboBoxValues(volumeUnits);
-            else if (unitSelector.SelectedIndex == 3)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.time)
                 AddComboBoxValues(timeUnits);
-            else if (unitSelector.SelectedIndex == 4)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.speed)
                 AddComboBoxValues(speedUnits);
-            else if (unitSelector.SelectedIndex == 5)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.mass)
                 AddComboBoxValues(massUnits);
-            else if (unitSelector.SelectedIndex == 6)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.energy)
                 AddComboBoxValues(energyUnits);
-            else if (unitSelector.SelectedIndex == 7)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.temperature)
                 AddComboBoxValues(temperatureUnits);
-            else if (unitSelector.SelectedIndex == 8)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.dataSize)
                 AddComboBoxValues(dataSizeUnits);
             else
             {
@@ -526,17 +402,51 @@ namespace Unit_Converter
                 statusIndicator.Text = StatusMessages.ready;
         }
 
+        // (4) CONTROLS - Helper function to set fromValueInput text
+        // when it gains or loses focus
+        private void SetFromValueInputTextToDefault(bool reset)
+        {
+            if (reset)
+            {
+                fromValueInput.Text = FromValueInputConstants.defaultString;
+                fromValueInput.ForeColor = FromValueInputConstants.grey;
+                fromValueInputEmpty = true;
+            }
+            else
+            {
+                fromValueInput.Text = FromValueInputConstants.emptyString;
+                fromValueInput.ForeColor = FromValueInputConstants.black;
+                fromValueInputEmpty = false;
+            }
+        }
+
+        // (4) CONTROLS - Do when fromValueInput gains focus
+        private void fromValueInput_Enter(object sender, EventArgs e)
+        {
+            if (fromValueInputEmpty)
+                SetFromValueInputTextToDefault(false);
+        }
+
+        // (4) CONTROLS - Do when fromValueInput loses focus
+        private void fromValueInput_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(fromValueInput.Text))
+                SetFromValueInputTextToDefault(true);
+        }
+
         // (4) CONTROLS - Attempt to calculate when fromUnitInput changed
         private void fromUnitInput_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (toUnitOutput.SelectedIndex > -1 && !(string.IsNullOrWhiteSpace(fromValueInput.Text)))
+            if (toUnitOutput.SelectedIndex > -1 &&
+            !(string.IsNullOrWhiteSpace(fromValueInput.Text)))
                 ExecuteCalculation();
         }
 
         // (4) CONTROLS - Attempt to calculate when fromUnitInput changed
         private void toUnitOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (fromUnitInput.SelectedIndex > -1 && !(string.IsNullOrWhiteSpace(fromValueInput.Text)))
+            if (fromUnitInput.SelectedIndex > -1 &&
+            !(string.IsNullOrWhiteSpace(fromValueInput.Text)))
                 ExecuteCalculation();
         }
 
@@ -576,16 +486,27 @@ namespace Unit_Converter
         // for multiplicative units that use Unit class and modifies status
         private void CalculateConversion(List<Unit> unitList)
         {
-            string rawValue;                 // raw data from the user-inputtable text box
-            bool canParse;                   // shows whether raw user input data can be parsed to double
-            bool fromInputHasValue = false;  // shows if the user has not selected a unit for fromUnitInput combo box
-            bool toOutputHasValue = false;   // shows if the user has not selected a unit for toUnitOutput combo box
-            double inputValue;               // processed data from the user-inputtable text box
+            // Raw data from the user-inputtable text box
+            string rawValue;
+
+            // Shows whether raw user input data can be parsed to double
+            bool canParse;
+
+            // Shows if the user has not selected a unit for fromUnitInput
+            // combo box
+            bool fromInputHasValue = false;
+
+            // Shows if the user has not selected a unit for toUnitOutput
+            // combo box
+            bool toOutputHasValue = false;
+
+            // Variables used to store intermediate and final values for
+            // returning to the user
             double unitValue = 0;
             double resultUnitValue = 0;
 
             rawValue = fromValueInput.Text;
-            canParse = double.TryParse(rawValue, result: out inputValue);
+            canParse = double.TryParse(rawValue, result: out double inputValue);
 
             if (canParse)
             {
@@ -627,43 +548,24 @@ namespace Unit_Converter
         // (6) CALCULATION - Execute the calculation process
         private void ExecuteCalculation()
         {
-            // UNIT TYPE 0 - User wants to convert length
-            if (unitSelector.SelectedIndex == 0)
+            if (unitSelectorTable.SelectedIndex == UnitTypeIndices.length)
                 CalculateConversion(lengthUnits);
-
-            // UNIT TYPE 1 - User wants to convert area
-            else if (unitSelector.SelectedIndex == 1)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.area)
                 CalculateConversion(areaUnits);
-
-            // UNIT TYPE 2 - User wants to convert volume
-            else if (unitSelector.SelectedIndex == 2)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.volume)
                 CalculateConversion(volumeUnits);
-
-            // UNIT TYPE 3 - User wants to convert time
-            else if (unitSelector.SelectedIndex == 3)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.time)
                 CalculateConversion(timeUnits);
-
-            // UNIT TYPE 4 - User wants to convert speed
-            else if (unitSelector.SelectedIndex == 4)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.speed)
                 CalculateConversion(speedUnits);
-
-            // UNIT TYPE 5 - User wants to convert mass
-            else if (unitSelector.SelectedIndex == 5)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.mass)
                 CalculateConversion(massUnits);
-
-            // UNIT TYPE 6 - User wants to convert energy
-            else if (unitSelector.SelectedIndex == 6)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.energy)
                 CalculateConversion(energyUnits);
-
-            // UNIT TYPE 7 - User wants to convert temperature
-            else if (unitSelector.SelectedIndex == 7)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.temperature)
                 CalculateConversion(temperatureUnits);
-
-            // UNIT TYPE 8 - User wants to convert data size
-            else if (unitSelector.SelectedIndex == 8)
+            else if (unitSelectorTable.SelectedIndex == UnitTypeIndices.dataSize)
                 CalculateConversion(dataSizeUnits);
-
-            // Somehow, the currently selected tab does not exist!
             else
                 statusIndicator.Text = StatusMessages.unitTypeError;
         }

@@ -1,5 +1,9 @@
 ﻿namespace Unit_Converter
 {
+    /// <summary>
+    /// Static class that contains all strings for use with the status
+    /// indicator at the bottom of the main form.
+    /// </summary>
     public static class StatusMessages
     {
         // Calculation messages
@@ -14,6 +18,6 @@
         public const string invalidSwap = "Invalid swap!";
 
         // Round-off value messages
-        public const string roundOffValueSet = "Round-Off Value Set";
+        public const string roundOffValueSet = "Round-off value set";
     }
 }
