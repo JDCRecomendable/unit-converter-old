@@ -60,7 +60,6 @@
             this.mainArea = new System.Windows.Forms.TableLayoutPanel();
             this.buttonsTable = new System.Windows.Forms.TableLayoutPanel();
             this.swapButton = new System.Windows.Forms.Button();
-            this.calculateButton = new System.Windows.Forms.Button();
             this.unitSelectorTable = new System.Windows.Forms.ListBox();
             this.mainScreenTable = new System.Windows.Forms.TableLayoutPanel();
             this.menuBar.SuspendLayout();
@@ -145,21 +144,21 @@
             this.doNotRoundOffToolStripMenuItem.Name = "doNotRoundOffToolStripMenuItem";
             this.doNotRoundOffToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.N)));
-            this.doNotRoundOffToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.doNotRoundOffToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.doNotRoundOffToolStripMenuItem.Text = "&None";
             this.doNotRoundOffToolStripMenuItem.Click += new System.EventHandler(this.doNotRoundOffToolStripMenuItem_Click);
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(237, 6);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(240, 6);
             // 
             // wholeNumberToolStripMenuItem
             // 
             this.wholeNumberToolStripMenuItem.Name = "wholeNumberToolStripMenuItem";
             this.wholeNumberToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.W)));
-            this.wholeNumberToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.wholeNumberToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.wholeNumberToolStripMenuItem.Text = "&Whole Number";
             this.wholeNumberToolStripMenuItem.Click += new System.EventHandler(this.wholeNumberToolStripMenuItem_Click);
             // 
@@ -168,7 +167,7 @@
             this.decimalPlacesToolStripMenuItem1.Name = "decimalPlacesToolStripMenuItem1";
             this.decimalPlacesToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D1)));
-            this.decimalPlacesToolStripMenuItem1.Size = new System.Drawing.Size(240, 22);
+            this.decimalPlacesToolStripMenuItem1.Size = new System.Drawing.Size(243, 22);
             this.decimalPlacesToolStripMenuItem1.Text = "&1 Decimal Place";
             this.decimalPlacesToolStripMenuItem1.Click += new System.EventHandler(this.decimalPlacesToolStripMenuItem1_Click);
             // 
@@ -177,7 +176,7 @@
             this.decimalPlacesToolStripMenuItem2.Name = "decimalPlacesToolStripMenuItem2";
             this.decimalPlacesToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D2)));
-            this.decimalPlacesToolStripMenuItem2.Size = new System.Drawing.Size(240, 22);
+            this.decimalPlacesToolStripMenuItem2.Size = new System.Drawing.Size(243, 22);
             this.decimalPlacesToolStripMenuItem2.Text = "&2 Decimal Places";
             this.decimalPlacesToolStripMenuItem2.Click += new System.EventHandler(this.decimalPlacesToolStripMenuItem2_Click);
             // 
@@ -186,7 +185,7 @@
             this.decimalPlacesToolStripMenuItem3.Name = "decimalPlacesToolStripMenuItem3";
             this.decimalPlacesToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D3)));
-            this.decimalPlacesToolStripMenuItem3.Size = new System.Drawing.Size(240, 22);
+            this.decimalPlacesToolStripMenuItem3.Size = new System.Drawing.Size(243, 22);
             this.decimalPlacesToolStripMenuItem3.Text = "&3 Decimal Places";
             this.decimalPlacesToolStripMenuItem3.Click += new System.EventHandler(this.decimalPlacesToolStripMenuItem3_Click);
             // 
@@ -195,7 +194,7 @@
             this.decimalPlacesToolStripMenuItem4.Name = "decimalPlacesToolStripMenuItem4";
             this.decimalPlacesToolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D4)));
-            this.decimalPlacesToolStripMenuItem4.Size = new System.Drawing.Size(240, 22);
+            this.decimalPlacesToolStripMenuItem4.Size = new System.Drawing.Size(243, 22);
             this.decimalPlacesToolStripMenuItem4.Text = "&4 Decimal Places";
             this.decimalPlacesToolStripMenuItem4.Click += new System.EventHandler(this.decimalPlacesToolStripMenuItem4_Click);
             // 
@@ -204,7 +203,7 @@
             this.decimalPlacesToolStripMenuItem5.Name = "decimalPlacesToolStripMenuItem5";
             this.decimalPlacesToolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D5)));
-            this.decimalPlacesToolStripMenuItem5.Size = new System.Drawing.Size(240, 22);
+            this.decimalPlacesToolStripMenuItem5.Size = new System.Drawing.Size(243, 22);
             this.decimalPlacesToolStripMenuItem5.Text = "&5 Decimal Places";
             this.decimalPlacesToolStripMenuItem5.Click += new System.EventHandler(this.decimalPlacesToolStripMenuItem5_Click);
             // 
@@ -213,7 +212,7 @@
             this.decimalPlacesToolStripMenuItem6.Name = "decimalPlacesToolStripMenuItem6";
             this.decimalPlacesToolStripMenuItem6.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D6)));
-            this.decimalPlacesToolStripMenuItem6.Size = new System.Drawing.Size(240, 22);
+            this.decimalPlacesToolStripMenuItem6.Size = new System.Drawing.Size(243, 22);
             this.decimalPlacesToolStripMenuItem6.Text = "&6 Decimal Places";
             this.decimalPlacesToolStripMenuItem6.Click += new System.EventHandler(this.decimalPlacesToolStripMenuItem6_Click);
             // 
@@ -222,7 +221,7 @@
             this.decimalPlacesToolStripMenuItem7.Name = "decimalPlacesToolStripMenuItem7";
             this.decimalPlacesToolStripMenuItem7.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D7)));
-            this.decimalPlacesToolStripMenuItem7.Size = new System.Drawing.Size(240, 22);
+            this.decimalPlacesToolStripMenuItem7.Size = new System.Drawing.Size(243, 22);
             this.decimalPlacesToolStripMenuItem7.Text = "&7 Decimal Places";
             this.decimalPlacesToolStripMenuItem7.Click += new System.EventHandler(this.decimalPlacesToolStripMenuItem7_Click);
             // 
@@ -231,7 +230,7 @@
             this.decimalPlacesToolStripMenuItem8.Name = "decimalPlacesToolStripMenuItem8";
             this.decimalPlacesToolStripMenuItem8.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D8)));
-            this.decimalPlacesToolStripMenuItem8.Size = new System.Drawing.Size(240, 22);
+            this.decimalPlacesToolStripMenuItem8.Size = new System.Drawing.Size(243, 22);
             this.decimalPlacesToolStripMenuItem8.Text = "&8 Decimal Places";
             this.decimalPlacesToolStripMenuItem8.Click += new System.EventHandler(this.decimalPlacesToolStripMenuItem8_Click);
             // 
@@ -240,7 +239,7 @@
             this.decimalPlacesToolStripMenuItem9.Name = "decimalPlacesToolStripMenuItem9";
             this.decimalPlacesToolStripMenuItem9.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.D9)));
-            this.decimalPlacesToolStripMenuItem9.Size = new System.Drawing.Size(240, 22);
+            this.decimalPlacesToolStripMenuItem9.Size = new System.Drawing.Size(243, 22);
             this.decimalPlacesToolStripMenuItem9.Text = "&9 Decimal Places";
             this.decimalPlacesToolStripMenuItem9.Click += new System.EventHandler(this.decimalPlacesToolStripMenuItem9_Click);
             // 
@@ -248,8 +247,8 @@
             // 
             this.decimalPlacesToolStripMenuItem10.Name = "decimalPlacesToolStripMenuItem10";
             this.decimalPlacesToolStripMenuItem10.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.D0)));
-            this.decimalPlacesToolStripMenuItem10.Size = new System.Drawing.Size(240, 22);
+            | System.Windows.Forms.Keys.O)));
+            this.decimalPlacesToolStripMenuItem10.Size = new System.Drawing.Size(243, 22);
             this.decimalPlacesToolStripMenuItem10.Text = "1&0 Decimal Places";
             this.decimalPlacesToolStripMenuItem10.Click += new System.EventHandler(this.decimalPlacesToolStripMenuItem10_Click);
             // 
@@ -280,20 +279,21 @@
             this.converterTable.Controls.Add(this.fromValueInput, 1, 0);
             this.converterTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.converterTable.Location = new System.Drawing.Point(2, 2);
-            this.converterTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.converterTable.Margin = new System.Windows.Forms.Padding(2);
             this.converterTable.Name = "converterTable";
             this.converterTable.RowCount = 2;
             this.converterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.converterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.converterTable.Size = new System.Drawing.Size(280, 71);
+            this.converterTable.Size = new System.Drawing.Size(280, 73);
             this.converterTable.TabIndex = 1;
             // 
             // toValueOutput
             // 
-            this.toValueOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.toValueOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.toValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toValueOutput.Location = new System.Drawing.Point(142, 42);
-            this.toValueOutput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toValueOutput.Location = new System.Drawing.Point(142, 40);
+            this.toValueOutput.Margin = new System.Windows.Forms.Padding(2, 4, 2, 2);
             this.toValueOutput.MaxLength = 256;
             this.toValueOutput.Name = "toValueOutput";
             this.toValueOutput.ReadOnly = true;
@@ -304,11 +304,12 @@
             // 
             // fromUnitInput
             // 
-            this.fromUnitInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.fromUnitInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fromUnitInput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fromUnitInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.fromUnitInput.Location = new System.Drawing.Point(2, 7);
-            this.fromUnitInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fromUnitInput.Location = new System.Drawing.Point(2, 11);
+            this.fromUnitInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 4);
             this.fromUnitInput.Name = "fromUnitInput";
             this.fromUnitInput.Size = new System.Drawing.Size(136, 21);
             this.fromUnitInput.Sorted = true;
@@ -317,11 +318,12 @@
             // 
             // toUnitOutput
             // 
-            this.toUnitOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.toUnitOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.toUnitOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.toUnitOutput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toUnitOutput.Location = new System.Drawing.Point(2, 42);
-            this.toUnitOutput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toUnitOutput.Location = new System.Drawing.Point(2, 40);
+            this.toUnitOutput.Margin = new System.Windows.Forms.Padding(2, 4, 2, 2);
             this.toUnitOutput.Name = "toUnitOutput";
             this.toUnitOutput.Size = new System.Drawing.Size(136, 21);
             this.toUnitOutput.Sorted = true;
@@ -331,15 +333,17 @@
             // fromValueInput
             // 
             this.fromValueInput.AllowDrop = true;
-            this.fromValueInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.fromValueInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fromValueInput.ForeColor = System.Drawing.Color.Gray;
-            this.fromValueInput.Location = new System.Drawing.Point(142, 7);
-            this.fromValueInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fromValueInput.Location = new System.Drawing.Point(142, 11);
+            this.fromValueInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 4);
             this.fromValueInput.MaxLength = 256;
             this.fromValueInput.Name = "fromValueInput";
             this.fromValueInput.Size = new System.Drawing.Size(136, 21);
             this.fromValueInput.TabIndex = 3;
+            this.fromValueInput.TextChanged += new System.EventHandler(this.fromValueInput_TextChanged);
             this.fromValueInput.Enter += new System.EventHandler(this.fromValueInput_Enter);
             this.fromValueInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fromValueInput_KeyDown);
             this.fromValueInput.Leave += new System.EventHandler(this.fromValueInput_Leave);
@@ -372,12 +376,12 @@
             this.mainArea.Controls.Add(this.buttonsTable, 0, 1);
             this.mainArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainArea.Location = new System.Drawing.Point(98, 2);
-            this.mainArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainArea.Margin = new System.Windows.Forms.Padding(2);
             this.mainArea.Name = "mainArea";
             this.mainArea.RowCount = 3;
-            this.mainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.mainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.mainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 3F));
+            this.mainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.mainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.mainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 2F));
             this.mainArea.Size = new System.Drawing.Size(284, 111);
             this.mainArea.TabIndex = 3;
             // 
@@ -387,45 +391,31 @@
             this.buttonsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.buttonsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.buttonsTable.Controls.Add(this.swapButton, 0, 0);
-            this.buttonsTable.Controls.Add(this.calculateButton, 1, 0);
             this.buttonsTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonsTable.Location = new System.Drawing.Point(0, 75);
+            this.buttonsTable.Location = new System.Drawing.Point(0, 77);
             this.buttonsTable.Margin = new System.Windows.Forms.Padding(0);
             this.buttonsTable.Name = "buttonsTable";
             this.buttonsTable.RowCount = 1;
             this.buttonsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.buttonsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.buttonsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.buttonsTable.Size = new System.Drawing.Size(284, 32);
             this.buttonsTable.TabIndex = 4;
             // 
             // swapButton
             // 
+            this.buttonsTable.SetColumnSpan(this.swapButton, 2);
             this.swapButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.swapButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.swapButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.swapButton.Location = new System.Drawing.Point(2, 2);
-            this.swapButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.swapButton.Margin = new System.Windows.Forms.Padding(2);
             this.swapButton.Name = "swapButton";
-            this.swapButton.Size = new System.Drawing.Size(138, 28);
+            this.swapButton.Size = new System.Drawing.Size(280, 28);
             this.swapButton.TabIndex = 0;
             this.swapButton.TabStop = false;
             this.swapButton.Text = "&Swap";
             this.swapButton.UseVisualStyleBackColor = true;
             this.swapButton.Click += new System.EventHandler(this.swapButton_Click);
-            // 
-            // calculateButton
-            // 
-            this.calculateButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.calculateButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.calculateButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calculateButton.Location = new System.Drawing.Point(144, 2);
-            this.calculateButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.calculateButton.Name = "calculateButton";
-            this.calculateButton.Size = new System.Drawing.Size(138, 28);
-            this.calculateButton.TabIndex = 4;
-            this.calculateButton.Text = "&Calculate";
-            this.calculateButton.UseVisualStyleBackColor = true;
-            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
             // unitSelectorTable
             // 
@@ -475,9 +465,9 @@
             this.Controls.Add(this.menuBar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuBar;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(480, 252);
+            this.MaximumSize = new System.Drawing.Size(560, 252);
             this.MinimumSize = new System.Drawing.Size(400, 200);
             this.Name = "MainScreen";
             this.Text = "Unit Converter";
@@ -513,7 +503,6 @@
         private System.Windows.Forms.TextBox toValueOutput;
         private System.Windows.Forms.TableLayoutPanel buttonsTable;
         private System.Windows.Forms.Button swapButton;
-        private System.Windows.Forms.Button calculateButton;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alwaysOnTopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roundOffToolStripMenuItem;

@@ -402,10 +402,12 @@ namespace Unit_Converter
                 statusIndicator.Text = StatusMessage.ready;
         }
 
-        // (4) CONTROLS - Helper function to set fromValueInput text
+        // (4) CONTROLS - Helper function to set fromValueInput text properties
         // when it gains or loses focus
         private void SetFromValueInputTextToDefault(bool reset)
         {
+            string currentStatusMessage = statusIndicator.Text;
+
             if (reset)
             {
                 fromValueInput.Text = FromValueInputConstant.defaultString;
@@ -418,6 +420,8 @@ namespace Unit_Converter
                 fromValueInput.ForeColor = FromValueInputConstant.black;
                 fromValueInputEmpty = false;
             }
+
+            statusIndicator.Text = currentStatusMessage;
         }
 
         // (4) CONTROLS - Do when fromValueInput gains focus
@@ -448,10 +452,15 @@ namespace Unit_Converter
                 ExecuteCalculation();
         }
 
-        // (4) CONTROLS - Calculate when button clicked
-        private void calculateButton_Click(object sender, EventArgs e)
+        // (4) CONTROLS - Automagically perform calculation when input text
+        // is changed
+        private void fromValueInput_TextChanged(object sender, EventArgs e)
         {
-            ExecuteCalculation();
+            if (fromUnitInput.SelectedIndex > -1 &&
+                toUnitOutput.SelectedIndex > -1 &&
+                !string.IsNullOrWhiteSpace(fromValueInput.Text) &&
+                !fromValueInputEmpty)
+                ExecuteCalculation();
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
