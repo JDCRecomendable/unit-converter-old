@@ -32,9 +32,14 @@ namespace Unit_Converter
         List<Unit> volumeUnits = new List<Unit>();
         List<Unit> timeUnits = new List<Unit>();
         List<Unit> speedUnits = new List<Unit>();
+        List<Unit> flowUnits = new List<Unit>();
         List<Unit> massUnits = new List<Unit>();
         List<Unit> energyUnits = new List<Unit>();
+        List<Unit> pressureUnits = new List<Unit>();
         List<Unit> temperatureUnits = new List<Unit>();
+        List<Unit> luminanceUnits = new List<Unit>();
+        List<Unit> illuminanceUnits = new List<Unit>();
+        List<Unit> angleUnits = new List<Unit>();
         List<Unit> dataSizeUnits = new List<Unit>();
 
 
@@ -144,7 +149,9 @@ namespace Unit_Converter
             speedUnits.Add(SpeedUnit.mach);
             speedUnits.Add(SpeedUnit.knot);
 
-            // UNIT TYPE 5 - Mass
+            // UNIT TYPE 5 - Flow
+
+            // UNIT TYPE 6 - Mass
             massUnits.Add(MassUnit.kilogram);
             massUnits.Add(MassUnit.gram);
             massUnits.Add(MassUnit.carat);
@@ -160,7 +167,7 @@ namespace Unit_Converter
             massUnits.Add(MassUnit.kilotonShort);
             massUnits.Add(MassUnit.kilotonLong);
 
-            // UNIT TYPE 6 - Energy
+            // UNIT TYPE 7 - Energy
             energyUnits.Add(EnergyUnit.joule);
             energyUnits.Add(EnergyUnit.kilojoule);
             energyUnits.Add(EnergyUnit.megajoule);
@@ -171,12 +178,67 @@ namespace Unit_Converter
             energyUnits.Add(EnergyUnit.kilocalorie);
             energyUnits.Add(EnergyUnit.btu);
 
-            // UNIT TYPE 7 - Temperature
+            // UNIT TYPE 8 - PRESSURE
+            pressureUnits.Add(PressureUnit.pascal);
+            pressureUnits.Add(PressureUnit.hectopascal);
+            pressureUnits.Add(PressureUnit.kilopascal);
+            pressureUnits.Add(PressureUnit.atmosphere);
+            pressureUnits.Add(PressureUnit.atmosphereTechnical);
+            pressureUnits.Add(PressureUnit.bar);
+            pressureUnits.Add(PressureUnit.kilobar);
+            pressureUnits.Add(PressureUnit.megabar);
+            pressureUnits.Add(PressureUnit.decibar);
+            pressureUnits.Add(PressureUnit.centibar);
+            pressureUnits.Add(PressureUnit.millibar);
+            pressureUnits.Add(PressureUnit.millimetreOfMercury);
+            pressureUnits.Add(PressureUnit.centimetreOfMercury);
+            pressureUnits.Add(PressureUnit.inchOfMercury);
+            pressureUnits.Add(PressureUnit.footOfMercury);
+            pressureUnits.Add(PressureUnit.millimetreOfWater);
+            pressureUnits.Add(PressureUnit.centimetreOfWater);
+            pressureUnits.Add(PressureUnit.metreOfWater);
+            pressureUnits.Add(PressureUnit.inchOfWater);
+            pressureUnits.Add(PressureUnit.footOfWater);
+            pressureUnits.Add(PressureUnit.psi);
+            pressureUnits.Add(PressureUnit.torr);
+
+            // UNIT TYPE 9 - Temperature
             temperatureUnits.Add(TemperatureUnit.kelvin);
             temperatureUnits.Add(TemperatureUnit.celsius);
             temperatureUnits.Add(TemperatureUnit.fahrenheit);
 
-            // UNIT TYPE 8 - Data Size
+            // UNIT TYPE 10 - Luminance
+            luminanceUnits.Add(LuminanceUnit.candelaPerSquareMetre);
+            luminanceUnits.Add(LuminanceUnit.candelaPerSquareDecimetre);
+            luminanceUnits.Add(LuminanceUnit.candelaPerSquareCentimetre);
+            luminanceUnits.Add(LuminanceUnit.candelaPerSquareMillimetre);
+            luminanceUnits.Add(LuminanceUnit.candelaPerSquareFoot);
+            luminanceUnits.Add(LuminanceUnit.candelaPerSquareInch);
+            luminanceUnits.Add(LuminanceUnit.kilocandelaPerSquareMetre);
+            luminanceUnits.Add(LuminanceUnit.kilocandelaPerSquareFoot);
+            luminanceUnits.Add(LuminanceUnit.lambert);
+            luminanceUnits.Add(LuminanceUnit.footLambert);
+            luminanceUnits.Add(LuminanceUnit.nit);
+            luminanceUnits.Add(LuminanceUnit.stilb);
+            luminanceUnits.Add(LuminanceUnit.apostilb);
+            luminanceUnits.Add(LuminanceUnit.skot);
+            luminanceUnits.Add(LuminanceUnit.bril);
+
+            // UNIT TYPE 11 - Illuminance
+
+            // UNIT TYPE 12 - Angle
+            angleUnits.Add(AngleUnit.degree);
+            angleUnits.Add(AngleUnit.radian);
+            angleUnits.Add(AngleUnit.gradian);
+            angleUnits.Add(AngleUnit.second);
+            angleUnits.Add(AngleUnit.minute);
+            angleUnits.Add(AngleUnit.octant);
+            angleUnits.Add(AngleUnit.sextant);
+            angleUnits.Add(AngleUnit.quadrant);
+            angleUnits.Add(AngleUnit.semicircle);
+            angleUnits.Add(AngleUnit.circle);
+
+            // UNIT TYPE 13 - Data Size
             dataSizeUnits.Add(DataSizeUnit.sizeByte);
             dataSizeUnits.Add(DataSizeUnit.sizeKilobyte);
             dataSizeUnits.Add(DataSizeUnit.sizeMegabyte);
@@ -374,28 +436,54 @@ namespace Unit_Converter
             SetFromValueInputTextToDefault(true);
             toValueOutput.Clear();
 
-            if (unitSelectorTable.SelectedIndex == UnitTypeIndex.length)
-                AddComboBoxValues(lengthUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.area)
-                AddComboBoxValues(areaUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.volume)
-                AddComboBoxValues(volumeUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.time)
-                AddComboBoxValues(timeUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.speed)
-                AddComboBoxValues(speedUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.mass)
-                AddComboBoxValues(massUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.energy)
-                AddComboBoxValues(energyUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.temperature)
-                AddComboBoxValues(temperatureUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.dataSize)
-                AddComboBoxValues(dataSizeUnits);
-            else
+            switch (unitSelectorTable.SelectedIndex)
             {
-                changedComboBoxValues = false;
-                statusIndicator.Text = StatusMessage.unitTypeError;
+                case UnitTypeIndex.length:
+                    AddComboBoxValues(lengthUnits);
+                    break;
+                case UnitTypeIndex.area:
+                    AddComboBoxValues(areaUnits);
+                    break;
+                case UnitTypeIndex.volume:
+                    AddComboBoxValues(volumeUnits);
+                    break;
+                case UnitTypeIndex.time:
+                    AddComboBoxValues(timeUnits);
+                    break;
+                case UnitTypeIndex.speed:
+                    AddComboBoxValues(speedUnits);
+                    break;
+                case UnitTypeIndex.flow:
+                    AddComboBoxValues(flowUnits);
+                    break;
+                case UnitTypeIndex.mass:
+                    AddComboBoxValues(massUnits);
+                    break;
+                case UnitTypeIndex.energy:
+                    AddComboBoxValues(energyUnits);
+                    break;
+                case UnitTypeIndex.pressure:
+                    AddComboBoxValues(pressureUnits);
+                    break;
+                case UnitTypeIndex.temperature:
+                    AddComboBoxValues(temperatureUnits);
+                    break;
+                case UnitTypeIndex.luminance:
+                    AddComboBoxValues(luminanceUnits);
+                    break;
+                case UnitTypeIndex.illuminance:
+                    AddComboBoxValues(illuminanceUnits);
+                    break;
+                case UnitTypeIndex.angle:
+                    AddComboBoxValues(angleUnits);
+                    break;
+                case UnitTypeIndex.dataSize:
+                    AddComboBoxValues(dataSizeUnits);
+                    break;
+                default:
+                    changedComboBoxValues = false;
+                    statusIndicator.Text = StatusMessage.unitTypeError;
+                    break;
             }
 
             if (changedComboBoxValues)
@@ -555,26 +643,54 @@ namespace Unit_Converter
         // (6) CALCULATION - Execute the calculation process
         private void ExecuteCalculation()
         {
-            if (unitSelectorTable.SelectedIndex == UnitTypeIndex.length)
-                CalculateConversion(lengthUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.area)
-                CalculateConversion(areaUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.volume)
-                CalculateConversion(volumeUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.time)
-                CalculateConversion(timeUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.speed)
-                CalculateConversion(speedUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.mass)
-                CalculateConversion(massUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.energy)
-                CalculateConversion(energyUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.temperature)
-                CalculateConversion(temperatureUnits);
-            else if (unitSelectorTable.SelectedIndex == UnitTypeIndex.dataSize)
-                CalculateConversion(dataSizeUnits);
-            else
-                statusIndicator.Text = StatusMessage.unitTypeError;
+            switch (unitSelectorTable.SelectedIndex)
+            {
+                case UnitTypeIndex.length:
+                    CalculateConversion(lengthUnits);
+                    break;
+                case UnitTypeIndex.area:
+                    CalculateConversion(areaUnits);
+                    break;
+                case UnitTypeIndex.volume:
+                    CalculateConversion(volumeUnits);
+                    break;
+                case UnitTypeIndex.time:
+                    CalculateConversion(timeUnits);
+                    break;
+                case UnitTypeIndex.speed:
+                    CalculateConversion(speedUnits);
+                    break;
+                case UnitTypeIndex.flow:
+                    CalculateConversion(flowUnits);
+                    break;
+                case UnitTypeIndex.mass:
+                    CalculateConversion(massUnits);
+                    break;
+                case UnitTypeIndex.energy:
+                    CalculateConversion(energyUnits);
+                    break;
+                case UnitTypeIndex.pressure:
+                    CalculateConversion(pressureUnits);
+                    break;
+                case UnitTypeIndex.temperature:
+                    CalculateConversion(temperatureUnits);
+                    break;
+                case UnitTypeIndex.luminance:
+                    CalculateConversion(luminanceUnits);
+                    break;
+                case UnitTypeIndex.illuminance:
+                    CalculateConversion(illuminanceUnits);
+                    break;
+                case UnitTypeIndex.angle:
+                    CalculateConversion(angleUnits);
+                    break;
+                case UnitTypeIndex.dataSize:
+                    CalculateConversion(dataSizeUnits);
+                    break;
+                default:
+                    statusIndicator.Text = StatusMessage.unitTypeError;
+                    break;
+            }
         }
     }
 }

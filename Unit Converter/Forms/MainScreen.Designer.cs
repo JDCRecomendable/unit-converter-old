@@ -80,7 +80,7 @@
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
             this.menuBar.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuBar.Size = new System.Drawing.Size(384, 24);
+            this.menuBar.Size = new System.Drawing.Size(464, 24);
             this.menuBar.TabIndex = 0;
             this.menuBar.Text = "Unit Converter Menu";
             // 
@@ -96,7 +96,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -135,7 +135,7 @@
             this.decimalPlacesToolStripMenuItem10});
             this.roundOffToolStripMenuItem.Name = "roundOffToolStripMenuItem";
             this.roundOffToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.roundOffToolStripMenuItem.Text = "&Round Off...";
+            this.roundOffToolStripMenuItem.Text = "Set &Precision";
             // 
             // doNotRoundOffToolStripMenuItem
             // 
@@ -284,7 +284,7 @@
             this.converterTable.RowCount = 2;
             this.converterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.converterTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.converterTable.Size = new System.Drawing.Size(280, 73);
+            this.converterTable.Size = new System.Drawing.Size(340, 73);
             this.converterTable.TabIndex = 1;
             // 
             // toValueOutput
@@ -292,13 +292,13 @@
             this.toValueOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.toValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toValueOutput.Location = new System.Drawing.Point(142, 40);
+            this.toValueOutput.Location = new System.Drawing.Point(172, 40);
             this.toValueOutput.Margin = new System.Windows.Forms.Padding(2, 4, 2, 2);
             this.toValueOutput.MaxLength = 256;
             this.toValueOutput.Name = "toValueOutput";
             this.toValueOutput.ReadOnly = true;
             this.toValueOutput.ShortcutsEnabled = false;
-            this.toValueOutput.Size = new System.Drawing.Size(136, 21);
+            this.toValueOutput.Size = new System.Drawing.Size(166, 21);
             this.toValueOutput.TabIndex = 3;
             this.toValueOutput.TabStop = false;
             // 
@@ -311,7 +311,7 @@
             this.fromUnitInput.Location = new System.Drawing.Point(2, 11);
             this.fromUnitInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 4);
             this.fromUnitInput.Name = "fromUnitInput";
-            this.fromUnitInput.Size = new System.Drawing.Size(136, 21);
+            this.fromUnitInput.Size = new System.Drawing.Size(166, 21);
             this.fromUnitInput.Sorted = true;
             this.fromUnitInput.TabIndex = 1;
             this.fromUnitInput.SelectedIndexChanged += new System.EventHandler(this.fromUnitInput_SelectedIndexChanged);
@@ -325,7 +325,7 @@
             this.toUnitOutput.Location = new System.Drawing.Point(2, 40);
             this.toUnitOutput.Margin = new System.Windows.Forms.Padding(2, 4, 2, 2);
             this.toUnitOutput.Name = "toUnitOutput";
-            this.toUnitOutput.Size = new System.Drawing.Size(136, 21);
+            this.toUnitOutput.Size = new System.Drawing.Size(166, 21);
             this.toUnitOutput.Sorted = true;
             this.toUnitOutput.TabIndex = 2;
             this.toUnitOutput.SelectedIndexChanged += new System.EventHandler(this.toUnitOutput_SelectedIndexChanged);
@@ -335,13 +335,13 @@
             this.fromValueInput.AllowDrop = true;
             this.fromValueInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.fromValueInput.ForeColor = System.Drawing.Color.Gray;
-            this.fromValueInput.Location = new System.Drawing.Point(142, 11);
+            this.fromValueInput.Location = new System.Drawing.Point(172, 11);
             this.fromValueInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 4);
             this.fromValueInput.MaxLength = 256;
             this.fromValueInput.Name = "fromValueInput";
-            this.fromValueInput.Size = new System.Drawing.Size(136, 21);
+            this.fromValueInput.Size = new System.Drawing.Size(166, 21);
             this.fromValueInput.TabIndex = 3;
             this.fromValueInput.TextChanged += new System.EventHandler(this.fromValueInput_TextChanged);
             this.fromValueInput.Enter += new System.EventHandler(this.fromValueInput_Enter);
@@ -357,7 +357,7 @@
             this.statusBar.Location = new System.Drawing.Point(0, 139);
             this.statusBar.Name = "statusBar";
             this.statusBar.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusBar.Size = new System.Drawing.Size(384, 22);
+            this.statusBar.Size = new System.Drawing.Size(464, 22);
             this.statusBar.TabIndex = 2;
             this.statusBar.Text = "statusBar";
             // 
@@ -375,14 +375,14 @@
             this.mainArea.Controls.Add(this.converterTable, 0, 0);
             this.mainArea.Controls.Add(this.buttonsTable, 0, 1);
             this.mainArea.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainArea.Location = new System.Drawing.Point(98, 2);
+            this.mainArea.Location = new System.Drawing.Point(118, 2);
             this.mainArea.Margin = new System.Windows.Forms.Padding(2);
             this.mainArea.Name = "mainArea";
             this.mainArea.RowCount = 3;
             this.mainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.mainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.mainArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 2F));
-            this.mainArea.Size = new System.Drawing.Size(284, 111);
+            this.mainArea.Size = new System.Drawing.Size(344, 111);
             this.mainArea.TabIndex = 3;
             // 
             // buttonsTable
@@ -398,7 +398,7 @@
             this.buttonsTable.RowCount = 1;
             this.buttonsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.buttonsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.buttonsTable.Size = new System.Drawing.Size(284, 32);
+            this.buttonsTable.Size = new System.Drawing.Size(344, 32);
             this.buttonsTable.TabIndex = 4;
             // 
             // swapButton
@@ -406,11 +406,11 @@
             this.buttonsTable.SetColumnSpan(this.swapButton, 2);
             this.swapButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.swapButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.swapButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.swapButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.swapButton.Location = new System.Drawing.Point(2, 2);
             this.swapButton.Margin = new System.Windows.Forms.Padding(2);
             this.swapButton.Name = "swapButton";
-            this.swapButton.Size = new System.Drawing.Size(280, 28);
+            this.swapButton.Size = new System.Drawing.Size(340, 28);
             this.swapButton.TabIndex = 0;
             this.swapButton.TabStop = false;
             this.swapButton.Text = "&Swap";
@@ -420,6 +420,7 @@
             // unitSelectorTable
             // 
             this.unitSelectorTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.unitSelectorTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unitSelectorTable.FormattingEnabled = true;
             this.unitSelectorTable.Items.AddRange(new object[] {
             "Length",
@@ -432,11 +433,13 @@
             "Energy",
             "Pressure",
             "Temperature",
-            "Luminosity",
+            "Luminance",
+            "Illuminance",
+            "Angle",
             "Data Size"});
             this.unitSelectorTable.Location = new System.Drawing.Point(3, 3);
             this.unitSelectorTable.Name = "unitSelectorTable";
-            this.unitSelectorTable.Size = new System.Drawing.Size(90, 109);
+            this.unitSelectorTable.Size = new System.Drawing.Size(110, 109);
             this.unitSelectorTable.TabIndex = 0;
             this.unitSelectorTable.SelectedIndexChanged += new System.EventHandler(this.unitSelectorTable_SelectedIndexChanged);
             // 
@@ -452,14 +455,14 @@
             this.mainScreenTable.Name = "mainScreenTable";
             this.mainScreenTable.RowCount = 1;
             this.mainScreenTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.mainScreenTable.Size = new System.Drawing.Size(384, 115);
+            this.mainScreenTable.Size = new System.Drawing.Size(464, 115);
             this.mainScreenTable.TabIndex = 5;
             // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 161);
+            this.ClientSize = new System.Drawing.Size(464, 161);
             this.Controls.Add(this.mainScreenTable);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menuBar);
@@ -467,8 +470,8 @@
             this.MainMenuStrip = this.menuBar;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(560, 252);
-            this.MinimumSize = new System.Drawing.Size(400, 200);
+            this.MaximumSize = new System.Drawing.Size(600, 278);
+            this.MinimumSize = new System.Drawing.Size(480, 200);
             this.Name = "MainScreen";
             this.Text = "Unit Converter";
             this.Load += new System.EventHandler(this.MainScreen_Load);

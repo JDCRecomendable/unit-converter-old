@@ -1,7 +1,7 @@
 ﻿namespace Unit_Converter
 {
     /// <summary>
-    /// Define the 18 length units
+    /// Contains 18 length units
     /// </summary>
     public static class LengthUnit
     {
@@ -26,7 +26,7 @@
     }
 
     /// <summary>
-    /// Define the 20 area units
+    /// Contains 20 area units
     /// </summary>
     public static class AreaUnit
     {
@@ -53,7 +53,7 @@
     }
 
     /// <summary>
-    /// Define the 15 volume units
+    /// Contains 15 volume units
     /// </summary>
     public static class VolumeUnit
     {
@@ -75,7 +75,7 @@
     }
 
     /// <summary>
-    /// Define the 11 time units
+    /// Contains 11 time units
     /// </summary>
     public static class TimeUnit
     {
@@ -93,7 +93,7 @@
     }
 
     /// <summary>
-    /// Define the 15 speed units
+    /// Contains 15 speed units
     /// </summary>
     public static class SpeedUnit
     {
@@ -115,7 +115,7 @@
     }
 
     /// <summary>
-    /// Define the 0 flow units
+    /// Contains 0 flow units
     /// </summary>
     public static class FlowUnit
     {
@@ -123,7 +123,7 @@
     }
 
     /// <summary>
-    /// Define the 14 mass units
+    /// Contains 14 mass units
     /// </summary>
     public static class MassUnit
     {
@@ -144,7 +144,7 @@
     }
 
     /// <summary>
-    /// Define the 9 energy units
+    /// Contains 9 energy units
     /// </summary>
     public static class EnergyUnit
     {
@@ -160,15 +160,36 @@
     }
 
     /// <summary>
-    /// Define the 0 pressure units
+    /// Contains 22 pressure units
     /// </summary>
     public static class PressureUnit
     {
-        // empty
+        public static Unit pascal = new Unit("Pascal [Pa] (S.I. Unit)", 1d, 0d);
+        public static Unit hectopascal = new Unit("Hectopascal [hPa]", 100d, 0d);
+        public static Unit kilopascal = new Unit("Kilopascal [kPa]", 1000d, 0d);
+        public static Unit atmosphere = new Unit("Standard Atmosphere [atm]", 101325d, 0d);
+        public static Unit atmosphereTechnical = new Unit("Technical Atmosphere [at]", 98066.5d, 0d);
+        public static Unit bar = new Unit("Bar", 100000d, 0d);
+        public static Unit kilobar = new Unit("Kilobar [kBar]", 100000000d, 0d);
+        public static Unit megabar = new Unit("Megabar [MBar]", 100000000000d, 0d);
+        public static Unit decibar = new Unit("Decibar [dBar]", 10000d, 0d);
+        public static Unit centibar = new Unit("Centibar", 1000d, 0d);
+        public static Unit millibar = new Unit("Millibar", 100d, 0d);
+        public static Unit millimetreOfMercury = new Unit("Millimetre of Mercury [mmHg]", 133.322387415d, 0d);
+        public static Unit centimetreOfMercury = new Unit("Centimetre of Mercury [cmHg]", 1333.22387415d, 0d);
+        public static Unit inchOfMercury = new Unit("Inch of Mercury [inHg]", (133322.387415d * ((1d / 3.280839895d) / 12d)), 0d);
+        public static Unit footOfMercury = new Unit("Foot of Mercury [ftHg]", (133322.387415d * (1d / 3.280839895d)), 0d);
+        public static Unit millimetreOfWater = new Unit("Millimetre of Water [mmH₂O]", 9.80664857d, 0d);
+        public static Unit centimetreOfWater = new Unit("Centimetre of Water [cmH₂O]", 98.0664857d, 0d);
+        public static Unit metreOfWater = new Unit("Metre of Water [mH₂O]", 9806.64857d, 0d);
+        public static Unit inchOfWater = new Unit("Inch of Water [inH₂O]", (9806.64857d * ((1d / 3.280839895d) / 12d)), 0d);
+        public static Unit footOfWater = new Unit("Foot of Water [ftH₂O]", (9806.64857d * (1d / 3.280839895d)), 0d);
+        public static Unit psi = new Unit("Pound per Square Inch [PSI]", 6894.75729d, 0d);
+        public static Unit torr = new Unit("Torr", (101325d / 760d), 0d);
     }
 
     /// <summary>
-    /// Define the 3 temperature units
+    /// Contains 3 temperature units
     /// </summary>
     public static class TemperatureUnit
     {
@@ -178,15 +199,51 @@
     }
 
     /// <summary>
-    /// Define the 0 luminosity units
+    /// Contains 15 luminance units
     /// </summary>
-    public static class LuminosityUnit
+    public static class LuminanceUnit
+    {
+        public static Unit candelaPerSquareMetre = new Unit("Candela per Square Metre [cd/m²] (S.I. Unit)", 1d, 0d);
+        public static Unit candelaPerSquareDecimetre = new Unit("Candela per Square Decimetre [cd/dm²]", 100d, 0d);
+        public static Unit candelaPerSquareCentimetre = new Unit("Candela per Square Centimetre [cd/cm²]", 10000d, 0d);
+        public static Unit candelaPerSquareMillimetre = new Unit("Candela per Square Millimetre [cd/mm²]", 1000000d, 0d);
+        public static Unit candelaPerSquareFoot = new Unit("Candela per Square Foot [cd/ft²]", (1d / ((1d / 1.19599004630108d) / 9d)), 0d);
+        public static Unit candelaPerSquareInch = new Unit("Candela per Square Inch [cd/in²]", (1d / ((1d / 1.19599004630108d) / 1296d)), 0d);
+        public static Unit kilocandelaPerSquareMetre = new Unit("Kilocandela per Square Metre [kcd/m²]", 1000d, 0d);
+        public static Unit kilocandelaPerSquareFoot = new Unit("Candela per Square Foot [cd/ft²]", ((1d / ((1d / 1.19599004630108d) / 9d)) * 1000d), 0d);
+        public static Unit lambert = new Unit("Lambert [L]", (10000d / 3.1415926535897932384626433832795d), 0d);
+        public static Unit footLambert = new Unit("Foot Lambert [fL]", 3.4262590996323d, 0d);
+        public static Unit nit = new Unit("Nit", 1d, 0d);
+        public static Unit stilb = new Unit("Stilb", 10000d, 0d);
+        public static Unit apostilb = new Unit("Apostilb [asb]", (1d / 3.1415926535897932384626433832795d), 0d);
+        public static Unit skot = new Unit("Skot [sk]", ((0.001d / 3.1415926535897932384626433832795d)), 0d);
+        public static Unit bril = new Unit("Bril", ((0.0000001d / 3.1415926535897932384626433832795d)), 0d);
+    }
+
+    public static class IlluminanceUnit
     {
         // empty
     }
 
     /// <summary>
-    /// Define the 6 data size units
+    /// Contains 10 angle units
+    /// </summary>
+    public static class AngleUnit
+    {
+        public static Unit degree = new Unit("Degree [°]", 1d, 0d);
+        public static Unit radian = new Unit("Radian [rad]", ((1d / 3.1415926535897932384626433832795d) * 180d), 0d);
+        public static Unit gradian = new Unit("Gradian [ᵍ]", 0.9d, 0d);
+        public static Unit second = new Unit("Second", (1d / 3600d), 0d);
+        public static Unit minute = new Unit("Minute", (1d / 60d), 0d);
+        public static Unit octant = new Unit("Octant", 45d, 0d);
+        public static Unit sextant = new Unit("Sextant", 60d, 0d);
+        public static Unit quadrant = new Unit("Quadrant", 90d, 0d);
+        public static Unit semicircle = new Unit("Semicircle", 180d, 0d);
+        public static Unit circle = new Unit("Circle", 360d, 0d);
+    }
+
+    /// <summary>
+    /// Contains 6 data size units
     /// </summary>
     public static class DataSizeUnit
     {
