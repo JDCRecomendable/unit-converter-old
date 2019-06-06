@@ -115,9 +115,17 @@
     }
 
     /// <summary>
-    /// Contains 0 flow units
+    /// Contains 0 flow rate (volume) units
     /// </summary>
-    public static class FlowUnit
+    public static class FlowVolumeUnit
+    {
+        // empty
+    }
+
+    /// <summary>
+    /// Contains 0 flow rate (mass) units
+    /// </summary>
+    public static class FlowMassUnit
     {
         // empty
     }
@@ -220,9 +228,26 @@
         public static Unit bril = new Unit("Bril", ((0.0000001d / 3.1415926535897932384626433832795d)), 0d);
     }
 
+    /// <summary>
+    /// Contains 15 illuminance units
+    /// </summary>
     public static class IlluminanceUnit
     {
-        // empty
+        public static Unit lux = new Unit("Lux [lx] (S.I. Unit)", 1d, 0d);
+        public static Unit kilolux = new Unit("Kilolux [klx]", 1000d, 0d);
+        public static Unit megalux = new Unit("Megalux [Mlx]", 1000000d, 0d);
+        public static Unit gigalux = new Unit("Gigalux [Glx]", 1000000d, 0d);
+        public static Unit millilux = new Unit("Millilux [mlx]", 0.001d, 0d);
+        public static Unit microlux = new Unit("Microlux [μlx]", 0.000001d, 0d);
+        public static Unit nanolux = new Unit("Nanolux [nlx]", 0.000000001d, 0d);
+        public static Unit phot = new Unit("Phot [ph]", 10000d, 0d);
+        public static Unit milliphot = new Unit("Milliphot [mph]", 10d, 0d);
+        public static Unit nox = new Unit("Nox [nx]", 0.001d, 0d);
+        public static Unit lumensPerSquareMetre = new Unit("Lumen per Square Metre [lm/m²]", 1d, 0d);
+        public static Unit lumensPerSquareDecimetre = new Unit("Lumen per Square Decimetre [lm/dm²]", 100d, 0d);
+        public static Unit lumensPerSquareCentimetre = new Unit("Lumen per Square Centimetre [lm/cm²]", 10000d, 0d);
+        public static Unit lumensPerSquareMillimetre = new Unit("Lumen per Square Millimetre [lm/mm²]", 1000000d, 0d);
+        public static Unit footCandle = new Unit("Foot-Candle [fc]", (1d / 0.092903043596611d), 0d);
     }
 
     /// <summary>

@@ -11,14 +11,15 @@
         public const short volume = 2;
         public const short time = 3;
         public const short speed = 4;
-        public const short flow = 5;
-        public const short mass = 6;
-        public const short energy = 7;
-        public const short pressure = 8;
-        public const short temperature = 9;
-        public const short luminance = 10;
-        public const short illuminance = 11;
-        public const short angle = 12;
-        public const short dataSize = 13;
+        public const short flowVolume = 5;
+        public const short flowMass = 6;
+        public const short mass = 7;
+        public const short energy = 8;
+        public const short pressure = 9;
+        public const short temperature = 10;
+        public const short luminance = 11;
+        public const short illuminance = 12;
+        public const short angle = 13;
+        public const short dataSize = 14;
     }
 }

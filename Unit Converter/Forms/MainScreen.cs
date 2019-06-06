@@ -32,7 +32,8 @@ namespace Unit_Converter
         List<Unit> volumeUnits = new List<Unit>();
         List<Unit> timeUnits = new List<Unit>();
         List<Unit> speedUnits = new List<Unit>();
-        List<Unit> flowUnits = new List<Unit>();
+        List<Unit> flowVolumeUnits = new List<Unit>();
+        List<Unit> flowMassUnits = new List<Unit>();
         List<Unit> massUnits = new List<Unit>();
         List<Unit> energyUnits = new List<Unit>();
         List<Unit> pressureUnits = new List<Unit>();
@@ -149,9 +150,11 @@ namespace Unit_Converter
             speedUnits.Add(SpeedUnit.mach);
             speedUnits.Add(SpeedUnit.knot);
 
-            // UNIT TYPE 5 - Flow
+            // UNIT TYPE 5 - Flow Rate (Volume)
 
-            // UNIT TYPE 6 - Mass
+            // UNIT TYPE 6 - Flow Rate (Mass)
+
+            // UNIT TYPE 7 - Mass
             massUnits.Add(MassUnit.kilogram);
             massUnits.Add(MassUnit.gram);
             massUnits.Add(MassUnit.carat);
@@ -167,7 +170,7 @@ namespace Unit_Converter
             massUnits.Add(MassUnit.kilotonShort);
             massUnits.Add(MassUnit.kilotonLong);
 
-            // UNIT TYPE 7 - Energy
+            // UNIT TYPE 8 - Energy
             energyUnits.Add(EnergyUnit.joule);
             energyUnits.Add(EnergyUnit.kilojoule);
             energyUnits.Add(EnergyUnit.megajoule);
@@ -178,7 +181,7 @@ namespace Unit_Converter
             energyUnits.Add(EnergyUnit.kilocalorie);
             energyUnits.Add(EnergyUnit.btu);
 
-            // UNIT TYPE 8 - PRESSURE
+            // UNIT TYPE 9 - Pressure
             pressureUnits.Add(PressureUnit.pascal);
             pressureUnits.Add(PressureUnit.hectopascal);
             pressureUnits.Add(PressureUnit.kilopascal);
@@ -202,12 +205,12 @@ namespace Unit_Converter
             pressureUnits.Add(PressureUnit.psi);
             pressureUnits.Add(PressureUnit.torr);
 
-            // UNIT TYPE 9 - Temperature
+            // UNIT TYPE 10 - Temperature
             temperatureUnits.Add(TemperatureUnit.kelvin);
             temperatureUnits.Add(TemperatureUnit.celsius);
             temperatureUnits.Add(TemperatureUnit.fahrenheit);
 
-            // UNIT TYPE 10 - Luminance
+            // UNIT TYPE 11 - Luminance
             luminanceUnits.Add(LuminanceUnit.candelaPerSquareMetre);
             luminanceUnits.Add(LuminanceUnit.candelaPerSquareDecimetre);
             luminanceUnits.Add(LuminanceUnit.candelaPerSquareCentimetre);
@@ -224,9 +227,24 @@ namespace Unit_Converter
             luminanceUnits.Add(LuminanceUnit.skot);
             luminanceUnits.Add(LuminanceUnit.bril);
 
-            // UNIT TYPE 11 - Illuminance
+            // UNIT TYPE 12 - Illuminance
+            illuminanceUnits.Add(IlluminanceUnit.lux);
+            illuminanceUnits.Add(IlluminanceUnit.kilolux);
+            illuminanceUnits.Add(IlluminanceUnit.megalux);
+            illuminanceUnits.Add(IlluminanceUnit.gigalux);
+            illuminanceUnits.Add(IlluminanceUnit.millilux);
+            illuminanceUnits.Add(IlluminanceUnit.microlux);
+            illuminanceUnits.Add(IlluminanceUnit.nanolux);
+            illuminanceUnits.Add(IlluminanceUnit.phot);
+            illuminanceUnits.Add(IlluminanceUnit.milliphot);
+            illuminanceUnits.Add(IlluminanceUnit.nox);
+            illuminanceUnits.Add(IlluminanceUnit.lumensPerSquareMetre);
+            illuminanceUnits.Add(IlluminanceUnit.lumensPerSquareDecimetre);
+            illuminanceUnits.Add(IlluminanceUnit.lumensPerSquareCentimetre);
+            illuminanceUnits.Add(IlluminanceUnit.lumensPerSquareMillimetre);
+            illuminanceUnits.Add(IlluminanceUnit.footCandle);
 
-            // UNIT TYPE 12 - Angle
+            // UNIT TYPE 13 - Angle
             angleUnits.Add(AngleUnit.degree);
             angleUnits.Add(AngleUnit.radian);
             angleUnits.Add(AngleUnit.gradian);
@@ -238,7 +256,7 @@ namespace Unit_Converter
             angleUnits.Add(AngleUnit.semicircle);
             angleUnits.Add(AngleUnit.circle);
 
-            // UNIT TYPE 13 - Data Size
+            // UNIT TYPE 14 - Data Size
             dataSizeUnits.Add(DataSizeUnit.sizeByte);
             dataSizeUnits.Add(DataSizeUnit.sizeKilobyte);
             dataSizeUnits.Add(DataSizeUnit.sizeMegabyte);
@@ -328,7 +346,7 @@ namespace Unit_Converter
                 case 9:
                     decimalPlacesToolStripMenuItem9.Checked = true;
                     break;
-                case (10):
+                case 10:
                     decimalPlacesToolStripMenuItem10.Checked = true;
                     break;
             }
@@ -453,8 +471,11 @@ namespace Unit_Converter
                 case UnitTypeIndex.speed:
                     AddComboBoxValues(speedUnits);
                     break;
-                case UnitTypeIndex.flow:
-                    AddComboBoxValues(flowUnits);
+                case UnitTypeIndex.flowVolume:
+                    AddComboBoxValues(flowVolumeUnits);
+                    break;
+                case UnitTypeIndex.flowMass:
+                    AddComboBoxValues(flowMassUnits);
                     break;
                 case UnitTypeIndex.mass:
                     AddComboBoxValues(massUnits);
@@ -660,8 +681,11 @@ namespace Unit_Converter
                 case UnitTypeIndex.speed:
                     CalculateConversion(speedUnits);
                     break;
-                case UnitTypeIndex.flow:
-                    CalculateConversion(flowUnits);
+                case UnitTypeIndex.flowVolume:
+                    CalculateConversion(flowVolumeUnits);
+                    break;
+                case UnitTypeIndex.flowMass:
+                    CalculateConversion(flowMassUnits);
                     break;
                 case UnitTypeIndex.mass:
                     CalculateConversion(massUnits);
