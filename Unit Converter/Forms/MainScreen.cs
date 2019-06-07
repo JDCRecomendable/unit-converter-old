@@ -32,6 +32,7 @@ namespace Unit_Converter
         List<Unit> volumeUnits = new List<Unit>();
         List<Unit> timeUnits = new List<Unit>();
         List<Unit> speedUnits = new List<Unit>();
+        List<Unit> flowAreaUnits = new List<Unit>();
         List<Unit> flowVolumeUnits = new List<Unit>();
         List<Unit> flowMassUnits = new List<Unit>();
         List<Unit> massUnits = new List<Unit>();
@@ -150,7 +151,93 @@ namespace Unit_Converter
             speedUnits.Add(SpeedUnit.mach);
             speedUnits.Add(SpeedUnit.knot);
 
-            // UNIT TYPE 5 - Flow Rate (Volume)
+            // UNIT TYPE 5 - Flow Rate (Area)
+            // Per Second
+            flowAreaUnits.Add(FlowAreaUnit.squareMetrePerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.squareKilometrePerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.squareDecimetrePerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.squareCentimetrePerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.squareMillimetrePerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.squareMicrometrePerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.arePerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.stremmaPerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.hectarePerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.tetradPerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.hectadPerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.myriadPerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.squareMilePerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.squareYardPerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.squareFootPerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.squareInchPerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.acrePerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.roodPerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.sectionPerSecond);
+            flowAreaUnits.Add(FlowAreaUnit.townshipPerSecond);
+            // Per Minute
+            flowAreaUnits.Add(FlowAreaUnit.squareMetrePerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.squareKilometrePerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.squareDecimetrePerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.squareCentimetrePerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.squareMillimetrePerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.squareMicrometrePerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.arePerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.stremmaPerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.hectarePerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.tetradPerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.hectadPerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.myriadPerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.squareMilePerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.squareYardPerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.squareFootPerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.squareInchPerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.acrePerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.roodPerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.sectionPerMinute);
+            flowAreaUnits.Add(FlowAreaUnit.townshipPerMinute);
+            // Per Hour
+            flowAreaUnits.Add(FlowAreaUnit.squareMetrePerHour);
+            flowAreaUnits.Add(FlowAreaUnit.squareKilometrePerHour);
+            flowAreaUnits.Add(FlowAreaUnit.squareDecimetrePerHour);
+            flowAreaUnits.Add(FlowAreaUnit.squareCentimetrePerHour);
+            flowAreaUnits.Add(FlowAreaUnit.squareMillimetrePerHour);
+            flowAreaUnits.Add(FlowAreaUnit.squareMicrometrePerHour);
+            flowAreaUnits.Add(FlowAreaUnit.arePerHour);
+            flowAreaUnits.Add(FlowAreaUnit.stremmaPerHour);
+            flowAreaUnits.Add(FlowAreaUnit.hectarePerHour);
+            flowAreaUnits.Add(FlowAreaUnit.tetradPerHour);
+            flowAreaUnits.Add(FlowAreaUnit.hectadPerHour);
+            flowAreaUnits.Add(FlowAreaUnit.myriadPerHour);
+            flowAreaUnits.Add(FlowAreaUnit.squareMilePerHour);
+            flowAreaUnits.Add(FlowAreaUnit.squareYardPerHour);
+            flowAreaUnits.Add(FlowAreaUnit.squareFootPerHour);
+            flowAreaUnits.Add(FlowAreaUnit.squareInchPerHour);
+            flowAreaUnits.Add(FlowAreaUnit.acrePerHour);
+            flowAreaUnits.Add(FlowAreaUnit.roodPerHour);
+            flowAreaUnits.Add(FlowAreaUnit.sectionPerHour);
+            flowAreaUnits.Add(FlowAreaUnit.townshipPerHour);
+            // Per Day
+            flowAreaUnits.Add(FlowAreaUnit.squareMetrePerDay);
+            flowAreaUnits.Add(FlowAreaUnit.squareKilometrePerDay);
+            flowAreaUnits.Add(FlowAreaUnit.squareDecimetrePerDay);
+            flowAreaUnits.Add(FlowAreaUnit.squareCentimetrePerDay);
+            flowAreaUnits.Add(FlowAreaUnit.squareMillimetrePerDay);
+            flowAreaUnits.Add(FlowAreaUnit.squareMicrometrePerDay);
+            flowAreaUnits.Add(FlowAreaUnit.arePerDay);
+            flowAreaUnits.Add(FlowAreaUnit.stremmaPerDay);
+            flowAreaUnits.Add(FlowAreaUnit.hectarePerDay);
+            flowAreaUnits.Add(FlowAreaUnit.tetradPerDay);
+            flowAreaUnits.Add(FlowAreaUnit.hectadPerDay);
+            flowAreaUnits.Add(FlowAreaUnit.myriadPerDay);
+            flowAreaUnits.Add(FlowAreaUnit.squareMilePerDay);
+            flowAreaUnits.Add(FlowAreaUnit.squareYardPerDay);
+            flowAreaUnits.Add(FlowAreaUnit.squareFootPerDay);
+            flowAreaUnits.Add(FlowAreaUnit.squareInchPerDay);
+            flowAreaUnits.Add(FlowAreaUnit.acrePerDay);
+            flowAreaUnits.Add(FlowAreaUnit.roodPerDay);
+            flowAreaUnits.Add(FlowAreaUnit.sectionPerDay);
+            flowAreaUnits.Add(FlowAreaUnit.townshipPerDay);
+
+            // UNIT TYPE 6 - Flow Rate (Volume)
             // Per Second
             flowVolumeUnits.Add(FlowVolumeUnit.cubicMetrePerSecond);
             flowVolumeUnits.Add(FlowVolumeUnit.cubicCentimetrePerSecond);
@@ -216,7 +303,7 @@ namespace Unit_Converter
             flowVolumeUnits.Add(FlowVolumeUnit.tablespoonPerDay);
             flowVolumeUnits.Add(FlowVolumeUnit.teaspoonPerDay);
 
-            // UNIT TYPE 6 - Flow Rate (Mass)
+            // UNIT TYPE 7 - Flow Rate (Mass)
             // Per Second
             flowMassUnits.Add(FlowMassUnit.kilogramPerSecond);
             flowMassUnits.Add(FlowMassUnit.gramPerSecond);
@@ -278,7 +365,7 @@ namespace Unit_Converter
             flowMassUnits.Add(FlowMassUnit.kilotonShortPerDay);
             flowMassUnits.Add(FlowMassUnit.kilotonLongPerDay);
 
-            // UNIT TYPE 7 - Mass
+            // UNIT TYPE 8 - Mass
             massUnits.Add(MassUnit.kilogram);
             massUnits.Add(MassUnit.gram);
             massUnits.Add(MassUnit.carat);
@@ -294,7 +381,7 @@ namespace Unit_Converter
             massUnits.Add(MassUnit.kilotonShort);
             massUnits.Add(MassUnit.kilotonLong);
 
-            // UNIT TYPE 8 - Energy
+            // UNIT TYPE 9 - Energy
             energyUnits.Add(EnergyUnit.joule);
             energyUnits.Add(EnergyUnit.kilojoule);
             energyUnits.Add(EnergyUnit.megajoule);
@@ -305,7 +392,7 @@ namespace Unit_Converter
             energyUnits.Add(EnergyUnit.kilocalorie);
             energyUnits.Add(EnergyUnit.btu);
 
-            // UNIT TYPE 9 - Pressure
+            // UNIT TYPE 10 - Pressure
             pressureUnits.Add(PressureUnit.pascal);
             pressureUnits.Add(PressureUnit.hectopascal);
             pressureUnits.Add(PressureUnit.kilopascal);
@@ -329,12 +416,12 @@ namespace Unit_Converter
             pressureUnits.Add(PressureUnit.psi);
             pressureUnits.Add(PressureUnit.torr);
 
-            // UNIT TYPE 10 - Temperature
+            // UNIT TYPE 11 - Temperature
             temperatureUnits.Add(TemperatureUnit.kelvin);
             temperatureUnits.Add(TemperatureUnit.celsius);
             temperatureUnits.Add(TemperatureUnit.fahrenheit);
 
-            // UNIT TYPE 11 - Luminance
+            // UNIT TYPE 12 - Luminance
             luminanceUnits.Add(LuminanceUnit.candelaPerSquareMetre);
             luminanceUnits.Add(LuminanceUnit.candelaPerSquareDecimetre);
             luminanceUnits.Add(LuminanceUnit.candelaPerSquareCentimetre);
@@ -351,7 +438,7 @@ namespace Unit_Converter
             luminanceUnits.Add(LuminanceUnit.skot);
             luminanceUnits.Add(LuminanceUnit.bril);
 
-            // UNIT TYPE 12 - Illuminance
+            // UNIT TYPE 13 - Illuminance
             illuminanceUnits.Add(IlluminanceUnit.lux);
             illuminanceUnits.Add(IlluminanceUnit.kilolux);
             illuminanceUnits.Add(IlluminanceUnit.megalux);
@@ -368,7 +455,7 @@ namespace Unit_Converter
             illuminanceUnits.Add(IlluminanceUnit.lumensPerSquareMillimetre);
             illuminanceUnits.Add(IlluminanceUnit.footCandle);
 
-            // UNIT TYPE 13 - Angle
+            // UNIT TYPE 14 - Angle
             angleUnits.Add(AngleUnit.degree);
             angleUnits.Add(AngleUnit.radian);
             angleUnits.Add(AngleUnit.gradian);
@@ -380,7 +467,7 @@ namespace Unit_Converter
             angleUnits.Add(AngleUnit.semicircle);
             angleUnits.Add(AngleUnit.circle);
 
-            // UNIT TYPE 14 - Data Size
+            // UNIT TYPE 15 - Data Size
             dataSizeUnits.Add(DataSizeUnit.sizeByte);
             dataSizeUnits.Add(DataSizeUnit.sizeKilobyte);
             dataSizeUnits.Add(DataSizeUnit.sizeMegabyte);
@@ -477,6 +564,7 @@ namespace Unit_Converter
 
             ExecuteCalculation();
             statusIndicator.Text = StatusMessage.roundOffValueSet;
+            statusBar.BackColor = StatusMessage.positiveColour;
         }
 
         // (2) MENU BAR EVENTS - Set to not round off
@@ -595,6 +683,9 @@ namespace Unit_Converter
                 case UnitTypeIndex.speed:
                     AddComboBoxValues(speedUnits);
                     break;
+                case UnitTypeIndex.flowArea:
+                    AddComboBoxValues(flowAreaUnits);
+                    break;
                 case UnitTypeIndex.flowVolume:
                     AddComboBoxValues(flowVolumeUnits);
                     break;
@@ -628,11 +719,15 @@ namespace Unit_Converter
                 default:
                     changedComboBoxValues = false;
                     statusIndicator.Text = StatusMessage.unitTypeError;
+                    statusBar.BackColor = StatusMessage.errorColour;
                     break;
             }
 
             if (changedComboBoxValues)
+            {
                 statusIndicator.Text = StatusMessage.ready;
+                statusBar.BackColor = StatusMessage.standardColour;
+            }
         }
 
         // (4) CONTROLS - Helper function to set fromValueInput text properties
@@ -640,21 +735,23 @@ namespace Unit_Converter
         private void SetFromValueInputTextToDefault(bool reset)
         {
             string currentStatusMessage = statusIndicator.Text;
+            System.Drawing.Color currentStatusColour = statusBar.BackColor;
 
             if (reset)
             {
-                fromValueInput.Text = FromValueInputConstant.defaultString;
-                fromValueInput.ForeColor = FromValueInputConstant.grey;
+                fromValueInput.Text = FromValueInputConstant.emptyString;
+                fromValueInput.ForeColor = FromValueInputConstant.emptyColour;
                 fromValueInputEmpty = true;
             }
             else
             {
-                fromValueInput.Text = FromValueInputConstant.emptyString;
-                fromValueInput.ForeColor = FromValueInputConstant.black;
+                fromValueInput.Text = FromValueInputConstant.standardString;
+                fromValueInput.ForeColor = FromValueInputConstant.standardColour;
                 fromValueInputEmpty = false;
             }
 
             statusIndicator.Text = currentStatusMessage;
+            statusBar.BackColor = currentStatusColour;
         }
 
         // (4) CONTROLS - Do when fromValueInput gains focus
@@ -669,6 +766,15 @@ namespace Unit_Converter
         {
             if (string.IsNullOrWhiteSpace(fromValueInput.Text))
                 SetFromValueInputTextToDefault(true);
+        }
+
+        // (4) CONTROLS - Do when text in toValueOutput changes
+        private void toValueOutput_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(toValueOutput.Text))
+                toValueOutput.Cursor = Cursors.No;
+            else
+                toValueOutput.Cursor = Cursors.IBeam;
         }
 
         // (4) CONTROLS - Attempt to calculate when fromUnitInput changed
@@ -717,9 +823,13 @@ namespace Unit_Converter
                 toUnitOutput.SelectedItem = tempUnitHolder;
                 ExecuteCalculation();
                 statusIndicator.Text = StatusMessage.swapped;
+                statusBar.BackColor = StatusMessage.positiveColour;
             }
             else
+            {
                 statusIndicator.Text = StatusMessage.invalidSwap;
+                statusBar.BackColor = StatusMessage.errorColour;
+            }
         }
 
         // (6) CALCULATION - Helper function that calculates the result value
@@ -777,12 +887,19 @@ namespace Unit_Converter
                     else
                         toValueOutput.Text = resultUnitValue.ToString();
                     statusIndicator.Text = StatusMessage.done;
+                    statusBar.BackColor = StatusMessage.positiveColour;
                 }
                 else
+                {
                     statusIndicator.Text = StatusMessage.unitError;
+                    statusBar.BackColor = StatusMessage.errorColour;
+                }
             }
             else
+            {
                 statusIndicator.Text = StatusMessage.invalidInput;
+                statusBar.BackColor = StatusMessage.errorColour;
+            }
         }
 
         // (6) CALCULATION - Execute the calculation process
@@ -804,6 +921,9 @@ namespace Unit_Converter
                     break;
                 case UnitTypeIndex.speed:
                     CalculateConversion(speedUnits);
+                    break;
+                case UnitTypeIndex.flowArea:
+                    CalculateConversion(flowAreaUnits);
                     break;
                 case UnitTypeIndex.flowVolume:
                     CalculateConversion(flowVolumeUnits);
@@ -837,6 +957,7 @@ namespace Unit_Converter
                     break;
                 default:
                     statusIndicator.Text = StatusMessage.unitTypeError;
+                    statusBar.BackColor = StatusMessage.errorColour;
                     break;
             }
         }

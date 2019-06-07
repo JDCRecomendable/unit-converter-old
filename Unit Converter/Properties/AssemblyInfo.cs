@@ -9,13 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("This is the product of a project for the " +
     "Technology (Innovation Programme) in Avondale College, Auckland. " +
     "\r\n\r\nUnit Converter is a Windows program that converts values from " +
-    "one unit to another.\r\n\r\nThe application converts units for length, " +
-    "area, volume, time, speed, mass, energy, temperature and data size. " +
-    "There are currently over 170 different units supported and counting." +
-    "\r\n\r\nThis application is under beta testing and may be buggy. " +
-    "Future editions will see less bugs and the ability to add one's " +
-    "own custom units, as well as support for mathematical notations in " +
-    "the user input.")]
+    "one unit to another.\r\n\r\nThe application converts units for 14 " +
+    "different quantities, supporting more than 370 units.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Avondale College")]
 [assembly: AssemblyProduct("Unit Converter")]
@@ -41,5 +36,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.0.0")]
-[assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: AssemblyVersion("0.3.0.0")]
+[assembly: AssemblyFileVersion("0.3.0.0")]

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Unit_Converter
+﻿namespace Unit_Converter
 {
     /// <summary>
     /// Static class that defines the text properties of fromValueInput
@@ -9,11 +7,11 @@ namespace Unit_Converter
     public static class FromValueInputConstant
     {
         // Strings
-        public const string defaultString = "Type your input here...";
-        public const string emptyString = "";
+        public const string emptyString = "Type your input here...";
+        public const string standardString = "";
 
         // Colours
-        public static System.Drawing.Color black = System.Drawing.Color.Black;
-        public static System.Drawing.Color grey = System.Drawing.Color.Gray;
+        public static System.Drawing.Color emptyColour = System.Drawing.Color.LightGray;
+        public static System.Drawing.Color standardColour = System.Drawing.Color.White;
     }
 }

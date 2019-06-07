@@ -1,12 +1,13 @@
 ﻿namespace Unit_Converter
 {
     /// <summary>
-    /// Contains 18 length units
+    /// Contains 22 length units
     /// </summary>
     public static class LengthUnit
     {
         public static Unit metre = new Unit("Metre [m] (S.I. Unit)", 1d, 0d);
         public static Unit nauticalMile = new Unit("Nautical Mile [nmi]", 1852d, 0d);
+        public static Unit hectometre = new Unit("Hectometre [hm]", 100d, 0d);
         public static Unit kilometre = new Unit("Kilometre [km]", 1000d, 0d);
         public static Unit decimetre = new Unit("Decimetre [dm]", 0.1d, 0d);
         public static Unit centimetre = new Unit("Centimetre [cm]", 0.01d, 0d);
@@ -23,6 +24,9 @@
         public static Unit yard = new Unit("Yard [yd]", ((1d / 3.280839895d) * 3d), 0d);
         public static Unit foot = new Unit("Foot [ft]", (1d / 3.280839895d), 0d);
         public static Unit inch = new Unit("Inch [in]", ((1d / 3.280839895d) / 12d), 0d);
+        public static Unit astronomicalUnit = new Unit("Astronomical Unit", 149597900000d, 0d);
+        public static Unit lightYear = new Unit("Light-Year", 9460730000000000d, 0d);
+        public static Unit parsec = new Unit("Parsec", 30856782064650000d, 0d);
     }
 
     /// <summary>
@@ -112,6 +116,100 @@
         public static Unit milePerHour = new Unit("Mile per Hour [mi/h]", ((1d / 3.280839895d) * 5280d / 3600d), 0d);
         public static Unit mach = new Unit("Mach [Ma]", 340d, 0d);
         public static Unit knot = new Unit("Knot [kn]", 1852d / 3600d, 0d);
+    }
+
+    /// <summary>
+    /// Contains 80 flow rate (area) units
+    /// </summary>
+    public static class FlowAreaUnit
+    {
+        // Per Second
+        public static Unit squareMetrePerSecond = new Unit("Square Metre per Second", 1d, 0d);
+        public static Unit squareKilometrePerSecond = new Unit("Square Kilometre per Second", 1000000d, 0d);
+        public static Unit squareDecimetrePerSecond = new Unit("Square Decimetre per Second", 0.01d, 0d);
+        public static Unit squareCentimetrePerSecond = new Unit("Square Centimetre per Second", 0.0001d, 0d);
+        public static Unit squareMillimetrePerSecond = new Unit("Square Millimetre per Second", 0.000001d, 0d);
+        public static Unit squareMicrometrePerSecond = new Unit("Square Micrometre per Second", 0.000000000001d, 0d);
+        public static Unit arePerSecond = new Unit("Are per Second", 100d, 0d);
+        public static Unit stremmaPerSecond = new Unit("Stremma per Second", 1000d, 0d);
+        public static Unit hectarePerSecond = new Unit("Hectare per Second", 10000d, 0d);
+        public static Unit tetradPerSecond = new Unit("Tetrad per Second", 4000000d, 0d);
+        public static Unit hectadPerSecond = new Unit("Hectad per Second", 100000000d, 0d);
+        public static Unit myriadPerSecond = new Unit("Myriad per Second", 10000000000d, 0d);
+        public static Unit squareMilePerSecond = new Unit("Square Mile per Second", ((1d / 1.19599004630108d) * 3097600d), 0d);
+        public static Unit squareYardPerSecond = new Unit("Square Yard per Second", (1d / 1.19599004630108d), 0d);
+        public static Unit squareFootPerSecond = new Unit("Square Foot per Second", ((1d / 1.19599004630108d) / 9d), 0d);
+        public static Unit squareInchPerSecond = new Unit("Square Inch per Second", ((1d / 1.19599004630108d) / 1296d), 0d);
+        public static Unit acrePerSecond = new Unit("Acre per Second", ((1d / 1.19599004630108d) * 4840d), 0d);
+        public static Unit roodPerSecond = new Unit("Rood per Second", ((1d / 1.19599004630108d) * 1210d), 0d);
+        public static Unit sectionPerSecond = new Unit("Section per Second", ((1d / 1.19599004630108d) * 3097600d), 0d);
+        public static Unit townshipPerSecond = new Unit("Survey Township per Second", ((1d / 1.19599004630108d) * 111513600d), 0d);
+
+        // Per Minute
+        public static Unit squareMetrePerMinute = new Unit("Square Metre per Minute", 1d * 60d, 0d);
+        public static Unit squareKilometrePerMinute = new Unit("Square Kilometre per Minute", 1000000d * 60d, 0d);
+        public static Unit squareDecimetrePerMinute = new Unit("Square Decimetre per Minute", 0.01d * 60d, 0d);
+        public static Unit squareCentimetrePerMinute = new Unit("Square Centimetre per Minute", 0.0001d * 60d, 0d);
+        public static Unit squareMillimetrePerMinute = new Unit("Square Millimetre per Minute", 0.000001d * 60d, 0d);
+        public static Unit squareMicrometrePerMinute = new Unit("Square Micrometre per Minute", 0.000000000001d * 60d, 0d);
+        public static Unit arePerMinute = new Unit("Are per Minute", 100d * 60d, 0d);
+        public static Unit stremmaPerMinute = new Unit("Stremma per Minute", 1000d * 60d, 0d);
+        public static Unit hectarePerMinute = new Unit("Hectare per Minute", 10000d * 60d, 0d);
+        public static Unit tetradPerMinute = new Unit("Tetrad per Minute", 4000000d * 60d, 0d);
+        public static Unit hectadPerMinute = new Unit("Hectad per Minute", 100000000d * 60d, 0d);
+        public static Unit myriadPerMinute = new Unit("Myriad per Minute", 10000000000d * 60d, 0d);
+        public static Unit squareMilePerMinute = new Unit("Square Mile per Minute", ((1d / 1.19599004630108d) * 3097600d) * 60d, 0d);
+        public static Unit squareYardPerMinute = new Unit("Square Yard per Minute", (1d / 1.19599004630108d) * 60d, 0d);
+        public static Unit squareFootPerMinute = new Unit("Square Foot per Minute", ((1d / 1.19599004630108d) / 9d) * 60d, 0d);
+        public static Unit squareInchPerMinute = new Unit("Square Inch per Minute", ((1d / 1.19599004630108d) / 1296d) * 60d, 0d);
+        public static Unit acrePerMinute = new Unit("Acre per Minute", ((1d / 1.19599004630108d) * 4840d) * 60d, 0d);
+        public static Unit roodPerMinute = new Unit("Rood per Minute", ((1d / 1.19599004630108d) * 1210d) * 60d, 0d);
+        public static Unit sectionPerMinute = new Unit("Section per Minute", ((1d / 1.19599004630108d) * 3097600d) * 60d, 0d);
+        public static Unit townshipPerMinute = new Unit("Survey Township per Minute", ((1d / 1.19599004630108d) * 111513600d) * 60d, 0d);
+
+        // Per Hour
+        public static Unit squareMetrePerHour = new Unit("Square Metre per Hour", 1d * 3600d, 0d);
+        public static Unit squareKilometrePerHour = new Unit("Square Kilometre per Hour", 1000000d * 3600d, 0d);
+        public static Unit squareDecimetrePerHour = new Unit("Square Decimetre per Hour", 0.01d * 3600d, 0d);
+        public static Unit squareCentimetrePerHour = new Unit("Square Centimetre per Hour", 0.0001d * 3600d, 0d);
+        public static Unit squareMillimetrePerHour = new Unit("Square Millimetre per Hour", 0.000001d * 3600d, 0d);
+        public static Unit squareMicrometrePerHour = new Unit("Square Micrometre per Hour", 0.000000000001d * 3600d, 0d);
+        public static Unit arePerHour = new Unit("Are per Hour", 100d * 3600d, 0d);
+        public static Unit stremmaPerHour = new Unit("Stremma per Hour", 1000d * 3600d, 0d);
+        public static Unit hectarePerHour = new Unit("Hectare per Hour", 10000d * 3600d, 0d);
+        public static Unit tetradPerHour = new Unit("Tetrad per Hour", 4000000d * 3600d, 0d);
+        public static Unit hectadPerHour = new Unit("Hectad per Hour", 100000000d * 3600d, 0d);
+        public static Unit myriadPerHour = new Unit("Myriad per Hour", 10000000000d * 3600d, 0d);
+        public static Unit squareMilePerHour = new Unit("Square Mile per Hour", ((1d / 1.19599004630108d) * 3097600d) * 3600d, 0d);
+        public static Unit squareYardPerHour = new Unit("Square Yard per Hour", (1d / 1.19599004630108d) * 3600d, 0d);
+        public static Unit squareFootPerHour = new Unit("Square Foot per Hour", ((1d / 1.19599004630108d) / 9d) * 3600d, 0d);
+        public static Unit squareInchPerHour = new Unit("Square Inch per Hour", ((1d / 1.19599004630108d) / 1296d) * 3600d, 0d);
+        public static Unit acrePerHour = new Unit("Acre per Hour", ((1d / 1.19599004630108d) * 4840d) * 3600d, 0d);
+        public static Unit roodPerHour = new Unit("Rood per Hour", ((1d / 1.19599004630108d) * 1210d) * 3600d, 0d);
+        public static Unit sectionPerHour = new Unit("Section per Hour", ((1d / 1.19599004630108d) * 3097600d) * 3600d, 0d);
+        public static Unit townshipPerHour = new Unit("Survey Township per Hour", ((1d / 1.19599004630108d) * 111513600d) * 3600d, 0d);
+
+        // Per Day
+        public static Unit squareMetrePerDay = new Unit("Square Metre per Day", 1d * 86400d, 0d);
+        public static Unit squareKilometrePerDay = new Unit("Square Kilometre per Day", 1000000d * 86400d, 0d);
+        public static Unit squareDecimetrePerDay = new Unit("Square Decimetre per Day", 0.01d * 86400d, 0d);
+        public static Unit squareCentimetrePerDay = new Unit("Square Centimetre per Day", 0.0001d * 86400d, 0d);
+        public static Unit squareMillimetrePerDay = new Unit("Square Millimetre per Day", 0.000001d * 86400d, 0d);
+        public static Unit squareMicrometrePerDay = new Unit("Square Micrometre per Day", 0.000000000001d * 86400d, 0d);
+        public static Unit arePerDay = new Unit("Are per Day", 100d * 86400d, 0d);
+        public static Unit stremmaPerDay = new Unit("Stremma per Day", 1000d * 86400d, 0d);
+        public static Unit hectarePerDay = new Unit("Hectare per Day", 10000d * 86400d, 0d);
+        public static Unit tetradPerDay = new Unit("Tetrad per Day", 4000000d * 86400d, 0d);
+        public static Unit hectadPerDay = new Unit("Hectad per Day", 100000000d * 86400d, 0d);
+        public static Unit myriadPerDay = new Unit("Myriad per Day", 10000000000d * 86400d, 0d);
+        public static Unit squareMilePerDay = new Unit("Square Mile per Day", ((1d / 1.19599004630108d) * 3097600d) * 86400d, 0d);
+        public static Unit squareYardPerDay = new Unit("Square Yard per Day", (1d / 1.19599004630108d) * 86400d, 0d);
+        public static Unit squareFootPerDay = new Unit("Square Foot per Day", ((1d / 1.19599004630108d) / 9d) * 86400d, 0d);
+        public static Unit squareInchPerDay = new Unit("Square Inch per Day", ((1d / 1.19599004630108d) / 1296d) * 86400d, 0d);
+        public static Unit acrePerDay = new Unit("Acre per Day", ((1d / 1.19599004630108d) * 4840d) * 86400d, 0d);
+        public static Unit roodPerDay = new Unit("Rood per Day", ((1d / 1.19599004630108d) * 1210d) * 86400d, 0d);
+        public static Unit sectionPerDay = new Unit("Section per Day", ((1d / 1.19599004630108d) * 3097600d) * 86400d, 0d);
+        public static Unit townshipPerDay = new Unit("Survey Township per Day", ((1d / 1.19599004630108d) * 111513600d) * 86400d, 0d);
     }
 
     /// <summary>
