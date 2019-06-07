@@ -151,8 +151,132 @@ namespace Unit_Converter
             speedUnits.Add(SpeedUnit.knot);
 
             // UNIT TYPE 5 - Flow Rate (Volume)
+            // Per Second
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicMetrePerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicCentimetrePerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicMillimetrePerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicYardPerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicFootPerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicInchPerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.litrePerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.millilitrePerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.barrelPerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.gallonPerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.quartPerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.pintPerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.cupPerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.tablespoonPerSecond);
+            flowVolumeUnits.Add(FlowVolumeUnit.teaspoonPerSecond);
+            // Per Minute
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicMetrePerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicCentimetrePerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicMillimetrePerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicYardPerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicFootPerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicInchPerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.litrePerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.millilitrePerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.barrelPerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.gallonPerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.quartPerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.pintPerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.cupPerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.tablespoonPerMinute);
+            flowVolumeUnits.Add(FlowVolumeUnit.teaspoonPerMinute);
+            // Per Hour
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicMetrePerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicCentimetrePerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicMillimetrePerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicYardPerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicFootPerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicInchPerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.litrePerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.millilitrePerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.barrelPerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.gallonPerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.quartPerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.pintPerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.cupPerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.tablespoonPerHour);
+            flowVolumeUnits.Add(FlowVolumeUnit.teaspoonPerHour);
+            // Per Day
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicMetrePerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicCentimetrePerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicMillimetrePerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicYardPerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicFootPerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.cubicInchPerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.litrePerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.millilitrePerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.barrelPerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.gallonPerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.quartPerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.pintPerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.cupPerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.tablespoonPerDay);
+            flowVolumeUnits.Add(FlowVolumeUnit.teaspoonPerDay);
 
             // UNIT TYPE 6 - Flow Rate (Mass)
+            // Per Second
+            flowMassUnits.Add(FlowMassUnit.kilogramPerSecond);
+            flowMassUnits.Add(FlowMassUnit.gramPerSecond);
+            flowMassUnits.Add(FlowMassUnit.caratPerSecond);
+            flowMassUnits.Add(FlowMassUnit.milligramPerSecond);
+            flowMassUnits.Add(FlowMassUnit.microgramPerSecond);
+            flowMassUnits.Add(FlowMassUnit.tonnePerSecond);
+            flowMassUnits.Add(FlowMassUnit.kilotonnePerSecond);
+            flowMassUnits.Add(FlowMassUnit.poundPerSecond);
+            flowMassUnits.Add(FlowMassUnit.ouncePerSecond);
+            flowMassUnits.Add(FlowMassUnit.stoneUKPerSecond);
+            flowMassUnits.Add(FlowMassUnit.tonShortPerSecond);
+            flowMassUnits.Add(FlowMassUnit.tonLongPerSecond);
+            flowMassUnits.Add(FlowMassUnit.kilotonShortPerSecond);
+            flowMassUnits.Add(FlowMassUnit.kilotonLongPerSecond);
+            // Per Minute
+            flowMassUnits.Add(FlowMassUnit.kilogramPerMinute);
+            flowMassUnits.Add(FlowMassUnit.gramPerMinute);
+            flowMassUnits.Add(FlowMassUnit.caratPerMinute);
+            flowMassUnits.Add(FlowMassUnit.milligramPerMinute);
+            flowMassUnits.Add(FlowMassUnit.microgramPerMinute);
+            flowMassUnits.Add(FlowMassUnit.tonnePerMinute);
+            flowMassUnits.Add(FlowMassUnit.kilotonnePerMinute);
+            flowMassUnits.Add(FlowMassUnit.poundPerMinute);
+            flowMassUnits.Add(FlowMassUnit.ouncePerMinute);
+            flowMassUnits.Add(FlowMassUnit.stoneUKPerMinute);
+            flowMassUnits.Add(FlowMassUnit.tonShortPerMinute);
+            flowMassUnits.Add(FlowMassUnit.tonLongPerMinute);
+            flowMassUnits.Add(FlowMassUnit.kilotonShortPerMinute);
+            flowMassUnits.Add(FlowMassUnit.kilotonLongPerMinute);
+            // Per Hour
+            flowMassUnits.Add(FlowMassUnit.kilogramPerHour);
+            flowMassUnits.Add(FlowMassUnit.gramPerHour);
+            flowMassUnits.Add(FlowMassUnit.caratPerHour);
+            flowMassUnits.Add(FlowMassUnit.milligramPerHour);
+            flowMassUnits.Add(FlowMassUnit.microgramPerHour);
+            flowMassUnits.Add(FlowMassUnit.tonnePerHour);
+            flowMassUnits.Add(FlowMassUnit.kilotonnePerHour);
+            flowMassUnits.Add(FlowMassUnit.poundPerHour);
+            flowMassUnits.Add(FlowMassUnit.ouncePerHour);
+            flowMassUnits.Add(FlowMassUnit.stoneUKPerHour);
+            flowMassUnits.Add(FlowMassUnit.tonShortPerHour);
+            flowMassUnits.Add(FlowMassUnit.tonLongPerHour);
+            flowMassUnits.Add(FlowMassUnit.kilotonShortPerHour);
+            flowMassUnits.Add(FlowMassUnit.kilotonLongPerHour);
+            // Per Day
+            flowMassUnits.Add(FlowMassUnit.kilogramPerDay);
+            flowMassUnits.Add(FlowMassUnit.gramPerDay);
+            flowMassUnits.Add(FlowMassUnit.caratPerDay);
+            flowMassUnits.Add(FlowMassUnit.milligramPerDay);
+            flowMassUnits.Add(FlowMassUnit.microgramPerDay);
+            flowMassUnits.Add(FlowMassUnit.tonnePerDay);
+            flowMassUnits.Add(FlowMassUnit.kilotonnePerDay);
+            flowMassUnits.Add(FlowMassUnit.poundPerDay);
+            flowMassUnits.Add(FlowMassUnit.ouncePerDay);
+            flowMassUnits.Add(FlowMassUnit.stoneUKPerDay);
+            flowMassUnits.Add(FlowMassUnit.tonShortPerDay);
+            flowMassUnits.Add(FlowMassUnit.tonLongPerDay);
+            flowMassUnits.Add(FlowMassUnit.kilotonShortPerDay);
+            flowMassUnits.Add(FlowMassUnit.kilotonLongPerDay);
 
             // UNIT TYPE 7 - Mass
             massUnits.Add(MassUnit.kilogram);

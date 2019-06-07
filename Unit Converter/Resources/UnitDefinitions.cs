@@ -115,19 +115,147 @@
     }
 
     /// <summary>
-    /// Contains 0 flow rate (volume) units
+    /// Contains 60 flow rate (volume) units
     /// </summary>
     public static class FlowVolumeUnit
     {
-        // empty
+        // Per Second
+        public static Unit cubicMetrePerSecond = new Unit("Cubic Metre per Second", 1d, 0d);
+        public static Unit cubicCentimetrePerSecond = new Unit("Cubic Centimetre per Second", 0.000001d, 0d);
+        public static Unit cubicMillimetrePerSecond = new Unit("Cubic Millimetre per Second", 0.000000001d, 0d);
+        public static Unit cubicYardPerSecond = new Unit("Cubic Yard per Second", (1d / 1.30795061931439d), 0d);
+        public static Unit cubicFootPerSecond = new Unit("Cubic Foot per Second", ((1d / 1.30795061931439d) / 27d), 0d);
+        public static Unit cubicInchPerSecond = new Unit("Cubic Inch per Second", ((1d / 1.30795061931439d) / 46656d), 0d);
+        public static Unit litrePerSecond = new Unit("Litre per Second", 0.001d, 0d);
+        public static Unit millilitrePerSecond = new Unit("Millilitre per Second", 0.000001d, 0d);
+        public static Unit barrelPerSecond = new Unit("Barrel per Second", (((1d / 1.30795061931439d) / 46656d) * 9702d), 0d);
+        public static Unit gallonPerSecond = new Unit("Gallon (Imperial) per Second", (1d / 219.969248299088d), 0d);
+        public static Unit quartPerSecond = new Unit("Quart (Imperial) per Second", ((1d / 219.969248299088d) / 4d), 0d);
+        public static Unit pintPerSecond = new Unit("Pint (Imperial) per Second", ((1d / 219.969248299088d) / 8d), 0d);
+        public static Unit cupPerSecond = new Unit("Cup (US Customary) per Second", 4226.75283773038d, 0d);
+        public static Unit tablespoonPerSecond = new Unit("Tablespoon (US Customary) per Second", (4226.75283773038d / 16d), 0d);
+        public static Unit teaspoonPerSecond = new Unit("Teaspoon (US Customary) per Second", (4226.75283773038d / 48d), 0d);
+        
+        // Per Minute
+        public static Unit cubicMetrePerMinute = new Unit("Cubic Metre per Minute", 1d * 60d, 0d);
+        public static Unit cubicCentimetrePerMinute = new Unit("Cubic Centimetre per Minute", 0.000001d * 60d, 0d);
+        public static Unit cubicMillimetrePerMinute = new Unit("Cubic Millimetre per Minute", 0.000000001d * 60d, 0d);
+        public static Unit cubicYardPerMinute = new Unit("Cubic Yard per Minute", (1d / 1.30795061931439d) * 60d, 0d);
+        public static Unit cubicFootPerMinute = new Unit("Cubic Foot per Minute", ((1d / 1.30795061931439d) / 27d) * 60d, 0d);
+        public static Unit cubicInchPerMinute = new Unit("Cubic Inch per Minute", ((1d / 1.30795061931439d) / 46656d) * 60d, 0d);
+        public static Unit litrePerMinute = new Unit("Litre per Minute", 0.001d * 60d, 0d);
+        public static Unit millilitrePerMinute = new Unit("Millilitre per Minute", 0.000001d * 60d, 0d);
+        public static Unit barrelPerMinute = new Unit("Barrel per Minute", (((1d / 1.30795061931439d) / 46656d) * 9702d) * 60d, 0d);
+        public static Unit gallonPerMinute = new Unit("Gallon (Imperial) per Minute", (1d / 219.969248299088d) * 60d, 0d);
+        public static Unit quartPerMinute = new Unit("Quart (Imperial) per Minute", ((1d / 219.969248299088d) / 4d) * 60d, 0d);
+        public static Unit pintPerMinute = new Unit("Pint (Imperial) per Minute", ((1d / 219.969248299088d) / 8d) * 60d, 0d);
+        public static Unit cupPerMinute = new Unit("Cup (US Customary) per Minute", 4226.75283773038d * 60d, 0d);
+        public static Unit tablespoonPerMinute = new Unit("Tablespoon (US Customary) per Minute", (4226.75283773038d / 16d) * 60d, 0d);
+        public static Unit teaspoonPerMinute = new Unit("Teaspoon (US Customary) per Minute", (4226.75283773038d / 48d) * 60d, 0d);
+        
+        // Per Hour
+        public static Unit cubicMetrePerHour = new Unit("Cubic Metre per Hour", 1d * 3600d, 0d);
+        public static Unit cubicCentimetrePerHour = new Unit("Cubic Centimetre per Hour", 0.000001d * 3600d, 0d);
+        public static Unit cubicMillimetrePerHour = new Unit("Cubic Millimetre per Hour", 0.000000001d * 3600d, 0d);
+        public static Unit cubicYardPerHour = new Unit("Cubic Yard per Hour", (1d / 1.30795061931439d) * 3600d, 0d);
+        public static Unit cubicFootPerHour = new Unit("Cubic Foot per Hour", ((1d / 1.30795061931439d) / 27d) * 3600d, 0d);
+        public static Unit cubicInchPerHour = new Unit("Cubic Inch per Hour", ((1d / 1.30795061931439d) / 46656d) * 3600d, 0d);
+        public static Unit litrePerHour = new Unit("Litre per Hour", 0.001d * 3600d, 0d);
+        public static Unit millilitrePerHour = new Unit("Millilitre per Hour", 0.000001d * 3600d, 0d);
+        public static Unit barrelPerHour = new Unit("Barrel per Hour", (((1d / 1.30795061931439d) / 46656d) * 9702d) * 3600d, 0d);
+        public static Unit gallonPerHour = new Unit("Gallon (Imperial) per Hour", (1d / 219.969248299088d) * 3600d, 0d);
+        public static Unit quartPerHour = new Unit("Quart (Imperial) per Hour", ((1d / 219.969248299088d) / 4d) * 3600d, 0d);
+        public static Unit pintPerHour = new Unit("Pint (Imperial) per Hour", ((1d / 219.969248299088d) / 8d) * 3600d, 0d);
+        public static Unit cupPerHour = new Unit("Cup (US Customary) per Hour", 4226.75283773038d * 3600d, 0d);
+        public static Unit tablespoonPerHour = new Unit("Tablespoon (US Customary) per Hour", (4226.75283773038d / 16d) * 3600d, 0d);
+        public static Unit teaspoonPerHour = new Unit("Teaspoon (US Customary) per Hour", (4226.75283773038d / 48d) * 3600d, 0d);
+        
+        // Per Day
+        public static Unit cubicMetrePerDay = new Unit("Cubic Metre per Day", 1d * 86400d, 0d);
+        public static Unit cubicCentimetrePerDay = new Unit("Cubic Centimetre per Day", 0.000001d * 86400d, 0d);
+        public static Unit cubicMillimetrePerDay = new Unit("Cubic Millimetre per Day", 0.000000001d * 86400d, 0d);
+        public static Unit cubicYardPerDay = new Unit("Cubic Yard per Day", (1d / 1.30795061931439d) * 86400d, 0d);
+        public static Unit cubicFootPerDay = new Unit("Cubic Foot per Day", ((1d / 1.30795061931439d) / 27d) * 86400d, 0d);
+        public static Unit cubicInchPerDay = new Unit("Cubic Inch per Day", ((1d / 1.30795061931439d) / 46656d) * 86400d, 0d);
+        public static Unit litrePerDay = new Unit("Litre per Day", 0.001d * 86400d, 0d);
+        public static Unit millilitrePerDay = new Unit("Millilitre per Day", 0.000001d * 86400d, 0d);
+        public static Unit barrelPerDay = new Unit("Barrel per Day", (((1d / 1.30795061931439d) / 46656d) * 9702d) * 86400d, 0d);
+        public static Unit gallonPerDay = new Unit("Gallon (Imperial) per Day", (1d / 219.969248299088d) * 86400d, 0d);
+        public static Unit quartPerDay = new Unit("Quart (Imperial) per Day", ((1d / 219.969248299088d) / 4d) * 86400d, 0d);
+        public static Unit pintPerDay = new Unit("Pint (Imperial) per Day", ((1d / 219.969248299088d) / 8d) * 86400d, 0d);
+        public static Unit cupPerDay = new Unit("Cup (US Customary) per Day", 4226.75283773038d * 86400d, 0d);
+        public static Unit tablespoonPerDay = new Unit("Tablespoon (US Customary) per Day", (4226.75283773038d / 16d) * 86400d, 0d);
+        public static Unit teaspoonPerDay = new Unit("Teaspoon (US Customary) per Day", (4226.75283773038d / 48d) * 86400d, 0d);
     }
 
     /// <summary>
-    /// Contains 0 flow rate (mass) units
+    /// Contains 56 flow rate (mass) units
     /// </summary>
     public static class FlowMassUnit
     {
-        // empty
+        // Per Second
+        public static Unit kilogramPerSecond = new Unit("Kilogram per Second", 1d, 0d);
+        public static Unit gramPerSecond = new Unit("Gram per Second", (1d / 1000d), 0d);
+        public static Unit caratPerSecond = new Unit("Carat per Second", 0.0002d, 0d);
+        public static Unit milligramPerSecond = new Unit("Milligram per Second", (1d / 1000000d), 0d);
+        public static Unit microgramPerSecond = new Unit("Microgram per Second", (1d / 1000000000d), 0d);
+        public static Unit tonnePerSecond = new Unit("Tonne per Second", 1000d, 0d);
+        public static Unit kilotonnePerSecond = new Unit("Kilotonne per Second", 1000000d, 0d);
+        public static Unit poundPerSecond = new Unit("Pound per Second", (1d / 2.20462262184878d), 0d);
+        public static Unit ouncePerSecond = new Unit("Ounce per Second", ((1d / 2.20462262184878d) / 16d), 0d);
+        public static Unit stoneUKPerSecond = new Unit("Stone per Second", ((1d / 2.20462262184878d) * 14d), 0d);
+        public static Unit tonShortPerSecond = new Unit("Ton (Short) per Second", ((1d / 2.20462262184878d) * 2000d), 0d);
+        public static Unit tonLongPerSecond = new Unit("Ton (Long) per Second", ((1d / 2.20462262184878d) * 2240d), 0d);
+        public static Unit kilotonShortPerSecond = new Unit("Kiloton (Short) per Second", ((1d / 2.20462262184878d) * 2000000d), 0d);
+        public static Unit kilotonLongPerSecond = new Unit("Kiloton (Long) per Second", ((1d / 2.20462262184878d) * 2240000d), 0d);
+
+        // Per Minute
+        public static Unit kilogramPerMinute = new Unit("Kilogram per Minute", 1d * 60d, 0d);
+        public static Unit gramPerMinute = new Unit("Gram per Minute", (1d / 1000d) * 60d, 0d);
+        public static Unit caratPerMinute = new Unit("Carat per Minute", 0.0002d * 60d, 0d);
+        public static Unit milligramPerMinute = new Unit("Milligram per Minute", (1d / 1000000d) * 60d, 0d);
+        public static Unit microgramPerMinute = new Unit("Microgram per Minute", (1d / 1000000000d) * 60d, 0d);
+        public static Unit tonnePerMinute = new Unit("Tonne per Minute", 1000d * 60d, 0d);
+        public static Unit kilotonnePerMinute = new Unit("Kilotonne per Minute", 1000000d * 60d, 0d);
+        public static Unit poundPerMinute = new Unit("Pound per Minute", (1d / 2.20462262184878d) * 60d, 0d);
+        public static Unit ouncePerMinute = new Unit("Ounce per Minute", ((1d / 2.20462262184878d) / 16d) * 60d, 0d);
+        public static Unit stoneUKPerMinute = new Unit("Stone per Minute", ((1d / 2.20462262184878d) * 14d) * 60d, 0d);
+        public static Unit tonShortPerMinute = new Unit("Ton (Short) per Minute", ((1d / 2.20462262184878d) * 2000d) * 60d, 0d);
+        public static Unit tonLongPerMinute = new Unit("Ton (Long) per Minute", ((1d / 2.20462262184878d) * 2240d) * 60d, 0d);
+        public static Unit kilotonShortPerMinute = new Unit("Kiloton (Short) per Minute", ((1d / 2.20462262184878d) * 2000000d) * 60d, 0d);
+        public static Unit kilotonLongPerMinute = new Unit("Kiloton (Long) per Minute", ((1d / 2.20462262184878d) * 2240000d) * 60d, 0d);
+
+        // Per Hour
+        public static Unit kilogramPerHour = new Unit("Kilogram per Hour", 1d * 3600d, 0d);
+        public static Unit gramPerHour = new Unit("Gram per Hour", (1d / 1000d) * 3600d, 0d);
+        public static Unit caratPerHour = new Unit("Carat per Hour", 0.0002d * 3600d, 0d);
+        public static Unit milligramPerHour = new Unit("Milligram per Hour", (1d / 1000000d) * 3600d, 0d);
+        public static Unit microgramPerHour = new Unit("Microgram per Hour", (1d / 1000000000d) * 3600d, 0d);
+        public static Unit tonnePerHour = new Unit("Tonne per Hour", 1000d * 3600d, 0d);
+        public static Unit kilotonnePerHour = new Unit("Kilotonne per Hour", 1000000d * 3600d, 0d);
+        public static Unit poundPerHour = new Unit("Pound per Hour", (1d / 2.20462262184878d) * 3600d, 0d);
+        public static Unit ouncePerHour = new Unit("Ounce per Hour", ((1d / 2.20462262184878d) / 16d) * 3600d, 0d);
+        public static Unit stoneUKPerHour = new Unit("Stone per Hour", ((1d / 2.20462262184878d) * 14d) * 3600d, 0d);
+        public static Unit tonShortPerHour = new Unit("Ton (Short) per Hour", ((1d / 2.20462262184878d) * 2000d) * 3600d, 0d);
+        public static Unit tonLongPerHour = new Unit("Ton (Long) per Hour", ((1d / 2.20462262184878d) * 2240d) * 3600d, 0d);
+        public static Unit kilotonShortPerHour = new Unit("Kiloton (Short) per Hour", ((1d / 2.20462262184878d) * 2000000d) * 3600d, 0d);
+        public static Unit kilotonLongPerHour = new Unit("Kiloton (Long) per Hour", ((1d / 2.20462262184878d) * 2240000d) * 3600d, 0d);
+
+        // Per Day
+        public static Unit kilogramPerDay = new Unit("Kilogram per Day", 1d * 86400d, 0d);
+        public static Unit gramPerDay = new Unit("Gram per Day", (1d / 1000d) * 86400d, 0d);
+        public static Unit caratPerDay = new Unit("Carat per Day", 0.0002d * 86400d, 0d);
+        public static Unit milligramPerDay = new Unit("Milligram per Day", (1d / 1000000d) * 86400d, 0d);
+        public static Unit microgramPerDay = new Unit("Microgram per Day", (1d / 1000000000d) * 86400d, 0d);
+        public static Unit tonnePerDay = new Unit("Tonne per Day", 1000d * 86400d, 0d);
+        public static Unit kilotonnePerDay = new Unit("Kilotonne per Day", 1000000d * 86400d, 0d);
+        public static Unit poundPerDay = new Unit("Pound per Day", (1d / 2.20462262184878d) * 86400d, 0d);
+        public static Unit ouncePerDay = new Unit("Ounce per Day", ((1d / 2.20462262184878d) / 16d) * 86400d, 0d);
+        public static Unit stoneUKPerDay = new Unit("Stone per Day", ((1d / 2.20462262184878d) * 14d) * 86400d, 0d);
+        public static Unit tonShortPerDay = new Unit("Ton (Short) per Day", ((1d / 2.20462262184878d) * 2000d) * 86400d, 0d);
+        public static Unit tonLongPerDay = new Unit("Ton (Long) per Day", ((1d / 2.20462262184878d) * 2240d) * 86400d, 0d);
+        public static Unit kilotonShortPerDay = new Unit("Kiloton (Short) per Day", ((1d / 2.20462262184878d) * 2000000d) * 86400d, 0d);
+        public static Unit kilotonLongPerDay = new Unit("Kiloton (Long) per Day", ((1d / 2.20462262184878d) * 2240000d) * 86400d, 0d);
     }
 
     /// <summary>
