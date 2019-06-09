@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+// using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -10,7 +10,9 @@ using System.Runtime.InteropServices;
     "Technology (Innovation Programme) in Avondale College, Auckland. " +
     "\r\n\r\nUnit Converter is a Windows program that converts values from " +
     "one unit to another.\r\n\r\nThe application converts units for 14 " +
-    "different quantities, supporting more than 370 units.")]
+    "different quantities, supporting more than 370 units.\r\n\r\n" +
+    "Licensed under the GNU GPLv3. Source code is available at " +
+    "https://github.com/JDCRecomendable/unit-converter")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Avondale College")]
 [assembly: AssemblyProduct("Unit Converter")]

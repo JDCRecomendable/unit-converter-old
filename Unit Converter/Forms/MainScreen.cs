@@ -13,6 +13,9 @@ namespace Unit_Converter
             this.ActiveControl = unitSelectorTable;
             unitSelectorTable.Focus();
             unitSelectorTable.SelectedIndex = 0;
+
+            // Modify the colours of selected items
+            menuBar.Renderer = new SelectorColourRenderer();
         }
 
         // (1) INITIALISATION - Define round-off value variable
@@ -959,6 +962,62 @@ namespace Unit_Converter
                     statusIndicator.Text = StatusMessage.unitTypeError;
                     statusBar.BackColor = StatusMessage.errorColour;
                     break;
+            }
+        }
+
+        private class SelectorColourRenderer : ToolStripProfessionalRenderer
+        {
+            public SelectorColourRenderer() : base(new SelectorColours()) { }
+        }
+
+        private class SelectorColours : ProfessionalColorTable
+        {
+            public override System.Drawing.Color MenuItemSelected
+            {
+                get
+                {
+                    return System.Drawing.Color.Gray;
+                }
+            }
+
+            public override System.Drawing.Color MenuItemBorder
+            {
+                get
+                {
+                    return System.Drawing.Color.Gray;
+                }
+            }
+
+            public override System.Drawing.Color MenuBorder
+            {
+                get
+                {
+                    return System.Drawing.Color.Gray;
+                }
+            }
+
+            public override System.Drawing.Color SeparatorDark
+            {
+                get
+                {
+                    return System.Drawing.Color.White;
+                }
+            }
+
+            public override System.Drawing.Color CheckBackground
+            {
+                get
+                {
+                    return System.Drawing.Color.White;
+                }
+            }
+
+            public override System.Drawing.Color CheckSelectedBackground
+            {
+                get
+                {
+                    return System.Drawing.Color.White;
+                }
             }
         }
     }

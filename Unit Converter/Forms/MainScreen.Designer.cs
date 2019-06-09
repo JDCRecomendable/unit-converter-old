@@ -101,7 +101,7 @@
             this.exitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -164,7 +164,7 @@
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.testToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
+            this.testToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(240, 6);
             // 
@@ -333,7 +333,7 @@
             // 
             this.toValueOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.toValueOutput.BackColor = System.Drawing.Color.Olive;
+            this.toValueOutput.BackColor = System.Drawing.Color.Gray;
             this.toValueOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.toValueOutput.Cursor = System.Windows.Forms.Cursors.No;
             this.toValueOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -388,7 +388,7 @@
             this.fromValueInput.AllowDrop = true;
             this.fromValueInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fromValueInput.BackColor = System.Drawing.Color.Olive;
+            this.fromValueInput.BackColor = System.Drawing.Color.Gray;
             this.fromValueInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fromValueInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.fromValueInput.ForeColor = System.Drawing.Color.White;
@@ -462,7 +462,7 @@
             // 
             // unitSelectorTable
             // 
-            this.unitSelectorTable.BackColor = System.Drawing.Color.Olive;
+            this.unitSelectorTable.BackColor = System.Drawing.Color.Gray;
             this.unitSelectorTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.unitSelectorTable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.unitSelectorTable.Dock = System.Windows.Forms.DockStyle.Fill;

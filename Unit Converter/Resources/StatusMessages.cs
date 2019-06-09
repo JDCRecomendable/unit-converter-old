@@ -21,8 +21,8 @@
         public const string roundOffValueSet = "Round-off value set";
 
         // Colours
-        public static System.Drawing.Color errorColour = System.Drawing.Color.OrangeRed;
-        public static System.Drawing.Color standardColour = System.Drawing.Color.DarkBlue;
-        public static System.Drawing.Color positiveColour = System.Drawing.Color.DarkGreen;
+        public static System.Drawing.Color errorColour = System.Drawing.Color.FromArgb(192, 0, 0);
+        public static System.Drawing.Color standardColour = System.Drawing.Color.FromArgb(210, 90, 0);
+        public static System.Drawing.Color positiveColour = System.Drawing.Color.FromArgb(0, 128, 0);
     }
 }
