@@ -82,6 +82,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddCustomUnitsBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCustomUnitsBox.Designer.cs">
+      <DependentUpon>AddCustomUnitsBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,13 +100,17 @@
     <Compile Include="Forms\MainScreen.Designer.cs">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Resources\FromValueInputConstants.cs" />
+    <Compile Include="Resources\InputConstants.cs" />
+    <Compile Include="Resources\MessageBoxConstants.cs" />
     <Compile Include="Resources\StatusMessages.cs" />
     <Compile Include="Resources\UnitDefinitions.cs" />
     <Compile Include="Resources\UnitTypeClasses.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\UnitTypeIndices.cs" />
+    <EmbeddedResource Include="Forms\AddCustomUnitsBox.resx">
+      <DependentUpon>AddCustomUnitsBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>

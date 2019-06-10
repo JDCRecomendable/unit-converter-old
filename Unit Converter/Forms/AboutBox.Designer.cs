@@ -112,6 +112,7 @@
             // textBoxDescription
             // 
             this.textBoxDescription.BackColor = System.Drawing.Color.Gray;
+            this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxDescription.ForeColor = System.Drawing.SystemColors.Window;
             this.textBoxDescription.Location = new System.Drawing.Point(6, 91);
@@ -128,12 +129,16 @@
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.BackColor = System.Drawing.Color.DarkGray;
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.okButton.FlatAppearance.BorderSize = 0;
+            this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.okButton.Location = new System.Drawing.Point(288, 199);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 21);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&OK";
+            this.okButton.UseVisualStyleBackColor = false;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // AboutBox

@@ -479,11 +479,7 @@ namespace Unit_Converter
             dataSizeUnits.Add(DataSizeUnit.sizePetabyte);
 
             // Load initial units
-            foreach (Unit element in lengthUnits)
-            {
-                fromUnitInput.Items.Add(element.GetName());
-                toUnitOutput.Items.Add(element.GetName());
-            }
+            AddComboBoxValues(lengthUnits);
 
             // Reset fromValueInput
             SetFromValueInputTextToDefault(true);
@@ -495,6 +491,13 @@ namespace Unit_Converter
         {
             AboutBox aboutBox = new AboutBox();
             aboutBox.Show();
+        }
+
+        // (2) MENU BAR EVENTS - Open the Add Custom Units Box
+        private void addCustomUnitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCustomUnitsBox addCustomUnitsBox = new AddCustomUnitsBox();
+            addCustomUnitsBox.Show();
         }
 
         // (2) MENU BAR EVENTS - Toggle "Always On Top" feature
@@ -742,14 +745,14 @@ namespace Unit_Converter
 
             if (reset)
             {
-                fromValueInput.Text = FromValueInputConstant.emptyString;
-                fromValueInput.ForeColor = FromValueInputConstant.emptyColour;
+                fromValueInput.Text = InputText.fromValueInputEmptyString;
+                fromValueInput.ForeColor = InputColour.emptyColour;
                 fromValueInputEmpty = true;
             }
             else
             {
-                fromValueInput.Text = FromValueInputConstant.standardString;
-                fromValueInput.ForeColor = FromValueInputConstant.standardColour;
+                fromValueInput.Text = InputText.standardString;
+                fromValueInput.ForeColor = InputColour.standardColour;
                 fromValueInputEmpty = false;
             }
 

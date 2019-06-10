@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCustomUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,11 +90,22 @@
             // 
             this.fileToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCustomUnitToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // addCustomUnitToolStripMenuItem
+            // 
+            this.addCustomUnitToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.addCustomUnitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
+            this.addCustomUnitToolStripMenuItem.Name = "addCustomUnitToolStripMenuItem";
+            this.addCustomUnitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.addCustomUnitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.addCustomUnitToolStripMenuItem.Text = "&Add Custom Unit...";
+            this.addCustomUnitToolStripMenuItem.Click += new System.EventHandler(this.addCustomUnitToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -101,7 +113,7 @@
             this.exitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -440,7 +452,7 @@
             // 
             // swapButton
             // 
-            this.swapButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.swapButton.BackColor = System.Drawing.Color.DarkGray;
             this.buttonsTable.SetColumnSpan(this.swapButton, 2);
             this.swapButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.swapButton.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -448,6 +460,7 @@
             this.swapButton.FlatAppearance.BorderSize = 0;
             this.swapButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.swapButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.swapButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.swapButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.swapButton.ForeColor = System.Drawing.SystemColors.Window;
             this.swapButton.Location = new System.Drawing.Point(2, 2);
@@ -595,6 +608,7 @@
         private System.Windows.Forms.TableLayoutPanel mainScreenTable;
         private System.Windows.Forms.ToolStripStatusLabel statusIndicator;
         private System.Windows.Forms.StatusStrip statusBar;
+        private System.Windows.Forms.ToolStripMenuItem addCustomUnitToolStripMenuItem;
     }
 }
 

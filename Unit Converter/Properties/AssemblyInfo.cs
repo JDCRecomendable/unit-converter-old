@@ -9,14 +9,14 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("This is the product of a project for the " +
     "Technology (Innovation Programme) in Avondale College, Auckland. " +
     "\r\n\r\nUnit Converter is a Windows program that converts values from " +
-    "one unit to another.\r\n\r\nThe application converts units for 14 " +
+    "one unit to another.\r\n\r\nThe application converts units for 16 " +
     "different quantities, supporting more than 370 units.\r\n\r\n" +
     "Licensed under the GNU GPLv3. Source code is available at " +
     "https://github.com/JDCRecomendable/unit-converter")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Avondale College")]
 [assembly: AssemblyProduct("Unit Converter")]
-[assembly: AssemblyCopyright("©  2019 Jared Daniel Carbonell Recomendable")]
+[assembly: AssemblyCopyright("Copyright ©  2019 Jared Daniel Carbonell Recomendable")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
