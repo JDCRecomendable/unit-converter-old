@@ -503,8 +503,8 @@ namespace Unit_Converter
             SetFromValueInputTextToDefault(true);
         }
 
-        // Enable custom unit form to add custom units for this form
-        public void AddCustomUnitsBox(short unitTypeIndex, Unit unit)
+        // Enable custom unit forms to add custom units from this form
+        public void AddCustomUnit(short unitTypeIndex, Unit unit)
         {
             switch (unitTypeIndex)
             {
@@ -559,9 +559,125 @@ namespace Unit_Converter
             }
         }
 
+        // Enable custom unit forms to read units from this form
+        public List<Unit> GetCustomUnitListings(short unitTypeIndex)
+        {
+            List<Unit> resultUnitList = new List<Unit>();
+
+            switch (unitTypeIndex)
+            {
+                case UnitTypeIndex.length:
+                    resultUnitList.AddRange(customLengthUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.area:
+                    resultUnitList.AddRange(customAreaUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.volume:
+                    resultUnitList.AddRange(customVolumeUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.time:
+                    resultUnitList.AddRange(customTimeUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.speed:
+                    resultUnitList.AddRange(customSpeedUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.flowArea:
+                    resultUnitList.AddRange(customFlowAreaUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.flowVolume:
+                    resultUnitList.AddRange(customFlowVolumeUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.flowMass:
+                    resultUnitList.AddRange(customFlowMassUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.mass:
+                    resultUnitList.AddRange(customMassUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.energy:
+                    resultUnitList.AddRange(customEnergyUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.pressure:
+                    resultUnitList.AddRange(customPressureUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.temperature:
+                    resultUnitList.AddRange(customTemperatureUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.luminance:
+                    resultUnitList.AddRange(customLuminanceUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.illuminance:
+                    resultUnitList.AddRange(customIlluminanceUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.angle:
+                    resultUnitList.AddRange(customAngleUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.dataSize:
+                    resultUnitList.AddRange(customDataSizeUnits.ListUnits());
+                    break;
+            }
+
+            return resultUnitList;
+        }
+
+        // Enable custom unit forms to delete a custom unit from this form
+        public void DeleteCustomUnit(short unitTypeIndex, Unit unit)
+        {
+            switch (unitTypeIndex)
+            {
+                case UnitTypeIndex.length:
+                    customLengthUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.area:
+                    customAreaUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.volume:
+                    customVolumeUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.time:
+                    customTimeUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.speed:
+                    customSpeedUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.flowArea:
+                    customFlowAreaUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.flowVolume:
+                    customFlowVolumeUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.flowMass:
+                    customFlowMassUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.mass:
+                    customMassUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.energy:
+                    customEnergyUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.pressure:
+                    customPressureUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.temperature:
+                    customTemperatureUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.luminance:
+                    customLuminanceUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.illuminance:
+                    customIlluminanceUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.angle:
+                    customAngleUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.dataSize:
+                    customDataSizeUnits.RemoveUnit(unit);
+                    break;
+            }
+        }
+
         // (2) MENU BAR EVENTS - Open the About box to show the application
         // credits
-        private void aboutUnitConverterToolStripMenuItem_Click(object sender, EventArgs e)
+            private void aboutUnitConverterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox aboutBox = new AboutBox();
             if (this.TopMost)
@@ -576,6 +692,15 @@ namespace Unit_Converter
             if (this.TopMost)
                 addCustomUnitsBox.TopMost = true;
             addCustomUnitsBox.Show();
+        }
+
+        // (2) MENU BAR EVENTS - Open the Delete Custom Units Box
+        private void deleteCustomUnitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteCustomUnitsBox deleteCustomUnitsBox = new DeleteCustomUnitsBox(this);
+            if (this.TopMost)
+                deleteCustomUnitsBox.TopMost = true;
+            deleteCustomUnitsBox.Show();
         }
 
         // (2) MENU BAR EVENTS - Toggle "Always On Top" feature
@@ -751,8 +876,7 @@ namespace Unit_Converter
             }
         }
 
-        // (3) UNIT TYPE EVENTS - Helper function to update contents
-        // in the combo boxes
+        // (3) UNIT TYPE EVENTS - Helper function to combo box contents
         public void UpdateComboBoxes()
         {
             List<Unit> unitList = new List<Unit>();
@@ -762,7 +886,7 @@ namespace Unit_Converter
             SetFromValueInputTextToDefault(true);
             toValueOutput.Clear();
 
-            unitList = GetAllUnits((short)unitSelectorTable.SelectedIndex);
+            unitList.AddRange(GetAllUnits((short)unitSelectorTable.SelectedIndex));
             AddComboBoxValues(unitList);
 
             statusIndicator.Text = StatusMessage.ready;
@@ -965,13 +1089,13 @@ namespace Unit_Converter
         private void ExecuteCalculation()
         {
             List<Unit> unitList = new List<Unit>();
-            unitList = GetAllUnits((short)unitSelectorTable.SelectedIndex);
+            unitList.AddRange(GetAllUnits((short)unitSelectorTable.SelectedIndex));
             CalculateConversion(unitList);
         }
 
         // COMMON - Helper function to combine all units from main and custom
         // unit lists
-        private List<Unit> GetAllUnits(short unitTypeIndex)
+        public List<Unit> GetAllUnits(short unitTypeIndex)
         {
             List<Unit> resultUnitList = new List<Unit>();
 

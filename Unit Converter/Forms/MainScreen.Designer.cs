@@ -58,12 +58,13 @@
             this.fromValueInput = new System.Windows.Forms.TextBox();
             this.mainArea = new System.Windows.Forms.TableLayoutPanel();
             this.buttonsTable = new System.Windows.Forms.TableLayoutPanel();
+            this.clearButton = new System.Windows.Forms.Button();
             this.swapButton = new System.Windows.Forms.Button();
             this.unitSelectorTable = new System.Windows.Forms.ListBox();
             this.mainScreenTable = new System.Windows.Forms.TableLayoutPanel();
             this.statusIndicator = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBar = new System.Windows.Forms.StatusStrip();
-            this.clearButton = new System.Windows.Forms.Button();
+            this.deleteCustomUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.converterTable.SuspendLayout();
             this.mainArea.SuspendLayout();
@@ -92,6 +93,7 @@
             this.fileToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addCustomUnitToolStripMenuItem,
+            this.deleteCustomUnitToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -104,7 +106,7 @@
             this.addCustomUnitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.addCustomUnitToolStripMenuItem.Name = "addCustomUnitToolStripMenuItem";
             this.addCustomUnitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.addCustomUnitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.addCustomUnitToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.addCustomUnitToolStripMenuItem.Text = "&Add Custom Unit...";
             this.addCustomUnitToolStripMenuItem.Click += new System.EventHandler(this.addCustomUnitToolStripMenuItem_Click);
             // 
@@ -114,7 +116,7 @@
             this.exitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -452,6 +454,28 @@
             this.buttonsTable.Size = new System.Drawing.Size(335, 32);
             this.buttonsTable.TabIndex = 4;
             // 
+            // clearButton
+            // 
+            this.clearButton.BackColor = System.Drawing.Color.DarkGray;
+            this.clearButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clearButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.clearButton.FlatAppearance.BorderSize = 0;
+            this.clearButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.clearButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.ForeColor = System.Drawing.SystemColors.Window;
+            this.clearButton.Location = new System.Drawing.Point(2, 2);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(2);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(163, 28);
+            this.clearButton.TabIndex = 1;
+            this.clearButton.TabStop = false;
+            this.clearButton.Text = "&Clear";
+            this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // swapButton
             // 
             this.swapButton.BackColor = System.Drawing.Color.DarkGray;
@@ -543,27 +567,15 @@
             this.statusBar.TabIndex = 2;
             this.statusBar.Text = "statusBar";
             // 
-            // clearButton
+            // deleteCustomUnitToolStripMenuItem
             // 
-            this.clearButton.BackColor = System.Drawing.Color.DarkGray;
-            this.clearButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clearButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clearButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.clearButton.FlatAppearance.BorderSize = 0;
-            this.clearButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.clearButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
-            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.clearButton.Location = new System.Drawing.Point(2, 2);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(2);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(163, 28);
-            this.clearButton.TabIndex = 1;
-            this.clearButton.TabStop = false;
-            this.clearButton.Text = "&Clear";
-            this.clearButton.UseVisualStyleBackColor = false;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.deleteCustomUnitToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.deleteCustomUnitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
+            this.deleteCustomUnitToolStripMenuItem.Name = "deleteCustomUnitToolStripMenuItem";
+            this.deleteCustomUnitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.deleteCustomUnitToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.deleteCustomUnitToolStripMenuItem.Text = "&Delete Custom Unit...";
+            this.deleteCustomUnitToolStripMenuItem.Click += new System.EventHandler(this.deleteCustomUnitToolStripMenuItem_Click);
             // 
             // MainScreen
             // 
@@ -633,6 +645,7 @@
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripMenuItem addCustomUnitToolStripMenuItem;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.ToolStripMenuItem deleteCustomUnitToolStripMenuItem;
     }
 }
 

@@ -92,6 +92,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\DeleteCustomUnitsBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteCustomUnitsBox.Designer.cs">
+      <DependentUpon>DeleteCustomUnitsBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddCustomUnitsBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\UnitTypeIndices.cs" />
+    <EmbeddedResource Include="Forms\DeleteCustomUnitsBox.resx">
+      <DependentUpon>DeleteCustomUnitsBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddCustomUnitsBox.resx">
       <DependentUpon>AddCustomUnitsBox.cs</DependentUpon>
     </EmbeddedResource>

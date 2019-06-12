@@ -1,4 +1,6 @@
-﻿namespace Unit_Converter
+﻿using System.Collections.Generic;
+
+namespace Unit_Converter
 {
     /// <summary>
     /// Class definition that is the basis for units used in the converter.
@@ -46,6 +48,54 @@
         public double ConvertFromSiValue(double value)
         {
             return ((value - intercept) / gradient);
+        }
+    }
+
+    // CUSTOM UNITS
+    /// <summary>
+    /// Base class for all custom units
+    /// </summary>
+    public class CustomBaseUnits
+    {
+        private List<Unit> unitList = new List<Unit>();
+
+        /// <summary>
+        /// Add the input custom unit to the object.
+        /// </summary>
+        public void AddUnit(Unit unit)
+        {
+            unitList.Add(unit);
+        }
+
+        /// <summary>
+        /// Remove the input custom unit from the object.
+        /// </summary>
+        public void RemoveUnit(Unit unit)
+        {
+            unitList.Remove(unit);
+        }
+
+        /// <summary>
+        /// Modify the input custom unit in the object.
+        /// <para>
+        /// Takes three parameters: the unit object, the new gradient and
+        /// the new intercept.
+        /// </para>
+        /// </summary>
+        public void UpdateUnit(Unit unit, double newGradient, double newIntercept)
+        {
+            string name = unit.GetName();
+            RemoveUnit(unit);
+            Unit newUnit = new Unit(name, newGradient, newIntercept);
+            AddUnit(newUnit);
+        }
+
+        /// <summary>
+        /// Remove a list of all units contained in the object.
+        /// </summary>
+        public List<Unit> ListUnits()
+        {
+            return unitList;
         }
     }
 }

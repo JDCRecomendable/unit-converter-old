@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddCustomUnitsBox));
             this.addCustomUnitsArea = new System.Windows.Forms.TableLayoutPanel();
             this.unitSelectorCustomUnitTable = new System.Windows.Forms.ListBox();
             this.customUnitsSetupArea = new System.Windows.Forms.TableLayoutPanel();
@@ -95,7 +96,7 @@
             this.unitSelectorCustomUnitTable.Margin = new System.Windows.Forms.Padding(4);
             this.unitSelectorCustomUnitTable.Name = "unitSelectorCustomUnitTable";
             this.unitSelectorCustomUnitTable.Size = new System.Drawing.Size(117, 233);
-            this.unitSelectorCustomUnitTable.TabIndex = 1;
+            this.unitSelectorCustomUnitTable.TabIndex = 0;
             this.unitSelectorCustomUnitTable.SelectedIndexChanged += new System.EventHandler(this.unitSelectorCustomUnitTable_SelectedIndexChanged);
             // 
             // customUnitsSetupArea
@@ -140,6 +141,8 @@
             this.customUnitNameInput.Name = "customUnitNameInput";
             this.customUnitNameInput.Size = new System.Drawing.Size(160, 20);
             this.customUnitNameInput.TabIndex = 1;
+            this.customUnitNameInput.Enter += new System.EventHandler(this.customUnitNameInput_Enter);
+            this.customUnitNameInput.Leave += new System.EventHandler(this.customUnitNameInput_Leave);
             // 
             // nameCustomUnitLabel
             // 
@@ -186,7 +189,9 @@
             this.gradientUnitInput.Location = new System.Drawing.Point(152, 117);
             this.gradientUnitInput.Name = "gradientUnitInput";
             this.gradientUnitInput.Size = new System.Drawing.Size(160, 20);
-            this.gradientUnitInput.TabIndex = 4;
+            this.gradientUnitInput.TabIndex = 3;
+            this.gradientUnitInput.Enter += new System.EventHandler(this.gradientUnitInput_Enter);
+            this.gradientUnitInput.Leave += new System.EventHandler(this.gradientUnitInput_Leave);
             // 
             // interceptUnitLabel
             // 
@@ -209,7 +214,9 @@
             this.interceptUnitInput.Location = new System.Drawing.Point(152, 149);
             this.interceptUnitInput.Name = "interceptUnitInput";
             this.interceptUnitInput.Size = new System.Drawing.Size(160, 20);
-            this.interceptUnitInput.TabIndex = 6;
+            this.interceptUnitInput.TabIndex = 4;
+            this.interceptUnitInput.Enter += new System.EventHandler(this.interceptUnitInput_Enter);
+            this.interceptUnitInput.Leave += new System.EventHandler(this.interceptUnitInput_Leave);
             // 
             // customUnitLabel
             // 
@@ -253,7 +260,7 @@
             this.compareUnitInput.Name = "compareUnitInput";
             this.compareUnitInput.Size = new System.Drawing.Size(162, 21);
             this.compareUnitInput.Sorted = true;
-            this.compareUnitInput.TabIndex = 10;
+            this.compareUnitInput.TabIndex = 2;
             // 
             // buttonsArea
             // 
@@ -283,12 +290,12 @@
             this.cancelAddCustomUnitButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cancelAddCustomUnitButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.cancelAddCustomUnitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelAddCustomUnitButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelAddCustomUnitButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelAddCustomUnitButton.ForeColor = System.Drawing.SystemColors.Window;
             this.cancelAddCustomUnitButton.Location = new System.Drawing.Point(3, 3);
             this.cancelAddCustomUnitButton.Name = "cancelAddCustomUnitButton";
             this.cancelAddCustomUnitButton.Size = new System.Drawing.Size(134, 25);
-            this.cancelAddCustomUnitButton.TabIndex = 9;
+            this.cancelAddCustomUnitButton.TabIndex = 0;
             this.cancelAddCustomUnitButton.TabStop = false;
             this.cancelAddCustomUnitButton.Text = "&Cancel";
             this.cancelAddCustomUnitButton.UseVisualStyleBackColor = false;
@@ -311,8 +318,7 @@
             this.createCustomUnitButton.Margin = new System.Windows.Forms.Padding(2);
             this.createCustomUnitButton.Name = "createCustomUnitButton";
             this.createCustomUnitButton.Size = new System.Drawing.Size(138, 27);
-            this.createCustomUnitButton.TabIndex = 8;
-            this.createCustomUnitButton.TabStop = false;
+            this.createCustomUnitButton.TabIndex = 5;
             this.createCustomUnitButton.Text = "&Add";
             this.createCustomUnitButton.UseVisualStyleBackColor = false;
             this.createCustomUnitButton.Click += new System.EventHandler(this.createCustomUnitButton_Click);
@@ -329,6 +335,7 @@
             this.Controls.Add(this.addCustomUnitsArea);
             this.ForeColor = System.Drawing.SystemColors.Window;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddCustomUnitsBox";
             this.Text = "Add a Custom Unit";
             this.Load += new System.EventHandler(this.AddCustomUnitsScreen_Load);
