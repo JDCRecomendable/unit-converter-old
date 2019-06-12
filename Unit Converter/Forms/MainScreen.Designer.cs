@@ -63,6 +63,7 @@
             this.mainScreenTable = new System.Windows.Forms.TableLayoutPanel();
             this.statusIndicator = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBar = new System.Windows.Forms.StatusStrip();
+            this.clearButton = new System.Windows.Forms.Button();
             this.menuBar.SuspendLayout();
             this.converterTable.SuspendLayout();
             this.mainArea.SuspendLayout();
@@ -439,7 +440,8 @@
             this.buttonsTable.ColumnCount = 2;
             this.buttonsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.buttonsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.buttonsTable.Controls.Add(this.swapButton, 0, 0);
+            this.buttonsTable.Controls.Add(this.clearButton, 0, 0);
+            this.buttonsTable.Controls.Add(this.swapButton, 1, 0);
             this.buttonsTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonsTable.Location = new System.Drawing.Point(0, 77);
             this.buttonsTable.Margin = new System.Windows.Forms.Padding(0);
@@ -453,7 +455,6 @@
             // swapButton
             // 
             this.swapButton.BackColor = System.Drawing.Color.DarkGray;
-            this.buttonsTable.SetColumnSpan(this.swapButton, 2);
             this.swapButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.swapButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.swapButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -463,10 +464,10 @@
             this.swapButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.swapButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.swapButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.swapButton.Location = new System.Drawing.Point(2, 2);
+            this.swapButton.Location = new System.Drawing.Point(169, 2);
             this.swapButton.Margin = new System.Windows.Forms.Padding(2);
             this.swapButton.Name = "swapButton";
-            this.swapButton.Size = new System.Drawing.Size(331, 28);
+            this.swapButton.Size = new System.Drawing.Size(164, 28);
             this.swapButton.TabIndex = 0;
             this.swapButton.TabStop = false;
             this.swapButton.Text = "&Swap";
@@ -542,6 +543,28 @@
             this.statusBar.TabIndex = 2;
             this.statusBar.Text = "statusBar";
             // 
+            // clearButton
+            // 
+            this.clearButton.BackColor = System.Drawing.Color.DarkGray;
+            this.clearButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clearButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.clearButton.FlatAppearance.BorderSize = 0;
+            this.clearButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.clearButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.ForeColor = System.Drawing.SystemColors.Window;
+            this.clearButton.Location = new System.Drawing.Point(2, 2);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(2);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(163, 28);
+            this.clearButton.TabIndex = 1;
+            this.clearButton.TabStop = false;
+            this.clearButton.Text = "&Clear";
+            this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -609,6 +632,7 @@
         private System.Windows.Forms.ToolStripStatusLabel statusIndicator;
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripMenuItem addCustomUnitToolStripMenuItem;
+        private System.Windows.Forms.Button clearButton;
     }
 }
 

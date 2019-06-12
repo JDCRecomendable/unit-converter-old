@@ -47,6 +47,24 @@ namespace Unit_Converter
         List<Unit> angleUnits = new List<Unit>();
         List<Unit> dataSizeUnits = new List<Unit>();
 
+        // (1) INITIALISATION - Define custom unit objects
+        CustomBaseUnits customLengthUnits = new CustomBaseUnits();
+        CustomBaseUnits customAreaUnits = new CustomBaseUnits();
+        CustomBaseUnits customVolumeUnits = new CustomBaseUnits();
+        CustomBaseUnits customTimeUnits = new CustomBaseUnits();
+        CustomBaseUnits customSpeedUnits = new CustomBaseUnits();
+        CustomBaseUnits customFlowAreaUnits = new CustomBaseUnits();
+        CustomBaseUnits customFlowVolumeUnits = new CustomBaseUnits();
+        CustomBaseUnits customFlowMassUnits = new CustomBaseUnits();
+        CustomBaseUnits customMassUnits = new CustomBaseUnits();
+        CustomBaseUnits customEnergyUnits = new CustomBaseUnits();
+        CustomBaseUnits customPressureUnits = new CustomBaseUnits();
+        CustomBaseUnits customTemperatureUnits = new CustomBaseUnits();
+        CustomBaseUnits customLuminanceUnits = new CustomBaseUnits();
+        CustomBaseUnits customIlluminanceUnits = new CustomBaseUnits();
+        CustomBaseUnits customAngleUnits = new CustomBaseUnits();
+        CustomBaseUnits customDataSizeUnits = new CustomBaseUnits();
+
 
         // (1) INITIALISATION - Load elements to main screen controls
         private void MainScreen_Load(object sender, EventArgs e)
@@ -485,18 +503,78 @@ namespace Unit_Converter
             SetFromValueInputTextToDefault(true);
         }
 
+        // Enable custom unit form to add custom units for this form
+        public void AddCustomUnitsBox(short unitTypeIndex, Unit unit)
+        {
+            switch (unitTypeIndex)
+            {
+                case UnitTypeIndex.length:
+                    customLengthUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.area:
+                    customAreaUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.volume:
+                    customVolumeUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.time:
+                    customTimeUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.speed:
+                    customSpeedUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.flowArea:
+                    customFlowAreaUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.flowVolume:
+                    customFlowVolumeUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.flowMass:
+                    customFlowMassUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.mass:
+                    customMassUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.energy:
+                    customEnergyUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.pressure:
+                    customPressureUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.temperature:
+                    customTemperatureUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.luminance:
+                    customLuminanceUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.illuminance:
+                    customIlluminanceUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.angle:
+                    customAngleUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.dataSize:
+                    customDataSizeUnits.AddUnit(unit);
+                    break;
+            }
+        }
+
         // (2) MENU BAR EVENTS - Open the About box to show the application
         // credits
         private void aboutUnitConverterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox aboutBox = new AboutBox();
+            if (this.TopMost)
+                aboutBox.TopMost = true;
             aboutBox.Show();
         }
 
         // (2) MENU BAR EVENTS - Open the Add Custom Units Box
         private void addCustomUnitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddCustomUnitsBox addCustomUnitsBox = new AddCustomUnitsBox();
+            AddCustomUnitsBox addCustomUnitsBox = new AddCustomUnitsBox(this);
+            if (this.TopMost)
+                addCustomUnitsBox.TopMost = true;
             addCustomUnitsBox.Show();
         }
 
@@ -662,78 +740,39 @@ namespace Unit_Converter
             }
         }
 
-        // (3) UNIT TYPE EVENTS - Do when unit type is changed
-        private void unitSelectorTable_SelectedIndexChanged(object sender, EventArgs e)
+        // (3) UNIT TYPE EVENTS - Helper function to add custom units in the
+        // combo box for multiplicative units that use the Unit class
+        private void AddCustomComboBoxValues(CustomBaseUnits customBaseUnits)
         {
-            bool changedComboBoxValues = true;
+            foreach (Unit element in customBaseUnits.ListUnits())
+            {
+                fromUnitInput.Items.Add(element.GetName());
+                toUnitOutput.Items.Add(element.GetName());
+            }
+        }
+
+        // (3) UNIT TYPE EVENTS - Helper function to update contents
+        // in the combo boxes
+        public void UpdateComboBoxes()
+        {
+            List<Unit> unitList = new List<Unit>();
 
             fromUnitInput.Items.Clear();
             toUnitOutput.Items.Clear();
             SetFromValueInputTextToDefault(true);
             toValueOutput.Clear();
 
-            switch (unitSelectorTable.SelectedIndex)
-            {
-                case UnitTypeIndex.length:
-                    AddComboBoxValues(lengthUnits);
-                    break;
-                case UnitTypeIndex.area:
-                    AddComboBoxValues(areaUnits);
-                    break;
-                case UnitTypeIndex.volume:
-                    AddComboBoxValues(volumeUnits);
-                    break;
-                case UnitTypeIndex.time:
-                    AddComboBoxValues(timeUnits);
-                    break;
-                case UnitTypeIndex.speed:
-                    AddComboBoxValues(speedUnits);
-                    break;
-                case UnitTypeIndex.flowArea:
-                    AddComboBoxValues(flowAreaUnits);
-                    break;
-                case UnitTypeIndex.flowVolume:
-                    AddComboBoxValues(flowVolumeUnits);
-                    break;
-                case UnitTypeIndex.flowMass:
-                    AddComboBoxValues(flowMassUnits);
-                    break;
-                case UnitTypeIndex.mass:
-                    AddComboBoxValues(massUnits);
-                    break;
-                case UnitTypeIndex.energy:
-                    AddComboBoxValues(energyUnits);
-                    break;
-                case UnitTypeIndex.pressure:
-                    AddComboBoxValues(pressureUnits);
-                    break;
-                case UnitTypeIndex.temperature:
-                    AddComboBoxValues(temperatureUnits);
-                    break;
-                case UnitTypeIndex.luminance:
-                    AddComboBoxValues(luminanceUnits);
-                    break;
-                case UnitTypeIndex.illuminance:
-                    AddComboBoxValues(illuminanceUnits);
-                    break;
-                case UnitTypeIndex.angle:
-                    AddComboBoxValues(angleUnits);
-                    break;
-                case UnitTypeIndex.dataSize:
-                    AddComboBoxValues(dataSizeUnits);
-                    break;
-                default:
-                    changedComboBoxValues = false;
-                    statusIndicator.Text = StatusMessage.unitTypeError;
-                    statusBar.BackColor = StatusMessage.errorColour;
-                    break;
-            }
+            unitList = GetAllUnits((short)unitSelectorTable.SelectedIndex);
+            AddComboBoxValues(unitList);
 
-            if (changedComboBoxValues)
-            {
-                statusIndicator.Text = StatusMessage.ready;
-                statusBar.BackColor = StatusMessage.standardColour;
-            }
+            statusIndicator.Text = StatusMessage.ready;
+            statusBar.BackColor = StatusMessage.standardColour;
+        }
+
+        // (3) UNIT TYPE EVENTS - Do when unit type is changed
+        private void unitSelectorTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateComboBoxes();
         }
 
         // (4) CONTROLS - Helper function to set fromValueInput text properties
@@ -806,6 +845,9 @@ namespace Unit_Converter
                 !string.IsNullOrWhiteSpace(fromValueInput.Text) &&
                 !fromValueInputEmpty)
                 ExecuteCalculation();
+            else if (!fromValueInputEmpty &&
+                string.IsNullOrWhiteSpace(fromValueInput.Text))
+                toValueOutput.Text = "";
         }
 
         // (4) CONTROLS - Calculate when [Enter] pressed in the input box
@@ -838,7 +880,18 @@ namespace Unit_Converter
             }
         }
 
-        // (6) CALCULATION - Helper function that calculates the result value
+        // (6) CLEAR- Clear all inputs and the value output
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            fromUnitInput.SelectedIndex = -1;
+            toUnitOutput.SelectedIndex = -1;
+            SetFromValueInputTextToDefault(true);
+            toValueOutput.Text = "";
+            statusIndicator.Text = StatusMessage.ready;
+            statusBar.BackColor = StatusMessage.standardColour;
+        }
+
+        // (7) CALCULATION - Helper function that calculates the result value
         // for multiplicative units that use Unit class and modifies status
         private void CalculateConversion(List<Unit> unitList)
         {
@@ -908,71 +961,97 @@ namespace Unit_Converter
             }
         }
 
-        // (6) CALCULATION - Execute the calculation process
+        // (7) CALCULATION - Execute the calculation process
         private void ExecuteCalculation()
         {
-            switch (unitSelectorTable.SelectedIndex)
-            {
-                case UnitTypeIndex.length:
-                    CalculateConversion(lengthUnits);
-                    break;
-                case UnitTypeIndex.area:
-                    CalculateConversion(areaUnits);
-                    break;
-                case UnitTypeIndex.volume:
-                    CalculateConversion(volumeUnits);
-                    break;
-                case UnitTypeIndex.time:
-                    CalculateConversion(timeUnits);
-                    break;
-                case UnitTypeIndex.speed:
-                    CalculateConversion(speedUnits);
-                    break;
-                case UnitTypeIndex.flowArea:
-                    CalculateConversion(flowAreaUnits);
-                    break;
-                case UnitTypeIndex.flowVolume:
-                    CalculateConversion(flowVolumeUnits);
-                    break;
-                case UnitTypeIndex.flowMass:
-                    CalculateConversion(flowMassUnits);
-                    break;
-                case UnitTypeIndex.mass:
-                    CalculateConversion(massUnits);
-                    break;
-                case UnitTypeIndex.energy:
-                    CalculateConversion(energyUnits);
-                    break;
-                case UnitTypeIndex.pressure:
-                    CalculateConversion(pressureUnits);
-                    break;
-                case UnitTypeIndex.temperature:
-                    CalculateConversion(temperatureUnits);
-                    break;
-                case UnitTypeIndex.luminance:
-                    CalculateConversion(luminanceUnits);
-                    break;
-                case UnitTypeIndex.illuminance:
-                    CalculateConversion(illuminanceUnits);
-                    break;
-                case UnitTypeIndex.angle:
-                    CalculateConversion(angleUnits);
-                    break;
-                case UnitTypeIndex.dataSize:
-                    CalculateConversion(dataSizeUnits);
-                    break;
-                default:
-                    statusIndicator.Text = StatusMessage.unitTypeError;
-                    statusBar.BackColor = StatusMessage.errorColour;
-                    break;
-            }
+            List<Unit> unitList = new List<Unit>();
+            unitList = GetAllUnits((short)unitSelectorTable.SelectedIndex);
+            CalculateConversion(unitList);
         }
 
+        // COMMON - Helper function to combine all units from main and custom
+        // unit lists
+        private List<Unit> GetAllUnits(short unitTypeIndex)
+        {
+            List<Unit> resultUnitList = new List<Unit>();
+
+            switch (unitTypeIndex)
+            {
+                case UnitTypeIndex.length:
+                    resultUnitList.AddRange(lengthUnits);
+                    resultUnitList.AddRange(customLengthUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.area:
+                    resultUnitList.AddRange(areaUnits);
+                    resultUnitList.AddRange(customAreaUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.volume:
+                    resultUnitList.AddRange(volumeUnits);
+                    resultUnitList.AddRange(customVolumeUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.time:
+                    resultUnitList.AddRange(timeUnits);
+                    resultUnitList.AddRange(customTimeUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.speed:
+                    resultUnitList.AddRange(speedUnits);
+                    resultUnitList.AddRange(customSpeedUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.flowArea:
+                    resultUnitList.AddRange(flowAreaUnits);
+                    resultUnitList.AddRange(customFlowAreaUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.flowVolume:
+                    resultUnitList.AddRange(flowVolumeUnits);
+                    resultUnitList.AddRange(customFlowVolumeUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.flowMass:
+                    resultUnitList.AddRange(flowMassUnits);
+                    resultUnitList.AddRange(customFlowMassUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.mass:
+                    resultUnitList.AddRange(massUnits);
+                    resultUnitList.AddRange(customMassUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.energy:
+                    resultUnitList.AddRange(energyUnits);
+                    resultUnitList.AddRange(customEnergyUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.pressure:
+                    resultUnitList.AddRange(pressureUnits);
+                    resultUnitList.AddRange(customPressureUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.temperature:
+                    resultUnitList.AddRange(temperatureUnits);
+                    resultUnitList.AddRange(customTemperatureUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.luminance:
+                    resultUnitList.AddRange(luminanceUnits);
+                    resultUnitList.AddRange(customLuminanceUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.illuminance:
+                    resultUnitList.AddRange(illuminanceUnits);
+                    resultUnitList.AddRange(customIlluminanceUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.angle:
+                    resultUnitList.AddRange(angleUnits);
+                    resultUnitList.AddRange(customAngleUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.dataSize:
+                    resultUnitList.AddRange(dataSizeUnits);
+                    resultUnitList.AddRange(customDataSizeUnits.ListUnits());
+                    break;
+            }
+            return resultUnitList;
+        }
+
+        // MISC - For menu bar rendering
         private class SelectorColourRenderer : ToolStripProfessionalRenderer
         {
             public SelectorColourRenderer() : base(new SelectorColours()) { }
         }
 
+        // MISC - For menu bar rendering
         private class SelectorColours : ProfessionalColorTable
         {
             public override System.Drawing.Color MenuItemSelected

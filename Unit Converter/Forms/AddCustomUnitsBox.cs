@@ -6,12 +6,18 @@ namespace Unit_Converter
 {
     public partial class AddCustomUnitsBox : Form
     {
-        public AddCustomUnitsBox()
+        private MainScreen mainScreen;
+
+        public AddCustomUnitsBox(MainScreen pMainScreen)
         {
             InitializeComponent();
             this.ActiveControl = unitSelectorCustomUnitTable;
             unitSelectorCustomUnitTable.Focus();
             unitSelectorCustomUnitTable.SelectedIndex = 0;
+
+            // To enable this form to call public functions
+            // from the main screen
+            mainScreen = pMainScreen;
         }
 
         // INITIALISATION - Define the list that contains the user controls
@@ -565,7 +571,81 @@ namespace Unit_Converter
             }
             else
             {
-                //
+                List<Unit> units = new List<Unit>();
+                double rGradient = 0;
+                double rIntercept = 0;
+
+                short unitTypeIndex = (short)unitSelectorCustomUnitTable.SelectedIndex;
+
+                switch (unitTypeIndex)
+                {
+                    case UnitTypeIndex.length:
+                        units = lengthUnits;
+                        break;
+                    case UnitTypeIndex.area:
+                        units = areaUnits;
+                        break;
+                    case UnitTypeIndex.volume:
+                        units = volumeUnits;
+                        break;
+                    case UnitTypeIndex.time:
+                        units = timeUnits;
+                        break;
+                    case UnitTypeIndex.speed:
+                        units = speedUnits;
+                        break;
+                    case UnitTypeIndex.flowArea:
+                        units = flowAreaUnits;
+                        break;
+                    case UnitTypeIndex.flowVolume:
+                        units = flowVolumeUnits;
+                        break;
+                    case UnitTypeIndex.flowMass:
+                        units = flowMassUnits;
+                        break;
+                    case UnitTypeIndex.mass:
+                        units = massUnits;
+                        break;
+                    case UnitTypeIndex.energy:
+                        units = energyUnits;
+                        break;
+                    case UnitTypeIndex.pressure:
+                        units = pressureUnits;
+                        break;
+                    case UnitTypeIndex.temperature:
+                        units = temperatureUnits;
+                        break;
+                    case UnitTypeIndex.luminance:
+                        units = luminanceUnits;
+                        break;
+                    case UnitTypeIndex.illuminance:
+                        units = illuminanceUnits;
+                        break;
+                    case UnitTypeIndex.angle:
+                        units = angleUnits;
+                        break;
+                    case UnitTypeIndex.dataSize:
+                        units = dataSizeUnits;
+                        break;
+                }
+
+                foreach (Unit unit in units)
+                {
+                    if (unit.GetName() == (string)compareUnitInput.SelectedItem)
+                    {
+                        rGradient = unit.GetGradient();
+                        rIntercept = unit.GetIntercept();
+                    }
+                }
+
+                Unit newUnit = new Unit(customUnitNameInput.Text,
+                    gradient * rGradient,
+                    intercept * rGradient + rIntercept);
+
+                mainScreen.AddCustomUnitsBox(unitTypeIndex, newUnit);
+                mainScreen.UpdateComboBoxes();
+
+                this.Close();
             }
         }
     }

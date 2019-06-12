@@ -28,6 +28,16 @@
             return name;
         }
 
+        public double GetGradient()
+        {
+            return gradient;
+        }
+
+        public double GetIntercept()
+        {
+            return intercept;
+        }
+
         public double ConvertToSiValue(double value)
         {
             return (value * gradient + intercept);

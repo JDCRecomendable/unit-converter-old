@@ -330,7 +330,7 @@
             this.ForeColor = System.Drawing.SystemColors.Window;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddCustomUnitsBox";
-            this.Text = "Create a Custom Unit";
+            this.Text = "Add a Custom Unit";
             this.Load += new System.EventHandler(this.AddCustomUnitsScreen_Load);
             this.addCustomUnitsArea.ResumeLayout(false);
             this.customUnitsSetupArea.ResumeLayout(false);
