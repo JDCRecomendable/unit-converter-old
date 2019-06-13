@@ -27,11 +27,11 @@ namespace Unit_Converter
         {
             List<Unit> unitList = new List<Unit>();
 
-            unitToDeleteInput.Items.Clear();
-            unitList = mainScreen.GetCustomUnitListings((short)unitSelectorCustomUnitTable.SelectedIndex);
+            unitToDeleteCheckBox.Items.Clear();
+            unitList = mainScreen.GetCustomUnits((short)unitSelectorCustomUnitTable.SelectedIndex);
 
             foreach (Unit element in unitList)
-                unitToDeleteInput.Items.Add(element.GetName());
+                unitToDeleteCheckBox.Items.Add(element.GetName());
         }
 
         // UNIT TYPE EVENTS - Do when unit type is changed
@@ -46,24 +46,61 @@ namespace Unit_Converter
             this.Close();
         }
 
+        // MAIN EVENTS - Helper function to delete custom unit
+        private bool DeleteCustomUnit()
+        {
+            bool isError = false;
+            List<string> unitsChecked = new List<string>();
+
+            foreach (string selected in unitToDeleteCheckBox.CheckedItems)
+                unitsChecked.Add(selected);
+
+            if (unitsChecked.Count > 0)
+            {
+                List<Unit> unitList = new List<Unit>();
+                short unitTypeIndex = (short)unitSelectorCustomUnitTable.SelectedIndex;
+                unitList = mainScreen.GetCustomUnits(unitTypeIndex);
+
+                foreach (string selected in unitToDeleteCheckBox.CheckedItems)
+                {
+                    foreach (Unit element in unitList)
+                    {
+                        if (selected == element.GetName())
+                        {
+                            mainScreen.DeleteCustomUnit(unitTypeIndex, element);
+                            mainScreen.UpdateComboBoxes();
+                            break;
+                        }
+                    }
+                }
+
+                mainScreen.SetStatusBarCustomUnit(1);
+            }
+            else
+            {
+                MessageBox.Show(DeleteCustomUnitInvalidInputMessageBoxProperty.message,
+                    DeleteCustomUnitInvalidInputMessageBoxProperty.caption,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                isError = true;
+            }
+
+            return isError;
+        }
+
         // MAIN EVENTS - Carry out deletion of the unit
         private void deleteCustomUnitButton_Click(object sender, EventArgs e)
         {
-            List<Unit> unitList = new List<Unit>();
-            short unitTypeIndex = (short)unitSelectorCustomUnitTable.SelectedIndex;
-            unitList = mainScreen.GetCustomUnitListings(unitTypeIndex);
+            DeleteCustomUnit();
+            UpdateComboBox();
+        }
 
-            foreach (Unit element in unitList)
-            {
-                if (element.GetName() == (string)unitToDeleteInput.SelectedItem)
-                {
-                    mainScreen.DeleteCustomUnit(unitTypeIndex, element);
-                    mainScreen.UpdateComboBoxes();
-                    break;
-                }
-            }
-
-            this.Close();
+        // MAIN EVENTS - Carry out deletion of the unit
+        private void deleteCustomUnitButtonAndClose_Click(object sender, EventArgs e)
+        {
+            bool isError = DeleteCustomUnit();
+            if (!isError)
+                this.Close();
         }
     }
 }

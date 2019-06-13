@@ -32,6 +32,7 @@
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCustomUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteCustomUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,6 @@
             this.mainScreenTable = new System.Windows.Forms.TableLayoutPanel();
             this.statusIndicator = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBar = new System.Windows.Forms.StatusStrip();
-            this.deleteCustomUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.converterTable.SuspendLayout();
             this.mainArea.SuspendLayout();
@@ -109,6 +109,16 @@
             this.addCustomUnitToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.addCustomUnitToolStripMenuItem.Text = "&Add Custom Unit...";
             this.addCustomUnitToolStripMenuItem.Click += new System.EventHandler(this.addCustomUnitToolStripMenuItem_Click);
+            // 
+            // deleteCustomUnitToolStripMenuItem
+            // 
+            this.deleteCustomUnitToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.deleteCustomUnitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
+            this.deleteCustomUnitToolStripMenuItem.Name = "deleteCustomUnitToolStripMenuItem";
+            this.deleteCustomUnitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.deleteCustomUnitToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.deleteCustomUnitToolStripMenuItem.Text = "&Delete Custom Unit...";
+            this.deleteCustomUnitToolStripMenuItem.Click += new System.EventHandler(this.deleteCustomUnitToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -464,7 +474,7 @@
             this.clearButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.clearButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.ForeColor = System.Drawing.SystemColors.Window;
             this.clearButton.Location = new System.Drawing.Point(2, 2);
             this.clearButton.Margin = new System.Windows.Forms.Padding(2);
@@ -567,16 +577,6 @@
             this.statusBar.TabIndex = 2;
             this.statusBar.Text = "statusBar";
             // 
-            // deleteCustomUnitToolStripMenuItem
-            // 
-            this.deleteCustomUnitToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.deleteCustomUnitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
-            this.deleteCustomUnitToolStripMenuItem.Name = "deleteCustomUnitToolStripMenuItem";
-            this.deleteCustomUnitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.deleteCustomUnitToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.deleteCustomUnitToolStripMenuItem.Text = "&Delete Custom Unit...";
-            this.deleteCustomUnitToolStripMenuItem.Click += new System.EventHandler(this.deleteCustomUnitToolStripMenuItem_Click);
-            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -594,6 +594,7 @@
             this.Name = "MainScreen";
             this.Text = "Unit Converter";
             this.Load += new System.EventHandler(this.MainScreen_Load);
+            this.Enter += new System.EventHandler(this.MainScreen_Enter);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.converterTable.ResumeLayout(false);

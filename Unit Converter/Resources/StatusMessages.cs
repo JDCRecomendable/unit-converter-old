@@ -20,6 +20,10 @@
         // Round-off value messages
         public const string roundOffValueSet = "Round-off value set";
 
+        // Custo units messages
+        public const string customUnitAdded = "Custom unit added";
+        public const string customUnitDeleted = "Custom unit deleted";
+
         // Colours
         public static System.Drawing.Color errorColour = System.Drawing.Color.FromArgb(192, 0, 0);
         public static System.Drawing.Color standardColour = System.Drawing.Color.FromArgb(210, 90, 0);

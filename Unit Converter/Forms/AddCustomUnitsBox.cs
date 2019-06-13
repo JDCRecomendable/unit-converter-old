@@ -17,14 +17,20 @@ namespace Unit_Converter
             mainScreen = pMainScreen;
 
             // Set initially active control of the form
-            this.ActiveControl = unitSelectorCustomUnitTable;
-            unitSelectorCustomUnitTable.Focus();
-            unitSelectorCustomUnitTable.SelectedIndex = 0;
+            ResetFocus();
 
             // Reset the input boxes during initialisation
             SetInputBoxToDefault(customUnitNameInput, true);
             SetInputBoxToDefault(gradientUnitInput, true);
             SetInputBoxToDefault(interceptUnitInput, true);
+        }
+
+        // INITIALISATION - Reset focus of the controls
+        private void ResetFocus()
+        {
+            this.ActiveControl = unitSelectorCustomUnitTable;
+            unitSelectorCustomUnitTable.Focus();
+            unitSelectorCustomUnitTable.SelectedIndex = 0;
         }
 
         // INITIALISATION - Define indicator when any of the input boxes
@@ -140,16 +146,22 @@ namespace Unit_Converter
             }
         }
 
-        // UNIT TYPE EVENTS - Do when unit type is changed
-        private void unitSelectorCustomUnitTable_SelectedIndexChanged(object sender, EventArgs e)
+        // UNIT TYPE EVENTS - Helper function to update local combo box
+        private void UpdateComboBox()
         {
             List<Unit> unitList = new List<Unit>();
 
             compareUnitInput.Items.Clear();
-            ResetTextBoxes();
 
             unitList.AddRange(mainScreen.GetAllUnits((short)unitSelectorCustomUnitTable.SelectedIndex));
             AddComboBoxValues(unitList);
+        }
+
+        // UNIT TYPE EVENTS - Do when unit type is changed
+        private void unitSelectorCustomUnitTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateComboBox();
+            ResetTextBoxes();
         }
 
         // MAIN EVENTS - Close the form when user clicks cancel
@@ -158,9 +170,10 @@ namespace Unit_Converter
             this.Close();
         }
 
-        // MAIN EVENTS - Attempt to add the custom unit
-        private void createCustomUnitButton_Click(object sender, EventArgs e)
+        // MAIN EVENTS - Helper function to add custom unit
+        private bool AddCustomUnit()
         {
+            bool isError = false;
             bool gradientIsValid = double.TryParse(gradientUnitInput.Text, result: out double gradient);
             bool interceptIsValid = double.TryParse(interceptUnitInput.Text, result: out double intercept);
 
@@ -170,10 +183,11 @@ namespace Unit_Converter
                 (!interceptUnitInputIsEmpty &&
                 !interceptIsValid))
             {
-                MessageBox.Show(InvalidInputMessageBoxProperty.message,
-                    InvalidInputMessageBoxProperty.caption,
+                MessageBox.Show(AddCustomUnitInvalidInputMessageBoxProperty.message,
+                    AddCustomUnitInvalidInputMessageBoxProperty.caption,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
+                isError = true;
             }
             else
             {
@@ -199,9 +213,32 @@ namespace Unit_Converter
 
                 mainScreen.AddCustomUnit(unitTypeIndex, newUnit);
                 mainScreen.UpdateComboBoxes();
-
-                this.Close();
+                mainScreen.SetStatusBarCustomUnit(0);
             }
+
+            return isError;
+        }
+
+        // MAIN EVENTS - Add the custom unit
+        private void createCustomUnitButton_Click(object sender, EventArgs e)
+        {
+            bool isError = AddCustomUnit();
+            if (!isError)
+            {
+                UpdateComboBox();
+                ResetTextBoxes();
+            }
+            ResetFocus();
+        }
+
+        // MAIN EVENTS - Add the custom unit and close window
+        private void createCustomUnitButtonAndClose_Click(object sender, EventArgs e)
+        {
+            bool isError = AddCustomUnit();
+            if (!isError)
+                this.Close();
+            else
+                ResetFocus();
         }
     }
 }

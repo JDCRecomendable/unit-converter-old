@@ -43,6 +43,7 @@
             this.customUnitMandatoryNoticeLabel = new System.Windows.Forms.Label();
             this.compareUnitInput = new System.Windows.Forms.ComboBox();
             this.buttonsArea = new System.Windows.Forms.TableLayoutPanel();
+            this.createCustomUnitButtonAndClose = new System.Windows.Forms.Button();
             this.cancelAddCustomUnitButton = new System.Windows.Forms.Button();
             this.createCustomUnitButton = new System.Windows.Forms.Button();
             this.addCustomUnitsArea.SuspendLayout();
@@ -264,11 +265,14 @@
             // 
             // buttonsArea
             // 
-            this.buttonsArea.ColumnCount = 3;
+            this.buttonsArea.ColumnCount = 5;
             this.customUnitsSetupArea.SetColumnSpan(this.buttonsArea, 2);
-            this.buttonsArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48F));
-            this.buttonsArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.buttonsArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48F));
+            this.buttonsArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
+            this.buttonsArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
+            this.buttonsArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
+            this.buttonsArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
+            this.buttonsArea.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
+            this.buttonsArea.Controls.Add(this.createCustomUnitButtonAndClose, 4, 0);
             this.buttonsArea.Controls.Add(this.cancelAddCustomUnitButton, 0, 0);
             this.buttonsArea.Controls.Add(this.createCustomUnitButton, 2, 0);
             this.buttonsArea.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -278,6 +282,28 @@
             this.buttonsArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.buttonsArea.Size = new System.Drawing.Size(293, 31);
             this.buttonsArea.TabIndex = 11;
+            // 
+            // createCustomUnitButtonAndClose
+            // 
+            this.createCustomUnitButtonAndClose.BackColor = System.Drawing.Color.DarkGray;
+            this.createCustomUnitButtonAndClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.createCustomUnitButtonAndClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.createCustomUnitButtonAndClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.createCustomUnitButtonAndClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.createCustomUnitButtonAndClose.FlatAppearance.BorderSize = 0;
+            this.createCustomUnitButtonAndClose.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.createCustomUnitButtonAndClose.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.createCustomUnitButtonAndClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createCustomUnitButtonAndClose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createCustomUnitButtonAndClose.ForeColor = System.Drawing.SystemColors.Window;
+            this.createCustomUnitButtonAndClose.Location = new System.Drawing.Point(198, 2);
+            this.createCustomUnitButtonAndClose.Margin = new System.Windows.Forms.Padding(2);
+            this.createCustomUnitButtonAndClose.Name = "createCustomUnitButtonAndClose";
+            this.createCustomUnitButtonAndClose.Size = new System.Drawing.Size(93, 27);
+            this.createCustomUnitButtonAndClose.TabIndex = 12;
+            this.createCustomUnitButtonAndClose.Text = "A&dd and Close";
+            this.createCustomUnitButtonAndClose.UseVisualStyleBackColor = false;
+            this.createCustomUnitButtonAndClose.Click += new System.EventHandler(this.createCustomUnitButtonAndClose_Click);
             // 
             // cancelAddCustomUnitButton
             // 
@@ -290,14 +316,14 @@
             this.cancelAddCustomUnitButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cancelAddCustomUnitButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.cancelAddCustomUnitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelAddCustomUnitButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelAddCustomUnitButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelAddCustomUnitButton.ForeColor = System.Drawing.SystemColors.Window;
             this.cancelAddCustomUnitButton.Location = new System.Drawing.Point(3, 3);
             this.cancelAddCustomUnitButton.Name = "cancelAddCustomUnitButton";
-            this.cancelAddCustomUnitButton.Size = new System.Drawing.Size(134, 25);
+            this.cancelAddCustomUnitButton.Size = new System.Drawing.Size(87, 25);
             this.cancelAddCustomUnitButton.TabIndex = 0;
             this.cancelAddCustomUnitButton.TabStop = false;
-            this.cancelAddCustomUnitButton.Text = "&Cancel";
+            this.cancelAddCustomUnitButton.Text = "&Close";
             this.cancelAddCustomUnitButton.UseVisualStyleBackColor = false;
             this.cancelAddCustomUnitButton.Click += new System.EventHandler(this.cancelAddCustomUnitButton_Click);
             // 
@@ -312,12 +338,11 @@
             this.createCustomUnitButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.createCustomUnitButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.createCustomUnitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createCustomUnitButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createCustomUnitButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createCustomUnitButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.createCustomUnitButton.Location = new System.Drawing.Point(153, 2);
-            this.createCustomUnitButton.Margin = new System.Windows.Forms.Padding(2);
+            this.createCustomUnitButton.Location = new System.Drawing.Point(101, 3);
             this.createCustomUnitButton.Name = "createCustomUnitButton";
-            this.createCustomUnitButton.Size = new System.Drawing.Size(138, 27);
+            this.createCustomUnitButton.Size = new System.Drawing.Size(87, 25);
             this.createCustomUnitButton.TabIndex = 5;
             this.createCustomUnitButton.Text = "&Add";
             this.createCustomUnitButton.UseVisualStyleBackColor = false;
@@ -325,7 +350,7 @@
             // 
             // AddCustomUnitsBox
             // 
-            this.AcceptButton = this.createCustomUnitButton;
+            this.AcceptButton = this.createCustomUnitButtonAndClose;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -365,5 +390,6 @@
         private System.Windows.Forms.ComboBox compareUnitInput;
         private System.Windows.Forms.TableLayoutPanel buttonsArea;
         private System.Windows.Forms.Button cancelAddCustomUnitButton;
+        private System.Windows.Forms.Button createCustomUnitButtonAndClose;
     }
 }

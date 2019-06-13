@@ -10,12 +10,18 @@ namespace Unit_Converter
         public MainScreen()
         {
             InitializeComponent();
-            this.ActiveControl = unitSelectorTable;
-            unitSelectorTable.Focus();
-            unitSelectorTable.SelectedIndex = 0;
+            ResetFocus();
 
             // Modify the colours of selected items
             menuBar.Renderer = new SelectorColourRenderer();
+        }
+
+        // (1) INITIALISATION - Helper function to reset focus
+        private void ResetFocus()
+        {
+            this.ActiveControl = unitSelectorTable;
+            unitSelectorTable.Focus();
+            unitSelectorTable.SelectedIndex = 0;
         }
 
         // (1) INITIALISATION - Define round-off value variable
@@ -503,178 +509,6 @@ namespace Unit_Converter
             SetFromValueInputTextToDefault(true);
         }
 
-        // Enable custom unit forms to add custom units from this form
-        public void AddCustomUnit(short unitTypeIndex, Unit unit)
-        {
-            switch (unitTypeIndex)
-            {
-                case UnitTypeIndex.length:
-                    customLengthUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.area:
-                    customAreaUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.volume:
-                    customVolumeUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.time:
-                    customTimeUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.speed:
-                    customSpeedUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.flowArea:
-                    customFlowAreaUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.flowVolume:
-                    customFlowVolumeUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.flowMass:
-                    customFlowMassUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.mass:
-                    customMassUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.energy:
-                    customEnergyUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.pressure:
-                    customPressureUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.temperature:
-                    customTemperatureUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.luminance:
-                    customLuminanceUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.illuminance:
-                    customIlluminanceUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.angle:
-                    customAngleUnits.AddUnit(unit);
-                    break;
-                case UnitTypeIndex.dataSize:
-                    customDataSizeUnits.AddUnit(unit);
-                    break;
-            }
-        }
-
-        // Enable custom unit forms to read units from this form
-        public List<Unit> GetCustomUnitListings(short unitTypeIndex)
-        {
-            List<Unit> resultUnitList = new List<Unit>();
-
-            switch (unitTypeIndex)
-            {
-                case UnitTypeIndex.length:
-                    resultUnitList.AddRange(customLengthUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.area:
-                    resultUnitList.AddRange(customAreaUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.volume:
-                    resultUnitList.AddRange(customVolumeUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.time:
-                    resultUnitList.AddRange(customTimeUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.speed:
-                    resultUnitList.AddRange(customSpeedUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.flowArea:
-                    resultUnitList.AddRange(customFlowAreaUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.flowVolume:
-                    resultUnitList.AddRange(customFlowVolumeUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.flowMass:
-                    resultUnitList.AddRange(customFlowMassUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.mass:
-                    resultUnitList.AddRange(customMassUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.energy:
-                    resultUnitList.AddRange(customEnergyUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.pressure:
-                    resultUnitList.AddRange(customPressureUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.temperature:
-                    resultUnitList.AddRange(customTemperatureUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.luminance:
-                    resultUnitList.AddRange(customLuminanceUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.illuminance:
-                    resultUnitList.AddRange(customIlluminanceUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.angle:
-                    resultUnitList.AddRange(customAngleUnits.ListUnits());
-                    break;
-                case UnitTypeIndex.dataSize:
-                    resultUnitList.AddRange(customDataSizeUnits.ListUnits());
-                    break;
-            }
-
-            return resultUnitList;
-        }
-
-        // Enable custom unit forms to delete a custom unit from this form
-        public void DeleteCustomUnit(short unitTypeIndex, Unit unit)
-        {
-            switch (unitTypeIndex)
-            {
-                case UnitTypeIndex.length:
-                    customLengthUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.area:
-                    customAreaUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.volume:
-                    customVolumeUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.time:
-                    customTimeUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.speed:
-                    customSpeedUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.flowArea:
-                    customFlowAreaUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.flowVolume:
-                    customFlowVolumeUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.flowMass:
-                    customFlowMassUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.mass:
-                    customMassUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.energy:
-                    customEnergyUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.pressure:
-                    customPressureUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.temperature:
-                    customTemperatureUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.luminance:
-                    customLuminanceUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.illuminance:
-                    customIlluminanceUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.angle:
-                    customAngleUnits.RemoveUnit(unit);
-                    break;
-                case UnitTypeIndex.dataSize:
-                    customDataSizeUnits.RemoveUnit(unit);
-                    break;
-            }
-        }
-
         // (2) MENU BAR EVENTS - Open the About box to show the application
         // credits
             private void aboutUnitConverterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1015,10 +849,13 @@ namespace Unit_Converter
             statusBar.BackColor = StatusMessage.standardColour;
         }
 
-        // (7) CALCULATION - Helper function that calculates the result value
-        // for multiplicative units that use Unit class and modifies status
-        private void CalculateConversion(List<Unit> unitList)
+        // (7) CALCULATION - Execute the calculation process
+        private void ExecuteCalculation()
         {
+            // Load the units for calculation
+            List<Unit> unitList = new List<Unit>();
+            unitList.AddRange(GetAllUnits((short)unitSelectorTable.SelectedIndex));
+
             // Raw data from the user-inputtable text box
             string rawValue;
 
@@ -1085,12 +922,177 @@ namespace Unit_Converter
             }
         }
 
-        // (7) CALCULATION - Execute the calculation process
-        private void ExecuteCalculation()
+        // COMMON - Enable custom unit forms to add custom units from this form
+        public void AddCustomUnit(short unitTypeIndex, Unit unit)
         {
-            List<Unit> unitList = new List<Unit>();
-            unitList.AddRange(GetAllUnits((short)unitSelectorTable.SelectedIndex));
-            CalculateConversion(unitList);
+            switch (unitTypeIndex)
+            {
+                case UnitTypeIndex.length:
+                    customLengthUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.area:
+                    customAreaUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.volume:
+                    customVolumeUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.time:
+                    customTimeUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.speed:
+                    customSpeedUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.flowArea:
+                    customFlowAreaUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.flowVolume:
+                    customFlowVolumeUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.flowMass:
+                    customFlowMassUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.mass:
+                    customMassUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.energy:
+                    customEnergyUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.pressure:
+                    customPressureUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.temperature:
+                    customTemperatureUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.luminance:
+                    customLuminanceUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.illuminance:
+                    customIlluminanceUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.angle:
+                    customAngleUnits.AddUnit(unit);
+                    break;
+                case UnitTypeIndex.dataSize:
+                    customDataSizeUnits.AddUnit(unit);
+                    break;
+            }
+        }
+
+        // COMMON - Enable custom unit forms to read units from this form
+        public List<Unit> GetCustomUnits(short unitTypeIndex)
+        {
+            List<Unit> resultUnitList = new List<Unit>();
+
+            switch (unitTypeIndex)
+            {
+                case UnitTypeIndex.length:
+                    resultUnitList.AddRange(customLengthUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.area:
+                    resultUnitList.AddRange(customAreaUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.volume:
+                    resultUnitList.AddRange(customVolumeUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.time:
+                    resultUnitList.AddRange(customTimeUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.speed:
+                    resultUnitList.AddRange(customSpeedUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.flowArea:
+                    resultUnitList.AddRange(customFlowAreaUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.flowVolume:
+                    resultUnitList.AddRange(customFlowVolumeUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.flowMass:
+                    resultUnitList.AddRange(customFlowMassUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.mass:
+                    resultUnitList.AddRange(customMassUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.energy:
+                    resultUnitList.AddRange(customEnergyUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.pressure:
+                    resultUnitList.AddRange(customPressureUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.temperature:
+                    resultUnitList.AddRange(customTemperatureUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.luminance:
+                    resultUnitList.AddRange(customLuminanceUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.illuminance:
+                    resultUnitList.AddRange(customIlluminanceUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.angle:
+                    resultUnitList.AddRange(customAngleUnits.ListUnits());
+                    break;
+                case UnitTypeIndex.dataSize:
+                    resultUnitList.AddRange(customDataSizeUnits.ListUnits());
+                    break;
+            }
+
+            return resultUnitList;
+        }
+
+        // COMMON - Enable custom unit forms to delete a custom unit from
+        // this form
+        public void DeleteCustomUnit(short unitTypeIndex, Unit unit)
+        {
+            switch (unitTypeIndex)
+            {
+                case UnitTypeIndex.length:
+                    customLengthUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.area:
+                    customAreaUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.volume:
+                    customVolumeUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.time:
+                    customTimeUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.speed:
+                    customSpeedUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.flowArea:
+                    customFlowAreaUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.flowVolume:
+                    customFlowVolumeUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.flowMass:
+                    customFlowMassUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.mass:
+                    customMassUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.energy:
+                    customEnergyUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.pressure:
+                    customPressureUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.temperature:
+                    customTemperatureUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.luminance:
+                    customLuminanceUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.illuminance:
+                    customIlluminanceUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.angle:
+                    customAngleUnits.RemoveUnit(unit);
+                    break;
+                case UnitTypeIndex.dataSize:
+                    customDataSizeUnits.RemoveUnit(unit);
+                    break;
+            }
         }
 
         // COMMON - Helper function to combine all units from main and custom
@@ -1167,6 +1169,28 @@ namespace Unit_Converter
                     break;
             }
             return resultUnitList;
+        }
+
+        // COMMON - Reset focus when focus of the window is reset
+        private void MainScreen_Enter(object sender, EventArgs e)
+        {
+            ResetFocus();
+        }
+
+        // COMMON - Allow other forms to set status bar of main screen
+        // Note that for security, parameters take in certain codes so that
+        // only approved strings and colours can be set onto the status bar
+        /// <summary>
+        /// Set the text and colour of the status bar.
+        /// <para>0 for Custom Unit Added, 1 for Custom Unit Deleted</para>
+        /// </summary>
+        public void SetStatusBarCustomUnit(short message)
+        {
+            if (message == 0)
+                statusIndicator.Text = StatusMessage.customUnitAdded;
+            else if (message == 1)
+                statusIndicator.Text = StatusMessage.customUnitDeleted;
+            statusBar.BackColor = StatusMessage.positiveColour;
         }
 
         // MISC - For menu bar rendering
