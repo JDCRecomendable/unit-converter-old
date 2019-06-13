@@ -32,11 +32,11 @@
             this.addCustomUnitsArea = new System.Windows.Forms.TableLayoutPanel();
             this.unitSelectorCustomUnitTable = new System.Windows.Forms.ListBox();
             this.customUnitsSetupArea = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonsArea = new System.Windows.Forms.TableLayoutPanel();
-            this.cancelAddCustomUnitButton = new System.Windows.Forms.Button();
-            this.deleteCustomUnitButton = new System.Windows.Forms.Button();
             this.unitToDeleteCheckBox = new System.Windows.Forms.CheckedListBox();
+            this.buttonsArea = new System.Windows.Forms.TableLayoutPanel();
             this.deleteCustomUnitButtonAndClose = new System.Windows.Forms.Button();
+            this.deleteCustomUnitButton = new System.Windows.Forms.Button();
+            this.cancelAddCustomUnitButton = new System.Windows.Forms.Button();
             this.addCustomUnitsArea.SuspendLayout();
             this.customUnitsSetupArea.SuspendLayout();
             this.buttonsArea.SuspendLayout();
@@ -85,7 +85,7 @@
             "Angle",
             "Data Size"});
             this.unitSelectorCustomUnitTable.Location = new System.Drawing.Point(4, 4);
-            this.unitSelectorCustomUnitTable.Margin = new System.Windows.Forms.Padding(4);
+            this.unitSelectorCustomUnitTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.unitSelectorCustomUnitTable.Name = "unitSelectorCustomUnitTable";
             this.unitSelectorCustomUnitTable.Size = new System.Drawing.Size(117, 233);
             this.unitSelectorCustomUnitTable.TabIndex = 0;
@@ -113,6 +113,19 @@
             this.customUnitsSetupArea.Size = new System.Drawing.Size(333, 235);
             this.customUnitsSetupArea.TabIndex = 2;
             // 
+            // unitToDeleteCheckBox
+            // 
+            this.unitToDeleteCheckBox.BackColor = System.Drawing.Color.Gray;
+            this.unitToDeleteCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.unitToDeleteCheckBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.unitToDeleteCheckBox.FormattingEnabled = true;
+            this.unitToDeleteCheckBox.Location = new System.Drawing.Point(86, 3);
+            this.unitToDeleteCheckBox.Name = "unitToDeleteCheckBox";
+            this.customUnitsSetupArea.SetRowSpan(this.unitToDeleteCheckBox, 6);
+            this.unitToDeleteCheckBox.Size = new System.Drawing.Size(160, 192);
+            this.unitToDeleteCheckBox.Sorted = true;
+            this.unitToDeleteCheckBox.TabIndex = 1;
+            // 
             // buttonsArea
             // 
             this.buttonsArea.ColumnCount = 5;
@@ -132,6 +145,50 @@
             this.buttonsArea.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.buttonsArea.Size = new System.Drawing.Size(327, 31);
             this.buttonsArea.TabIndex = 11;
+            // 
+            // deleteCustomUnitButtonAndClose
+            // 
+            this.deleteCustomUnitButtonAndClose.BackColor = System.Drawing.Color.DarkGray;
+            this.deleteCustomUnitButtonAndClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteCustomUnitButtonAndClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.deleteCustomUnitButtonAndClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deleteCustomUnitButtonAndClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.deleteCustomUnitButtonAndClose.FlatAppearance.BorderSize = 0;
+            this.deleteCustomUnitButtonAndClose.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.deleteCustomUnitButtonAndClose.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.deleteCustomUnitButtonAndClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteCustomUnitButtonAndClose.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteCustomUnitButtonAndClose.ForeColor = System.Drawing.SystemColors.Window;
+            this.deleteCustomUnitButtonAndClose.Location = new System.Drawing.Point(222, 2);
+            this.deleteCustomUnitButtonAndClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteCustomUnitButtonAndClose.Name = "deleteCustomUnitButtonAndClose";
+            this.deleteCustomUnitButtonAndClose.Size = new System.Drawing.Size(103, 27);
+            this.deleteCustomUnitButtonAndClose.TabIndex = 2;
+            this.deleteCustomUnitButtonAndClose.Text = "D&elete and Close";
+            this.deleteCustomUnitButtonAndClose.UseVisualStyleBackColor = false;
+            this.deleteCustomUnitButtonAndClose.Click += new System.EventHandler(this.deleteCustomUnitButtonAndClose_Click);
+            // 
+            // deleteCustomUnitButton
+            // 
+            this.deleteCustomUnitButton.BackColor = System.Drawing.Color.DarkGray;
+            this.deleteCustomUnitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteCustomUnitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.deleteCustomUnitButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deleteCustomUnitButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.deleteCustomUnitButton.FlatAppearance.BorderSize = 0;
+            this.deleteCustomUnitButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.deleteCustomUnitButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.deleteCustomUnitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteCustomUnitButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteCustomUnitButton.ForeColor = System.Drawing.SystemColors.Window;
+            this.deleteCustomUnitButton.Location = new System.Drawing.Point(113, 3);
+            this.deleteCustomUnitButton.Name = "deleteCustomUnitButton";
+            this.deleteCustomUnitButton.Size = new System.Drawing.Size(98, 25);
+            this.deleteCustomUnitButton.TabIndex = 2;
+            this.deleteCustomUnitButton.TabStop = false;
+            this.deleteCustomUnitButton.Text = "&Delete";
+            this.deleteCustomUnitButton.UseVisualStyleBackColor = false;
+            this.deleteCustomUnitButton.Click += new System.EventHandler(this.deleteCustomUnitButton_Click);
             // 
             // cancelAddCustomUnitButton
             // 
@@ -154,66 +211,6 @@
             this.cancelAddCustomUnitButton.Text = "&Close";
             this.cancelAddCustomUnitButton.UseVisualStyleBackColor = false;
             this.cancelAddCustomUnitButton.Click += new System.EventHandler(this.cancelAddCustomUnitButton_Click);
-            // 
-            // deleteCustomUnitButton
-            // 
-            this.deleteCustomUnitButton.BackColor = System.Drawing.Color.DarkGray;
-            this.deleteCustomUnitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.deleteCustomUnitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.deleteCustomUnitButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deleteCustomUnitButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.deleteCustomUnitButton.FlatAppearance.BorderSize = 0;
-            this.deleteCustomUnitButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.deleteCustomUnitButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
-            this.deleteCustomUnitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteCustomUnitButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteCustomUnitButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.deleteCustomUnitButton.Location = new System.Drawing.Point(113, 3);
-            this.deleteCustomUnitButton.Name = "deleteCustomUnitButton";
-            this.deleteCustomUnitButton.Size = new System.Drawing.Size(98, 25);
-            this.deleteCustomUnitButton.TabIndex = 2;
-            this.deleteCustomUnitButton.Text = "&Delete";
-            this.deleteCustomUnitButton.UseVisualStyleBackColor = false;
-            this.deleteCustomUnitButton.Click += new System.EventHandler(this.deleteCustomUnitButton_Click);
-            // 
-            // unitToDeleteCheckBox
-            // 
-            this.unitToDeleteCheckBox.BackColor = System.Drawing.Color.Gray;
-            this.unitToDeleteCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.unitToDeleteCheckBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.unitToDeleteCheckBox.FormattingEnabled = true;
-            this.unitToDeleteCheckBox.Items.AddRange(new object[] {
-            "asdf",
-            "wer",
-            "wers"});
-            this.unitToDeleteCheckBox.Location = new System.Drawing.Point(86, 3);
-            this.unitToDeleteCheckBox.Name = "unitToDeleteCheckBox";
-            this.customUnitsSetupArea.SetRowSpan(this.unitToDeleteCheckBox, 6);
-            this.unitToDeleteCheckBox.Size = new System.Drawing.Size(160, 192);
-            this.unitToDeleteCheckBox.Sorted = true;
-            this.unitToDeleteCheckBox.TabIndex = 13;
-            // 
-            // deleteCustomUnitButtonAndClose
-            // 
-            this.deleteCustomUnitButtonAndClose.BackColor = System.Drawing.Color.DarkGray;
-            this.deleteCustomUnitButtonAndClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.deleteCustomUnitButtonAndClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.deleteCustomUnitButtonAndClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deleteCustomUnitButtonAndClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.deleteCustomUnitButtonAndClose.FlatAppearance.BorderSize = 0;
-            this.deleteCustomUnitButtonAndClose.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.deleteCustomUnitButtonAndClose.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
-            this.deleteCustomUnitButtonAndClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteCustomUnitButtonAndClose.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteCustomUnitButtonAndClose.ForeColor = System.Drawing.SystemColors.Window;
-            this.deleteCustomUnitButtonAndClose.Location = new System.Drawing.Point(222, 2);
-            this.deleteCustomUnitButtonAndClose.Margin = new System.Windows.Forms.Padding(2);
-            this.deleteCustomUnitButtonAndClose.Name = "deleteCustomUnitButtonAndClose";
-            this.deleteCustomUnitButtonAndClose.Size = new System.Drawing.Size(103, 27);
-            this.deleteCustomUnitButtonAndClose.TabIndex = 14;
-            this.deleteCustomUnitButtonAndClose.Text = "D&elete and Close";
-            this.deleteCustomUnitButtonAndClose.UseVisualStyleBackColor = false;
-            this.deleteCustomUnitButtonAndClose.Click += new System.EventHandler(this.deleteCustomUnitButtonAndClose_Click);
             // 
             // DeleteCustomUnitsBox
             // 

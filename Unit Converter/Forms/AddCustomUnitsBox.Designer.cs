@@ -94,7 +94,7 @@
             "Angle",
             "Data Size"});
             this.unitSelectorCustomUnitTable.Location = new System.Drawing.Point(4, 4);
-            this.unitSelectorCustomUnitTable.Margin = new System.Windows.Forms.Padding(4);
+            this.unitSelectorCustomUnitTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.unitSelectorCustomUnitTable.Name = "unitSelectorCustomUnitTable";
             this.unitSelectorCustomUnitTable.Size = new System.Drawing.Size(117, 233);
             this.unitSelectorCustomUnitTable.TabIndex = 0;
@@ -297,10 +297,10 @@
             this.createCustomUnitButtonAndClose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createCustomUnitButtonAndClose.ForeColor = System.Drawing.SystemColors.Window;
             this.createCustomUnitButtonAndClose.Location = new System.Drawing.Point(198, 2);
-            this.createCustomUnitButtonAndClose.Margin = new System.Windows.Forms.Padding(2);
+            this.createCustomUnitButtonAndClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.createCustomUnitButtonAndClose.Name = "createCustomUnitButtonAndClose";
             this.createCustomUnitButtonAndClose.Size = new System.Drawing.Size(93, 27);
-            this.createCustomUnitButtonAndClose.TabIndex = 12;
+            this.createCustomUnitButtonAndClose.TabIndex = 5;
             this.createCustomUnitButtonAndClose.Text = "A&dd and Close";
             this.createCustomUnitButtonAndClose.UseVisualStyleBackColor = false;
             this.createCustomUnitButtonAndClose.Click += new System.EventHandler(this.createCustomUnitButtonAndClose_Click);
@@ -344,6 +344,7 @@
             this.createCustomUnitButton.Name = "createCustomUnitButton";
             this.createCustomUnitButton.Size = new System.Drawing.Size(87, 25);
             this.createCustomUnitButton.TabIndex = 5;
+            this.createCustomUnitButton.TabStop = false;
             this.createCustomUnitButton.Text = "&Add";
             this.createCustomUnitButton.UseVisualStyleBackColor = false;
             this.createCustomUnitButton.Click += new System.EventHandler(this.createCustomUnitButton_Click);
