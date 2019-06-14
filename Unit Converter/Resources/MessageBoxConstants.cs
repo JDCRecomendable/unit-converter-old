@@ -17,8 +17,8 @@
     public static class DeleteCustomUnitInvalidInputMessageBoxProperty
     {
         public static string message = ("You have entred an invalid " +
-            "input!\r\n\r\nPlease check that the dropdown box has been " + 
-            "filled up with the unit that you wish to delete.");
+            "input!\r\n\r\nPlease check that you have selected at least ." +
+            "one unit from the checkbox that you wish to delete.");
         public static string caption = "Invalid Input";
     }
 }
